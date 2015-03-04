@@ -1,0 +1,13 @@
+@(facultyForm: Form[models.admission.Faculty])
+@import helper._
+
+@main("Edit Faculty"){
+  <h2>Update the Faculty having ID @facultyForm.get.id</h2><br/><br/>
+  
+  @form(routes.FacultyManagement.update()) {
+  	  <input type="hidden" name="id" value=@facultyForm.get.id >
+  	  
+      @inputText(facultyForm("name"), '_label->"Faculty Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}
