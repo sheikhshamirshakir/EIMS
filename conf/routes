@@ -8,6 +8,20 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
+#University
+GET     /university/create                       controllers.admission.UniversityManagement.create()
+POST    /university/create                       controllers.admission.UniversityManagement.insert()
+GET     /university/list                         controllers.admission.UniversityManagement.list()
+GET     /university/show/:id                     controllers.admission.UniversityManagement.show(id: Long)
+GET     /university/edit/:id                     controllers.admission.UniversityManagement.edit(id: Long)
+POST    /university/edit                         controllers.admission.UniversityManagement.update()
+GET     /university/delete/:id                   controllers.admission.UniversityManagement.delete(id: Long)
 
 #Faculty
-
+GET		/faculty/create						     controllers.admission.FacultyManagement.create()
+POST	/faculty/create						     controllers.admission.FacultyManagement.insert()
+GET		/faculty/list							 controllers.admission.FacultyManagement.list()
+GET		/faculty/show/:id						 controllers.admission.FacultyManagement.show(id: Long)
+GET		/faculty/edit/:id						 controllers.admission.FacultyManagement.edit(id: Long)
+POST	/faculty/edit							 controllers.admission.FacultyManagement.update()
+GET	    /faculty/delete/:id					   	 controllers.admission.FacultyManagement.delete(id: Long)
