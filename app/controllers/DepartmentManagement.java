@@ -2,7 +2,7 @@
  * Shomoy Solution
  * On 04-Mar-2015
  ***/
-package controllers.admission;
+package controllers;
 
 import java.util.Date;
 import java.util.List;

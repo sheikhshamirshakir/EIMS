@@ -1,4 +1,4 @@
-@(faculties: List[models.Book],userName: String)
+@(universities: List[models.adimssion.University])
 @import helper._
 
 @main("List of University"){
@@ -16,10 +16,10 @@
      </tr>
    </thead>
     <tbody>
-    @for(faculty <- faculties) {
+    @for(university <- universities) {
       <tr>
-        <td><a href="@routes.FacultyManagement.show(faculty.id)">@faculty.id</a></td>
-        <td>@faculty.name</td>
+        <td><a href="@routes.UniversityManagement.show(university.id)">@university.id</a></td>
+        <td>@university.name</td>
       </tr> 
     }
  </tbody>

@@ -18,7 +18,7 @@
     <tbody>
     @for(faculty <- faculties) {
       <tr>
-        <td><a href="@routes.admission.FacultyManagement.show(faculty.id)">@faculty.id</a></td>
+        <td><a href="@routes.FacultyManagement.show(faculty.id)">@faculty.id</a></td>
         <td>@faculty.name</td>
       </tr> 
     }

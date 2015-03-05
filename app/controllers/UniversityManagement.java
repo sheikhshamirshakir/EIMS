@@ -1,4 +1,4 @@
-package controllers.admission;
+package controllers;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import models.admission.University;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import util.AppConstants;   
+import utils.AppConstants;   
 
 /*
  * 

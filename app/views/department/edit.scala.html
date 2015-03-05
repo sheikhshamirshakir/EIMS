@@ -4,7 +4,7 @@
 @main("Edit Department"){
   <h2>Update the Department having ID @deptForm.get.id</h2><br/><br/>
   
-  @form(routes.admission.DepartmentManagement.update()) {
+  @form(routes.DepartmentManagement.update()) {
   	  <input type="hidden" name="id" value=@deptForm.get.id >
   	  
       @inputText(deptForm("name"), '_label->"Department Name")</tr>
