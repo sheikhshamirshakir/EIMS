@@ -1,0 +1,12 @@
+@(deptForm: Form[models.admission.Department])
+@import helper._
+
+
+@main("Department Entry") {
+
+       @form(routes.DepartmentManagement.save()) { 
+              @inputText(field=deptForm("name"), args='_label->"Department Name")
+            }
+                       
+     }
+

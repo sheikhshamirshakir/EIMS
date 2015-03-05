@@ -12,7 +12,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import util.AppConstants;
+import utils.AppConstants;
 
 public class FacultyManagement extends Controller{
 

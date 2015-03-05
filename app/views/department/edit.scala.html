@@ -1,0 +1,13 @@
+@(deptForm: Form[models.admission.Department])
+@import helper._
+
+@main("Edit Department"){
+  <h2>Update the Department having ID @deptForm.get.id</h2><br/><br/>
+  
+  @form(routes.DepartmentManagement.update()) {
+  	  <input type="hidden" name="id" value=@deptForm.get.id >
+  	  
+      @inputText(deptForm("name"), '_label->"Department Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}
