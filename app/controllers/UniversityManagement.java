@@ -7,7 +7,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import utils.AppConstants;  
-import views.html.*;
+import views.html.university.*;
 /*
  * 
  * AUTHOR: SHAON 
@@ -21,7 +21,7 @@ public class UniversityManagement extends Controller{
 	
 	public static Result create(){
 		
-		return ok(create.render());
+		return ok(create.render(universityForm));
 	}
 	
 	public static Result save(){
@@ -36,20 +36,21 @@ public class UniversityManagement extends Controller{
 		University university = University.findById(id);
 		if(university==null){
 			flash("error",AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
+			return ok("");  // REDIRECT TODO
 		}
-		else{
-			return ok(show.render(universityForm.fill(university)));
-		}
+		else
+			return ok(show.render(university));
 	}
 	public static Result list(){
 		List<University> allUniversity = University.all();
-		return list.render(allUniversity);
+		return ok(list.render(allUniversity));
 	}
 	
 	public static Result edit(Long id){
 		University university = University.findById(id);
 		if(university==null){
 			flash("error",AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
+			return ok(""); // REDIRECT TODO
 		}else{
 			return ok(edit.render(universityForm.fill(university)));
 		}
