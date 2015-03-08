@@ -28,8 +28,8 @@ public class DepartmentManagement extends Controller{
 		 Department department = filledForm.get();
 	     Department.create(department);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
-	     return ok("");
-	   	//return redirect(controllers.routes.BookManagement.list());
+	     //return ok("");
+	   	return redirect(controllers.routes.DepartmentManagement.list());
 	    }
 
 	 public static Result list(){
@@ -43,8 +43,8 @@ public class DepartmentManagement extends Controller{
 					
 		  	if (department == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-				return ok("");
-				//return redirect(controllers.routes.DepartmentManagement.list());
+//				return ok("");
+				return redirect(controllers.routes.DepartmentManagement.list());
 			} else
 				return ok(show.render(department));
 		}
@@ -54,8 +54,8 @@ public class DepartmentManagement extends Controller{
 			
 		  	if (department == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-				return ok("");
-				//return redirect(controllers.routes.DepartmentManagement.list());
+				//return ok("");
+				return redirect(controllers.routes.DepartmentManagement.show(id));
 			}else
 				return ok(edit.render(departmentForm.fill(department)));
 		}

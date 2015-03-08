@@ -28,8 +28,8 @@ public class FacultyManagement extends Controller{
 		 Faculty faculty = filledForm.get();
 	     Faculty.create(faculty);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
-	     return ok("");
-	   	//return redirect(controllers.routes.BookManagement.list());
+	    // return ok("");
+	     return redirect(controllers.routes.FacultyManagement.list());
 	    }
 
 	 public static Result list(){
@@ -43,8 +43,8 @@ public class FacultyManagement extends Controller{
 					
 		  	if (faculty == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-				return ok("");
-				//return redirect(controllers.routes.FacultyManagement.list());
+				//return ok("");
+				 return redirect(controllers.routes.FacultyManagement.list());
 			} else
 				return ok(show.render(faculty));
 		}
@@ -54,8 +54,8 @@ public class FacultyManagement extends Controller{
 			
 		  	if (faculty == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-				return ok("");
-				//return redirect(controllers.routes.FacultyManagement.list());
+//				return ok("");
+				 return redirect(controllers.routes.FacultyManagement.show(id));
 			}else
 				return ok(edit.render(facultyForm.fill(faculty)));
 		}
