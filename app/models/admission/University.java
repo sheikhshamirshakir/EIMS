@@ -1,9 +1,12 @@
 package models.admission;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.db.ebean.Model;
@@ -23,6 +26,9 @@ public class University extends Model {
     public Long id;
 	
 	public String name;
+	
+    @OneToMany(mappedBy = "university")
+    public List<Faculty> faculties;
 	
 	public static Finder<Long,University> find =  new Finder(Long.class, University.class);
 	
@@ -48,5 +54,15 @@ public class University extends Model {
 			
 		return university;
 	}
+	
+	  public static Map<String,String> getUnivsAsMap() {
+	        LinkedHashMap<String,String> universities = new LinkedHashMap<String,String>();
+	        for(University univ: University.find.orderBy("name").findList()) {
+	        	universities.put(univ.id.toString(), univ.name);
+	        }
+	        
+	        return universities;
+	    }
+	    
 	
 }
