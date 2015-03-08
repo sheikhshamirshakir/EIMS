@@ -29,14 +29,15 @@ public class UniversityManagement extends Controller{
 		University university = filledForm.get();
 		University.create(university);
 		flash("success",AppConstants.SUCCESS_MESSAGE);
-		return ok("");
+		//return ok("");
+		return redirect(controllers.routes.UniversityManagement.list());
 	}
 	
 	public static Result show(Long id){
 		University university = University.findById(id);
 		if(university==null){
 			flash("error",AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-			return ok("");  // REDIRECT TODO
+			return redirect(controllers.routes.UniversityManagement.list());
 		}
 		else
 			return ok(show.render(university));
@@ -50,7 +51,7 @@ public class UniversityManagement extends Controller{
 		University university = University.findById(id);
 		if(university==null){
 			flash("error",AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
-			return ok(""); // REDIRECT TODO
+			return redirect(controllers.routes.UniversityManagement.show(id));
 		}else{
 			return ok(edit.render(universityForm.fill(university)));
 		}
