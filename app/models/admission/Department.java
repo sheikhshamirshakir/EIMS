@@ -2,11 +2,16 @@ package models.admission;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
+
+@Entity
+@Table (name="department")
 public class Department extends Model{
 	
 	@Id
