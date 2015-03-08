@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 
 import play.data.validation.Constraints.Required;
@@ -27,9 +30,11 @@ public class Faculty extends Model{
 
     @Required
     @ManyToOne
-    @JoinColumn(name = "univ_id", referencedColumnName = "id")
+    @JoinColumn(name = "univ_id", referencedColumnName = "id")  // TOREAD;
     public University university;
 	
+    @OneToMany(mappedBy = "faculty")
+    public List<Department> departments;  // TOREAD;
     
     
 	public static Finder<Long, Faculty> find = new Finder(Long.class, Faculty.class);
@@ -55,7 +60,14 @@ public class Faculty extends Model{
     }
     
 
-    
+    public static Map<String,String> getFacultiesAsMap() {
+        LinkedHashMap<String,String> faculties = new LinkedHashMap<String,String>();
+        for(Faculty faculty: Faculty.find.orderBy("name").findList()) {
+        	faculties.put(faculty.id.toString(), faculty.name);
+        }
+        
+        return faculties;
+    }
     
 
 }

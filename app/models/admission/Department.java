@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.data.validation.Constraints.Required;
@@ -19,6 +22,11 @@ public class Department extends Model{
 	
 	@Required
 	public String name;
+	
+	 @Required
+	    @ManyToOne
+	    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
+	    public Faculty faculty;
 
 	public static Finder<Long, Department> find = new Finder(Long.class, Department.class);
 
@@ -41,5 +49,6 @@ public class Department extends Model{
     public static void delete(Long id){
     	delete(id);
     }
+    
 
 }

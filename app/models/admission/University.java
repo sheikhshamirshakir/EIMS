@@ -28,7 +28,8 @@ public class University extends Model {
 	public String name;
 	
     @OneToMany(mappedBy = "university")
-    public List<Faculty> faculties;
+    public List<Faculty> faculties;  // TOREAD;
+    
 	
 	public static Finder<Long,University> find =  new Finder(Long.class, University.class);
 	
