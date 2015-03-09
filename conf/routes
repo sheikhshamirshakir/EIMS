@@ -35,3 +35,14 @@ GET		/department/show/:id						 controllers.DepartmentManagement.show(id: Long)
 GET		/department/edit/:id						 controllers.DepartmentManagement.edit(id: Long)
 POST	/department/edit							 controllers.DepartmentManagement.update()
 GET	    /department/delete/:id					   	 controllers.DepartmentManagement.delete(id: Long)
+
+
+#Degree
+GET		/degree/create						     controllers.DegreeManagement.create()
+POST	/degree/create						     controllers.DegreeManagement.save()
+GET		/degree/list							 controllers.DegreeManagement.list()
+GET		/degree/show/:id						 controllers.DegreeManagement.show(id: Long)
+GET		/degree/edit/:id						 controllers.DegreeManagement.edit(id: Long)
+POST	/degree/edit							 controllers.DegreeManagement.update()
+GET	    /degree/delete/:id					   	 controllers.DegreeManagement.delete(id: Long)
+

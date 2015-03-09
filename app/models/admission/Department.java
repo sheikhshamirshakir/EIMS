@@ -1,6 +1,8 @@
 package models.admission;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,11 +25,14 @@ public class Department extends Model{
 	@Required
 	public String name;
 	
-	 @Required
-	    @ManyToOne
-	    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
-	    public Faculty faculty;
+	@Required
+    @ManyToOne
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
+    public Faculty faculty;
 
+    @OneToMany(mappedBy = "department")
+    public List<Degree> degrees;
+	
 	public static Finder<Long, Department> find = new Finder(Long.class, Department.class);
 
     public static List<Department> all() {
@@ -48,6 +53,15 @@ public class Department extends Model{
     
     public static void delete(Long id){
     	delete(id);
+    }
+    
+    public static Map<String,String> getDepartmentsAsMap() {
+        LinkedHashMap<String,String> departments = new LinkedHashMap<String,String>();
+        for(Department department: Department.find.orderBy("name").findList()) {
+        	departments.put(department.id.toString(), department.name);
+        }
+        
+        return departments;
     }
     
 
