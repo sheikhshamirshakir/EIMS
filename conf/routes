@@ -46,6 +46,14 @@ GET		/degree/edit/:id						 controllers.DegreeManagement.edit(id: Long)
 POST	/degree/edit							 controllers.DegreeManagement.update()
 GET	    /degree/delete/:id					   	 controllers.DegreeManagement.delete(id: Long)
 
+#Class or Year
+GET		/class-or-year/create						     controllers.ClassYearManagement.create()
+POST	/class-or-year/create						     controllers.ClassYearManagement.save()
+GET		/class-or-year/list							 controllers.ClassYearManagement.list()
+GET		/class-or-year/show/:id						 controllers.ClassYearManagement.show(id: Long)
+GET		/class-or-year/edit/:id						 controllers.ClassYearManagement.edit(id: Long)
+POST	/class-or-year/edit							 controllers.ClassYearManagement.update()
+GET	    /class-or-year/delete/:id					   	 controllers.ClassYearManagement.delete(id: Long)
 
 #SectionSemester
 GET		/section-or-semester/create						     controllers.SectionSemesterManagement.create()
