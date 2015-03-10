@@ -45,3 +45,13 @@ GET		/degree/show/:id						 controllers.DegreeManagement.show(id: Long)
 GET		/degree/edit/:id						 controllers.DegreeManagement.edit(id: Long)
 POST	/degree/edit							 controllers.DegreeManagement.update()
 GET	    /degree/delete/:id					   	 controllers.DegreeManagement.delete(id: Long)
+
+
+#SectionSemester
+GET		/section-or-semester/create						     controllers.SectionSemesterManagement.create()
+POST	/section-or-semester/create						     controllers.SectionSemesterManagement.save()
+GET		/section-or-semester/list							 controllers.SectionSemesterManagement.list()
+GET		/section-or-semester/show/:id						 controllers.SectionSemesterManagement.show(id: Long)
+GET		/section-or-semester/edit/:id						 controllers.SectionSemesterManagement.edit(id: Long)
+POST	/section-or-semester/edit							 controllers.SectionSemesterManagement.update()
+GET	    /section-or-semester/delete/:id					   	             controllers.SectionSemesterManagement.delete(id: Long)
