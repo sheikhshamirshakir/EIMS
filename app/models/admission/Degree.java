@@ -28,7 +28,7 @@ public class Degree extends Model{
 	@Required
 	public String name;
 	
-	@Required
+	
     @ManyToOne
     @JoinColumn(name = "dept_id", referencedColumnName = "id")
     public Department department;

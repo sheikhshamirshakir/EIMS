@@ -30,7 +30,7 @@ public class ClassYear extends Model {
 	
 	public String name;
 	
-	@Required
+	
     @ManyToOne
     @JoinColumn(name = "degree_id", referencedColumnName = "id")
     public Degree degree;

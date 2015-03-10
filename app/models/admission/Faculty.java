@@ -28,7 +28,7 @@ public class Faculty extends Model{
 	@Required
 	public String name;
 
-    @Required
+    
     @ManyToOne
     @JoinColumn(name = "univ_id", referencedColumnName = "id")  // TOREAD;
     public University university;
