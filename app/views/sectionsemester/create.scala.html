@@ -5,14 +5,14 @@
 @main("Section or Semester Entry") {
 	
        @form(routes.SectionSemesterManagement.save()) { 
-       		 
+       		 <!-- 
        		 @select(
 		      sectionSemesterForm("classYear.id"),
 		      options(ClassYear.getClassYearsAsMap),
 		      '_label -> "Class or Year",
 		      '_default -> "-- Choose a Class or Year --"
 		    )
-		    
+		    -->
               @inputText(field=sectionSemesterForm("name"), args='_label->"Section or Semester Name")
               <input type="submit" value="Create">
             }

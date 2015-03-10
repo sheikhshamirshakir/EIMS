@@ -21,13 +21,11 @@ public class SectionSemester extends Model{
     public Long id;    
 
     
-//	@OneToMany(mappedBy = "faculty")
-//  public List<Department> departments;
 	
 	@Required
 	public String name;
 	
-	@Required
+
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     public ClassYear classYear;
