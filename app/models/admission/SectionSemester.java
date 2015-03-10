@@ -27,10 +27,10 @@ public class SectionSemester extends Model{
 	@Required
 	public String name;
 	
-//	  @Required
-//    @ManyToOne
-//    @JoinColumn(name = "dept_id", referencedColumnName = "id")
-//    public Department department;
+	@Required
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    public ClassYear classYear;
 
 	public static Finder<Long, SectionSemester> find = new Finder(Long.class, SectionSemester.class);
 

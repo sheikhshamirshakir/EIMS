@@ -20,6 +20,8 @@ public class Degree extends Model{
 	@Id
     public Long id;    
 	
+	@OneToMany(mappedBy = "degree")
+    public List<ClassYear> classYears;
 	
 	@Required
 	public String name;
