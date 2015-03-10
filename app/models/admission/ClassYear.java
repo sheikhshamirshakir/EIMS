@@ -1,11 +1,17 @@
 package models.admission;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
   
 /*
@@ -23,6 +29,15 @@ public class ClassYear extends Model {
     public Long id;
 	
 	public String name;
+	
+	@Required
+    @ManyToOne
+    @JoinColumn(name = "degree_id", referencedColumnName = "id")
+    public Degree degree;
+	
+	
+	@OneToMany(mappedBy = "classYear")
+    public List<SectionSemester> sectionSemesters;
 
 	public static Finder<Long,ClassYear> find =  new Finder(Long.class, ClassYear.class);
 	
@@ -49,7 +64,14 @@ public class ClassYear extends Model {
 		return classYear;
 	}
 	
-	 
+	 public static Map<String,String> getClassYearsAsMap() {
+	        LinkedHashMap<String,String> classYears = new LinkedHashMap<String,String>();
+	        for(ClassYear classYear: ClassYear.find.orderBy("name").findList()) {
+	        	classYears.put(classYear.id.toString(), classYear.name);
+	        }
+	        
+	        return classYears;
+	    }
 	    
 	
 }

@@ -1,19 +1,18 @@
 @(sectionSemesterForm: Form[models.admission.SectionSemester])
 @import helper._
-@import  models.admission.Department
+@import  models.admission.ClassYear
 
 @main("Section or Semester Entry") {
 	
        @form(routes.SectionSemesterManagement.save()) { 
-       		<!-- 
+       		 
        		 @select(
-		      sectionSemesterForm("department.id"),
-		      options(Department.getDepartmentsAsMap),
-		      '_label -> "Department",
-		      '_default -> "-- Choose a Department --"
+		      sectionSemesterForm("classYear.id"),
+		      options(ClassYear.getClassYearsAsMap),
+		      '_label -> "Class or Year",
+		      '_default -> "-- Choose a Class or Year --"
 		    )
-		    -->
-       
+		    
               @inputText(field=sectionSemesterForm("name"), args='_label->"Section or Semester Name")
               <input type="submit" value="Create">
             }

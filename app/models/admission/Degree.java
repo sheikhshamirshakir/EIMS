@@ -1,6 +1,8 @@
 package models.admission;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -51,6 +53,15 @@ public class Degree extends Model{
     
     public static void delete(Long id){
     	delete(id);
+    }
+    
+    public static Map<String,String> getDegreesAsMap() {
+        LinkedHashMap<String,String> degrees = new LinkedHashMap<String,String>();
+        for(Degree degree: Degree.find.orderBy("name").findList()) {
+        	degrees.put(degree.id.toString(), degree.name);
+        }
+        
+        return degrees;
     }
     
 
