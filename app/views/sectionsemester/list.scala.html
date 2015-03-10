@@ -1,0 +1,28 @@
+@(degrees: List[models.admission.Degree])
+@import helper._
+
+@main("List of Degrees"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Degree Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(degree <- degrees) {
+      <tr>
+        <td><a href="@routes.DegreeManagement.show(degree.id)">@degree.id</a></td>
+        <td>@degree.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

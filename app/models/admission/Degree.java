@@ -18,8 +18,8 @@ import play.db.ebean.Model;
 public class Degree extends Model{
 	
 	@Id
-    public Long id;    @OneToMany(mappedBy = "faculty")
-    public List<Department> departments;
+    public Long id;    
+	
 	
 	@Required
 	public String name;
@@ -39,12 +39,12 @@ public class Degree extends Model{
         return find.where().eq("id", id).findUnique();
     }
 
-    public static void create(Degree Degree) {
-    	Degree.save();
+    public static void create(Degree degree) {
+    	degree.save();
     }
     
-    public static void update(Degree Degree) {
-    	Degree.update();
+    public static void update(Degree degree) {
+    	degree.update();
     }
     
     public static void delete(Long id){

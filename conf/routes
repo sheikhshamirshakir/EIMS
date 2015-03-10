@@ -45,4 +45,3 @@ GET		/degree/show/:id						 controllers.DegreeManagement.show(id: Long)
 GET		/degree/edit/:id						 controllers.DegreeManagement.edit(id: Long)
 POST	/degree/edit							 controllers.DegreeManagement.update()
 GET	    /degree/delete/:id					   	 controllers.DegreeManagement.delete(id: Long)
-

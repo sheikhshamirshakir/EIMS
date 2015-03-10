@@ -43,12 +43,12 @@ public class Department extends Model{
         return find.where().eq("id", id).findUnique();
     }
 
-    public static void create(Department Department) {
-    	Department.save();
+    public static void create(Department department) {
+    	department.save();
     }
     
-    public static void update(Department Department) {
-    	Department.update();
+    public static void update(Department department) {
+    	department.update();
     }
     
     public static void delete(Long id){
