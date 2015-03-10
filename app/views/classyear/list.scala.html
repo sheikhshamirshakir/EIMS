@@ -16,10 +16,10 @@
      </tr>
    </thead>
     <tbody>
-    @for(class <- classYears) {
+    @for(classYear <- classYears) {
       <tr>
-        <td><a href="@routes.ClassYearManagement.show(degree.id)">@class.id</a></td>
-        <td>@class.name</td>
+        <td><a href="@routes.ClassYearManagement.show(classYear.id)">@classYear.id</a></td>
+        <td>@classYear.name</td>
       </tr> 
     }
  </tbody>
