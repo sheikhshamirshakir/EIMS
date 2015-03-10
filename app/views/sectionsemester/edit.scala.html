@@ -1,13 +1,13 @@
-@(degreeForm: Form[models.admission.Degree])
+@(sectionSemesterForm: Form[models.admission.SectionSemester])
 @import helper._
 
-@main("Edit Degree"){
-  <h2>Update the Degree having ID @degreeForm.get.id</h2><br/><br/>
+@main("Edit Section or Semester"){
+  <h2>Update the Section or Semester having ID @sectionSemesterForm.get.id</h2><br/><br/>
   
-  @form(routes.DegreeManagement.update()) {
-  	  <input type="hidden" name="id" value=@degreeForm.get.id >
+  @form(routes.SectionSemesterManagement.update()) {
+  	  <input type="hidden" name="id" value=@sectionSemesterForm.get.id >
   	  
-      @inputText(degreeForm("name"), '_label->"Degree Name")</tr>
+      @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")</tr>
 	  <input type="submit" value="Update">
   }
 }

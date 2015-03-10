@@ -1,7 +1,7 @@
-@(degrees: List[models.admission.Degree])
+@(sectionSemesters: List[models.admission.SectionSemester])
 @import helper._
 
-@main("List of Degrees"){
+@main("List of Section or Semesters"){
 
  
   	@if(flash.get("msg")){
@@ -12,14 +12,14 @@
   <thead>
     <tr>
        <th>ID</th>
-       <th>Degree Name</th>
+       <th>Section o rSemester Name</th>
      </tr>
    </thead>
     <tbody>
-    @for(degree <- degrees) {
+    @for(sectionSemester <- sectionSemesters) {
       <tr>
-        <td><a href="@routes.DegreeManagement.show(degree.id)">@degree.id</a></td>
-        <td>@degree.name</td>
+        <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
+        <td>@sectionSemester.name</td>
       </tr> 
     }
  </tbody>
