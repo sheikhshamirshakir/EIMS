@@ -1,0 +1,16 @@
+@(classYearForm: Form[models.admission.ClassYear])
+@import helper._
+
+
+@main("Class Or Year Entry") {
+	
+       @form(routes.ClassYearManagement.save()) { 
+       		
+       		 
+       
+              @inputText(field=classYearForm("name"), args='_label->"Class or Year Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

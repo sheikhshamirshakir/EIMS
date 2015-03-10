@@ -1,0 +1,13 @@
+@(classYearForm: Form[models.admission.ClassYear])
+@import helper._
+
+@main("Edit Class Or Year"){
+  <h2>Update the Class/Year having ID @classYearForm.get.id</h2><br/><br/>
+  
+  @form(routes.ClassYearManagement.update()) {
+  	  <input type="hidden" name="id" value=@classYearForm.get.id >
+  	  
+      @inputText(classYearForm("name"), '_label->"Class or Year Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}
