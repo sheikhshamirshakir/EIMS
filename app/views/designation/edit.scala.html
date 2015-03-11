@@ -1,0 +1,13 @@
+@(designationForm: Form[models.admission.Designation])
+@import helper._
+
+@main("Edit Designation"){
+  <h2>Update the Designation having ID @designationForm.get.id</h2><br/><br/>
+  
+  @form(routes.DesignationManagement.update()) {
+  	  <input type="hidden" name="id" value=@designationForm.get.id >
+  	  
+      @inputText(designationForm("name"), '_label->"Designation Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

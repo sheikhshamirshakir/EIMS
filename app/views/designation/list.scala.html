@@ -1,0 +1,28 @@
+@(designations: List[models.admission.Designation])
+@import helper._
+
+@main("List of Designations"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Designation Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(designation <- designations) {
+      <tr>
+        <td><a href="@routes.DesignationManagement.show(designation.id)">@designation.id</a></td>
+        <td>@designation.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      
