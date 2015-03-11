@@ -1,0 +1,29 @@
+@(teacherForm: Form[models.admission.Teacher])
+@import helper._
+@import  models.admission.Department
+@import  models.admission.Designation
+
+@main("Teacher Entry") {
+	
+       @form(routes.TeacherManagement.save()) { 
+       		
+       		  @select(
+		      teacherForm("department.id"),
+		      options(Department.getDepartmentsAsMap),
+		      '_label -> "Department",
+		      '_default -> "-- Choose a Department --"
+		    )
+		    
+		    @select(
+		      teacherForm("designation.id"),
+		      options(Designation.getDesignationsAsMap),
+		      '_label -> "Designation",
+		      '_default -> "-- Choose a Designation --"
+		    )
+       
+              @inputText(field=teacherForm("name"), args='_label->"Teacher Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

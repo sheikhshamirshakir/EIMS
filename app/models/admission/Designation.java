@@ -31,8 +31,8 @@ public class Designation extends Model{
 //    @JoinColumn(name = "univ_id", referencedColumnName = "id")  // TOREAD;
 //    public University university;
 	
-//    @OneToMany(mappedBy = "designation")
-//    public List<Department> departments;  // TOREAD;
+    @OneToMany(mappedBy = "designation")
+    public List<Teacher> teachers;  // TOREAD;
     
     
 	public static Finder<Long, Designation> find = new Finder(Long.class, Designation.class);
@@ -58,7 +58,7 @@ public class Designation extends Model{
     }
     
 
-    public static Map<String,String> getFacultiesAsMap() {
+    public static Map<String,String> getDesignationsAsMap() {
         LinkedHashMap<String,String> designations = new LinkedHashMap<String,String>();
         for(Designation designation: Designation.find.orderBy("name").findList()) {
         	designations.put(designation.id.toString(), designation.name);

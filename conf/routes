@@ -63,3 +63,21 @@ GET		/section-or-semester/show/:id						 controllers.SectionSemesterManagement.s
 GET		/section-or-semester/edit/:id						 controllers.SectionSemesterManagement.edit(id: Long)
 POST	/section-or-semester/edit							 controllers.SectionSemesterManagement.update()
 GET	    /section-or-semester/delete/:id					   	             controllers.SectionSemesterManagement.delete(id: Long)
+
+#Teacher
+GET		/teacher/create						     controllers.TeacherManagement.create()
+POST	/teacher/create						     controllers.TeacherManagement.save()
+GET		/teacher/list							 controllers.TeacherManagement.list()
+GET		/teacher/show/:id						 controllers.TeacherManagement.show(id: Long)
+GET		/teacher/edit/:id						 controllers.TeacherManagement.edit(id: Long)
+POST	/teacher/edit							 controllers.TeacherManagement.update()
+GET	    /teacher/delete/:id					   	 controllers.TeacherManagement.delete(id: Long)
+
+#Designation
+GET		/designation/create						     controllers.DesignationManagement.create()
+POST	/designation/create						     controllers.DesignationManagement.save()
+GET		/designation/list							 controllers.DesignationManagement.list()
+GET		/designation/show/:id						 controllers.DesignationManagement.show(id: Long)
+GET		/designation/edit/:id						 controllers.DesignationManagement.edit(id: Long)
+POST	/designation/edit							 controllers.DesignationManagement.update()
+GET	    /designation/delete/:id					   	 controllers.DesignationManagement.delete(id: Long)

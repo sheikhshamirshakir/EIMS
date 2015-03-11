@@ -44,7 +44,7 @@ public class ClassYearManagement extends Controller{
 		  	if (classYear == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
 //				return ok("");
-				return redirect(controllers.routes.DegreeManagement.list());
+				return redirect(controllers.routes.ClassYearManagement.list());
 			} else
 				return ok(show.render(classYear));
 		}

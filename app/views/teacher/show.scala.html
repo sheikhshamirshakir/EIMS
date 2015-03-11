@@ -1,0 +1,15 @@
+@(teacher: models.admission.Teacher)
+
+@import helper._
+
+@main("Teacher"){
+
+  <table>
+    <tr> <th >ID</th> <td>@teacher.id</td> </tr>
+    <tr> <th >Teacher Name</th> <td>@teacher.name</td> </tr>
+  </table>
+   
+     @form(routes.TeacherManagement.edit(teacher.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
