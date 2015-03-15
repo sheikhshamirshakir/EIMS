@@ -1,0 +1,86 @@
+/**Created By Sheikh Shamir Shakir Shomoy Solution
+ * Shomoy Solution
+ * On 15-Mar-2015
+ ***/
+package controllers;
+
+import java.util.Date;
+import java.util.List;
+
+import models.admission.Employee;
+import play.data.Form;
+import play.mvc.Controller;
+import play.mvc.Http;
+import play.mvc.Result;
+import utils.AppConstants;
+import views.html.employee.*;
+
+public class EmployeeManagement extends Controller{
+
+	static Form<Employee> employeeForm = Form.form(Employee.class);
+	
+	 public static Result create() {
+	        return ok(create.render(employeeForm));
+	    }
+	 
+	 public static Result save() {
+		 Form<Employee> filledForm = employeeForm.bindFromRequest();
+		 Employee employee = filledForm.get();
+	     Employee.create(employee);
+	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
+	     //return ok("");
+	   	return redirect(controllers.routes.EmployeeManagement.list());
+	    }
+
+	 public static Result list(){
+	    	List<Employee> employees = Employee.all();
+	     	return ok(list.render(employees));
+	    }
+
+	 
+	 public static Result show(Long id) {
+			Employee employee = Employee.findById(id);
+					
+		  	if (employee == null) {
+				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
+//				return ok("");
+				return redirect(controllers.routes.EmployeeManagement.list());
+			} else
+				return ok(show.render(employee));
+		}
+	 
+	 public static Result edit(Long id) {
+		 Employee employee = Employee.findById(id);
+			
+		  	if (employee == null) {
+				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
+				//return ok("");
+				return redirect(controllers.routes.EmployeeManagement.show(id));
+			}else
+				return ok(edit.render(employeeForm.fill(employee)));
+		}
+	 
+	 
+	 public static Result update(){
+			Form<Employee> filledForm = employeeForm.bindFromRequest();
+			if (filledForm.hasErrors()) {
+				return badRequest(edit.render(filledForm));
+			} else {
+			
+			Employee employee = filledForm.get();
+			Employee.update(employee);
+			return ok(list.render(Employee.all()));
+			}
+			
+		}
+	 
+	 public static Result delete(Long id){
+		 Employee.delete(id);
+		 flash("success", AppConstants.SUCCESSFUL_DELETE_MESSAGE);
+		 return ok(list.render(Employee.all()));
+	 }
+	 
+	 
+}
+
+

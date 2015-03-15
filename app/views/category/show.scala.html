@@ -1,0 +1,14 @@
+@(category: models.admission.Category)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@category.id</td> </tr>
+    <tr> <th >Category Name</th> <td>@category.name</td> </tr>
+  </table>
+   
+     @form(routes.CategoryManagement.edit(category.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

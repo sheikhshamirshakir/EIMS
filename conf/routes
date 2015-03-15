@@ -81,3 +81,12 @@ GET		/designation/show/:id						 controllers.DesignationManagement.show(id: Long
 GET		/designation/edit/:id						 controllers.DesignationManagement.edit(id: Long)
 POST	/designation/edit							 controllers.DesignationManagement.update()
 GET	    /designation/delete/:id					   	 controllers.DesignationManagement.delete(id: Long)
+
+#Category
+GET		/category/create						     controllers.CategoryManagement.create()
+POST	/category/create						     controllers.CategoryManagement.save()
+GET		/category/list							     controllers.CategoryManagement.list()
+GET		/category/show/:id						     controllers.CategoryManagement.show(id: Long)
+GET		/category/edit/:id						     controllers.CategoryManagement.edit(id: Long)
+POST	/category/edit							     controllers.CategoryManagement.update()
+GET	    /category/delete/:id					   	 controllers.CategoryManagement.delete(id: Long)

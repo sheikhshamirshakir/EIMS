@@ -1,0 +1,15 @@
+@(categoryForm: Form[models.admission.Category])
+@import helper._
+@import  models.admission.Department
+
+@main("Category Entry") {
+	
+       @form(routes.CategoryManagement.save()) { 
+       		
+      
+              @inputText(field=categoryForm("name"), args='_label->"Category Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

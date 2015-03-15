@@ -1,0 +1,27 @@
+@(categories: List[models.admission.Category])
+@import helper._
+
+@main("List of Categories"){
+
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Category Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(category <- categories) {
+      <tr>
+        <td><a href="@routes.CategoryManagement.show(category.id)">@category.id</a></td>
+        <td>@category.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      
