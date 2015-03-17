@@ -1,0 +1,13 @@
+@(tqForm: Form[models.admission.TeacherQualifications])
+@import helper._
+
+@main("Edit Teacher's Qualifications"){
+  <h2>Update the Teacher's Qualifications having ID @tqForm.get.id</h2><br/><br/>
+  
+  @form(routes.TQManagement.update()) {
+  	  <input type="hidden" name="id" value=@tqForm.get.id >
+  	  
+     <!--  @inputText(tqForm("name"), '_label->"Employee Name") -->
+	  <input type="submit" value="Update">
+  }
+}

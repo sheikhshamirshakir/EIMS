@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import dummymodels.DummyEmployee;
+import models.admission.Category;
 import models.admission.Department;
 import models.admission.Designation;
 import models.admission.Employee;
@@ -22,20 +23,24 @@ import views.html.employee.*;
 
 public class EmployeeManagement extends Controller{
 
-	static Form<DummyEmployee> employeeForm = Form.form(DummyEmployee.class);
+	static Form<DummyEmployee> dEmployeeForm = Form.form(DummyEmployee.class);
+	static Form<Employee> employeeForm = Form.form(Employee.class);
 	
 	 public static Result create() {
 	        return ok(create.render(employeeForm));
 	    }
 	 
 	 public static Result save() {
-		 Form<DummyEmployee> filledForm = employeeForm.bindFromRequest();
+		 Form<DummyEmployee> filledForm = dEmployeeForm.bindFromRequest();
 		 DummyEmployee dEmployee = filledForm.get();
 		 Employee employee = new Employee();
 		 
 		 
 		 employee.name = dEmployee.employeeName;
-		 employee.category = dEmployee.category;
+		 employee.category = Category.findById(Long.parseLong(dEmployee.categoryId));
+		 
+		 
+		 
 		 employee.gender = dEmployee.gender;
 		 employee.dateOfBirth = dEmployee.dateOfBirth;
 		 employee.employeeType = dEmployee.employeeType;
@@ -44,8 +49,8 @@ public class EmployeeManagement extends Controller{
 		 Long id = Employee.create(employee);
 		 
 		 Teacher teacher =new Teacher();
-   		 teacher.department=dEmployee.department;
-		 teacher.designation=dEmployee.designation;
+   		 teacher.department=Department.findById(Long.parseLong(dEmployee.departmentId));
+		 teacher.designation=Designation.findById(Long.parseLong(dEmployee.designationId));
 		 teacher.name=dEmployee.employeeName;
 		 
 		 teacher.id = id;

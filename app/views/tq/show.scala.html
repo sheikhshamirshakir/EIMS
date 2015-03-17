@@ -1,0 +1,17 @@
+@(tq: models.admission.TeacherQualifications)
+
+@import helper._
+
+@main("Teacher Qualifications"){
+
+  <table>
+    <tr> <th >ID</th> <td>@tq.id</td> </tr>
+    
+  </table>
+   
+     @form(routes.TQManagement.edit(tq.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
+
+     

@@ -31,8 +31,9 @@ public class Employee extends Model {
 	public boolean gender;
 		
     
-    public String category;
-	
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    public Category category;
 	
 	
 	//joining date

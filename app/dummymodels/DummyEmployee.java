@@ -1,6 +1,7 @@
 package dummymodels;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -18,7 +19,7 @@ public class DummyEmployee {
 	
 	public boolean gender;
 		
-    public String category;
+    public String categoryId;
 	
 	//joining date
 	 public Date joiningDate;
@@ -29,10 +30,10 @@ public class DummyEmployee {
 	
 	//Teacher info
 		//department
-		public String department;
+		public String departmentId;
 	  
 		//designation
-		public String designation;
+		public String designationId;
 
 		
 	//TeacherQualifications	

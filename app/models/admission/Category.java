@@ -26,6 +26,9 @@ public class Category extends Model{
 	
 	@Required
 	public String name;
+	
+	  @OneToMany(mappedBy = "category")
+	    public List<Employee> employees;
 
     
     public static Finder<Long, Category> find = new Finder(Long.class, Category.class);

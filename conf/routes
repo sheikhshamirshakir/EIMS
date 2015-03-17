@@ -64,14 +64,40 @@ GET		/section-or-semester/edit/:id						 controllers.SectionSemesterManagement.e
 POST	/section-or-semester/edit							 controllers.SectionSemesterManagement.update()
 GET	    /section-or-semester/delete/:id					   	             controllers.SectionSemesterManagement.delete(id: Long)
 
+
+#Employee
+GET		/employee/create						     controllers.EmployeeManagement.create()
+POST	/employee/create						     controllers.EmployeeManagement.save()
+GET		/employee/list							     controllers.EmployeeManagement.list()
+GET		/employee/show/:id							 controllers.EmployeeManagement.show(id: Long)
+GET		/employee/edit/:id							 controllers.EmployeeManagement.edit(id: Long)
+POST	/employee/edit								 controllers.EmployeeManagement.update()
+GET	    /employee/delete/:id					   	 controllers.EmployeeManagement.delete(id: Long)
+
+#Category
+GET		/category/create						     controllers.CategoryManagement.create()
+POST	/category/create						     controllers.CategoryManagement.save()
+GET		/category/list							     controllers.CategoryManagement.list()
+GET		/category/show/:id						     controllers.CategoryManagement.show(id: Long)
+GET		/category/edit/:id						     controllers.CategoryManagement.edit(id: Long)
+POST	/category/edit							     controllers.CategoryManagement.update()
+GET	    /category/delete/:id					   	 controllers.CategoryManagement.delete(id: Long)
+
 #Teacher
-GET		/teacher/create						     controllers.TeacherManagement.create()
-POST	/teacher/create						     controllers.TeacherManagement.save()
+#GET		/teacher/create						     controllers.TeacherManagement.create()
+#POST	/teacher/create						     controllers.TeacherManagement.save()
 GET		/teacher/list							 controllers.TeacherManagement.list()
 GET		/teacher/show/:id						 controllers.TeacherManagement.show(id: Long)
 GET		/teacher/edit/:id						 controllers.TeacherManagement.edit(id: Long)
 POST	/teacher/edit							 controllers.TeacherManagement.update()
 GET	    /teacher/delete/:id					   	 controllers.TeacherManagement.delete(id: Long)
+
+#Teacher Qualifications
+GET		/teacher-qualifications/list							 controllers.TQManagement.list()
+GET		/teacher-qualifications/show/:id						 controllers.TQManagement.show(id: Long)
+GET		/teacher-qualifications/edit/:id						 controllers.TQManagement.edit(id: Long)
+POST	/teacher-qualifications/edit							 controllers.TQManagement.update()
+GET	    /teacher-qualifications/delete/:id					   	 controllers.TQManagement.delete(id: Long)
 
 #Designation
 GET		/designation/create						     controllers.DesignationManagement.create()
@@ -82,11 +108,3 @@ GET		/designation/edit/:id						 controllers.DesignationManagement.edit(id: Long
 POST	/designation/edit							 controllers.DesignationManagement.update()
 GET	    /designation/delete/:id					   	 controllers.DesignationManagement.delete(id: Long)
 
-#Category
-GET		/category/create						     controllers.CategoryManagement.create()
-POST	/category/create						     controllers.CategoryManagement.save()
-GET		/category/list							     controllers.CategoryManagement.list()
-GET		/category/show/:id						     controllers.CategoryManagement.show(id: Long)
-GET		/category/edit/:id						     controllers.CategoryManagement.edit(id: Long)
-POST	/category/edit							     controllers.CategoryManagement.update()
-GET	    /category/delete/:id					   	 controllers.CategoryManagement.delete(id: Long)
