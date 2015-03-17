@@ -1,0 +1,28 @@
+@(courses: List[models.admission.Course])
+@import helper._
+
+@main("List of Courses"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Course Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(course <- courses) {
+      <tr>
+        <td><a href="@routes.CourseManagement.show(course.id)">@course.id</a></td>
+        <td>@course.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

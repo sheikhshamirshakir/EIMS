@@ -1,0 +1,18 @@
+@(courseForm: Form[models.admission.Course])
+@import helper._
+@import  models.admission.Department
+
+@main("Course Entry") {
+	
+       @form(routes.CourseManagement.save()) { 
+       		
+       
+              @inputText(field=courseForm("name"), args='_label->"Course Name")
+               @inputText(field=courseForm("code"), args='_label->"Course Code")
+                @inputText(field=courseForm("credit"), args='_label->"Course Credit")
+                
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

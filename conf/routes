@@ -108,3 +108,13 @@ GET		/designation/edit/:id						 controllers.DesignationManagement.edit(id: Long
 POST	/designation/edit							 controllers.DesignationManagement.update()
 GET	    /designation/delete/:id					   	 controllers.DesignationManagement.delete(id: Long)
 
+
+
+#Course
+GET		/course/create						     controllers.CourseManagement.create()
+POST	/course/create						     controllers.CourseManagement.save()
+GET		/course/list							 controllers.CourseManagement.list()
+GET		/course/show/:id						 controllers.CourseManagement.show(id: Long)
+GET		/course/edit/:id						 controllers.CourseManagement.edit(id: Long)
+POST	/course/edit							 controllers.CourseManagement.update()
+GET	    /course/delete/:id					   	 controllers.CourseManagement.delete(id: Long)

@@ -1,0 +1,13 @@
+@(courseForm: Form[models.admission.Course])
+@import helper._
+
+@main("Edit Course"){
+  <h2>Update the Course having ID @courseForm.get.id</h2><br/><br/>
+  
+  @form(routes.CourseManagement.update()) {
+  	  <input type="hidden" name="id" value=@courseForm.get.id >
+  	  
+      @inputText(courseForm("name"), '_label->"Course Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}
