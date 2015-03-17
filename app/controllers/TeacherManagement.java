@@ -19,18 +19,18 @@ public class TeacherManagement extends Controller{
 
 	static Form<Teacher> teacherForm = Form.form(Teacher.class);
 	
-	 public static Result create() {
-	        return ok(create.render(teacherForm));
-	    }
-	 
-	 public static Result save() {
-		 Form<Teacher> filledForm = teacherForm.bindFromRequest();
-		 Teacher teacher = filledForm.get();
-	     Teacher.create(teacher);
-	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
-	     //return ok("");
-	   	return redirect(controllers.routes.TeacherManagement.list());
-	    }
+//	 public static Result create() {
+//	        return ok(create.render(teacherForm));
+//	    }
+//	 
+//	 public static Result save() {
+//		 Form<Teacher> filledForm = teacherForm.bindFromRequest();
+//		 Teacher teacher = filledForm.get();
+//	     Teacher.create(teacher);
+//	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
+//	     //return ok("");
+//	   	return redirect(controllers.routes.TeacherManagement.list());
+//	    }
 
 	 public static Result list(){
 	    	List<Teacher> teachers = Teacher.all();

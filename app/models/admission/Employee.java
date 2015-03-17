@@ -24,7 +24,7 @@ public class Employee extends Model {
 	@Id
     public Long id;
 
-	public String employeeName;
+	public String name;
 	
 	public Date dateOfBirth;
 	
@@ -47,8 +47,9 @@ public class Employee extends Model {
 		return find.all();
 	}
 	
-	public static void create(Employee employee){
+	public static Long create(Employee employee){
 		employee.save();
+		return employee.id;
 	}
 	
 	public static void update(Employee employee){
@@ -66,6 +67,5 @@ public class Employee extends Model {
 		return employee;
 	}
 	
-	    
 	
 }

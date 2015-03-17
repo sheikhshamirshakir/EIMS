@@ -9,7 +9,7 @@ import play.db.ebean.Model.Finder;
 
 public class TeacherQualifications extends Model {
 
-	@Id
+	
 	public Long id;
 	
 	public String SSCSession;

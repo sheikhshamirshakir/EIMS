@@ -25,20 +25,19 @@ import play.db.ebean.Model;
 @Table (name="Teacher")
 public class Teacher extends Model {
 	
-	@Id
     public Long id;
 	
-	public String name;
+//    @ManyToOne
+//    @JoinColumn(name = "department_id", referencedColumnName = "id")
+//    public Department department;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "designation_id", referencedColumnName = "id")
+//    public Designation designation;
+    public String name;
+	public String department;
+	public String designation;
 	
-	
-    @ManyToOne
-    @JoinColumn(name = "department_id", referencedColumnName = "id")
-    public Department department;
-
-    @ManyToOne
-    @JoinColumn(name = "designation_id", referencedColumnName = "id")
-    public Designation designation;
-    
 	public static Finder<Long,Teacher> find =  new Finder(Long.class, Teacher.class);
 	
 	public static List<Teacher> all(){

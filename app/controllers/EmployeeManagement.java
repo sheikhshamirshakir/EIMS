@@ -7,7 +7,12 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import dummymodels.DummyEmployee;
+import models.admission.Department;
+import models.admission.Designation;
 import models.admission.Employee;
+import models.admission.Teacher;
+import models.admission.TeacherQualifications;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -17,17 +22,70 @@ import views.html.employee.*;
 
 public class EmployeeManagement extends Controller{
 
-	static Form<Employee> employeeForm = Form.form(Employee.class);
+	static Form<DummyEmployee> employeeForm = Form.form(DummyEmployee.class);
 	
 	 public static Result create() {
 	        return ok(create.render(employeeForm));
 	    }
 	 
 	 public static Result save() {
-		 Form<Employee> filledForm = employeeForm.bindFromRequest();
-		 Employee employee = filledForm.get();
-	     Employee.create(employee);
-	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
+		 Form<DummyEmployee> filledForm = employeeForm.bindFromRequest();
+		 DummyEmployee dEmployee = filledForm.get();
+		 Employee employee = new Employee();
+		 
+		 
+		 employee.name = dEmployee.employeeName;
+		 employee.category = dEmployee.category;
+		 employee.gender = dEmployee.gender;
+		 employee.dateOfBirth = dEmployee.dateOfBirth;
+		 employee.employeeType = dEmployee.employeeType;
+		 employee.joiningDate=dEmployee.joiningDate;
+		 
+		 Long id = Employee.create(employee);
+		 
+		 Teacher teacher =new Teacher();
+   		 teacher.department=dEmployee.department;
+		 teacher.designation=dEmployee.designation;
+		 teacher.name=dEmployee.employeeName;
+		 
+		 teacher.id = id;
+		 Teacher.create(teacher);
+		
+		 TeacherQualifications teacherQualifications = new TeacherQualifications();
+		 
+		 
+		 //TeacherQualifications	
+				//education qualification
+				//ssc,hsc,hons,masters,gpa/grade
+			
+				//ssc
+		 teacherQualifications.SSCSession = dEmployee.SSCSession;
+		 teacherQualifications.SSCResult= dEmployee.SSCResult;
+		 teacherQualifications.SSCSchool = dEmployee.SSCSchool;
+				
+				//hsc
+		 teacherQualifications.HSCSession=dEmployee.HSCSession;
+		 teacherQualifications.HSCResult=dEmployee.HSCResult;
+		 teacherQualifications.HSCCollage=dEmployee.HSCCollage;
+				
+				//hons
+		 teacherQualifications.HonsSession=dEmployee.HonsSession;
+		 teacherQualifications.HonsResult=dEmployee.HonsResult;
+		 teacherQualifications.HonsUniv=dEmployee.HonsUniv;
+				
+				//ms
+		 teacherQualifications.MsSession=dEmployee.MsSession;
+		 teacherQualifications.MsResult=dEmployee.MsResult;
+		teacherQualifications.MsUniv=dEmployee.MsUniv;
+				
+				//phd
+		teacherQualifications.PHDYear = dEmployee.PHDYear;
+		teacherQualifications.PHDTopics = dEmployee.PHDTopics;
+		teacherQualifications.PHDUniv=dEmployee.PHDUniv;
+		
+		TeacherQualifications.create(teacherQualifications);
+		 
+		   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.EmployeeManagement.list());
 	    }
