@@ -1,0 +1,29 @@
+@(isChecked :List[Boolean])(content: Html)
+@import models.admission.Course
+@import helper._
+
+
+@main(""){
+  @content
+
+  <table>
+    <tr align="center">
+        <th>Active</th>
+        <th>Course Name</th>
+    </tr>
+
+    @for((course, idx) <- Course.all.zipWithIndex) {
+    <tr align="center">
+        <td><input type="checkbox" name="courseId" value="@course.id" @(if(isChecked.get(idx)== true) "checked")></td>
+        <td>@course.name</td>
+    </tr>
+    }
+  </table>
+  <br/>
+  <input type="submit" value="Assign Course to this Teacher">
+  </form>
+
+  <br/> <br/>
+  <h3>View the <a href="@routes.TeacherCourseManagement.list()">list</a> of all assigned courses to teachers</h3>
+
+}

@@ -1,0 +1,14 @@
+@(university: models.admission.University)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@university.id</td> </tr>
+    <tr> <th >Faculty Name</th> <td>@university.name</td> </tr>
+  </table>
+   
+     @form(routes.UniversityManagement.edit(university.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+  		}

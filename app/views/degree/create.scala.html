@@ -1,0 +1,21 @@
+@(degreeForm: Form[models.admission.Degree])
+@import helper._
+@import  models.admission.Department
+
+@main("Degree Entry") {
+	
+       @form(routes.DegreeManagement.save()) { 
+       		
+       		 @select(
+		      degreeForm("department.id"),
+		      options(Department.getDepartmentsAsMap),
+		      '_label -> "Department",
+		      '_default -> "-- Choose a Department --"
+		    )
+       
+              @inputText(field=degreeForm("name"), args='_label->"Degree Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

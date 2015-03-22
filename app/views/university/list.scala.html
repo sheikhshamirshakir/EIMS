@@ -1,0 +1,28 @@
+@(universities: List[models.admission.University])
+@import helper._
+
+@main("List of University"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>University Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(university <- universities) {
+      <tr>
+        <td><a href="@routes.UniversityManagement.show(university.id)">@university.id</a></td>
+        <td>@university.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

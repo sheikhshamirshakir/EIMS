@@ -1,0 +1,28 @@
+@(tqs: List[models.admission.TeacherQualifications])
+@import helper._
+
+@main("List of Teacher Qualifications"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>TQ Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(tq <- tqs) {
+      <tr>
+        <td><a href="@routes.TQManagement.show(tq.id)">@tq.id</a></td>
+        <td>@tq.id</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

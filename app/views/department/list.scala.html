@@ -1,0 +1,28 @@
+@(depts: List[models.admission.Department])
+@import helper._
+
+@main("List of Departments"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Department Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(dept <- depts) {
+      <tr>
+        <td><a href="@routes.DepartmentManagement.show(dept.id)">@dept.id</a></td>
+        <td>@dept.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

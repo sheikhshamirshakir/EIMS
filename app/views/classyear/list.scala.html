@@ -1,0 +1,28 @@
+@(classYears: List[models.admission.ClassYear])
+@import helper._
+
+@main("List of Class or Year"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Class or Year Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(classYear <- classYears) {
+      <tr>
+        <td><a href="@routes.ClassYearManagement.show(classYear.id)">@classYear.id</a></td>
+        <td>@classYear.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

@@ -1,0 +1,13 @@
+@(teacherForm: Form[models.admission.Teacher])
+@import helper._
+
+@main("Edit Teacher"){
+  <h2>Update the Teacher having ID @teacherForm.get.id</h2><br/><br/>
+  
+  @form(routes.TeacherManagement.update()) {
+  	  <input type="hidden" name="id" value=@teacherForm.get.id >
+  	  
+      @inputText(teacherForm("name"), '_label->"Teacher Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

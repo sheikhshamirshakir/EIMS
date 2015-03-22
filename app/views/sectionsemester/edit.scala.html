@@ -1,0 +1,13 @@
+@(sectionSemesterForm: Form[models.admission.SectionSemester])
+@import helper._
+
+@main("Edit Section or Semester"){
+  <h2>Update the Section or Semester having ID @sectionSemesterForm.get.id</h2><br/><br/>
+  
+  @form(routes.SectionSemesterManagement.update()) {
+  	  <input type="hidden" name="id" value=@sectionSemesterForm.get.id>
+  	  
+      @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

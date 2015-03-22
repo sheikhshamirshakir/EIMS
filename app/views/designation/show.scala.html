@@ -1,0 +1,14 @@
+@(designation: models.admission.Designation)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@designation.id</td> </tr>
+    <tr> <th >Designation Name</th> <td>@designation.name</td> </tr>
+  </table>
+   
+     @form(routes.DesignationManagement.edit(designation.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

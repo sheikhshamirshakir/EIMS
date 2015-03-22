@@ -1,0 +1,28 @@
+@(sectionSemesters: List[models.admission.SectionSemester])
+@import helper._
+
+@main("List of Section or Semesters"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Section o rSemester Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(sectionSemester <- sectionSemesters) {
+      <tr>
+        <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
+        <td>@sectionSemester.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

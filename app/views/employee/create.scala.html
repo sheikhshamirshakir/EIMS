@@ -1,0 +1,43 @@
+@(employeeForm: Form[dummymodels.DummyEmployee])
+@import helper._
+@import  models.admission.Department
+@import  models.admission.Designation
+@import  models.admission.Category
+
+@main("Employee Entry") {
+	
+       @form(routes.EmployeeManagement.save()) { 
+       		
+       		 
+       		  @inputText(field=employeeForm("employeeName"), args='_label->"Employee Name")
+       		  
+       		  @select(
+		      employeeForm("categoryId"),
+		      options(Category.getCategoriesAsMap),
+		      '_label -> "Category",
+		      '_default -> "-- Choose a Category --"
+		    )
+       		 
+       		 <!--other fields-->
+       		 
+       		  @select(
+		      employeeForm("departmentId"),
+		      options(Department.getDepartmentsAsMap),
+		      '_label -> "Department",
+		      '_default -> "-- Choose a Department --"
+		    )
+		    
+		    @select(
+		      employeeForm("designationId"),
+		      options(Designation.getDesignationsAsMap),
+		      '_label -> "Designation",
+		      '_default -> "-- Choose a Designation --"
+		    )
+       
+       <!--other fields-->
+             
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

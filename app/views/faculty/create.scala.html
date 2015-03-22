@@ -1,0 +1,21 @@
+@(facultyForm: Form[models.admission.Faculty])
+@import models.admission.University
+@import helper._
+
+
+@main("Faculty Entry") {
+
+       @form(routes.FacultyManagement.save()) { 
+       
+	       @select(
+		      facultyForm("university.id"),
+		      options(University.getUnivsAsMap),
+		      '_label -> "University",
+		      '_default -> "-- Choose a University --"
+		    )
+              @inputText(field=facultyForm("name"), args='_label->"Faculty Name")
+               <input type="submit" value="Create">
+            }
+                       
+     }
+

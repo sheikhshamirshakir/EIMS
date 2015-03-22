@@ -1,0 +1,21 @@
+@(designationForm: Form[models.admission.Designation])
+@import helper._
+@import  models.admission.Department
+
+@main("Designation Entry") {
+	
+       @form(routes.DesignationManagement.save()) { 
+       		
+       		 @select(
+		      designationForm("department.id"),
+		      options(Department.getDepartmentsAsMap),
+		      '_label -> "Department",
+		      '_default -> "-- Choose a Department --"
+		    )
+       
+              @inputText(field=designationForm("name"), args='_label->"Designation Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

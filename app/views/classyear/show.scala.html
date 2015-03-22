@@ -1,0 +1,15 @@
+@(classYear: models.admission.ClassYear)
+
+@import helper._
+
+@main("Class or Year"){
+
+  <table>
+    <tr> <th >ID</th> <td>@classYear.id</td> </tr>
+    <tr> <th >Class or Year Name</th> <td>@classYear.name</td> </tr>
+  </table>
+   
+     @form(routes.ClassYearManagement.edit(classYear.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

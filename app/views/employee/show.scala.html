@@ -1,0 +1,17 @@
+@(employee: models.admission.Employee)
+
+@import helper._
+
+@main("Employee"){
+
+  <table>
+    <tr> <th >ID</th> <td>@employee.id</td> </tr>
+    <tr> <th >Employee Name</th> <td>@employee.name</td> </tr>
+  </table>
+   
+     @form(routes.EmployeeManagement.edit(employee.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
+
+     

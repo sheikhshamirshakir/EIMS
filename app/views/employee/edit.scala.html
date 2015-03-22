@@ -1,0 +1,13 @@
+@(employeeForm: Form[models.admission.Employee])
+@import helper._
+
+@main("Edit Employee"){
+  <h2>Update the Employee having ID @employeeForm.get.id</h2><br/><br/>
+  
+  @form(routes.EmployeeManagement.update()) {
+  	  <input type="hidden" name="id" value=@employeeForm.get.id >
+  	  
+      @inputText(employeeForm("name"), '_label->"Employee Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

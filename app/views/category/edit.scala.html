@@ -1,0 +1,13 @@
+@(categoryForm: Form[models.admission.Category])
+@import helper._
+
+@main("Edit Category"){
+  <h2>Update the Category having ID @categoryForm.get.id</h2><br/><br/>
+  
+  @form(routes.CategoryManagement.update()) {
+  	  <input type="hidden" name="id" value=@categoryForm.get.id >
+  	  
+      @inputText(categoryForm("name"), '_label->"Category Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

@@ -1,0 +1,13 @@
+@(degreeForm: Form[models.admission.Degree])
+@import helper._
+
+@main("Edit Degree"){
+  <h2>Update the Degree having ID @degreeForm.get.id</h2><br/><br/>
+  
+  @form(routes.DegreeManagement.update()) {
+  	  <input type="hidden" name="id" value=@degreeForm.get.id >
+  	  
+      @inputText(degreeForm("name"), '_label->"Degree Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

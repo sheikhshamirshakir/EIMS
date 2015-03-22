@@ -1,0 +1,21 @@
+@(classYearForm: Form[models.admission.ClassYear])
+@import helper._
+@import  models.admission.Degree
+
+@main("Class Or Year Entry") {
+	
+       @form(routes.ClassYearManagement.save()) { 
+       		
+       		  @select(
+		      classYearForm("degree.id"),
+		      options(Degree.getDegreesAsMap),
+		      '_label -> "Degree",
+		      '_default -> "-- Choose a Degree --"
+		    )
+       
+              @inputText(field=classYearForm("name"), args='_label->"Class or Year Name")
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

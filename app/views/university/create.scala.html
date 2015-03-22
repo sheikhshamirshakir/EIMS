@@ -1,0 +1,13 @@
+@(universityForm: Form[models.admission.University])
+@import helper._
+
+
+@main("University Entry") {
+
+       @form(routes.UniversityManagement.save()) { 
+              @inputText(field=universityForm("name"), args='_label->"University Name")
+             	<input type="submit" value="Create">
+            }
+                       
+     }
+

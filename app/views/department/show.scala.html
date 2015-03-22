@@ -1,0 +1,14 @@
+@(department: models.admission.Department)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@department.id</td> </tr>
+    <tr> <th >Department Name</th> <td>@department.name</td> </tr>
+  </table>
+   
+     @form(routes.DepartmentManagement.edit(department.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+  		}

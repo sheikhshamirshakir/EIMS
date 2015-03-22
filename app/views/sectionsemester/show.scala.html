@@ -1,0 +1,14 @@
+@(sectionSemester: models.admission.SectionSemester)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@sectionSemester.id</td> </tr>
+    <tr> <th >Section or Semester Name</th> <td>@sectionSemester.name</td> </tr>
+  </table>
+   
+     @form(routes.SectionSemesterManagement.edit(sectionSemester.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
