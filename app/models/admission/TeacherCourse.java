@@ -26,7 +26,7 @@ public class TeacherCourse extends Model{
 	
 	
     @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    @JoinColumn(name = "teacher_id", referencedColumnName = "tid")
     public Teacher teacher;
 	  
 	@ManyToOne
@@ -58,7 +58,7 @@ public class TeacherCourse extends Model{
     
     
 	public static List<Long> findCourseIdsByTeacherId(Long id) {
-		List<TeacherCourse> teacherCourses = TeacherCourse.find.where().eq("teacher.id", id).findList();
+		List<TeacherCourse> teacherCourses = TeacherCourse.find.where().eq("teacher.tid", id).findList();
 		ArrayList<Long> courses = new ArrayList<Long>(teacherCourses.size());
 		for (int i = 0; i < teacherCourses.size(); i++) {
 			courses.add(teacherCourses.get(i).course.id);
@@ -68,7 +68,7 @@ public class TeacherCourse extends Model{
 	
     
 	public static void deleteTeacherCourseByTeacher(Long id) {
-		List<TeacherCourse> teacherCourses =TeacherCourse.find.where().eq("teacher.id", id).findList();
+		List<TeacherCourse> teacherCourses =TeacherCourse.find.where().eq("teacher.tid", id).findList();
 
 		for (TeacherCourse tc : teacherCourses) {
 			tc.delete();

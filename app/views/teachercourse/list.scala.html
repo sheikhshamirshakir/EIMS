@@ -14,7 +14,7 @@
     @for(teacherCourse <- teacherCourses) {
       <tr>
         <td><a href="@routes.TeacherCourseManagement.show(teacherCourse.id)">@teacherCourse.id</a></td>
-        <td>@teacherCourse.teacher.toString</td>
+        <td>@teacherCourse.teacher.name</td>
         <td>@teacherCourse.course.name</td>
       </tr>
     }

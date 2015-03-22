@@ -2,14 +2,18 @@ package models.admission;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
+@Entity
+@Table (name="teachers_qualifications")
 public class TeacherQualifications extends Model {
 
-	
+	@Id
 	public Long id;
 	
 	public String SSCSession;
@@ -31,6 +35,8 @@ public class TeacherQualifications extends Model {
 	public String PHDYear;
 	public String PHDTopics;
     public String PHDUniv;
+    
+    public Long employeeId;
     
     
 public static Finder<Long,TeacherQualifications> find =  new Finder(Long.class, TeacherQualifications.class);
