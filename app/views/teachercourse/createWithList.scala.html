@@ -1,0 +1,23 @@
+@(teacherCourseForm: Form[dummymodels.DummyTeacherCourse])
+@import models.admission.Course
+@import models.admission.Teacher
+@import helper._
+
+@main(""){
+
+  <h2>Assign Course to a Teacher</h2><br/><br/>
+
+  @form(routes.TeacherCourseManagement.createWithTeacher()){
+    @select(teacherCourseForm("teacherId"),
+      options(Teacher.getTeachersAsMap),
+       '_label -> "Teacher", '_id -> "id", '_default -> "-- Choose a Teacher --",
+       '_showConstraints -> false
+    )
+       <br/>
+        <input type="submit" value="Assigned Course to this Teacher">
+       }
+
+
+}
+
+

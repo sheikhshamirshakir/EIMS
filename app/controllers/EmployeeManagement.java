@@ -27,7 +27,7 @@ public class EmployeeManagement extends Controller{
 	static Form<Employee> employeeForm = Form.form(Employee.class);
 	
 	 public static Result create() {
-	        return ok(create.render(employeeForm));
+	        return ok(create.render(dEmployeeForm));
 	    }
 	 
 	 public static Result save() {
@@ -35,11 +35,8 @@ public class EmployeeManagement extends Controller{
 		 DummyEmployee dEmployee = filledForm.get();
 		 Employee employee = new Employee();
 		 
-		 
 		 employee.name = dEmployee.employeeName;
 		 employee.category = Category.findById(Long.parseLong(dEmployee.categoryId));
-		 
-		 
 		 
 		 employee.gender = dEmployee.gender;
 		 employee.dateOfBirth = dEmployee.dateOfBirth;
@@ -47,7 +44,7 @@ public class EmployeeManagement extends Controller{
 		 employee.joiningDate=dEmployee.joiningDate;
 		 
 		 Long id = Employee.create(employee);
-		 
+		 System.out.println("................."+id);
 		 Teacher teacher =new Teacher();
    		 teacher.department=Department.findById(Long.parseLong(dEmployee.departmentId));
 		 teacher.designation=Designation.findById(Long.parseLong(dEmployee.designationId));
@@ -63,6 +60,7 @@ public class EmployeeManagement extends Controller{
 				//education qualification
 				//ssc,hsc,hons,masters,gpa/grade
 			
+		 teacherQualifications.id=id;
 				//ssc
 		 teacherQualifications.SSCSession = dEmployee.SSCSession;
 		 teacherQualifications.SSCResult= dEmployee.SSCResult;

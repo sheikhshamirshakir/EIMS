@@ -65,6 +65,15 @@ public class Teacher extends Model {
 		return teacher;
 	}
 	
+	 public static Map<String,String> getTeachersAsMap() {
+	        LinkedHashMap<String,String> teachers = new LinkedHashMap<String,String>();
+	        for(Teacher teacher: Teacher.find.orderBy("name").findList()) {
+	        	teachers.put(teacher.id.toString(), teacher.name);
+	        }
+	        
+	        return teachers;
+	    }
+	
 	    
 	
 }

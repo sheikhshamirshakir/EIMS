@@ -118,3 +118,14 @@ GET		/course/show/:id						 controllers.CourseManagement.show(id: Long)
 GET		/course/edit/:id						 controllers.CourseManagement.edit(id: Long)
 POST	/course/edit							 controllers.CourseManagement.update()
 GET	    /course/delete/:id					   	 controllers.CourseManagement.delete(id: Long)
+
+
+#TeacherCourse , Assign Courses to a teacher
+
+GET	   /teacher-course/create-with-teacher		        controllers.TeacherCourseManagement.createWithTeacher(teacherId ?= "1")
+GET		/teacher-course/create						controllers.TeacherCourseManagement.create()
+POST	/teacher-course/create						controllers.TeacherCourseManagement.insert()
+GET		/teacher-course/list						controllers.TeacherCourseManagement.list()
+GET		/teacher-course/show/:id					controllers.TeacherCourseManagement.show(id: Long)
+GET		/teacher-course/edit/:id					controllers.TeacherCourseManagement.edit(id: Long)
+POST	/teacher-course/edit						controllers.TeacherCourseManagement.update()

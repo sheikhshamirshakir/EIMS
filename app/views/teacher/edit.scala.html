@@ -1,13 +1,13 @@
-@(employeeForm: Form[models.admission.Employee])
+@(teacherForm: Form[models.admission.Teacher])
 @import helper._
 
-@main("Edit Employee"){
-  <h2>Update the Employee having ID @employeeForm.get.id</h2><br/><br/>
+@main("Edit Teacher"){
+  <h2>Update the Teacher having ID @teacherForm.get.id</h2><br/><br/>
   
-  @form(routes.EmployeeManagement.update()) {
-  	  <input type="hidden" name="id" value=@employeeForm.get.id >
+  @form(routes.TeacherManagement.update()) {
+  	  <input type="hidden" name="id" value=@teacherForm.get.id >
   	  
-      @inputText(employeeForm("name"), '_label->"Employee Name")</tr>
+      @inputText(teacherForm("name"), '_label->"Teacher Name")</tr>
 	  <input type="submit" value="Update">
   }
 }

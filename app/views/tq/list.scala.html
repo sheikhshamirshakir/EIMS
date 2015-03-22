@@ -12,14 +12,14 @@
   <thead>
     <tr>
        <th>ID</th>
-       <th>Teacher Name</th>
+       <th>TQ Name</th>
      </tr>
    </thead>
     <tbody>
     @for(tq <- tqs) {
       <tr>
         <td><a href="@routes.TQManagement.show(tq.id)">@tq.id</a></td>
-        <td>@tq.name</td>
+        <td>@tq.id</td>
       </tr> 
     }
  </tbody>

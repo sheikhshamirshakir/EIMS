@@ -1,0 +1,33 @@
+@(teacherCourseForm: Form[models.admission.TeacherCourse])
+@import models.admission.Teacher
+@import models.admission.Course
+@import helper._
+
+@main(""){
+
+
+   <h2>Update the Teacher's assigned Courses information having Id @teacherCourseForm.get.id</h2><br/><br/>
+
+@form(routes.TeacherCourseManagement.update()) {
+
+<input type="hidden" name="id" value=teacherCourseForm>
+
+@select(teacherCourseForm("teacher.id"),
+options(Teacher.getTeachersAsMap),
+'_label -> "Teacher", '_default -> "-- Choose a Teacher --",
+'_showConstraints -> false
+)
+
+<br/>
+@select(teacherCourseForm("course.id"),
+options(Course.getCoursesAsMap),
+'_label -> "Course",
+'_showConstraints -> false
+)
+<br/>
+
+<input type="submit" value="Save">
+
+}
+   
+}
