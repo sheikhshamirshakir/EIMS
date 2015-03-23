@@ -2,10 +2,10 @@
 @import helper._
 
 @main("Edit Teacher"){
-  <h2>Update the Teacher having ID @teacherForm.get.id</h2><br/><br/>
+  <h2>Update the Teacher having ID @teacherForm.get.tid</h2><br/><br/>
   
   @form(routes.TeacherManagement.update()) {
-  	  <input type="hidden" name="id" value=@teacherForm.get.id >
+  	  <input type="hidden" name="id" value=@teacherForm.get.tid >
   	  
       @inputText(teacherForm("name"), '_label->"Teacher Name")</tr>
 	  <input type="submit" value="Update">

@@ -25,7 +25,8 @@ import play.db.ebean.Model;
 @Table (name="Teacher")
 public class Teacher extends Model {
 	
-    public Long id;
+	@Id
+    public Long tid;
     
     public String name;
 	
@@ -36,6 +37,8 @@ public class Teacher extends Model {
     @ManyToOne
     @JoinColumn(name = "designation_id", referencedColumnName = "id")
     public Designation designation;
+    
+    public Long employeeId;
     
 //	public String department;
 //	public String designation;
@@ -68,7 +71,7 @@ public class Teacher extends Model {
 	 public static Map<String,String> getTeachersAsMap() {
 	        LinkedHashMap<String,String> teachers = new LinkedHashMap<String,String>();
 	        for(Teacher teacher: Teacher.find.orderBy("name").findList()) {
-	        	teachers.put(teacher.id.toString(), teacher.name);
+	        	teachers.put(teacher.tid.toString(), teacher.name);
 	        }
 	        
 	        return teachers;

@@ -5,11 +5,11 @@
 @main("Teacher"){
 
   <table>
-    <tr> <th >ID</th> <td>@teacher.id</td> </tr>
+    <tr> <th >ID</th> <td>@teacher.tid</td> </tr>
     <tr> <th >Teacher Name</th> <td>@teacher.name</td> </tr>
   </table>
    
-     @form(routes.TeacherManagement.edit(teacher.id)) {
+     @form(routes.TeacherManagement.edit(teacher.tid)) {
 		    <input type="submit" value="Edit">
   		  }
      }

@@ -43,14 +43,18 @@ public class EmployeeManagement extends Controller{
 		 employee.employeeType = dEmployee.employeeType;
 		 employee.joiningDate=dEmployee.joiningDate;
 		 
-		 Long id = Employee.create(employee);
-		 System.out.println("................."+id);
+		 Employee.create(employee);
+		 
+		 
+		 Long id = Employee.findLastId();
+		 System.out.println("........id........."+id);
+		 
 		 Teacher teacher =new Teacher();
    		 teacher.department=Department.findById(Long.parseLong(dEmployee.departmentId));
 		 teacher.designation=Designation.findById(Long.parseLong(dEmployee.designationId));
 		 teacher.name=dEmployee.employeeName;
 		 
-		 teacher.id = id;
+		 teacher.employeeId = id;
 		 Teacher.create(teacher);
 		
 		 TeacherQualifications teacherQualifications = new TeacherQualifications();
@@ -60,7 +64,7 @@ public class EmployeeManagement extends Controller{
 				//education qualification
 				//ssc,hsc,hons,masters,gpa/grade
 			
-		 teacherQualifications.id=id;
+		 teacherQualifications.employeeId=id;
 				//ssc
 		 teacherQualifications.SSCSession = dEmployee.SSCSession;
 		 teacherQualifications.SSCResult= dEmployee.SSCResult;

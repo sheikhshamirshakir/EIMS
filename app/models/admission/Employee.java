@@ -48,9 +48,14 @@ public class Employee extends Model {
 		return find.all();
 	}
 	
-	public static Long create(Employee employee){
+	public static void create(Employee employee){
 		employee.save();
-		return employee.id;
+		
+	}
+	
+	public static Long findLastId(){
+		List<Employee>emps =  Employee.find.where().orderBy("id Desc").findList();
+		return emps.get(0).id;
 	}
 	
 	public static void update(Employee employee){
