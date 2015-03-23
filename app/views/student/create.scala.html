@@ -1,0 +1,65 @@
+@(studentForm: Form[dummymodels.DummyStudent])
+@import helper._
+@import  models.admission.Department
+@import  models.admission.Designation
+@import  models.admission.Category
+
+@main("Student Entry") {
+	
+       @form(routes.StudentManagement.save()) { 
+       		
+       		 
+       		  @inputText(field=studentForm("name"), args='_label->"Student Name")
+       		  
+       		  @select(
+		      studentForm("categoryId"),
+		      options(Category.getCategoriesAsMap),
+		      '_label -> "Category",
+		      '_default -> "-- Choose a Category --"
+		    )
+       		 
+       		 <!--other fields-->
+       		 
+       		  @select(
+		      studentForm("departmentId"),
+		      options(Department.getDepartmentsAsMap),
+		      '_label -> "Department",
+		      '_default -> "-- Choose a Department --"
+		    )
+		    
+		    @select(
+		      studentForm("degreeId"),
+		      options(Degree.getDegreesAsMap),
+		      '_label -> "Degree",
+		      '_default -> "-- Choose a Degree --"
+		    )
+		    
+		    @select(
+		      studentForm("classId"),
+		      options(ClassYear.getgetClassYearsAsMap),
+		      '_label -> "Class or Year",
+		      '_default -> "-- Choose a Class --"
+		    )
+		    
+		       
+		    @select(
+		      studentForm("sectionId"),
+		      options(SectionSemester.getSectionSemestersAsMap),
+		      '_label -> "Class or Section",
+		      '_default -> "-- Choose a Section --"
+		    )
+       
+        @inputText(field=studentForm("parentName"), args='_label->"Parent Name")
+        
+        @inputText(field=studentForm("parentPhone"), args='_label->"Parent Phone")
+        
+        @inputText(field=studentForm("parentEmail"), args='_label->"Parent Email")
+
+       
+       <!--other fields-->
+             
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

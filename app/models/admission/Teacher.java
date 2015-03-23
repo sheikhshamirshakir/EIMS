@@ -14,12 +14,6 @@ import javax.persistence.Table;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
   
-/*
- * 
- * AUTHOR: SHAON   
- * CREATE DATE: 10th MARCH 2015
- * 
- */
 
 @Entity
 @Table (name="Teacher")

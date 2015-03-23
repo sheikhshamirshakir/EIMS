@@ -1,0 +1,17 @@
+@(student: models.admission.Student)
+
+@import helper._
+
+@main("Student"){
+
+  <table>
+    <tr> <th >ID</th> <td>@student.sid</td> </tr>
+    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
+  </table>
+   
+     @form(routes.StudentManagement.edit(student.sid)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
+
+     

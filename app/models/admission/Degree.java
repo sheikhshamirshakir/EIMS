@@ -32,6 +32,10 @@ public class Degree extends Model{
     @ManyToOne
     @JoinColumn(name = "dept_id", referencedColumnName = "id")
     public Department department;
+    
+    @OneToMany(mappedBy = "degree")
+    public List<Student> students;
+    
 
 	public static Finder<Long, Degree> find = new Finder(Long.class, Degree.class);
 

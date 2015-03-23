@@ -1,0 +1,17 @@
+@(parent: models.admission.Parent)
+
+@import helper._
+
+@main("Parent"){
+
+  <table>
+    <tr> <th >ID</th> <td>@parent.pid</td> </tr>
+    <tr> <th >Parent Name</th> <td>@parent.name</td> </tr>
+  </table>
+   
+     @form(routes.ParentManagement.edit(parent.pid)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }
+
+     

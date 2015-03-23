@@ -1,0 +1,28 @@
+@(parents: List[models.admission.Parent])
+@import helper._
+
+@main("List of Parents"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Parent Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(parent <- parents) {
+      <tr>
+        <td><a href="@routes.ParentManagement.show(parent.tid)">@parent.pid</a></td>
+        <td>@parent.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

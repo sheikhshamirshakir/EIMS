@@ -1,6 +1,8 @@
 package models.admission;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,6 +32,10 @@ public class SectionSemester extends Model{
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     public ClassYear classYear;
 
+    
+	@OneToMany(mappedBy = "sectionSemester")
+    public List<Student> students;
+    
 	public static Finder<Long, SectionSemester> find = new Finder(Long.class, SectionSemester.class);
 
     public static List<SectionSemester> all() {
@@ -52,5 +58,16 @@ public class SectionSemester extends Model{
     	delete(id);
     }
     
+    
+	
+	 public static Map<String,String> getSectionSemestersAsMap() {
+	        LinkedHashMap<String,String> sectionSemesters = new LinkedHashMap<String,String>();
+	        for(SectionSemester sectionSemester: SectionSemester.find.orderBy("name").findList()) {
+	        	sectionSemesters.put(sectionSemester.id.toString(), sectionSemester.name);
+	        }
+	        
+	        return sectionSemesters;
+	    }
+	    
 
 }

@@ -1,0 +1,28 @@
+@(students: List[models.admission.Student])
+@import helper._
+
+@main("List of Students"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Student Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(student <- students) {
+      <tr>
+        <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
+        <td>@student.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      
