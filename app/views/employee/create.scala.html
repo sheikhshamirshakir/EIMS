@@ -10,6 +10,7 @@
        		
        		 
        		  @inputText(field=employeeForm("employeeName"), args='_label->"Employee Name")
+       		 
        		  
        		  @select(
 		      employeeForm("categoryId"),
@@ -34,6 +35,22 @@
 		      '_default -> "-- Choose a Designation --"
 		    )
        
+       		 @inputText(field=employeeForm("fathersName"), args='_label->"Fathers Name")
+       		  @inputText(field=employeeForm("mothersName"), args='_label->"Mothers Name")
+       		  @inputText(field=employeeForm("presentAddress"), args='_label->"Present Address")
+       		  @inputText(field=employeeForm("permanentAddress"), args='_label->"Permanent Address")
+       		  @inputText(field=employeeForm("placeOfBirth"), args='_label->"Place Of Birth")
+       		  @inputText(field=employeeForm("natIdNo"), args='_label->"National Id No")
+       		  @inputText(field=employeeForm("birthCertNo"), args='_label->"Birth Certificate No")
+       		  @inputText(field=employeeForm("tin"), args='_label->"TIN")
+       		  @inputText(field=employeeForm("nationality"), args='_label->"Nationality")
+       		  @inputText(field=employeeForm("religion"), args='_label->"Religion")
+       		  @inputText(field=employeeForm("bloodGroup"), args='_label->"Blood Group")
+       		  @inputText(field=employeeForm("maritalStat"), args='_label->"Marital Status")
+       		  @inputText(field=employeeForm("spouseName"), args='_label->"Spouse Name")
+       		  @inputText(field=employeeForm("noOfChild"), args='_label->"No Of Child")
+       		  
+       		  
        <!--other fields-->
              
               <input type="submit" value="Create">

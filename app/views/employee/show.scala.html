@@ -7,6 +7,23 @@
   <table>
     <tr> <th >ID</th> <td>@employee.id</td> </tr>
     <tr> <th >Employee Name</th> <td>@employee.name</td> </tr>
+    
+   <tr> <th>Fathers Name</th> <td>@employee.fathersName</td> </tr>
+   <tr>    <th>Mothers Name</th><td>@employee.mothersName</td> </tr>
+    <tr>   <th>Present Address</th> <td>@employee.presentAddress</td></tr>
+      <tr> <th>Permanent Address</th>  <td>@employee.permanentAddress</td> </tr>
+       <tr><th>Place Of Birth</th> <td>@employee.placeOfBirth</td> </tr>
+       <tr><th>National Id No</th> <td>@employee.natIdNo</td> </tr>
+       <tr><th>Birth Certificate No</th> <td>@employee.birthCertNo</td> </tr>
+       <tr><th>TIN</th> <td>@employee.tin</td></tr>
+       <tr><th>Nationality</th> <td>@employee.nationality</td> </tr>
+       <tr><th>Religion</th>   <td>@employee.religion</td></tr>
+       <tr><th>Blood Group</th> <td>@employee.bloodGroup</td> </tr>
+       <tr><th>Marital Status</th><td>@employee.maritalStat</td> </tr>
+       <tr><th>Spouse Name</th><td>@employee.spouseName</td> </tr>
+       <tr><th>No Of Child</th><td>@employee.noOfChild</td> </tr>
+    
+    
   </table>
    
      @form(routes.EmployeeManagement.edit(employee.id)) {

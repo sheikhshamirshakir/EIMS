@@ -26,7 +26,11 @@ public class University extends Model {
     public Long id;
 	
 	public String name;
-	
+	public String email;
+	public String address;
+	public String personDetails;
+	public String contactNo;
+	    
     @OneToMany(mappedBy = "university")
     public List<Faculty> faculties;  // TOREAD;
     

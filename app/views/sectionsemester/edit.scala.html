@@ -7,7 +7,8 @@
   @form(routes.SectionSemesterManagement.update()) {
   	  <input type="hidden" name="id" value=@sectionSemesterForm.get.id>
   	  
-      @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")</tr>
+      @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")
+      @inputText(sectionSemesterForm("code"), '_label->"Section or Semester Code")
 	  <input type="submit" value="Update">
   }
 }

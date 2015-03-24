@@ -27,6 +27,21 @@ public class DummyEmployee {
 	//employee_type
 	  public String employeeType;
 	
+	  public String fathersName;
+	  public String mothersName;
+	  public String presentAddress;
+	  public String permanentAddress;
+	  public String placeOfBirth;
+	  public String natIdNo;
+	  public String birthCertNo;
+	  public String tin;
+	  public String nationality;
+	  public String religion;
+	  public String bloodGroup;
+	  public String maritalStat;
+	  public String spouseName;
+	  public String noOfChild;
+	  
 	
 	//Teacher info
 		//department

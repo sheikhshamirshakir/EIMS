@@ -5,10 +5,13 @@
 
   <table>
     <tr> <th >ID</th> <td>@university.id</td> </tr>
-    <tr> <th >Faculty Name</th> <td>@university.name</td> </tr>
+    <tr> <th >University Name</th> <td>@university.name</td> </tr>
+    <tr> <th >University Email</th> <td>@university.email</td> </tr>
+    <tr> <th >University Address</th> <td>@university.address</td> </tr>
+    <tr> <th >University Person Details</th> <td>@university.personDetails</td> </tr>
+    <tr> <th >University Contact No</th> <td>@university.contactNo</td> </tr>
   </table>
-   
-     @form(routes.UniversityManagement.edit(university.id)) {
+ 	 @form(routes.UniversityManagement.edit(university.id)) {
 		    <input type="submit" value="Edit">
   		  }
   		}

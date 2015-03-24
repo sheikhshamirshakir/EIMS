@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import models.admission.Category;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
   
@@ -41,6 +42,22 @@ public class Employee extends Model {
 	
 	//employee_type
 	  public String employeeType;
+	  
+	  public String fathersName;
+	  public String mothersName;
+	  public String presentAddress;
+	  public String permanentAddress;
+	  public String placeOfBirth;
+	  public String natIdNo;
+	  public String birthCertNo;
+	  public String tin;
+	  public String nationality;
+	  public String religion;
+	  public String bloodGroup;
+	  public String maritalStat;
+	  public String spouseName;
+	  public String noOfChild;
+		
     
 	public static Finder<Long,Employee> find =  new Finder(Long.class, Employee.class);
 	

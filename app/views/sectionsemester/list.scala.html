@@ -12,7 +12,8 @@
   <thead>
     <tr>
        <th>ID</th>
-       <th>Section o rSemester Name</th>
+       <th>Section or Semester Name</th>
+       <th>Section or Semester Code</th>
      </tr>
    </thead>
     <tbody>
@@ -20,6 +21,7 @@
       <tr>
         <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
         <td>@sectionSemester.name</td>
+        <td>@sectionSemester.code</td>
       </tr> 
     }
  </tbody>

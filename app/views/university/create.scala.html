@@ -6,6 +6,10 @@
 
        @form(routes.UniversityManagement.save()) { 
               @inputText(field=universityForm("name"), args='_label->"University Name")
+              @inputText(field=universityForm("email"), args='_label->"University Email")
+              @inputText(field=universityForm("address"), args='_label->"University Address")
+              @inputText(field=universityForm("personDetails"), args='_label->"University Person Details")
+              @inputText(field=universityForm("contactNo"), args='_label->"University Contact No")
              	<input type="submit" value="Create">
             }
                        

@@ -8,6 +8,22 @@
   	  <input type="hidden" name="id" value=@employeeForm.get.id >
   	  
       @inputText(employeeForm("name"), '_label->"Employee Name")</tr>
+      
+      @inputText(field=employeeForm("fathersName"), '_label->"Fathers Name")
+	  @inputText(field=employeeForm("mothersName"), '_label->"Mothers Name")
+	  @inputText(field=employeeForm("presentAddress"), '_label->"Present Address")
+	  @inputText(field=employeeForm("permanentAddress"), '_label->"Permanent Address")
+	  @inputText(field=employeeForm("placeOfBirth"), '_label->"Place Of Birth")
+	  @inputText(field=employeeForm("natIdNo"), '_label->"National Id No")
+	  @inputText(field=employeeForm("birthCertNo"), '_label->"Birth Certificate No")
+	  @inputText(field=employeeForm("tin"), '_label->"TIN")
+	  @inputText(field=employeeForm("nationality"), '_label->"Nationality")
+	  @inputText(field=employeeForm("religion"), '_label->"Religion")
+	  @inputText(field=employeeForm("bloodGroup"), '_label->"Blood Group")
+	  @inputText(field=employeeForm("maritalStat"), '_label->"Marital Status")
+	  @inputText(field=employeeForm("spouseName"), '_label->"Spouse Name")
+	  @inputText(field=employeeForm("noOfChild"), '_label->"No Of Child")
+	  
 	  <input type="submit" value="Update">
   }
 }

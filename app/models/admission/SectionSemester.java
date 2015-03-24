@@ -27,7 +27,8 @@ public class SectionSemester extends Model{
 	@Required
 	public String name;
 	
-
+	public String code;
+	
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     public ClassYear classYear;
