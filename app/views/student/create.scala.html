@@ -3,6 +3,9 @@
 @import  models.admission.Department
 @import  models.admission.Designation
 @import  models.admission.Category
+@import  models.admission.Degree
+@import  models.admission.ClassYear
+@import  models.admission.SectionSemester
 
 @main("Student Entry") {
 	
@@ -36,7 +39,7 @@
 		    
 		    @select(
 		      studentForm("classId"),
-		      options(ClassYear.getgetClassYearsAsMap),
+		      options(ClassYear.getClassYearsAsMap),
 		      '_label -> "Class or Year",
 		      '_default -> "-- Choose a Class --"
 		    )

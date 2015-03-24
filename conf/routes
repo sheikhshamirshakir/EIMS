@@ -121,7 +121,6 @@ GET	    /course/delete/:id					   	 controllers.CourseManagement.delete(id: Long
 
 
 #TeacherCourse , Assign Courses to a teacher
-
 GET	   /teacher-course/create-with-teacher		        controllers.TeacherCourseManagement.createWithTeacher(teacherId ?= "1")
 GET		/teacher-course/create						controllers.TeacherCourseManagement.create()
 POST	/teacher-course/create						controllers.TeacherCourseManagement.insert()
@@ -129,3 +128,21 @@ GET		/teacher-course/list						controllers.TeacherCourseManagement.list()
 GET		/teacher-course/show/:id					controllers.TeacherCourseManagement.show(id: Long)
 GET		/teacher-course/edit/:id					controllers.TeacherCourseManagement.edit(id: Long)
 POST	/teacher-course/edit						controllers.TeacherCourseManagement.update()
+
+
+#Student
+GET		/student/create						     controllers.StudentManagement.create()
+POST	/student/create						     controllers.StudentManagement.save()
+GET		/student/list							 controllers.StudentManagement.list()
+GET		/student/show/:id						 controllers.StudentManagement.show(id: Long)
+GET		/student/edit/:id						 controllers.StudentManagement.edit(id: Long)
+POST	/student/edit							 controllers.StudentManagement.update()
+GET	    /student/delete/:id					   	 controllers.StudentManagement.delete(id: Long)
+
+
+#Parent
+GET		/parent/list							 controllers.ParentManagement.list()
+GET		/parent/show/:id						 controllers.ParentManagement.show(id: Long)
+GET		/parent/edit/:id						 controllers.ParentManagement.edit(id: Long)
+POST	/parent/edit							 controllers.ParentManagement.update()
+GET	    /parent/delete/:id					   	 controllers.ParentManagement.delete(id: Long)

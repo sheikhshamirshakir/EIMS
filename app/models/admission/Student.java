@@ -77,7 +77,7 @@ public class Student extends Model {
 	 public static Map<String,String> getStudentsAsMap() {
 	        LinkedHashMap<String,String> students = new LinkedHashMap<String,String>();
 	        for(Student student: Student.find.orderBy("name").findList()) {
-	        	students.put(student.tid.toString(), student.name);
+	        	students.put(student.sid.toString(), student.name);
 	        }
 	        
 	        return students;

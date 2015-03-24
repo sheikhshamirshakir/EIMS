@@ -2,7 +2,7 @@
 @import helper._
 
 @main("Edit Student"){
-  <h2>Update the Student having ID @studentForm.get.id</h2><br/><br/>
+  <h2>Update the Student having ID @studentForm.get.sid</h2><br/><br/>
   
   @form(routes.StudentManagement.update()) {
   	  <input type="hidden" name="id" value=@studentForm.get.sid >
