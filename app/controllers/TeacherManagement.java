@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import models.admission.Department;
+import models.admission.Employee;
 import models.admission.Teacher;
 import play.data.Form;
 import play.mvc.Controller;
@@ -70,6 +71,14 @@ public class TeacherManagement extends Controller{
 			} else {
 			
 			Teacher teacher = filledForm.get();
+			
+			Long teacherId = teacher.tid;
+			Teacher teacher2 = Teacher.findById(teacherId);
+			Employee employee = Employee.findById(teacher2.employeeId);
+			employee.name = teacher.name;
+			Employee.update(employee);
+			
+			
 			Teacher.update(teacher);
 			return ok(list.render(Teacher.all()));
 			}

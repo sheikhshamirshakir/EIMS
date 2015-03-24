@@ -133,6 +133,13 @@ public class EmployeeManagement extends Controller{
 			} else {
 			
 			Employee employee = filledForm.get();
+			
+			
+			Long employeeId = employee.id;
+			Teacher teacher = Teacher.findByEmployeeId(employeeId);
+			teacher.name= employee.name;
+			Teacher.update(teacher);
+			
 			Employee.update(employee);
 			return ok(list.render(Employee.all()));
 			}
