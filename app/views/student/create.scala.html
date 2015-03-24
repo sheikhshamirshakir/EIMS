@@ -14,15 +14,7 @@
        		 
        		  @inputText(field=studentForm("name"), args='_label->"Student Name")
        		  
-       		  @select(
-		      studentForm("categoryId"),
-		      options(Category.getCategoriesAsMap),
-		      '_label -> "Category",
-		      '_default -> "-- Choose a Category --"
-		    )
-       		 
-       		 <!--other fields-->
-       		 
+             		 
        		  @select(
 		      studentForm("departmentId"),
 		      options(Department.getDepartmentsAsMap),
