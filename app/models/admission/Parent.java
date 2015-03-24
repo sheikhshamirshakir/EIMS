@@ -20,6 +20,7 @@ import play.db.ebean.Model;
 @Table (name="parent")
 public class Parent extends Model {
 	
+	@Id
     public Long pid;
     
     public String name;
