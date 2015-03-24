@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import models.admission.Department;
+import models.admission.Designation;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
   
@@ -61,7 +63,10 @@ public class Teacher extends Model {
 			
 		return teacher;
 	}
-	
+	public static Teacher findByEmployeeId(Long id){
+		
+		return find.where().eq("employeeId", id).findUnique();
+	}
 	 public static Map<String,String> getTeachersAsMap() {
 	        LinkedHashMap<String,String> teachers = new LinkedHashMap<String,String>();
 	        for(Teacher teacher: Teacher.find.orderBy("name").findList()) {
