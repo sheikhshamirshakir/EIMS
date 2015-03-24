@@ -5,7 +5,7 @@
   <h2>Update the Teacher having ID @teacherForm.get.tid</h2><br/><br/>
   
   @form(routes.TeacherManagement.update()) {
-  	  <input type="hidden" name="id" value=@teacherForm.get.tid >
+  	  <input type="hidden" name="tid" value=@teacherForm.get.tid >
   	  
       @inputText(teacherForm("name"), '_label->"Teacher Name")</tr>
 	  <input type="submit" value="Update">
