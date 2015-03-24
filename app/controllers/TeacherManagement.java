@@ -76,6 +76,7 @@ public class TeacherManagement extends Controller{
 			Teacher teacher2 = Teacher.findById(teacherId);
 			Employee employee = Employee.findById(teacher2.employeeId);
 			employee.name = teacher.name;
+			
 			Employee.update(employee);
 			
 			

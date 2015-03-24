@@ -140,6 +140,7 @@ public class EmployeeManagement extends Controller{
 			teacher.name= employee.name;
 			Teacher.update(teacher);
 			
+			
 			Employee.update(employee);
 			return ok(list.render(Employee.all()));
 			}
