@@ -54,6 +54,7 @@ public class TeacherCourseManagement extends Controller{
 			String[] courses = reqBody.get("courseId");
 			Teacher teacher = Teacher.findById(dtc.teacherId);
 
+			if(courses!=null){
 			for (String c : courses) {
 				Long courseId = Long.parseLong(c);
 				TeacherCourse teacherCourse = new TeacherCourse();
@@ -61,6 +62,9 @@ public class TeacherCourseManagement extends Controller{
 				teacherCourse.course = Course.findById(courseId);
 				TeacherCourse.create(teacherCourse);
 			}
+			}
+			
+			
 		}
 		return redirect(routes.TeacherCourseManagement.list());
 	}

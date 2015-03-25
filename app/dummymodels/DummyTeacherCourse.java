@@ -11,9 +11,9 @@ public class DummyTeacherCourse {
 	@Id
 	public Long id;
 
-    @Required
+    
     public Long teacherId;
 
-    @Required
+    
     public List<String> courseId;
 }

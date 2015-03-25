@@ -54,12 +54,14 @@ public class StudentCourseManagement extends Controller{
 			String[] courses = reqBody.get("courseId");
 			Student student = Student.findById(dtc.studentId);
 
+			if(courses!=null){
 			for (String c : courses) {
 				Long courseId = Long.parseLong(c);
 				StudentCourse studentCourse = new StudentCourse();
 				studentCourse.student = student;
 				studentCourse.course = Course.findById(courseId);
 				StudentCourse.create(studentCourse);
+			}
 			}
 		}
 		return redirect(routes.StudentCourseManagement.list());

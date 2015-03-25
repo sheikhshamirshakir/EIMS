@@ -147,7 +147,7 @@ GET		/parent/edit/:id						 controllers.ParentManagement.edit(id: Long)
 POST	/parent/edit							 controllers.ParentManagement.update()
 GET	    /parent/delete/:id					   	 controllers.ParentManagement.delete(id: Long)
 
-#StudentCourse , Assign Courses to a teacher
+#StudentCourse , Assign Courses to a student
 GET	   /student-course/create-with-student		        controllers.StudentCourseManagement.createWithStudent(studentId ?= "1")
 GET		/student-course/create						controllers.StudentCourseManagement.create()
 POST	/student-course/create						controllers.StudentCourseManagement.insert()
