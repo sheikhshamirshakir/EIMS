@@ -1,0 +1,12 @@
+@(studentId: Long, studentName: String, isChecked: List[Boolean])
+@import helper._
+
+@studentcourse.create(isChecked){
+
+       <h2>Assign Course to Student <b>@studentId : @studentName</b></h2><br/><br/>
+
+        <form method="post" action=@routes.StudentCourseManagement.insert()>
+        <input type="hidden" name="studentId" value="@studentId">
+
+
+}

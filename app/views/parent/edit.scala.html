@@ -5,7 +5,7 @@
   <h2>Update the Parent having ID @parentForm.get.pid</h2><br/><br/>
   
   @form(routes.ParentManagement.update()) {
-  	  <input type="hidden" name="id" value=@parentForm.get.pid >
+  	  <input type="hidden" name="pid" value=@parentForm.get.pid >
   	  
       @inputText(parentForm("name"), '_label->"Parent Name")</tr>
 	  <input type="submit" value="Update">

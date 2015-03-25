@@ -1,0 +1,31 @@
+@(studentCourses: List[models.admission.StudentCourse])
+@import helper._
+
+@main(""){
+
+    
+  <h1>List of assigned Courses to a Student</h1>
+
+
+  <table border="1">
+    <tr>
+       <th>Id</th> <th>Student Name</th> <th>Course Name</th>
+    </tr>
+    @for(studentCourse <- studentCourses) {
+      <tr>
+        <td><a href="@routes.StudentCourseManagement.show(studentCourse.id)">@studentCourse.id</a></td>
+        <td>@studentCourse.student.name</td>
+        <td>@studentCourse.course.name</td>
+      </tr>
+    }
+ 
+  </table>
+  
+  <br/>
+  Select any of the Students Courses (click on Id) to view its detail information.
+  
+  <br/> <br/>
+  <h3><a href="@routes.StudentCourseManagement.create()">Assign Course to a Student.</a> </h3>
+</div>
+	    </div> 
+}      

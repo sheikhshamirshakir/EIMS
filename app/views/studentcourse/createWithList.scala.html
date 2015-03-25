@@ -1,0 +1,23 @@
+@(studentCourseForm: Form[dummymodels.DummyStudentCourse])
+@import models.admission.Course
+@import models.admission.Student
+@import helper._
+
+@main(""){
+
+  <h2>Assign Course to a Student</h2><br/><br/>
+
+  @form(routes.StudentCourseManagement.createWithStudent()){
+    @select(studentCourseForm("teacherId"),
+      options(Student.getStudentsAsMap),
+       '_label -> "Student", '_id -> "id", '_default -> "-- Choose a Student --",
+       '_showConstraints -> false
+    )
+       <br/>
+        <input type="submit" value="Assign Course to this Student">
+       }
+
+
+}
+
+

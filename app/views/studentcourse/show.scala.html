@@ -1,0 +1,45 @@
+@(studentCourse: models.admission.StudentCourse)
+@import helper._
+
+@main(""){
+
+
+   
+@if(flash.get("msg")) {
+<b>@flash.get("msg")</b>
+}
+
+<h1>Student's Course Information</h1>
+
+<table border=1>
+    <tr>
+        <th align="left">Id</th>
+        <td>@studentCourse.id</td>
+    </tr>
+     <tr>
+        <th align="left">Student Id</th>
+        <td>@studentCourse.student.sid</td>
+    </tr>
+    <tr>
+        <th align="left">Student Name</th>
+        <td>@studentCourse.student.name</td>
+    </tr>
+
+     <tr>
+        <th align="left">Course Id</th>
+        <td>@studentCourse.course.id</td>
+    </tr>
+    <tr>
+        <th align="left">Course Name</th>
+        <td>@studentCourse.course.name</td>
+    </tr>
+ </table>
+
+<br/> <br/>
+@form(routes.StudentCourseManagement.edit(studentCourse.id)) {
+<input type="submit" value="Edit">
+}
+<br/> <br/>
+<h3>View the <a href="@routes.StudentCourseManagement.list()">list</a> of all Student's Courses</h3>
+
+}

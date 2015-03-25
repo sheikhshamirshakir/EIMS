@@ -49,7 +49,7 @@ public class Parent extends Model {
 
 	
 	public static Long findLastId(){
-		List<Parent> parents =  Parent.find.where().orderBy("id Desc").findList();
+		List<Parent> parents =  Parent.find.where().orderBy("pid Desc").findList();
 		return parents.get(0).pid;
 	}
 	

@@ -5,7 +5,7 @@
   <h2>Update the Student having ID @studentForm.get.sid</h2><br/><br/>
   
   @form(routes.StudentManagement.update()) {
-  	  <input type="hidden" name="id" value=@studentForm.get.sid >
+  	  <input type="hidden" name="sid" value=@studentForm.get.sid>
   	  
       @inputText(studentForm("name"), '_label->"Student Name")</tr>
 	  <input type="submit" value="Update">

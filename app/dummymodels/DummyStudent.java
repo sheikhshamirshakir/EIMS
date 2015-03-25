@@ -12,7 +12,7 @@ public class DummyStudent {
 	
 	public Long id;
 	
-	public String studenteName;
+	public String studentName;
 	
 	public Date dateOfBirth;
 	
