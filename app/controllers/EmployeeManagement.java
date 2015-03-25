@@ -37,11 +37,25 @@ public class EmployeeManagement extends Controller{
 		 
 		 employee.name = dEmployee.employeeName;
 		 employee.category = Category.findById(Long.parseLong(dEmployee.categoryId));
-		 
 		 employee.gender = dEmployee.gender;
 		 employee.dateOfBirth = dEmployee.dateOfBirth;
 		 employee.employeeType = dEmployee.employeeType;
 		 employee.joiningDate=dEmployee.joiningDate;
+		 employee.fathersName=dEmployee.fathersName; 
+		 employee.mothersName=dEmployee.mothersName;
+		 employee.presentAddress=dEmployee.presentAddress;
+		 employee.permanentAddress=dEmployee.permanentAddress;
+		 employee.placeOfBirth=dEmployee.placeOfBirth;
+		 employee.natIdNo= dEmployee.natIdNo;
+		 employee.birthCertNo=dEmployee.birthCertNo;
+		 employee.tin=dEmployee.tin;
+		 employee.nationality=dEmployee.nationality;
+		 employee.religion= dEmployee.religion;
+		 employee.bloodGroup=dEmployee.bloodGroup;
+		 employee.maritalStat=dEmployee.maritalStat;
+		 employee.spouseName=dEmployee.spouseName;
+		 employee.noOfChild=dEmployee.noOfChild;
+		
 		 
 		 Employee.create(employee);
 		 

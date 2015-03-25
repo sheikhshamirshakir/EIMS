@@ -35,10 +35,18 @@
 		      '_default -> "-- Choose a Designation --"
 		    )
        
+	  		@select(
+		      employeeForm("employeeType"),
+		      options(Seq("Teacher","Staff")),
+		      '_label -> "Employee Type",
+		      '_default -> "-- Choose a Employee Type --"
+		    )			
+		           
        		 @inputText(field=employeeForm("fathersName"), args='_label->"Fathers Name")
        		  @inputText(field=employeeForm("mothersName"), args='_label->"Mothers Name")
        		  @inputText(field=employeeForm("presentAddress"), args='_label->"Present Address")
        		  @inputText(field=employeeForm("permanentAddress"), args='_label->"Permanent Address")
+       		  @inputText(field=employeeForm("dateOfBirth"), args='_label->"Date Of Birth")
        		  @inputText(field=employeeForm("placeOfBirth"), args='_label->"Place Of Birth")
        		  @inputText(field=employeeForm("natIdNo"), args='_label->"National Id No")
        		  @inputText(field=employeeForm("birthCertNo"), args='_label->"Birth Certificate No")
@@ -49,6 +57,30 @@
        		  @inputText(field=employeeForm("maritalStat"), args='_label->"Marital Status")
        		  @inputText(field=employeeForm("spouseName"), args='_label->"Spouse Name")
        		  @inputText(field=employeeForm("noOfChild"), args='_label->"No Of Child")
+       		  
+       		 @inputText(field=employeeForm("SSCSession"), args='_label->"SSC Session")
+			 @inputText(field=employeeForm("SSCResult"), args='_label->"SSC Result")
+			 @inputText(field=employeeForm("SSCSchool"), args='_label->"School Name")
+			
+			//hsc
+			 @inputText(field=employeeForm("HSCSession"), args='_label->"HSC Session")
+			 @inputText(field=employeeForm("HSCResult"), args='_label->"HSC Result")
+			 @inputText(field=employeeForm("HSCCollage"), args='_label->"College Name")
+			
+			//hons
+			 @inputText(field=employeeForm("HonsSession"), args='_label->"Hons Session")
+			 @inputText(field=employeeForm("HonsResult"), args='_label->"Hons Result")
+			 @inputText(field=employeeForm("HonsUniv"), args='_label->"University Name")
+			
+			//ms
+			 @inputText(field=employeeForm("MsSession"), args='_label->"MS Session")
+			 @inputText(field=employeeForm("MsResult"), args='_label->"MS result")
+			 @inputText(field=employeeForm("MsUniv"), args='_label->"MS University")
+			
+			//phd
+			 @inputText(field=employeeForm("PHDYear"), args='_label->"Phd Year")
+			 @inputText(field=employeeForm("PHDTopics"), args='_label->"Phd Topics")
+			 @inputText(field=employeeForm("PHDUniv"), args='_label->"University")
        		  
        		  
        <!--other fields-->
