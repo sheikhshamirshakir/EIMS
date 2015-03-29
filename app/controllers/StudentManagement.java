@@ -3,8 +3,12 @@
  ***/
 package controllers;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 import dummymodels.DummyEmployee;
 import dummymodels.DummyStudent;
@@ -17,11 +21,12 @@ import models.admission.Employee;
 import models.admission.Parent;
 import models.admission.SectionSemester;
 import models.admission.Student;
-
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.Http.MultipartFormData;
+import play.mvc.Http.MultipartFormData.FilePart;
 import utils.AppConstants;
 import views.html.student.*;
 
@@ -40,6 +45,12 @@ public class StudentManagement extends Controller{
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
 		 DummyStudent dStudent = filledForm.get();
 		 
+		 MultipartFormData body = request().body().asMultipartFormData();
+   		 FilePart student_image = body.getFile("student-image");
+   		if (filledForm.hasErrors() || student_image == null || !student_image.getContentType().equals("image/png")) {
+   				return badRequest(create.render(filledForm));
+    	} 
+   		else {
 		 Parent parent =new Parent();
 		 parent.name = dStudent.parentName;
 		 parent.email = dStudent.parentEmail;
@@ -52,7 +63,7 @@ public class StudentManagement extends Controller{
 		 
 		 
 	    student.name = dStudent.studentName;
-	    System.out.println("xxxxxxx"+dStudent.studentName);
+	    //System.out.println("xxxxxxx"+dStudent.studentName);
 		student.dateOfBirth = dStudent.dateOfBirth;
 		
 		student.gender=dStudent.gender;
@@ -65,9 +76,24 @@ public class StudentManagement extends Controller{
 		 		 
 		 Student.create(student);
 		 
+			
+			if( student_image != null && student_image.getContentType().equals("image/png")){
+					
+					String image_name = filledForm.field("sid").value() + "_image.png";
+				    String contentType = student_image.getContentType(); 
+				    File file_type = student_image.getFile();
+				    				    
+				    try {
+			            FileUtils.copyFile(file_type, new File("public/images/photos", image_name));
+			            } catch (IOException ioe) {
+			            System.out.println("Problem operating on filesystem");
+			        }		
+				}	
+		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.StudentManagement.list());
+   			}
 	    }
 
 
