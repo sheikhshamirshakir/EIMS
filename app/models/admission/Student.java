@@ -47,7 +47,16 @@ public class Student extends Model {
     @ManyToOne
     @JoinColumn(name = "section_id", referencedColumnName = "id")
     public SectionSemester sectionSemester;
-    
+  
+    public String placeOfBirth; 
+    public String maritalStatus;  
+    public String citizen;
+    public String presentAddress;  
+    public String division;  
+    public String district;
+    public String permanentAddress;
+	public String mobile;
+    public String email;           
 
 	public static Finder<Long,Student> find =  new Finder(Long.class, Student.class);
 	
