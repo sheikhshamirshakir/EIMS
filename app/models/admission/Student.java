@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import models.Division;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
@@ -51,9 +52,15 @@ public class Student extends Model {
     public String placeOfBirth; 
     public String maritalStatus;  
     public String citizen;
-    public String presentAddress;  
-    public String division;  
+    public String presentAddress;
+    
+    @ManyToOne
+    @JoinColumn(name = "divisionId", referencedColumnName = "id")
+    public Division division;
+    
+    // public String division;  
     public String district;
+    
     public String permanentAddress;
 	public String mobile;
     public String email;           

@@ -2,6 +2,7 @@ package dummymodels;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -36,5 +37,15 @@ public class DummyStudent {
 	public String parentPhone;
 	
 	public String parentEmail;
+	
+	public String placeOfBirth; 
+    public String maritalStatus;  
+    public String citizen;
+    public String presentAddress;  
+    public String division;  
+    public String district;
+    public String permanentAddress;
+	public String mobile;
+    public String email; 
 	
 }
