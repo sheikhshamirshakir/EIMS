@@ -63,7 +63,6 @@ public class StudentManagement extends Controller{
 		 
 		 
 	    student.name = dStudent.studentName;
-	    //System.out.println("xxxxxxx"+dStudent.studentName);
 		student.dateOfBirth = dStudent.dateOfBirth;
 		
 		student.gender=dStudent.gender;
