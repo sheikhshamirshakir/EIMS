@@ -19,7 +19,9 @@
     @for(student <- students) {
       <tr>
         <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
+        <img src=@routes.Assets.at("images/photos/"+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" />
         <td>@student.name</td>
+        
       </tr> 
     }
  </tbody>
