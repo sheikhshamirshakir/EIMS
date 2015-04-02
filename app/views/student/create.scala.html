@@ -11,6 +11,7 @@
 
 @main("Student Entry") {
 	
+		<script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
        @form(routes.StudentManagement.save()) { 
        		
        		 
@@ -74,7 +75,7 @@
 		      '_default -> "-- Choose a Division --"
 		    ) 
 		****@
-		    <select name="division" id="division"  onChange="">
+		    <select name="division" id="division">
 			     <option value="" class="blank">-- Choose a Division --</option>
 			     @for((id, name) <- Division.getDivisionsAsMap){
 			       <option value="@id">@name</option>
@@ -93,9 +94,9 @@
 		 ***@
 		 <select name="district" id="district">
 			     <option value="" class="blank">-- Choose a District --</option>
-			     @for((id, name) <- District.getDistrictsAsMap){
+			  @**** <!--  @for((id, name) <- District.getDistrictsAsMap){
 			       <option value="@id">@name</option>
-			     }
+			     } --> ***@
    			</select>
 		    
 	    @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
@@ -106,6 +107,27 @@
        <!--other fields-->
              
               <input type="submit" value="Create">
+              
+              <script>
+	             	$('#division').on('change', function() {
+	  					//alert( this.value ); // or $(this).val()
+	  					
+	  					var idToGet = this.value;
+					    $.ajax({
+					        type : 'GET',
+					        url : '@routes.DistrictFunctions.getDistrictByDivId(2)',
+					        data : {
+					            id: idToGet
+					        },
+					        success : function(data) {
+					            alert("SHAON"+data);
+					        }
+					    });
+					    return false;
+	  					
+					});
+              
+              </script>
             }
                        
      }
