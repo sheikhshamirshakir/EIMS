@@ -44,19 +44,53 @@
 		           
        		 @inputText(field=employeeForm("fathersName"), args='_label->"Fathers Name")
        		  @inputText(field=employeeForm("mothersName"), args='_label->"Mothers Name")
-       		  @inputText(field=employeeForm("presentAddress"), args='_label->"Present Address")
-       		  @inputText(field=employeeForm("permanentAddress"), args='_label->"Permanent Address")
+       		  
+       		  
+       		  @textarea(field=employeeForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
+       		  @textarea(field=employeeForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
+       		  
        		  @inputText(field=employeeForm("dateOfBirth"), args='_label->"Date Of Birth")
-       		  @inputText(field=employeeForm("placeOfBirth"), args='_label->"Place Of Birth")
+       		  @select(
+		      employeeForm("placeOfBirth"),
+		      options(District.getDistrictsAsMap),
+		      '_label -> "Place Of Birth",
+		      '_default -> "-- Choose one --"
+		     )
+       		  
        		  @inputText(field=employeeForm("natIdNo"), args='_label->"National Id No")
        		  @inputText(field=employeeForm("birthCertNo"), args='_label->"Birth Certificate No")
        		  @inputText(field=employeeForm("tin"), args='_label->"TIN")
        		  @inputText(field=employeeForm("nationality"), args='_label->"Nationality")
-       		  @inputText(field=employeeForm("religion"), args='_label->"Religion")
-       		  @inputText(field=employeeForm("bloodGroup"), args='_label->"Blood Group")
-       		  @inputText(field=employeeForm("maritalStat"), args='_label->"Marital Status")
+
+
+       		  @select(
+		      employeeForm("religion"),
+		      options(Seq("Islam","Hindu","Christian","Buddhist","Others")),
+		      '_label -> "Religion",
+		      '_default -> "-- Choose Your Religion --"
+		    )	
+       		  
+       		  @select(
+		      employeeForm("bloodGroup"),
+		      options(Seq("O-","O+","A-","A+","B-","B+","AB-","AB+")),
+		      '_label -> "Blood Group",
+		      '_default -> "-- Choose Your Blood Group --"
+		    )
+       		 
+       		  @inputRadioGroup(
+	          employeeForm("maritalStat"),
+	          options = options("Single"->"Single","Married"->"Married"),
+	          '_label -> "Maritual Status"
+	          )
+       		  
        		  @inputText(field=employeeForm("spouseName"), args='_label->"Spouse Name")
-       		  @inputText(field=employeeForm("noOfChild"), args='_label->"No Of Child")
+       		 
+       		  @select(
+		      employeeForm("noOfChild"),
+		      options(Seq("1","2","3","4","5")),
+		      '_label -> "No Of Child",
+		      '_default -> "-- Choose a number --"
+		    )
        		  
        		 @inputText(field=employeeForm("SSCSession"), args='_label->"SSC Session")
 			 @inputText(field=employeeForm("SSCResult"), args='_label->"SSC Result")

@@ -11,18 +11,63 @@
       
       @inputText(field=employeeForm("fathersName"), '_label->"Fathers Name")
 	  @inputText(field=employeeForm("mothersName"), '_label->"Mothers Name")
-	  @inputText(field=employeeForm("presentAddress"), '_label->"Present Address")
-	  @inputText(field=employeeForm("permanentAddress"), '_label->"Permanent Address")
-	  @inputText(field=employeeForm("placeOfBirth"), '_label->"Place Of Birth")
+	  
+      @textarea(field=employeeForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
+  	  @textarea(field=employeeForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
+	    
+	   <select name="placeOfBirth" >
+        @for((id, name) <- District.getDistrictsAsMap){
+          <option value="@id" @if(employeeForm.get.placeOfBirth.toString==id){selected}>@name</option>
+        }
+        </select>
+	  
 	  @inputText(field=employeeForm("natIdNo"), '_label->"National Id No")
 	  @inputText(field=employeeForm("birthCertNo"), '_label->"Birth Certificate No")
 	  @inputText(field=employeeForm("tin"), '_label->"TIN")
 	  @inputText(field=employeeForm("nationality"), '_label->"Nationality")
-	  @inputText(field=employeeForm("religion"), '_label->"Religion")
-	  @inputText(field=employeeForm("bloodGroup"), '_label->"Blood Group")
+	  
+	   <label>Religion</label>
+	   <select name="religion" >
+         <option value="Islam" @if(employeeForm.get.religion.toString=="Islam"){selected}>"Islam"</option>
+         <option value="Hindu" @if(employeeForm.get.religion.toString=="Hindu"){selected}>"Hindu"</option>
+         <option value="Christian" @if(employeeForm.get.religion.toString=="Islam"){selected}>"Christian"</option>
+         <option value="Buddhist" @if(employeeForm.get.religion.toString=="Islam"){selected}>"Buddhist"</option>
+         <option value="Others" @if(employeeForm.get.religion.toString=="Islam"){selected}>"Others"</option>
+       </select>
+	  
+
+	   <label>Blood Group</label>
+	   <select name="bloodGroup" >
+         <option value="O-" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>"O+"</option>
+         <option value="O+" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>"O+"</option>
+         <option value="A-" @if(employeeForm.get.bloodGroup.toString=="A-"){selected}>"A-"</option>
+         <option value="A+" @if(employeeForm.get.bloodGroup.toString=="A+"){selected}>"A+"</option>
+         <option value="B-" @if(employeeForm.get.bloodGroup.toString=="B-"){selected}>"B-"</option>
+         <option value="B+" @if(employeeForm.get.bloodGroup.toString=="B+"){selected}>"B+"</option>
+         <option value="AB-" @if(employeeForm.get.bloodGroup.toString=="AB-"){selected}>"AB-"</option>
+         <option value="AB+" @if(employeeForm.get.bloodGroup.toString=="AB+"){selected}>"AB+"</option>
+      </select>
+
 	  @inputText(field=employeeForm("maritalStat"), '_label->"Marital Status")
+	   @inputRadioGroup(
+	          employeeForm("maritalStat"),
+	          options = options("Single"->"Single","Married"->"Married"),
+	          '_label -> "Maritual Status"
+	          )
+	  
 	  @inputText(field=employeeForm("spouseName"), '_label->"Spouse Name")
+	  
 	  @inputText(field=employeeForm("noOfChild"), '_label->"No Of Child")
+	    <label>No. of Child</label>
+	   <select name="noOfChild" >
+         <option value="1" @if(employeeForm.get.noOfChild.toString=="1"){selected}>"1"</option>
+		<option value="2" @if(employeeForm.get.noOfChild.toString=="2"){selected}>"2"</option>
+		<option value="3" @if(employeeForm.get.noOfChild.toString=="3"){selected}>"3"</option>
+		<option value="4" @if(employeeForm.get.noOfChild.toString=="4"){selected}>"4"</option>
+		<option value="5" @if(employeeForm.get.noOfChild.toString=="5"){selected}>"5"</option>
+         
+      </select>
+	  
 	  
 	  <input type="submit" value="Update">
   }
