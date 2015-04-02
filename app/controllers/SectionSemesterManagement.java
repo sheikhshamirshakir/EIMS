@@ -23,6 +23,7 @@ public class SectionSemesterManagement extends Controller{
 	        return ok(create.render(sectionSemesterForm));
 	    }
 	 
+	 
 	 public static Result save() {
 		 Form<SectionSemester> filledForm = sectionSemesterForm.bindFromRequest();
 		 SectionSemester sectionSemester = filledForm.get();
