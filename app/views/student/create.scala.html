@@ -65,17 +65,7 @@
     	@inputText(field=studentForm("citizen"), args='_label->"Citizen")
     	@textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
 	  
-	    @************ @inputText(field=studentForm("division"), args='_label->"Division")  ********@
-	   @***  @select(
-		      studentForm("division"),
-		      '_onchange="alert('hello')",
-		      '_id ->"division",
-		      options(Division.getDivisionsAsMap),
-		      '_label -> "Division",
-		      '_default -> "-- Choose a Division --"
-		    ) 
-		****@
-		    <select name="division" id="division">
+	   <select name="division" id="division">
 			     <option value="" class="blank">-- Choose a Division --</option>
 			     @for((id, name) <- Division.getDivisionsAsMap){
 			       <option value="@id">@name</option>
@@ -109,23 +99,37 @@
               <input type="submit" value="Create">
               
               <script>
-	             	$('#division').on('change', function() {
-	  					//alert( this.value ); // or $(this).val()
+$('#division').on('change', function() {
+var idToGet = this.value;
+jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
+		success: function(data) 
+			{
+		            //alert(data[0]);
+		            
+							var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("district"); 
+							
+							$("#district").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Choose a District--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		            
+			}
+		});
+					  
+	return false;
 	  					
-	  					var idToGet = this.value;
-					    $.ajax({
-					        type : 'GET',
-					        url : '@routes.DistrictFunctions.getDistrictByDivId(2)',
-					        data : {
-					            id: idToGet
-					        },
-					        success : function(data) {
-					            alert("SHAON"+data);
-					        }
-					    });
-					    return false;
-	  					
-					});
+		});
               
               </script>
             }

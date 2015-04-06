@@ -1,5 +1,6 @@
 package models;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,10 +31,16 @@ public class District extends Model{
 		return find.all();
 	}
 	
-	public static List<District> getDistrictByDivId(Long divId){
+	public static Map<Long,String> getDistrictByDivId(Long divId){
 		List<District> listDistrict = find.where().eq("division_id", divId).findList();
+		Map<Long,String> listDist = new HashMap<Long, String>();
 		
-		return listDistrict;
+		for(District dist:listDistrict){
+			Long distId = dist.id;
+			String distName = dist.name;
+			listDist.put(distId, distName);
+		}
+		return listDist;
 	}
 	
 	public static District findById(Long id) {

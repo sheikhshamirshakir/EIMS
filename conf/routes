@@ -157,5 +157,5 @@ GET		/student-course/edit/:id					controllers.StudentCourseManagement.edit(id: L
 POST	/student-course/edit						controllers.StudentCourseManagement.update()
 
 ###### JAVASCRIPT ROUTES
-GET     /div/:id     controllers.DistrictFunctions.getDistrictByDivId(id: Long)
+GET     /div/:id     controllers.DistrictFunctions.getDistByDiv(id: Long)
 GET     /javascriptRoutes     controllers.DistrictFunctions.javascriptRoutes
