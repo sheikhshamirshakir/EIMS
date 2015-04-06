@@ -30,7 +30,6 @@ public class StudentCourse extends Model{
     @JoinColumn(name = "course_id", referencedColumnName = "id")
     public Course course;
 	
-	
 	public static Finder<Long, StudentCourse> find = new Finder(Long.class, StudentCourse.class);
 
     public static List<StudentCourse> all() {

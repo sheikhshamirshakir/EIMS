@@ -61,6 +61,11 @@ public class StudentCourseManagement extends Controller{
 				studentCourse.student = student;
 				studentCourse.course = Course.findById(courseId);
 				StudentCourse.create(studentCourse);
+				
+				Student student2 = Student.findById(studentCourse.student.sid);
+				student2.completecredit += studentCourse.course.credit ;
+				Student.update(student2);
+				
 			}
 			}
 		}

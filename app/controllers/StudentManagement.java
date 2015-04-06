@@ -46,8 +46,8 @@ public class StudentManagement extends Controller{
 		 DummyStudent dStudent = filledForm.get();
 		 
 		 MultipartFormData body = request().body().asMultipartFormData();
-   		 FilePart student_image = body.getFile("student-image");
-   		if (filledForm.hasErrors() || student_image == null || !student_image.getContentType().equals("image/png")) {
+   		 FilePart student_image = body.getFile("stimage");
+   		if (filledForm.hasErrors() || student_image == null) {
    				return badRequest(create.render(filledForm));
     	} 
    		else {
@@ -72,13 +72,12 @@ public class StudentManagement extends Controller{
 		 student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
 		 student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
 		 student.parentId = id;
-		 		 
+		 student.atleastCredit = dStudent.atleastCredit; 
+		 student.completecredit=0.0;
 		 Student.create(student);
 		 
 			
-			if( student_image != null && student_image.getContentType().equals("image/png")){
-					
-					String image_name = filledForm.field("sid").value() + "_image.png";
+							String image_name = student.name+"_image.png";
 				    String contentType = student_image.getContentType(); 
 				    File file_type = student_image.getFile();
 				    				    
@@ -87,7 +86,7 @@ public class StudentManagement extends Controller{
 			            } catch (IOException ioe) {
 			            System.out.println("Problem operating on filesystem");
 			        }		
-				}	
+					
 		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");

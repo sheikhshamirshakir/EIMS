@@ -47,5 +47,6 @@ public class DummyStudent {
     public String permanentAddress;
 	public String mobile;
     public String email; 
+    public Double atleastCredit;
 	
 }

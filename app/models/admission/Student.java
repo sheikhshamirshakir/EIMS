@@ -63,7 +63,11 @@ public class Student extends Model {
     
     public String permanentAddress;
 	public String mobile;
-    public String email;           
+    public String email;
+    
+    public double atleastCredit;
+    public double completecredit;
+    
 
 	public static Finder<Long,Student> find =  new Finder(Long.class, Student.class);
 	

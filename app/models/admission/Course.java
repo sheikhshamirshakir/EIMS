@@ -28,7 +28,7 @@ public class Course extends Model{
 	
 	public String code;
 	
-	public String credit;
+	public double credit;
 	
 	
 	public static Finder<Long, Course> find = new Finder(Long.class, Course.class);

@@ -12,7 +12,7 @@
 @main("Student Entry") {
 	
 		<script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
-       @form(routes.StudentManagement.save()) { 
+       @form(routes.StudentManagement.save(), 'enctype -> "multipart/form-data") { 
        		
        		 
        		  @inputText(field=studentForm("studentName"), args='_label->"Student Name")
@@ -50,7 +50,7 @@
         <table>
 		     <tr>
 		         <th>Select Image </th>
-		         <td><input type="file" name="student-image" accept="image/png"></td>
+		         <td><input type="file" name="stimage"></td>
 		     </tr>
 		</table>
        
@@ -93,7 +93,7 @@
 	   
 		@inputText(field=studentForm("mobile"), args='_label->"Mobile")
 	    @inputText(field=studentForm("email"), args='_label->"Email")
-       
+        @inputText(field=studentForm("atleastCredit"), args='_label->"Atleast Credit")
        <!--other fields-->
              
               <input type="submit" value="Create">
