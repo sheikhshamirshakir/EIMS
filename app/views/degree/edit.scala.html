@@ -1,11 +1,20 @@
 @(degreeForm: Form[models.admission.Degree])
 @import helper._
+@import  models.admission.Department
 
 @main("Edit Degree"){
   <h2>Update the Degree having ID @degreeForm.get.id</h2><br/><br/>
   
   @form(routes.DegreeManagement.update()) {
   	  <input type="hidden" name="id" value=@degreeForm.get.id >
+  	  
+  	   <label> Department Name </label><br>
+  	 	<select name="department.id">
+			 <option value="" class="blank">-- Choose a Department --</option>
+			  	  @for((id, name) <- Department.getDepartmentsAsMap){
+			  	 	<option value="@id" @if(id==degreeForm.get.department.id.toString){selected}>@name</option>
+			     } 
+    	</select>
   	  
       @inputText(degreeForm("name"), '_label->"Degree Name")</tr>
 	  <input type="submit" value="Update">

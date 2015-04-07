@@ -1,4 +1,5 @@
 @(facultyForm: Form[models.admission.Faculty])
+@import models.admission.University
 @import helper._
 
 @main("Edit Faculty"){
@@ -6,7 +7,15 @@
   
   @form(routes.FacultyManagement.update()) {
   	  <input type="hidden" name="id" value=@facultyForm.get.id >
-  	  
+  	  <label> University Name </label><br>
+  	 	<select name="university.id">
+			 <option value="" class="blank">-- Choose a University --</option>
+			  	  @for((id, name) <- University.getUnivsAsMap){
+			  	 
+			       <option value="@id" @if(id==facultyForm.get.university.id.toString){selected}>@name</option>
+			     } 
+    	</select>
+		    
       @inputText(facultyForm("name"), '_label->"Faculty Name")</tr>
 	  <input type="submit" value="Update">
   }
