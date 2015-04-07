@@ -48,12 +48,11 @@
          <option value="AB+" @if(employeeForm.get.bloodGroup.toString=="AB+"){selected}>"AB+"</option>
       </select>
 
-	  @inputText(field=employeeForm("maritalStat"), '_label->"Marital Status")
-	   @inputRadioGroup(
-	          employeeForm("maritalStat"),
-	          options = options("Single"->"Single","Married"->"Married"),
-	          '_label -> "Maritual Status"
-	          )
+	   <label>Marital status</label>
+	   <input type="radio" name="maritalStat"value="Single" @if(employeeForm.get.maritalStat.toString=="Single"){selected}>
+       <input type="radio" name="maritalStat"value="Married" @if(employeeForm.get.maritalStat.toString=="Married"){selected}>
+      </select>
+	   
 	  
 	  @inputText(field=employeeForm("spouseName"), '_label->"Spouse Name")
 	  
