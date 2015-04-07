@@ -14,6 +14,7 @@
        <th>ID</th>
        <th>Section or Semester Name</th>
        <th>Section or Semester Code</th>
+       <th>Class or Year</th>
      </tr>
    </thead>
     <tbody>
@@ -22,9 +23,11 @@
         <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
         <td>@sectionSemester.name</td>
         <td>@sectionSemester.code</td>
+        <td>@sectionSemester.classYear.name</td>
       </tr> 
     }
  </tbody>
  </table>
+  <a href="@routes.SectionSemesterManagement.create()">Create Another Section or Semester</a>
 
 }      

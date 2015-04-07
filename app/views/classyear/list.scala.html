@@ -13,6 +13,7 @@
     <tr>
        <th>ID</th>
        <th>Class or Year Name</th>
+       <th>Degree</th>
      </tr>
    </thead>
     <tbody>
@@ -20,9 +21,13 @@
       <tr>
         <td><a href="@routes.ClassYearManagement.show(classYear.id)">@classYear.id</a></td>
         <td>@classYear.name</td>
+        <td>@classYear.degree.name</td>
+        
       </tr> 
     }
  </tbody>
  </table>
+ 
+ <a href="@routes.ClassYearManagement.create()">Create Another Class or Year</a>
 
 }      

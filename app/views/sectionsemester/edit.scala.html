@@ -1,11 +1,18 @@
 @(sectionSemesterForm: Form[models.admission.SectionSemester])
 @import helper._
+@import models.admission.ClassYear
 
 @main("Edit Section or Semester"){
   <h2>Update the Section or Semester having ID @sectionSemesterForm.get.id</h2><br/><br/>
   
   @form(routes.SectionSemesterManagement.update()) {
   	  <input type="hidden" name="id" value=@sectionSemesterForm.get.id>
+  	   <label>Class or Year</label>
+  	   <select name="classYear.id" >
+        @for((id, name) <- ClassYear.getClassYearsAsMap){
+          <option value="@id" @if(sectionSemesterForm.get.classYear.id.toString==id){selected}>@name</option>
+        }
+        </select>
   	  
       @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")
       @inputText(sectionSemesterForm("code"), '_label->"Section or Semester Code")

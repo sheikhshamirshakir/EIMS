@@ -5,8 +5,10 @@
 
   <table>
     <tr> <th >ID</th> <td>@sectionSemester.id</td> </tr>
+    <tr> <th >Section or Semester Code</th> <td>@sectionSemester.classYear.name</td> </tr>
     <tr> <th >Section or Semester Name</th> <td>@sectionSemester.name</td> </tr>
     <tr> <th >Section or Semester Code</th> <td>@sectionSemester.code</td> </tr>
+    
   </table>
    
      @form(routes.SectionSemesterManagement.edit(sectionSemester.id)) {
