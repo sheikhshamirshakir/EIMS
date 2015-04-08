@@ -17,6 +17,64 @@
        		 
        		  @inputText(field=studentForm("studentName"), args='_label->"Student Name")
        		  
+       		  @inputRadioGroup(
+	          studentForm("gender"),
+	          options = options("Male"->"Male","Female"->"Female"),
+	          '_label -> "Gender"
+	          )
+	          
+	         @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
+	          
+	          @select(
+		      studentForm("placeOfBirth"),
+		      options(District.getDistrictsAsMap),
+		      '_label -> "Place Of Birth",
+		      '_default -> "-- Choose one --"
+		     ) 
+		     
+		     	
+    	
+    	@inputText(field=studentForm("nationality"), args='_label->"Nationality")
+		@textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
+	    @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
+	  
+     	 <table>
+		     <tr>
+		         <th>Select Image </th>
+		         <td><input type="file" name="stimage"></td>
+		     </tr>
+		</table>
+       
+       
+		 @select(
+		      studentForm("religion"),
+		      options(Seq("Islam","Hindu","Christian","Buddhist","Others")),
+		      '_label -> "Religion",
+		      '_default -> "-- Choose Your Religion --"
+		    )	
+       		  
+       		  @select(
+		      studentForm("bloodGroup"),
+		      options(Seq("O-","O+","A-","A+","B-","B+","AB-","AB+")),
+		      '_label -> "Blood Group",
+		      '_default -> "-- Choose Your Blood Group --"
+		    )
+		@inputRadioGroup(
+          studentForm("maritalStatus"),
+          options = options("Single"->"Single","Married"->"Married"),
+          '_label -> "Maritual Status"
+          )
+          
+		@inputText(field=studentForm("mobile"), args='_label->"Mobile")
+	    @inputText(field=studentForm("email"), args='_label->"Email")
+  
+
+	    @inputText(field=studentForm("parentName"), args='_label->"Parent Name")
+        @inputText(field=studentForm("parentPhone"), args='_label->"Parent Phone")
+        @inputText(field=studentForm("parentEmail"), args='_label->"Parent Email")
+		
+		
+  
              		 
        		  @select(
 		      studentForm("departmentId"),
@@ -47,25 +105,9 @@
 		      '_default -> "-- Choose a Section --"
 		    )
        
-        <table>
-		     <tr>
-		         <th>Select Image </th>
-		         <td><input type="file" name="stimage"></td>
-		     </tr>
-		</table>
-       
-        @inputText(field=studentForm("parentName"), args='_label->"Parent Name")
-        
-        @inputText(field=studentForm("parentPhone"), args='_label->"Parent Phone")
-        
-        @inputText(field=studentForm("parentEmail"), args='_label->"Parent Email")
-		
-		@inputText(field=studentForm("placeOfBirth"), args='_label->"Place Of Birth") 
-    	@inputText(field=studentForm("maritalStatus"), args='_label->"Marital Status")  
-    	@inputText(field=studentForm("citizen"), args='_label->"Citizen")
-    	@textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
-	  
-	   <select name="division" id="division">
+ 
+    	
+	     <select name="division" id="division">
 			     <option value="" class="blank">-- Choose a Division --</option>
 			     @for((id, name) <- Division.getDivisionsAsMap){
 			       <option value="@id">@name</option>
@@ -89,11 +131,8 @@
 			     } --> ***@
    			</select>
 		    
-	    @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
 	   
-		@inputText(field=studentForm("mobile"), args='_label->"Mobile")
-	    @inputText(field=studentForm("email"), args='_label->"Email")
-        @inputText(field=studentForm("atleastCredit"), args='_label->"Atleast Credit")
+	      @inputText(field=studentForm("atleastCredit"), args='_label->"Atleast Credit")
        <!--other fields-->
              
               <input type="submit" value="Create">

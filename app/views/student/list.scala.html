@@ -1,5 +1,7 @@
 @(students: List[models.admission.Student])
 @import helper._
+@import models.admission.Parent
+
 
 @main("List of Students"){
 
@@ -13,6 +15,9 @@
     <tr>
        <th>ID</th>
        <th>Student Name</th>
+       <th>Parent's Name</th>
+       <th>Phone</th>
+	   <th>Email</th>
      </tr>
    </thead>
     <tbody>
@@ -20,9 +25,10 @@
       <tr>
         <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
         <td><img src=@routes.Assets.at("images/photos/"+student.name+"_image.png") alt="" title="" width="64" height="64" border="0" /></td>
-        
         <td>@student.name</td>
-        
+        <td>@Parent.findById(parentId).name</td>
+        <td>@student.mobile</td>
+        <td>@student.email</td>
       </tr> 
     }
  </tbody>

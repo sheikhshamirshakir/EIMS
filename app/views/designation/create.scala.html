@@ -6,13 +6,7 @@
 	
        @form(routes.DesignationManagement.save()) { 
        		
-       		 @select(
-		      designationForm("department.id"),
-		      options(Department.getDepartmentsAsMap),
-		      '_label -> "Department",
-		      '_default -> "-- Choose a Department --"
-		    )
-       
+       	
               @inputText(field=designationForm("name"), args='_label->"Designation Name")
               <input type="submit" value="Create">
             }

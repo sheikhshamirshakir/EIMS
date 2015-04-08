@@ -13,40 +13,32 @@ public class DummyStudent {
 	
 	public Long id;
 	
-	public String studentName;
-	
+	public String studentName;	
+	public String gender;
 	public Date dateOfBirth;
-	
-	public boolean gender;
-		
-    
-	public String departmentId;
-  
-	
-	public String degreeId;
-	
-	public String classId;
-	  
-	
-	public String sectionId;
-
-
-	//parent information
-	public String parentName;
-	
-	public String parentPhone;
-	
-	public String parentEmail;
-	
 	public String placeOfBirth; 
-    public String maritalStatus;  
-    public String citizen;
-    public String presentAddress;  
-    public String division;  
-    public String district;
+	
+    public String nationality;
+    public String presentAddress;
     public String permanentAddress;
+    public String religion;
+    public String bloodGroup;
+	
+    public String maritalStatus;  
 	public String mobile;
     public String email; 
+    
+	public String parentName;
+	public String parentPhone;
+	public String parentEmail;
+	
+	public String departmentId;
+    public String degreeId;
+	public String classId;
+	public String sectionId;
+
+    public String division;  
+    public String district;
     public Double atleastCredit;
 	
 }

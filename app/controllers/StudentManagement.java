@@ -62,30 +62,32 @@ public class StudentManagement extends Controller{
 		 Student student = new Student();
 		 
 		 
-	    student.name = dStudent.studentName;
-		student.dateOfBirth = dStudent.dateOfBirth;
-		
-		student.gender=dStudent.gender;
+	     student.name = dStudent.studentName;
+		 student.dateOfBirth = dStudent.dateOfBirth;		
+		 student.gender=dStudent.gender;
 			
+		 student.parentId = id;
+		 
 		 student.department = Department.findById(Long.parseLong(dStudent.departmentId));
 		 student.degree = Degree.findById(Long.parseLong(dStudent.degreeId));
 		 student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
 		 student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
-		 student.parentId = id;
+		 
 		 student.atleastCredit = dStudent.atleastCredit; 
 		 student.completecredit=0.0;
+		 
 		 Student.create(student);
 		 
 			
-							String image_name = student.name+"_image.png";
-				    String contentType = student_image.getContentType(); 
-				    File file_type = student_image.getFile();
-				    				    
-				    try {
-			            FileUtils.copyFile(file_type, new File("public/images/photos", image_name));
-			            } catch (IOException ioe) {
-			            System.out.println("Problem operating on filesystem");
-			        }		
+		String image_name = student.name+"_image.png";
+	    String contentType = student_image.getContentType(); 
+	    File file_type = student_image.getFile();
+	    				    
+	    try {
+            FileUtils.copyFile(file_type, new File("public/images/photos", image_name));
+            } catch (IOException ioe) {
+            System.out.println("Problem operating on filesystem");
+        }		
 					
 		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);

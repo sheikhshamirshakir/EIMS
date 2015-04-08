@@ -26,10 +26,20 @@ public class Student extends Model {
     
     public String name;
     
+	public String gender;
 	public Date dateOfBirth;
+	public String placeOfBirth; 
 	
-	public boolean gender;
+	public String nationality;
+	public String presentAddress;
+    public String permanentAddress;
     
+    public String religion;
+    public String bloodGroup;
+    
+    public String maritalStatus;  
+    public String mobile;
+    public String email;
     public Long parentId;
 	
     @ManyToOne
@@ -44,26 +54,17 @@ public class Student extends Model {
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     public ClassYear classYear;
     
-    
     @ManyToOne
     @JoinColumn(name = "section_id", referencedColumnName = "id")
     public SectionSemester sectionSemester;
   
-    public String placeOfBirth; 
-    public String maritalStatus;  
-    public String citizen;
-    public String presentAddress;
-    
+   
     @ManyToOne
     @JoinColumn(name = "divisionId", referencedColumnName = "id")
     public Division division;
     
     // public String division;  
     public String district;
-    
-    public String permanentAddress;
-	public String mobile;
-    public String email;
     
     public double atleastCredit;
     public double completecredit;
