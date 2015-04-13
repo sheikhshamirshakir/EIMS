@@ -13,6 +13,9 @@
     <tr>
        <th>ID</th>
        <th>Parent Name</th>
+   	   <th>Email</th>
+   	   <th>Phone</th>
+   	   
      </tr>
    </thead>
     <tbody>
@@ -20,7 +23,10 @@
       <tr>
         <td><a href="@routes.ParentManagement.show(parent.pid)">@parent.pid</a></td>
         <td>@parent.name</td>
-      </tr> 
+      	<td>@parent.email</td>
+      	<td>@parent.phone</td> 
+     
+       </tr> 
     }
  </tbody>
  </table>

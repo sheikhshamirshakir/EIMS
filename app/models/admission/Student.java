@@ -27,7 +27,7 @@ public class Student extends Model {
     public String name;
     
 	public String gender;
-	public Date dateOfBirth;
+	//public Date dateOfBirth;
 	public String placeOfBirth; 
 	
 	public String nationality;

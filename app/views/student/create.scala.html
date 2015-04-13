@@ -23,7 +23,7 @@
 	          '_label -> "Gender"
 	          )
 	          
-	         @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
+	         <!--  @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")-->
 	          
 	          @select(
 		      studentForm("placeOfBirth"),
@@ -38,13 +38,14 @@
 		@textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
 	    @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
 	  
+     	 <!-- 
      	 <table>
 		     <tr>
 		         <th>Select Image </th>
 		         <td><input type="file" name="stimage"></td>
 		     </tr>
 		</table>
-       
+        -->
        
 		 @select(
 		      studentForm("religion"),
@@ -107,7 +108,7 @@
        
  
     	
-	     <select name="division" id="division">
+	    <!--   <select name="division" id="division">
 			     <option value="" class="blank">-- Choose a Division --</option>
 			     @for((id, name) <- Division.getDivisionsAsMap){
 			       <option value="@id">@name</option>
@@ -130,6 +131,7 @@
 			       <option value="@id">@name</option>
 			     } --> ***@
    			</select>
+   		-->	
 		    
 	   
 	      @inputText(field=studentForm("atleastCredit"), args='_label->"Atleast Credit")

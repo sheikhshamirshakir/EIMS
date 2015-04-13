@@ -5,6 +5,7 @@ package controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +49,8 @@ public class StudentManagement extends Controller{
 		 MultipartFormData body = request().body().asMultipartFormData();
    		 FilePart student_image = body.getFile("stimage");
    		if (filledForm.hasErrors() || student_image == null) {
-   				return badRequest(create.render(filledForm));
+   			return ok("error");
+   				//return badRequest(create.render(filledForm));
     	} 
    		else {
 		 Parent parent =new Parent();
@@ -63,7 +65,11 @@ public class StudentManagement extends Controller{
 		 
 		 
 	     student.name = dStudent.studentName;
-		 student.dateOfBirth = dStudent.dateOfBirth;		
+	     
+//	     SimpleDateFormat format1 = new SimpleDateFormat("d/M/yyyy");
+//	     Date date = format1.parse("05/01/1999");
+		
+	     //student.dateOfBirth = dStudent.dateOfBirth;		
 		 student.gender=dStudent.gender;
 			
 		 student.parentId = id;
@@ -79,7 +85,7 @@ public class StudentManagement extends Controller{
 		 Student.create(student);
 		 
 			
-		String image_name = student.name+"_image.png";
+		/*String image_name = student.name+"_image.png";
 	    String contentType = student_image.getContentType(); 
 	    File file_type = student_image.getFile();
 	    				    
@@ -88,7 +94,7 @@ public class StudentManagement extends Controller{
             } catch (IOException ioe) {
             System.out.println("Problem operating on filesystem");
         }		
-					
+		*/	
 		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");

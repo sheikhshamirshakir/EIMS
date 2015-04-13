@@ -1,5 +1,8 @@
 @(studentForm: Form[models.admission.Student])
 @import helper._
+@import models.admission.Degree
+@import models.admission.ClassYear
+@import models.admission.SectionSemester
 
 @main("Edit Student"){
   <h2>Update the Student having ID @studentForm.get.sid</h2><br/><br/>
