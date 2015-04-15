@@ -48,7 +48,8 @@ public class StudentManagement extends Controller{
 		 
 		 MultipartFormData body = request().body().asMultipartFormData();
    		 FilePart student_image = body.getFile("stimage");
-   		if (filledForm.hasErrors() || student_image == null) {
+//   		if (filledForm.hasErrors() || student_image == null) {
+   			if (filledForm.hasErrors()) {
    			return ok("error");
    				//return badRequest(create.render(filledForm));
     	} 
@@ -69,23 +70,38 @@ public class StudentManagement extends Controller{
 //	     SimpleDateFormat format1 = new SimpleDateFormat("d/M/yyyy");
 //	     Date date = format1.parse("05/01/1999");
 		
-	     //student.dateOfBirth = dStudent.dateOfBirth;		
+	     student.dateOfBirth = dStudent.dateOfBirth;		
 		 student.gender=dStudent.gender;
-			
-		 student.parentId = id;
 		 
+	     student.placeOfBirth=dStudent.placeOfBirth;
+	     student.nationality= dStudent.nationality;
+	     student.permanentAddress=dStudent.permanentAddress;
+	     student.presentAddress = dStudent.presentAddress;
+		 
+		 student.parentId = id;
 		 student.department = Department.findById(Long.parseLong(dStudent.departmentId));
 		 student.degree = Degree.findById(Long.parseLong(dStudent.degreeId));
 		 student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
 		 student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
 		 
+		 student.religion=dStudent.religion;
+		 student.bloodGroup=dStudent.bloodGroup;
+		 student.maritalStatus=dStudent.maritalStatus;  
+		 student.mobile=dStudent.mobile;
+		 student.email=dStudent.email;
+		
+		 
+		 
+		 
 		 student.atleastCredit = dStudent.atleastCredit; 
-		 student.completecredit=0.0;
+		student.completecredit=0.0;
 		 
 		 Student.create(student);
+		 String sID = Student.findLastId().toString();
+		 
 		 
 			
-		/*String image_name = student.name+"_image.png";
+		String image_name = student.name+sID+"_image.png";
 	    String contentType = student_image.getContentType(); 
 	    File file_type = student_image.getFile();
 	    				    
@@ -94,7 +110,7 @@ public class StudentManagement extends Controller{
             } catch (IOException ioe) {
             System.out.println("Problem operating on filesystem");
         }		
-		*/	
+			
 		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");

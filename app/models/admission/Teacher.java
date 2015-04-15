@@ -25,6 +25,27 @@ public class Teacher extends Model {
     public Long tid;
     
     public String name;
+    
+	public String SSCSession;
+	public String SSCResult;
+	public String SSCSchool;
+	
+	public String HSCSession;
+	public String HSCResult;
+	public String HSCCollage;
+	
+	public String HonsSession;
+	public String HonsResult;
+	public String HonsUniv;
+	
+	public String MsSession;
+	public String MsResult;
+	public String MsUniv;
+	
+	public String PHDYear;
+	public String PHDTopics;
+    public String PHDUniv;
+    
 	
     @ManyToOne
     @JoinColumn(name = "department_id", referencedColumnName = "id")

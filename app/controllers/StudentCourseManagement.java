@@ -63,7 +63,7 @@ public class StudentCourseManagement extends Controller{
 				StudentCourse.create(studentCourse);
 				
 				Student student2 = Student.findById(studentCourse.student.sid);
-				student2.completecredit += studentCourse.course.credit ;
+			   student2.completecredit += studentCourse.course.credit ;
 				Student.update(student2);
 				
 			}

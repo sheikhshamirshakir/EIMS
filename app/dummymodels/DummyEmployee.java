@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import play.data.format.Formats;
 import models.admission.Category;
 
 
@@ -15,14 +16,16 @@ public class DummyEmployee {
 	
 	public String employeeName;
 	
+	@Formats.DateTime(pattern="d/M/yyyy")
 	public Date dateOfBirth;
 	
-	public boolean gender;
+	public String gender;
 		
     public String categoryId;
 	
 	//joining date
-	 public Date joiningDate;
+    @Formats.DateTime(pattern="d/M/yyyy")
+    public Date joiningDate;
 	
 	//employee_type
 	  public String employeeType;

@@ -27,7 +27,7 @@ public class Student extends Model {
     public String name;
     
 	public String gender;
-	//public Date dateOfBirth;
+	public Date dateOfBirth;
 	public String placeOfBirth; 
 	
 	public String nationality;
@@ -66,8 +66,8 @@ public class Student extends Model {
     // public String division;  
     public String district;
     
-    public double atleastCredit;
-    public double completecredit;
+    public Double atleastCredit;
+  public Double completecredit;
     
 
 	public static Finder<Long,Student> find =  new Finder(Long.class, Student.class);
@@ -94,6 +94,11 @@ public class Student extends Model {
 			
 		return student;
 	}
+	public static Long findLastId(){
+		List<Student> students =  Student.find.where().orderBy("sid Desc").findList();
+		return students.get(0).sid;
+	}
+	
 	
 	 public static Map<String,String> getStudentsAsMap() {
 	        LinkedHashMap<String,String> students = new LinkedHashMap<String,String>();

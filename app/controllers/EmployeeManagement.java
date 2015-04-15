@@ -13,7 +13,7 @@ import models.admission.Department;
 import models.admission.Designation;
 import models.admission.Employee;
 import models.admission.Teacher;
-import models.admission.TeacherQualifications;
+import models.admission.Teacher;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -69,43 +69,37 @@ public class EmployeeManagement extends Controller{
 		 teacher.name=dEmployee.employeeName;
 		 
 		 teacher.employeeId = id;
-		 Teacher.create(teacher);
-		
-		 TeacherQualifications teacherQualifications = new TeacherQualifications();
 		 
-		 
-		 //TeacherQualifications	
-				//education qualification
-				//ssc,hsc,hons,masters,gpa/grade
-			
-		 teacherQualifications.employeeId=id;
+		//TeacherQualifications	
+
 				//ssc
-		 teacherQualifications.SSCSession = dEmployee.SSCSession;
-		 teacherQualifications.SSCResult= dEmployee.SSCResult;
-		 teacherQualifications.SSCSchool = dEmployee.SSCSchool;
+		 teacher.SSCSession = dEmployee.SSCSession;
+		 teacher.SSCResult= dEmployee.SSCResult;
+		 teacher.SSCSchool = dEmployee.SSCSchool;
 				
 				//hsc
-		 teacherQualifications.HSCSession=dEmployee.HSCSession;
-		 teacherQualifications.HSCResult=dEmployee.HSCResult;
-		 teacherQualifications.HSCCollage=dEmployee.HSCCollage;
+		 teacher.HSCSession=dEmployee.HSCSession;
+		 teacher.HSCResult=dEmployee.HSCResult;
+		 teacher.HSCCollage=dEmployee.HSCCollage;
 				
 				//hons
-		 teacherQualifications.HonsSession=dEmployee.HonsSession;
-		 teacherQualifications.HonsResult=dEmployee.HonsResult;
-		 teacherQualifications.HonsUniv=dEmployee.HonsUniv;
+		 teacher.HonsSession=dEmployee.HonsSession;
+		 teacher.HonsResult=dEmployee.HonsResult;
+		 teacher.HonsUniv=dEmployee.HonsUniv;
 				
 				//ms
-		 teacherQualifications.MsSession=dEmployee.MsSession;
-		 teacherQualifications.MsResult=dEmployee.MsResult;
-		teacherQualifications.MsUniv=dEmployee.MsUniv;
+		 teacher.MsSession=dEmployee.MsSession;
+		 teacher.MsResult=dEmployee.MsResult;
+		 teacher.MsUniv=dEmployee.MsUniv;
 				
 				//phd
-		teacherQualifications.PHDYear = dEmployee.PHDYear;
-		teacherQualifications.PHDTopics = dEmployee.PHDTopics;
-		teacherQualifications.PHDUniv=dEmployee.PHDUniv;
+		teacher.PHDYear = dEmployee.PHDYear;
+		teacher.PHDTopics = dEmployee.PHDTopics;
+		teacher.PHDUniv=dEmployee.PHDUniv;
 		
-		TeacherQualifications.create(teacherQualifications);
+		Teacher.create(teacher);
 		 
+	
 		   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.EmployeeManagement.list());

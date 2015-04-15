@@ -11,7 +11,8 @@
        		 
        		  @inputText(field=employeeForm("employeeName"), args='_label->"Employee Name")
        		 
-       		  
+       		 	          
+	          
        		  @select(
 		      employeeForm("categoryId"),
 		      options(Category.getCategoriesAsMap),
@@ -42,6 +43,16 @@
 		      '_default -> "-- Choose a Employee Type --"
 		    )			
 		           
+		       @inputRadioGroup(
+	          employeeForm("gender"),
+	          options = options("Male"->"Male","Female"->"Female"),
+	          '_label -> "Gender"
+	          )
+	          
+       		  @inputDate(field=employeeForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
+		      
+		       @inputDate(field=employeeForm("joiningDate"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")  
+		         
        		 @inputText(field=employeeForm("fathersName"), args='_label->"Fathers Name")
        		  @inputText(field=employeeForm("mothersName"), args='_label->"Mothers Name")
        		  
@@ -49,7 +60,7 @@
        		  @textarea(field=employeeForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
        		  @textarea(field=employeeForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
        		  
-       		  @inputText(field=employeeForm("dateOfBirth"), args='_label->"Date Of Birth")
+       		  
        		  @select(
 		      employeeForm("placeOfBirth"),
 		      options(District.getDistrictsAsMap),

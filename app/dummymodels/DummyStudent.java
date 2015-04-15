@@ -17,8 +17,8 @@ public class DummyStudent {
 	public String studentName;	
 	public String gender;
 	
-	//@Formats.DateTime(pattern="d/M/yyyy")
-	//public Date dateOfBirth;
+	@Formats.DateTime(pattern="d/M/yyyy")
+	public Date dateOfBirth;
 	public String placeOfBirth; 
 	
     public String nationality;
@@ -39,7 +39,6 @@ public class DummyStudent {
     public String degreeId;
 	public String classId;
 	public String sectionId;
-
 
     public Double atleastCredit;
 	

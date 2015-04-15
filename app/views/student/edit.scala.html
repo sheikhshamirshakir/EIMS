@@ -13,8 +13,8 @@
       @inputText(studentForm("name"), '_label->"Student Name")</tr>
        
       <label>Gender</label>
-	   <input type="radio" name="gender"value="Male" @if(studentForm.get.gender.toString=="Male"){selected}>
-       <input type="radio" name="gender"value="Female" @if(studentForm.get.gender.toString=="Female"){selected}>
+	   <input type="radio" name="gender"value="Male" @if(studentForm.get.gender.toString=="Male"){selected}><label>Male</label>
+       <input type="radio" name="gender"value="Female" @if(studentForm.get.gender.toString=="Female"){selected}><label>Female</label>
       </select>
 	 
 	  @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth")
@@ -32,29 +32,29 @@
 
  	 <label>Religion</label>
 	   <select name="religion" >
-         <option value="Islam" @if(studentForm.get.religion.toString=="Islam"){selected}>"Islam"</option>
-         <option value="Hindu" @if(studentForm.get.religion.toString=="Hindu"){selected}>"Hindu"</option>
-         <option value="Christian" @if(studentForm.get.religion.toString=="Islam"){selected}>"Christian"</option>
-         <option value="Buddhist" @if(studentForm.get.religion.toString=="Islam"){selected}>"Buddhist"</option>
-         <option value="Others" @if(studentForm.get.religion.toString=="Islam"){selected}>"Others"</option>
+         <option value="Islam" @if(studentForm.get.religion.toString=="Islam"){selected}>Islam</option>
+         <option value="Hindu" @if(studentForm.get.religion.toString=="Hindu"){selected}>Hindu</option>
+         <option value="Christian" @if(studentForm.get.religion.toString=="Islam"){selected}>Christian</option>
+         <option value="Buddhist" @if(studentForm.get.religion.toString=="Islam"){selected}>Buddhist</option>
+         <option value="Others" @if(studentForm.get.religion.toString=="Islam"){selected}>Others</option>
        </select>
 	  
 
 	   <label>Blood Group</label>
 	   <select name="bloodGroup" >
-         <option value="O-" @if(studentForm.get.bloodGroup.toString=="O+"){selected}>"O+"</option>
-         <option value="O+" @if(studentForm.get.bloodGroup.toString=="O+"){selected}>"O+"</option>
-         <option value="A-" @if(studentForm.get.bloodGroup.toString=="A-"){selected}>"A-"</option>
-         <option value="A+" @if(studentForm.get.bloodGroup.toString=="A+"){selected}>"A+"</option>
-         <option value="B-" @if(studentForm.get.bloodGroup.toString=="B-"){selected}>"B-"</option>
-         <option value="B+" @if(studentForm.get.bloodGroup.toString=="B+"){selected}>"B+"</option>
-         <option value="AB-" @if(studentForm.get.bloodGroup.toString=="AB-"){selected}>"AB-"</option>
-         <option value="AB+" @if(studentForm.get.bloodGroup.toString=="AB+"){selected}>"AB+"</option>
+         <option value="O-" @if(studentForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
+         <option value="O+" @if(studentForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
+         <option value="A-" @if(studentForm.get.bloodGroup.toString=="A-"){selected}>A-</option>
+         <option value="A+" @if(studentForm.get.bloodGroup.toString=="A+"){selected}>A+</option>
+         <option value="B-" @if(studentForm.get.bloodGroup.toString=="B-"){selected}>B-</option>
+         <option value="B+" @if(studentForm.get.bloodGroup.toString=="B+"){selected}>B+</option>
+         <option value="AB-" @if(studentForm.get.bloodGroup.toString=="AB-"){selected}>AB-</option>
+         <option value="AB+" @if(studentForm.get.bloodGroup.toString=="AB+"){selected}>AB+</option>
       </select>
 
 	   <label>Marital status</label>
-	   <input type="radio" name="maritalStatus"value="Single" @if(studentForm.get.maritalStatus.toString=="Single"){selected}>
-       <input type="radio" name="maritalStatus"value="Married" @if(studentForm.get.maritalStatus.toString=="Married"){selected}>
+	   <input type="radio" name="maritalStatus"value="Single" @if(studentForm.get.maritalStatus.toString=="Single"){selected}><label>Single</label>
+       <input type="radio" name="maritalStatus"value="Married" @if(studentForm.get.maritalStatus.toString=="Married"){selected}><label>Married</label>
       </select>
 
  

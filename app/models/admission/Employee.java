@@ -29,7 +29,7 @@ public class Employee extends Model {
 	
 	public Date dateOfBirth;
 	
-	public boolean gender;
+	public String gender;
 		
     
     @ManyToOne
