@@ -1,0 +1,299 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Educatuin Management System</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <!-- bootstrap framework -->
+		<link href="@routes.Assets.at("assets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+		
+        <!-- icon sets -->
+            <!-- elegant icons -->
+                <link href="@routes.Assets.at("assets/icons/elegant/style.css")" rel="stylesheet" media="screen">
+            <!-- elusive icons -->
+                <link href="@routes.Assets.at("assets/icons/elusive/css/elusive-webfont.css")" rel="stylesheet" media="screen">
+            <!-- flags -->
+                <link rel="stylesheet" href="@routes.Assets.at("assets/icons/flags/flags.css")">
+            <!-- scrollbar -->
+                <link rel="stylesheet" href="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css")">
+
+        <!-- page specific stylesheets -->
+
+            <!-- select2 -->
+            <link href="@routes.Assets.at("assets/lib/select2/select2.css")" rel="stylesheet" media="screen">
+            <!-- prism highlight -->
+            <link href="@routes.Assets.at("assets/lib/prism/prism_default.css")" rel="stylesheet" media="screen">
+            <link href="@routes.Assets.at("assets/lib/prism/line_numbers.css")" rel="stylesheet" media="screen">
+		
+        <!-- google webfonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <!-- main stylesheet -->
+		<link href="@routes.Assets.at("assets/css/main.min.css")" rel="stylesheet" media="screen" id="mainCss">
+
+        <!-- moment.js (date library) -->
+        <script src="@routes.Assets.at("assets/js/moment-with-langs.min.js")"></script>
+    </head>
+    <body class="side_menu_active side_menu_expanded">
+        <div id="page_wrapper">
+            <!-- header -->
+            <header id="main_header">
+                <div class="container-fluid">
+                    <div class="brand_section">
+                        <a href="dashboard.html"><img src="@routes.Assets.at("assets/img/shomoy_logo.png")" alt="site_logo" width="63" height="26"></a>
+                    </div>
+                    <ul class="header_notifications clearfix">
+                        <li class="dropdown">
+                            <span class="label label-danger">0</span>
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="el-icon-envelope"></i></a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li>
+                                        <img src="@routes.Assets.at("assets/img/avatars/avatar02_tn.png")" alt="" width="38" height="38">
+                                        <p><a href="#">Lorem ipsum dolor sit amet&hellip;</a></p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <img src="@routes.Assets.at("assets/img/avatars/avatar03_tn.png")" alt="" width="38" height="38">
+                                        <p><a href="#">Lorem ipsum dolor sit&hellip;</a></p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <img src="@routes.Assets.at("assets/img/avatars/avatar04_tn.png")" alt="" width="38" height="38">
+                                        <p><a href="#">Lorem ipsum dolor&hellip;</a></p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <img src="@routes.Assets.at("assets/img/avatars/avatar05_tn.png")" alt="" width="38" height="38">
+                                        <p><a href="#">Lorem ipsum dolor sit amet&hellip;</a></p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn btn-xs btn-primary btn-block">All messages</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown" id="tasks_dropdown">
+                            <span class="label label-danger">0</span>
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="el-icon-tasks"></i></a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li>
+                                        <div class="clearfix">
+                                            <div class="label label-warning pull-right">Medium</div>
+                                            <small class="text-muted">No Problem</small>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet&hellip;</p>
+                                    </li>
+                                    <li>
+                                        <div class="clearfix">
+                                            <div class="label label-danger pull-right">High</div>
+                                            <small class="text-muted">No Problem</small>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet&hellip;</p>
+                                    </li>
+                                    <li>
+                                        <div class="clearfix">
+                                            <div class="label label-success pull-right">Medium</div>
+                                            <small class="text-muted">No Problem</small>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet&hellip;</p>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn btn-xs btn-primary btn-block">All tasks</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <span class="label label-primary">0</span>
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="el-icon-bell"></i></a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet&hellip;</p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <p>Lorem ipsum dolor sit&hellip;</p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <p>Lorem ipsum dolor&hellip;</p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet&hellip;</p>
+                                        <small class="text-muted">0</small>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn btn-xs btn-primary btn-block">All Alerts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="header_user_actions dropdown">
+                        <div data-toggle="dropdown" class="dropdown-toggle user_dropdown">
+                            <div class="user_avatar">
+                                <img src="@routes.Assets.at("assets/img/shomoy_logo.png")" alt="" title="User Image" width="38" height="38">
+                            </div>
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="pages-user_profile.html">User Profile</a></li>
+                            <li><a href="pages-user_profile2.html">User Profile 2</a></li>
+                            <li><a href="logout.html">Log Out</a></li>
+                        </ul>
+                    </div>
+                    <div class="search_section hidden-sm hidden-xs">
+                        <input type="text" class="form-control input-sm">
+                        <button class="btn btn-link btn-sm" type="button"><span class="icon_search"></span></button>
+                    </div>
+                </div>
+            </header>
+            <!-- breadcrumbs -->
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="dashboard.html">Home</a></li>
+		            <li><span>Forms</span></li>
+		            <li><span>Student Management</span></li>
+		        </ul>
+            </nav>
+    
+        @content
+        
+        <!-- main menu -->
+            <nav id="main_menu">
+                <div class="menu_wrapper">
+                    <ul>
+                        <li class="first_level">
+                            <a href="dashboard.html">
+                                <span class="icon_house_alt first_level_icon"></span>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_document_alt first_level_icon"></span>
+                                <span class="menu-title">University</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Department & Class</li>
+                                <li><a href="/faculty/create">New Faculty</a></li>
+                                <li><a href="/department/create">New Department</a></li>
+                                <li><a href="/degree/create">New Degree</a></li>
+                                <li><a href="/class-or-year/create">New Class/Year</a></li>
+                                <li><a href="/section-or-semester/create">New Semester</a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_document_alt first_level_icon"></span>
+                                <span class="menu-title">Admission</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Forms</li>
+                                <li><a href="/student/create">New Student Form</a></li>
+                                <li><a href="">Old Student Form</a></li>
+                                <li><a href="">Spot Admission</a></li>
+                                <li><a href="">Student List</a></li>
+                                <li><a href="">Eligible Student List</a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_document_alt first_level_icon"></span>
+                                <span class="menu-title">Student</span>
+                            </a>
+                            <ul>
+                                <li><a href="">Student Course</a></li>
+                                <li><a href="">Student Semester</a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_folder-alt first_level_icon"></span>
+                                <span class="menu-title">Exam</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Exam Management</li>
+                                <li><a href="">Exam Type</a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_puzzle first_level_icon"></span>
+                                <span class="menu-title">Result</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Result Management</li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_lightbulb_alt first_level_icon"></span>
+                                <span class="menu-title">Hostel</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Hostel Management</li>
+                                <li><a href=""></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu_toggle">
+                    <span class="icon_menu_toggle">
+                        <i class="arrow_carrot-2left toggle_left"></i>
+                        <i class="arrow_carrot-2right toggle_right" style="display:none"></i>
+                    </span>
+                </div>
+            </nav>
+
+        </div>
+
+        <!-- jQuery -->
+        <script src="@routes.Assets.at("assets/js/jquery.min.js")"></script>
+        <!-- jQuery Cookie -->
+        <script src="@routes.Assets.at("assets/js/jqueryCookie.min.js")"></script>
+        <!-- Bootstrap Framework -->
+        <script src="@routes.Assets.at("assets/bootstrap/js/bootstrap.min.js")"></script>
+        <!-- retina images -->
+        <script src="@routes.Assets.at("assets/js/retina.min.js")"></script>
+        <!-- switchery -->
+        <script src="@routes.Assets.at("assets/lib/switchery/dist/switchery.min.js")"></script>
+        <!-- typeahead -->
+        <script src="@routes.Assets.at("assets/lib/typeahead/typeahead.bundle.min.js")"></script>
+        <!-- fastclick -->
+        <script src="@routes.Assets.at("assets/js/fastclick.min.js")"></script>
+        <!-- match height -->
+        <script src="@routes.Assets.at("assets/lib/jquery-match-height/jquery.matchHeight-min.js")"></script>
+        <!-- scrollbar -->
+        <script src="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js")"></script>
+
+        <!-- Yukon Admin functions -->
+        <script src="@routes.Assets.at("assets/js/yukon_all.js")"></script>
+        
+           <!-- page specific plugins -->
+
+            <!-- datatable -->
+            <script src="@routes.Assets.at("assets/lib/DataTables/media/js/jquery.dataTables.min.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/DataTables/media/js/dataTables.bootstrap.js")"></script>
+
+            <script>
+                $(function() {
+                    // footable
+                    yukon_datatables.p_plugins_tables_datatable();
+                })
+            </script>
+       </div>  
+    </body>
+</html>

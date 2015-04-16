@@ -2,13 +2,28 @@
 @import helper._
 @import  models.admission.Department
 
-@main("Category Entry") {
-	
+@main("Category Entry") {	
        @form(routes.CategoryManagement.save()) { 
        		
-      
-              @inputText(field=categoryForm("name"), args='_label->"Category Name")
-              <input type="submit" value="Create">
+     <!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Create Employee Category</span></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                               @inputText(field=categoryForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Category Name")
+                             </div>
+                             <div class="col-md-12">
+                              <input type="submit" value="Create" class="btn btn-primary">
+                             </div> 
+                        </div>
+                     </div>
+                 </div>
+               </div>
+             </div>
+           </div>             
             }
                        
      }
