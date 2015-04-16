@@ -93,11 +93,11 @@ POST	/teacher/edit							 controllers.TeacherManagement.update()
 GET	    /teacher/delete/:id					   	 controllers.TeacherManagement.delete(id: Long)
 
 #Teacher Qualifications
-GET		/teacher-qualifications/list							 controllers.TQManagement.list()
-GET		/teacher-qualifications/show/:id						 controllers.TQManagement.show(id: Long)
-GET		/teacher-qualifications/edit/:id						 controllers.TQManagement.edit(id: Long)
-POST	/teacher-qualifications/edit							 controllers.TQManagement.update()
-GET	    /teacher-qualifications/delete/:id					   	 controllers.TQManagement.delete(id: Long)
+#GET		/teacher-qualifications/list							 controllers.TQManagement.list()
+#GET		/teacher-qualifications/show/:id						 controllers.TQManagement.show(id: Long)
+#GET		/teacher-qualifications/edit/:id						 controllers.TQManagement.edit(id: Long)
+#POST	/teacher-qualifications/edit							 controllers.TQManagement.update()
+#GET	    /teacher-qualifications/delete/:id					   	 controllers.TQManagement.delete(id: Long)
 
 #Designation
 GET		/designation/create						     controllers.DesignationManagement.create()

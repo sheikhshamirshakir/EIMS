@@ -54,6 +54,7 @@ public class TeacherManagement extends Controller{
 	 
 	 public static Result edit(Long id) {
 		 Teacher teacher = Teacher.findById(id);
+		 System.out.println(",,,,,,,,,,,,,,,,"+teacher.SSCSession);
 			
 		  	if (teacher == null) {
 				flash("error", AppConstants.ERROR_MESSAGE_ID_NOT_FOUND);
@@ -71,6 +72,9 @@ public class TeacherManagement extends Controller{
 			} else {
 			
 			Teacher teacher = filledForm.get();
+			System.out.println(".................."+teacher.SSCSession);
+			Teacher.update(teacher);
+			
 			
 			Long teacherId = teacher.tid;
 			Teacher teacher2 = Teacher.findById(teacherId);
@@ -80,7 +84,7 @@ public class TeacherManagement extends Controller{
 			Employee.update(employee);
 			
 			
-			Teacher.update(teacher);
+			
 			return ok(list.render(Teacher.all()));
 			}
 			

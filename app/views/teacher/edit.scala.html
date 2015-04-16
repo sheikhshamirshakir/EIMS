@@ -1,13 +1,56 @@
 @(teacherForm: Form[models.admission.Teacher])
 @import helper._
+@import models.admission.Department
+@import models.admission.Designation
 
 @main("Edit Teacher"){
+<div id="main_wrapper">
+          <div class="container-fluid">
+                <div class="row">
+                   <div class="col-md-12">
   <h2>Update the Teacher having ID @teacherForm.get.tid</h2><br/><br/>
   
   @form(routes.TeacherManagement.update()) {
   	  <input type="hidden" name="tid" value=@teacherForm.get.tid >
   	  
-      @inputText(teacherForm("name"), '_label->"Teacher Name")</tr>
+      @inputText(field=teacherForm("name"), args='_label->"Teacher Name")
+    
+      @inputText(field=teacherForm("SSCSession"), args='_label->"SSC Session")
+        @inputText(field=teacherForm("SSCResult"), args='_label->"SSC Result")
+         @inputText(field=teacherForm("SSCSchool"), args='_label->"SSC School Name")
+          @inputText(field=teacherForm("HSCSession"), args='_label->"HSC Session")
+           @inputText(field=teacherForm("HSCResult"), args='_label->"HSC Result")
+            @inputText(field=teacherForm("HSCCollage"),args= '_label->"HSC College Name")
+            @inputText(field=teacherForm("HonsSession"),args= '_label->"Hons Session")
+           @inputText(field=teacherForm("HonsResult"),args= '_label->"Hons Result")
+          @inputText(field=teacherForm("HonsUniv"), args='_label->"Hons University Name")
+          @inputText(field=teacherForm("MsSession"),args= '_label->"Masters Session")
+         @inputText(field=teacherForm("MsResult"),args= '_label->"Masters Result")
+         @inputText(field=teacherForm("MsUniv"), args='_label->"Masters University Name")
+         @inputText(field=teacherForm("PHDYear"),args= '_label->"PHD year")
+         @inputText(field=teacherForm("PHDTopics"),args= '_label->"PHD Topics")
+         @inputText(field=teacherForm("PHDUniv"),args= '_label->"PHD University")
+         
+    	<label>Department</label>
+      	<select name="department.id" >
+        @for((id, name) <- Department.getDepartmentsAsMap){
+          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
+        }
+        </select>	
+        
+        <label>Designation</label>
+        <select name="designation.id" >
+        @for((id, name) <- Designation.getDesignationsAsMap){
+          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
+        }
+        </select>	
+      
+      
+        
 	  <input type="submit" value="Update">
   }
+  					</div>
+	           </div>
+	       </div>
+	 </div>   
 }

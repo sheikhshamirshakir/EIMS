@@ -3,6 +3,7 @@
 @import models.admission.Degree
 @import models.admission.ClassYear
 @import models.admission.SectionSemester
+@import models.admission.Department
 
 @main("Edit Student"){
   <h2>Update the Student having ID @studentForm.get.sid</h2><br/><br/>
@@ -66,7 +67,7 @@
 
 	 
 	     <select name="department.id" >
-        @for((id, name) <- District.getDistrictsAsMap){
+        @for((id, name) <- Department.getDepartmentsAsMap){
           <option value="@id" @if(studentForm.get.department.id.toString==id){selected}>@name</option>
         }
         </select>	 

@@ -2,16 +2,41 @@
 
 @import helper._
 
-@main("Teacher"){
-
+@mainlist("Teacher"){
+ <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
   <table>
     <tr> <th >ID</th> <td>@teacher.tid</td> </tr>
     <tr> <th >Teacher Name</th> <td>@teacher.name</td> </tr>
-  </table>
+     <tr> <th >Department</th> <td>@teacher.department.name</td> </tr>
+     <tr> <th >Designation</th> <td>@teacher.designation.name</td> </tr>
+	<tr> <th >SSC Session</th> <td>@teacher.SSCSession</td> </tr>
+	 <tr> <th >SSC Result</th> <td>@teacher.SSCResult</td> </tr>
+	  <tr> <th >SSC School Name</th> <td>@teacher.SSCSchool</td> </tr>
+	   <tr> <th >HSC Session</th> <td>@teacher.HSCSession</td> </tr>
+	    <tr> <th >HSC Result</th> <td>@teacher.HSCResult</td> </tr>
+	     <tr> <th >HSC College Name</th> <td>@teacher.HSCCollage</td> </tr>
+	      <tr> <th >Hons Session</th> <td>@teacher.HonsSession</td> </tr>
+	       <tr> <th >Hons Result</th> <td>@teacher.HonsResult</td> </tr>
+	        <tr> <th >Hons University Name</th> <td>@teacher.HonsUniv</td> </tr>
+	         <tr> <th >Masters Session</th> <td>@teacher.MsSession</td> </tr>
+	          <tr> <th >Masters Result</th> <td>@teacher.MsResult</td> </tr>
+	           <tr> <th >Masters University Name</th> <td>@teacher.MsUniv</td> </tr>
+	            <tr> <th >PHD year</th> <td>@teacher.PHDYear</td> </tr>
+	            <tr> <th >PHD Topics</th> <td>@teacher.PHDTopics</td> </tr>
+	            <tr> <th >PHD University</th> <td>@teacher.PHDUniv</td> </tr>
+
+
    
      @form(routes.TeacherManagement.edit(teacher.tid)) {
 		    <input type="submit" value="Edit">
   		  }
+  </div>
+</div>
+</div>
+</div>	
      }
 
      

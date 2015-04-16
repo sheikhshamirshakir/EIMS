@@ -1,21 +1,25 @@
 @(teachers: List[models.admission.Teacher])
 @import helper._
 
-@main("List of Teachers"){
+@mainlist("List of Teachers"){
 
  
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
   
-  <table>
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Teacher Name</th>
-     </tr>
-   </thead>
-    <tbody>
+  <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                             <thead>
+							    <tr>
+							       <th>ID</th>
+							       <th>Teacher Name</th>
+							     </tr>
+   							</thead>
+   						 <tbody>
     @for(teacher <- teachers) {
       <tr>
         <td><a href="@routes.TeacherManagement.show(teacher.tid)">@teacher.tid</a></td>
@@ -24,5 +28,9 @@
     }
  </tbody>
  </table>
+    </div>
+</div>
+    </div>		 
+ </div> 
 
 }      
