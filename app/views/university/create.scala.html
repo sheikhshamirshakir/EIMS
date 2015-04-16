@@ -1,17 +1,29 @@
 @(universityForm: Form[models.admission.University])
 @import helper._
 
-
 @main("University Entry") {
-
-       @form(routes.UniversityManagement.save()) { 
-              @inputText(field=universityForm("name"), args='_label->"University Name")
-              @inputText(field=universityForm("email"), args='_label->"University Email")
-              @textarea(field=universityForm("address"), 'rows -> 3, 'cols -> 50, '_label->"University Address")
-              @textarea(field=universityForm("personDetails"), 'rows -> 3, 'cols -> 50, '_label->"University Person Details")
-              @inputText(field=universityForm("contactNo"), args='_label->"University Contact No")
-             	<input type="submit" value="Create">
-            }
-                       
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Create University</span></div>
+                <div class="row">
+                  @form(routes.UniversityManagement.save()) { 
+	              @inputText(field=universityForm("name"), '_showConstraints -> false, 'class->"form-control", '_label->"University Name")
+	              @inputText(field=universityForm("email"), '_showConstraints -> false, 'class->"form-control", '_label->"University Email")
+	              @textarea(field=universityForm("address"), '_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"University Address")
+	              @textarea(field=universityForm("personDetails"), '_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"person_editor",'_label->"University Person Details")
+	              @inputText(field=universityForm("contactNo"), '_showConstraints -> false, 'class->"form-control",'_label->"University Contact No")
+	              <div class="col-md-12"> 	
+	             	<input type="submit" value="Create" class="btn btn-primary">
+	              </div> 	
+                  }
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+   </div>                  
      }
 

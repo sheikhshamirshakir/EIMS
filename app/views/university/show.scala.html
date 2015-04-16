@@ -2,16 +2,46 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@university.id</td> </tr>
-    <tr> <th >University Name</th> <td>@university.name</td> </tr>
-    <tr> <th >University Email</th> <td>@university.email</td> </tr>
-    <tr> <th >University Address</th> <td>@university.address</td> </tr>
-    <tr> <th >University Person Details</th> <td>@university.personDetails</td> </tr>
-    <tr> <th >University Contact No</th> <td>@university.contactNo</td> </tr>
-  </table>
+ <!-- main content -->
+            <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                         <label for="uniName">University Name</label>
+                          <div class="form-control">
+                            @university.name
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                         <label for="uniEmail">University Email</label>
+                          <div class="form-control">
+                            @university.email
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                         <label for="uniAddress">University Address</label>
+                          <div class="form-control">
+                            @university.address
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                         <label for="uniPerson">University Person Details</label>
+                          <div class="form-control">
+                            @university.personDetails
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                         <label for="uniPerson">University Contact No</label>
+                          <div class="form-control">
+                            @university.contactNo
+                          </div>
+                      </div>
  	 @form(routes.UniversityManagement.edit(university.id)) {
-		    <input type="submit" value="Edit">
+ 	               <div class="form-control">
+		             <input type="submit" value="Edit" class="btn btn-primary">
+		           </div>  
   		  }
+  		</div>
+     </div>
+   </div>  		  
   		}
