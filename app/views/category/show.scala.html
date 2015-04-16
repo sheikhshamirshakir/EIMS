@@ -1,14 +1,21 @@
 @(category: models.admission.Category)
 @import helper._
 
-@main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@category.id</td> </tr>
-    <tr> <th >Category Name</th> <td>@category.name</td> </tr>
-  </table>
-   
-     @form(routes.CategoryManagement.edit(category.id)) {
-		    <input type="submit" value="Edit">
-  		  }
+@mainlist(""){
+ <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+						  <table>
+						    <tr> <th >ID</th> <td>@category.id</td> </tr>
+						    <tr> <th >Category Name</th> <td>@category.name</td> </tr>
+						  </table>
+						   
+						     @form(routes.CategoryManagement.edit(category.id)) {
+								    <input type="submit" value="Edit">
+						  		  }
+					    </div>
+					</div>
+			   </div>
+</div>			   		    	  		  
      }

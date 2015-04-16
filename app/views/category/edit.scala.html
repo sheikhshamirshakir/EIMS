@@ -2,12 +2,20 @@
 @import helper._
 
 @main("Edit Category"){
-  <h2>Update the Category having ID @categoryForm.get.id</h2><br/><br/>
-  
-  @form(routes.CategoryManagement.update()) {
-  	  <input type="hidden" name="id" value=@categoryForm.get.id >
-  	  
-      @inputText(categoryForm("name"), '_label->"Category Name")</tr>
-	  <input type="submit" value="Update">
-  }
+<div id="main_wrapper">
+          <div class="container-fluid">
+                <div class="row">
+                   <div class="col-md-12">
+					  <h2>Update the Category having ID @categoryForm.get.id</h2><br/><br/>
+					  
+					  @form(routes.CategoryManagement.update()) {
+					  	  <input type="hidden" name="id" value=@categoryForm.get.id >
+					  	  
+					      @inputText(categoryForm("name"), '_label->"Category Name")</tr>
+						  <input type="submit" value="Update">
+					  }
+					</div>
+	           </div>
+	       </div>
+	 </div>          				  
 }
