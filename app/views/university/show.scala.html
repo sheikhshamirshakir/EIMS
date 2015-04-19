@@ -2,46 +2,47 @@
 @import helper._
 
 @main(""){
- <!-- main content -->
-            <div id="main_wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-md-12">
-                         <label for="uniName">University Name</label>
-                          <div class="form-control">
-                            @university.name
-                          </div>
-                      </div>
-                      <div class="col-md-12">
-                         <label for="uniEmail">University Email</label>
-                          <div class="form-control">
-                            @university.email
-                          </div>
-                      </div>
-                      <div class="col-md-12">
-                         <label for="uniAddress">University Address</label>
-                          <div class="form-control">
-                            @university.address
-                          </div>
-                      </div>
-                      <div class="col-md-12">
-                         <label for="uniPerson">University Person Details</label>
-                          <div class="form-control">
-                            @university.personDetails
-                          </div>
-                      </div>
-                      <div class="col-md-12">
-                         <label for="uniPerson">University Contact No</label>
-                          <div class="form-control">
-                            @university.contactNo
-                          </div>
-                      </div>
- 	 @form(routes.UniversityManagement.edit(university.id)) {
- 	               <div class="form-control">
-		             <input type="submit" value="Edit" class="btn btn-primary">
-		           </div>  
-  		  }
-  		</div>
-     </div>
-   </div>  		  
-  		}
+    <!-- main content -->   
+ <div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <label for="uniName">University Name</label>
+           <span class="form-control" id="uniName">@university.name</span>
+        </div>  
+      </div>
+      <div class="row">  
+        <div class="col-md-12">
+           <label for="uniEmail">University Email</label>
+           <span class="form-control" id="uniEmail">@university.email</span>
+        </div>   
+      </div>
+      <div class="row">  
+        <div class="col-md-12">
+           <label for="uniAddress">University Address</label>
+           <span class="form-control" id="uniAddress">@university.address</span>
+        </div>     
+      </div>
+      <div class="row">  
+        <div class="col-md-12">
+           <label for="uniPerson">University Person Details</label>
+           <span class="form-control" id="uniPerson">@university.personDetails</span>
+        </div> 	
+      </div>
+      <div class="row">  
+        <div class="col-md-12">
+           <label for="uniContact">University Contact No</label>
+           <span class="form-control" id="uniContact">@university.contactNo</span>
+        </div> 			
+      </div>  		   
+	    @form(routes.UniversityManagement.edit(university.id)) {
+	  <div class="row">  
+ 	    <div class="col-md-12">
+		   <input type="submit" value="Edit" class="btn btn-primary">
+		</div>  
+      </div>		
+  		 }
+  </div>
+</div>			   		    	  		  
+ }
+    

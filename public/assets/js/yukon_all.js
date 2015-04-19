@@ -2367,5 +2367,8 @@
 			if ($('#wysiwg_editor').length) {
 				$('#wysiwg_editor').ckeditor();
 			}
-		}
+		},
+		p_forms_extended: function() {
+				$('#person_editor').ckeditor();
+		}		
 	};
