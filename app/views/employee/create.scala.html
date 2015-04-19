@@ -5,22 +5,22 @@
 @import  models.admission.Category
 
 @main("Employee Entry") {
-	
-       @form(routes.EmployeeManagement.save()) { 
+	<div id="main_wrapper">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Create Employee</span></div>
+                <div class="row">
+       @form(routes.EmployeeManagement.save(), 'enctype -> "multipart/form-data") { 
        		
-       		 
-       		  @inputText(field=employeeForm("employeeName"), args='_label->"Employee Name")
-       		 
-       		 	          
-	          
+       		  @inputText(field=employeeForm("employeeName"),'_showConstraints -> false, 'class->"form-control",'_label->"Employee Name")
+            
        		  @select(
 		      employeeForm("categoryId"),
 		      options(Category.getCategoriesAsMap),
 		      '_label -> "Category",
 		      '_default -> "-- Choose a Category --"
 		    )
-       		 
-       		 <!--other fields-->
        		 
        		  @select(
 		      employeeForm("departmentId"),
@@ -29,21 +29,21 @@
 		      '_default -> "-- Choose a Department --"
 		    )
 		    
-		    @select(
+		     @select(
 		      employeeForm("designationId"),
 		      options(Designation.getDesignationsAsMap),
 		      '_label -> "Designation",
 		      '_default -> "-- Choose a Designation --"
 		    )
        
-	  		@select(
+	  		 @select(
 		      employeeForm("employeeType"),
 		      options(Seq("Teacher","Staff")),
 		      '_label -> "Employee Type",
 		      '_default -> "-- Choose a Employee Type --"
 		    )			
 		           
-		       @inputRadioGroup(
+		      @inputRadioGroup(
 	          employeeForm("gender"),
 	          options = options("Male"->"Male","Female"->"Female"),
 	          '_label -> "Gender"
@@ -51,14 +51,14 @@
 	          
        		  @inputDate(field=employeeForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
 		      
-		       @inputDate(field=employeeForm("joiningDate"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")  
+		      @inputDate(field=employeeForm("joiningDate"), '_label->"Joining Date", '_help -> "format dd/mm/yy")  
 		         
-       		 @inputText(field=employeeForm("fathersName"), args='_label->"Fathers Name")
-       		  @inputText(field=employeeForm("mothersName"), args='_label->"Mothers Name")
+       		  @inputText(field=employeeForm("fathersName"), '_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")
+       		  @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")
        		  
        		  
-       		  @textarea(field=employeeForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
-       		  @textarea(field=employeeForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
+       		  @textarea(field=employeeForm("presentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")
+       		  @textarea(field=employeeForm("permanentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
        		  
        		  
        		  @select(
@@ -68,10 +68,10 @@
 		      '_default -> "-- Choose one --"
 		     )
        		  
-       		  @inputText(field=employeeForm("natIdNo"), args='_label->"National Id No")
-       		  @inputText(field=employeeForm("birthCertNo"), args='_label->"Birth Certificate No")
-       		  @inputText(field=employeeForm("tin"), args='_label->"TIN")
-       		  @inputText(field=employeeForm("nationality"), args='_label->"Nationality")
+       		  @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control", '_label->"National Id No")
+       		  @inputText(field=employeeForm("birthCertNo"),'_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
+       		  @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
+       		  @inputText(field=employeeForm("nationality"),'_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
 
 
        		  @select(
@@ -91,10 +91,10 @@
        		  @inputRadioGroup(
 	          employeeForm("maritalStat"),
 	          options = options("Single"->"Single","Married"->"Married"),
-	          '_label -> "Maritual Status"
+	          '_label -> "Marital Status"
 	          )
        		  
-       		  @inputText(field=employeeForm("spouseName"), args='_label->"Spouse Name")
+       		  @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
        		 
        		  @select(
 		      employeeForm("noOfChild"),
@@ -103,35 +103,42 @@
 		      '_default -> "-- Choose a number --"
 		    )
        		  
-       		 @inputText(field=employeeForm("SSCSession"), args='_label->"SSC Session")
-			 @inputText(field=employeeForm("SSCResult"), args='_label->"SSC Result")
-			 @inputText(field=employeeForm("SSCSchool"), args='_label->"School Name")
+       		 @inputText(field=employeeForm("SSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Session")
+			 @inputText(field=employeeForm("SSCResult"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Result")
+			 @inputText(field=employeeForm("SSCSchool"), '_showConstraints -> false, 'class->"form-control",'_label->"School Name")
+					
+			 @inputText(field=employeeForm("HSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"HSC Session")
+			 @inputText(field=employeeForm("HSCResult"), '_showConstraints -> false, 'class->"form-control",'_label->"HSC Result")
+			 @inputText(field=employeeForm("HSCCollage"), '_showConstraints -> false, 'class->"form-control",'_label->"College Name")
 			
-			//hsc
-			 @inputText(field=employeeForm("HSCSession"), args='_label->"HSC Session")
-			 @inputText(field=employeeForm("HSCResult"), args='_label->"HSC Result")
-			 @inputText(field=employeeForm("HSCCollage"), args='_label->"College Name")
+			 @inputText(field=employeeForm("HonsSession"), '_showConstraints -> false, 'class->"form-control",'_label->"Hons Session")
+			 @inputText(field=employeeForm("HonsResult"), '_showConstraints -> false, 'class->"form-control",'_label->"Hons Result")
+			 @inputText(field=employeeForm("HonsUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"University Name")
 			
-			//hons
-			 @inputText(field=employeeForm("HonsSession"), args='_label->"Hons Session")
-			 @inputText(field=employeeForm("HonsResult"), args='_label->"Hons Result")
-			 @inputText(field=employeeForm("HonsUniv"), args='_label->"University Name")
+			 @inputText(field=employeeForm("MsSession"), '_showConstraints -> false, 'class->"form-control",'_label->"MS Session")
+			 @inputText(field=employeeForm("MsResult"), '_showConstraints -> false, 'class->"form-control",'_label->"MS result")
+			 @inputText(field=employeeForm("MsUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"MS University")
 			
-			//ms
-			 @inputText(field=employeeForm("MsSession"), args='_label->"MS Session")
-			 @inputText(field=employeeForm("MsResult"), args='_label->"MS result")
-			 @inputText(field=employeeForm("MsUniv"), args='_label->"MS University")
-			
-			//phd
-			 @inputText(field=employeeForm("PHDYear"), args='_label->"Phd Year")
-			 @inputText(field=employeeForm("PHDTopics"), args='_label->"Phd Topics")
-			 @inputText(field=employeeForm("PHDUniv"), args='_label->"University")
+			 @inputText(field=employeeForm("PHDYear"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Year")
+			 @inputText(field=employeeForm("PHDTopics"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Topics")
+			 @inputText(field=employeeForm("PHDUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"University")
        		  
        		  
-       <!--other fields-->
-             
+       		 <table>
+		     <tr>
+		         <th>Select Image </th>
+		         <td><input type="file" name="empimage"></td>
+		     </tr>
+		     </table>
+             <div class="col-md-12"> 
               <input type="submit" value="Create">
+              </div> 
             }
-                       
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+                        
      }
 

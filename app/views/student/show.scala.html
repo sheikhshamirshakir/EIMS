@@ -1,4 +1,7 @@
 @(student: models.admission.Student)
+@import services.Utils
+@import models.District
+@import models.admission.Parent
 
 @import helper._
 
@@ -6,21 +9,31 @@
 
   <table>
     <tr> <th >ID</th> <td>@student.sid</td> </tr>
-    <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/"+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
+    <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/student/"+student.name+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></td> </tr>
+     <tr> <th >Student Name</th> <td>@student.name</td> </tr>
+     <tr> <th >Gender</th> <td>@student.gender</td> </tr>
+    <tr> <th >Date of Birth</th> <td>>@Utils.formatDate(student.dateOfBirth)</td> </tr>
+    <tr> <th >Place of Birth</th> <td>@District.findById(Long.parseLong(student.placeOfBirth)).name</td> </tr>
+    <tr> <th >Nationality</th> <td>@student.nationality</td> </tr>
+    <tr> <th >Present Address</th> <td>@student.presentAddress</td> </tr>
+    <tr> <th >Permanent Address</th> <td>@student.permanentAddress</td> </tr>
+    <tr> <th >Religion</th> <td>@student.religion</td> </tr>
+    <tr> <th >Blood group</th> <td>@student.bloodGroup</td> </tr>
+    <tr> <th >Marital Status</th> <td>@student.maritalStatus</td> </tr>
+    <tr> <th >Mobile no.</th> <td>@student.mobile</td> </tr>
+    <tr> <th >Email</th> <td>@student.email</td> </tr>
+    <tr> <th >Parent </th> <td><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).name</a></td> </tr>
+    <tr> <th >Department</th> <td>@student.department.name</td> </tr>
+    <tr> <th >Degree</th> <td>@student.degree.name</td> </tr>
+    <tr> <th >Class or Year</th> <td>@student.classYear.name</td> </tr>
+    <tr> <th >Section or Semester</th> <td>@student.sectionSemester.name</td> </tr>
     
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
-    <tr> <th >Student Name</th> <td>@student.name</td> </tr>
+    @*<tr> <th >Division</th> <td>@student.division.name</td> </tr>
+    <tr> <th >District</th> <td>@student.district.name</td> </tr>*@
+    
+    <tr> <th >Complete Credit</th> <td>@student.completecredit</td> </tr>
+    <tr> <th >Need to complete</th> <td>@student.atleastCredit-student.completecredit</td> </tr>
+    
     
   </table>
    

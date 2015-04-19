@@ -106,7 +106,7 @@ public class StudentManagement extends Controller{
 	    File file_type = student_image.getFile();
 	    				    
 	    try {
-            FileUtils.copyFile(file_type, new File("public/images/photos", image_name));
+            FileUtils.copyFile(file_type, new File("public/images/photos/student", image_name));
             } catch (IOException ioe) {
             System.out.println("Problem operating on filesystem");
         }		

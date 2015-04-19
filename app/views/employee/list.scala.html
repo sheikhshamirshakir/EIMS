@@ -8,7 +8,12 @@
          	<span>@flash.get("msg")</span>
      }
   
-  <table>
+  <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
   <thead>
     <tr>
        <th>ID</th>
@@ -25,11 +30,15 @@
         <td><a href="@routes.EmployeeManagement.show(employee.id)">@employee.id</a></td>
         <td>@employee.name</td>
          <td>@employee.employeeType</td>
-
-        
+       
       </tr> 
     }
  </tbody>
  </table>
+ </div>
+     </div>
+   </div>
+</div>     		  
+ 
 
 }      

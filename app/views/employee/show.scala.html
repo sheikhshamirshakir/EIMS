@@ -6,20 +6,25 @@
 @main("Employee"){
 
   <table>
+       <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/employee/"+employee.name+employee.id+"_image.png") alt="" title="" width="64" height="64" border="0" /></td> </tr>
+  
     <tr> <th >ID</th> <td>@employee.id</td> </tr>
     <tr> <th >Employee Name</th> <td>@employee.name</td> </tr>
+    
      <tr> <th>Employee Type</th> <td>@employee.employeeType</td> </tr>
      <tr> <th>Category</th> <td>@employee.category.name</td> </tr>
      
      <tr> <th>Date of Birth</th> <td>@Utils.formatDate(employee.dateOfBirth)</td> </tr>
     <tr> <th>Joining Date</th> <td>@Utils.formatDate(employee.joiningDate)</td> </tr>
 
-  <tr> <th>Gender</th> <td>@employee.gender</td> </tr>
-   <tr> <th>Fathers Name</th> <td>@employee.fathersName</td> </tr>
-   <tr>    <th>Mothers Name</th><td>@employee.mothersName</td> </tr>
-    <tr>   <th>Present Address</th> <td>@employee.presentAddress</td></tr>
+      <tr> <th>Gender</th> <td>@employee.gender</td> </tr>
+      <tr> <th>Fathers Name</th> <td>@employee.fathersName</td> </tr>
+      <tr>    <th>Mothers Name</th><td>@employee.mothersName</td> </tr>
+      <tr>   <th>Present Address</th> <td>@employee.presentAddress</td></tr>
       <tr> <th>Permanent Address</th>  <td>@employee.permanentAddress</td> </tr>
-       <tr><th>Place Of Birth</th> <td>@District.findById(Long.parseLong(employee.placeOfBirth)).name</td> </tr>
+       @*<tr><th>Place Of Birth</th> <td>@District.findById(Long.parseLong(employee.placeOfBirth)).name</td> </tr>*@
+       
+       <tr><th>Place Of Birth</th> <td>@employee.placeOfBirth</td> </tr>
        <tr><th>National Id No</th> <td>@employee.natIdNo</td> </tr>
        <tr><th>Birth Certificate No</th> <td>@employee.birthCertNo</td> </tr>
        <tr><th>TIN</th> <td>@employee.tin</td></tr>

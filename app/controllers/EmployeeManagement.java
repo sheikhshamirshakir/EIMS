@@ -4,20 +4,27 @@
  ***/
 package controllers;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 import dummymodels.DummyEmployee;
 import models.admission.Category;
 import models.admission.Department;
 import models.admission.Designation;
 import models.admission.Employee;
+import models.admission.Student;
 import models.admission.Teacher;
 import models.admission.Teacher;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.Http.MultipartFormData;
+import play.mvc.Http.MultipartFormData.FilePart;
 import utils.AppConstants;
 import views.html.employee.*;
 
@@ -33,6 +40,11 @@ public class EmployeeManagement extends Controller{
 	 public static Result save() {
 		 Form<DummyEmployee> filledForm = dEmployeeForm.bindFromRequest();
 		 DummyEmployee dEmployee = filledForm.get();
+		 
+		 MultipartFormData body = request().body().asMultipartFormData();
+   		 FilePart emp_image = body.getFile("empimage");
+		 
+		 
 		 Employee employee = new Employee();
 		 
 		 employee.name = dEmployee.employeeName;
@@ -61,7 +73,19 @@ public class EmployeeManagement extends Controller{
 		 
 		 
 		 Long id = Employee.findLastId();
-		 System.out.println("........id........."+id);
+	//	 System.out.println("........id........."+id);
+ 
+			
+		String image_name = employee.name+id+"_image.png";
+	    String contentType = emp_image.getContentType(); 
+	    File file_type = emp_image.getFile();
+	    				    
+	    try {
+            FileUtils.copyFile(file_type, new File("public/images/photos/employee", image_name));
+            } catch (IOException ioe) {
+            System.out.println("Problem operating on filesystem");
+        }		
+		 
 		 
 		 Teacher teacher =new Teacher();
    		 teacher.department=Department.findById(Long.parseLong(dEmployee.departmentId));

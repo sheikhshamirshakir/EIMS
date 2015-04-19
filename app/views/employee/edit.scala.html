@@ -3,12 +3,17 @@
 @import models.admission.Category
 
 @main("Edit Employee"){
-  <h2>Update the Employee having ID @employeeForm.get.id</h2><br/><br/>
-  
+
+  <div id="main_wrapper">
+          <div class="container-fluid">
+                <div class="row">
+                   <div class="col-md-12">
+                      <div class="heading_a"><span class="heading_text">Update the Employee having ID @employeeForm.get.id</span></div>
+                        <div class="row">
   @form(routes.EmployeeManagement.update()) {
   	  <input type="hidden" name="id" value=@employeeForm.get.id >
   	  
-      @inputText(employeeForm("name"), '_label->"Employee Name")</tr>
+      @inputText(employeeForm("name"),'_showConstraints -> false, 'class->"form-control", '_label->"Employee Name")</tr>
       
        <label>Category</label>
 	   <select name="category.id" >
@@ -30,10 +35,10 @@
 	   <input type="radio" name="gender"value="Male" @if(employeeForm.get.gender.toString=="Male"){checked}><label>Male</label>
        <input type="radio" name="gender"value="Female" @if(employeeForm.get.gender.toString=="Female"){checked}><label>Female</label>
       </select>
-      @inputText(field=employeeForm("fathersName"), '_label->"Fathers Name")
-	  @inputText(field=employeeForm("mothersName"), '_label->"Mothers Name")	  
-      @textarea(field=employeeForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
-  	  @textarea(field=employeeForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
+      @inputText(field=employeeForm("fathersName"),'_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")
+	  @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")	  
+      @textarea(field=employeeForm("presentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")
+  	  @textarea(field=employeeForm("permanentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
 	    
 	  <label>Place of birth</label>
 	   <select name="placeOfBirth" >
@@ -43,10 +48,10 @@
         }
         </select>
 	  
-	  @inputText(field=employeeForm("natIdNo"), '_label->"National Id No")
-	  @inputText(field=employeeForm("birthCertNo"), '_label->"Birth Certificate No")
-	  @inputText(field=employeeForm("tin"), '_label->"TIN")
-	  @inputText(field=employeeForm("nationality"), '_label->"Nationality")
+	  @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control",'_label->"National Id No")
+	  @inputText(field=employeeForm("birthCertNo"), '_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
+	  @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
+	  @inputText(field=employeeForm("nationality"), '_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
 	  
 	   <label>Religion</label>
 	   <select name="religion" >
@@ -77,7 +82,7 @@
       </select>
 	   
 	  
-	  @inputText(field=employeeForm("spouseName"), '_label->"Spouse Name")
+	  @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
 	  
 	 
 	    <label>No. of Child</label>
@@ -90,7 +95,13 @@
          
       </select>
 	  
-	  
+	  <div class="col-md-12"> 
 	  <input type="submit" value="Update">
+	  </div>
   }
+            </div>
+       </div>
+     </div>
+  </div>
+</div>
 }
