@@ -1824,7 +1824,7 @@
 					placeholder: "Select..."
 				});
 			}
-			
+						
 			if($('#s2_tokenization').length) {
 				$('#s2_tokenization').select2({
 					placeholder: "Select...",
