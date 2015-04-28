@@ -7,6 +7,7 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import models.admission.Student;
 import be.objectify.deadbolt.core.models.Permission;
 import be.objectify.deadbolt.core.models.Subject;
 
@@ -15,33 +16,27 @@ import be.objectify.deadbolt.core.models.Subject;
 @Table(name="UserInfo")
 public class User extends Model implements Subject {
 	@Id
-	@Column(name="UserID")
+	@Column(name="id")
 	public Integer id;
 
 	//@Required
-	@Column(name="UserName")
+	@Column(name="user_name")
 	public String username;
 	
-	@Column(name="FullName")
-	public String fullName;
-	
-	@Column(name="RoleID")
+
+	@Column(name="role_id")
 	public Integer roleId;
 	
-	@Column(name="PasswordSalt")
-	public String passwordSalt;
+//	@Column(name="PasswordSalt")
+//	public String passwordSalt;
+//	
+	@Column(name="password")
+	public String password;
 	
-	@Column(name="SaltedHash")
-	public String hashedPassword;
+	@Column(name="user_id")
+	public Integer userId;
 	
-	@Column(name="IsActive")
-	public boolean isActive;
-
-	@Column(name="IsLocked")
-	public boolean isLocked;
 	
-	@Column(name="IsApproved")
-	public boolean isApproved;
 	
 	/** implements deadbolt methods */
     @Override
@@ -77,14 +72,14 @@ public class User extends Model implements Subject {
 	public static User findByUsernameAndPassword(String username, String password) {
 		return find.where()
 				.eq("username", username)
-				.eq("hashedPassword", password)
+				.eq("password", password)
 				.findUnique();
 	}
 	
 	
-	 public static int findRoleByUserName(String userName){
+	 public static int findRoleByUserName(String username){
 		 return find.where()
-			 .eq("userName", userName)
+			 .eq("username", username)
 			 .findUnique().roleId;
 		} 
 	 
@@ -100,5 +95,22 @@ public class User extends Model implements Subject {
 	public static void delete(int id) {
 		find.ref(id).delete();
 	}
+	
+	    
+	    public static void update(User user) {
+	    	user.update();
+	    }
+	    
+	    public static Map<String,String> getUsersAsMap() {
+	        LinkedHashMap<String,String> users = new LinkedHashMap<String,String>();
+	        for(User user: User.find.orderBy("username").findList()) {
+	        	users.put(user.id.toString(), user.username);
+	        }
+	        
+	        return users;
+	    }
+	    
+	    
+	
 
 }

@@ -12,26 +12,26 @@ import javax.persistence.*;
 @Table(name="Menu")
 public class Menu extends Model {
 	@Id
-	@Column(name="MenuId")
+	@Column(name="menu_id")
 	public Integer id;
 	
-	@Column(name="ParentID")
-	public Integer parentMenuId;
+//	@Column(name="ParentID")
+//	public Integer parentMenuId;
 	
-	@Column(name="PermissionID")
+	@Column(name="permission_id")
 	public Integer permissionId;
 
-	@Column(name="MenuText")
+	@Column(name="menu_text")
 	public String name;
 	
-	@Column(name="NavigateUrl")
-	public String menuUrl;
+//	@Column(name="NavigateUrl")
+//	public String menuUrl;
 	
-	@Column(name="MenuOrder")
-	public Integer menuOrder;
+//	@Column(name="MenuOrder")
+//	public Integer menuOrder;
 	
-	@Column(name="IsVisible")
-	public Integer isVisible;
+//	@Column(name="IsVisible")
+//	public Integer isVisible;
 
 	private static Finder<Integer, Menu> find = new Finder(Integer.class, Menu.class);
 	
@@ -45,4 +45,25 @@ public class Menu extends Model {
 		return find.all();
 	}
 
+	
+	public static void create(Menu menu) {
+    	menu.save();
+    }
+    
+    public static void update(Menu menu) {
+    	menu.update();
+    }
+    
+    public static void delete(Integer id){
+    	delete(id);
+    }
+    
+    public static Map<String,String> getMenusAsMap() {
+        LinkedHashMap<String,String> menus = new LinkedHashMap<String,String>();
+        for(Menu menu: Menu.find.orderBy("name").findList()) {
+        	menus.put(menu.id.toString(), menu.name);
+        }
+        
+        return menus;
+    }
 }

@@ -17,6 +17,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import services.StudentCourseCheck;
 import services.UpdatePermission;
 import utils.AppConstants;
 import views.html.studentcourse.*;
@@ -27,7 +28,7 @@ public class StudentCourseManagement extends Controller{
 	
 	public static Result createWithStudent(String studentId) {
 		Long tId = Long.parseLong(studentId);
-		List<Boolean> isChecked = UpdatePermission.viewUpdatePermission(tId);
+		List<Boolean> isChecked = StudentCourseCheck.check(tId);
 		String studentName = Student.findById(tId).name;
 		return ok(createWithoutList.render(tId, studentName, isChecked));
 	}
@@ -63,7 +64,7 @@ public class StudentCourseManagement extends Controller{
 				StudentCourse.create(studentCourse);
 				
 				Student student2 = Student.findById(studentCourse.student.sid);
-			   student2.completecredit += studentCourse.course.credit ;
+			    student2.completecredit += studentCourse.course.credit ;
 				Student.update(student2);
 				
 			}

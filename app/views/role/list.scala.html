@@ -1,0 +1,28 @@
+@(roles: List[models.Role])
+@import helper._
+
+@main("List of Roles"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Role Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(role <- roles) {
+      <tr>
+        <td><a href="@routes.RoleManagement.show(role.id)">@role.id</a></td>
+        <td>@role.roleName</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

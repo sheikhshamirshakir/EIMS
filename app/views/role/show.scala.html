@@ -1,0 +1,14 @@
+@(role: models.Role)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@role.id</td> </tr>
+    <tr> <th >Role Name</th> <td>@role.roleName</td> </tr>
+  </table>
+   
+     @form(routes.RoleManagement.edit(role.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

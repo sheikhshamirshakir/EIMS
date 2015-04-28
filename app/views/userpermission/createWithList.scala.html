@@ -1,0 +1,24 @@
+@(userPermissionForm: Form[models.UserPermission])
+@import models.Role
+@import helper._
+
+@main(""){
+
+  <h2>Assign Permission to a Role</h2><br/><br/>
+
+  @form(routes.UserPermissionManagement.createWithRole()){
+      		
+       		@select(userPermissionForm("roleId"),
+		      options(Role.getRolesAsMap),
+		       '_label -> "Role", '_id -> "id", '_default -> "-- Choose a Role --",
+		       '_showConstraints -> false
+		    )
+      	
+       <br/>
+        <input type="submit" value="Assign Permission to this Role">
+       }
+
+
+}
+
+

@@ -1,0 +1,28 @@
+@(users: List[models.User])
+@import helper._
+
+@main("List of Users"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>User Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(user <- users) {
+      <tr>
+        <td><a href="@routes.UserInfoManagement.show(user.id)">@user.id</a></td>
+        <td>@user.username</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

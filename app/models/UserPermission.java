@@ -16,16 +16,16 @@ import com.avaje.ebean.ExpressionList;
 public class UserPermission extends Model {
 
 	@Id
-	@Column(name="UserPermissionID")
+	@Column(name="user_permission_id")
 	public Long id;
 	
-	@Column(name="PermissionID")
+	@Column(name="permission_id")
 	public Integer permissionId;
 
-	@Column(name="UserID")
+	@Column(name="user_id")
 	public Integer userId;
 	
-	@Column(name="RoleID")
+	@Column(name="role_id")
 	public Integer roleId;
 
 	private static Finder<Long, UserPermission> find = new Finder(Long.class, UserPermission.class);
@@ -60,6 +60,21 @@ public class UserPermission extends Model {
 			Permission p = Permission.get(up.permissionId);
 			if(p != null)
 				permissions.add(p);
+		}
+		
+		return permissions;
+	}
+	
+	
+	
+	public static List<Integer> findPermissionsByRoleId(int roleId) {
+		List<UserPermission> userPermissions = findListByRoleId(roleId);
+		List<Integer> permissions = new ArrayList<Integer>();
+		
+		for(UserPermission up : userPermissions){
+			Permission p = Permission.get(up.permissionId);
+			if(p != null)
+				permissions.add(p.id);
 		}
 		
 		return permissions;
@@ -110,5 +125,28 @@ public class UserPermission extends Model {
 		}
 		return rolesAsInt;
 	}
+	
+	public static void update(UserPermission userPermission) {
+		userPermission.update();
+    }
+    
+    public static void delete(Integer id){
+    	delete(id);
+    }
+    
+    
+    public static void create(UserPermission userPermission) {
+    	userPermission.save();
+    }
+    
+    
+    public static void deleteUserPermissionsByRole(Integer id) {
+		List<UserPermission> userPermissions =UserPermission.find.where().eq("roleId", id).findList();
+
+		for (UserPermission up : userPermissions) {
+			up.delete();
+		}
+	}
+    
 	
 }

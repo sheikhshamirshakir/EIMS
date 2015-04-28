@@ -1,0 +1,28 @@
+@(menus: List[models.Menu])
+@import helper._
+
+@main("List of Menus"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Menu Text</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(menu <- menus) {
+      <tr>
+        <td><a href="@routes.MenuManagement.show(menu.id)">@menu.id</a></td>
+        <td>@menu.name</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

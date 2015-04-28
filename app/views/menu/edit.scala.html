@@ -1,0 +1,15 @@
+@(menuForm: Form[models.Menu])
+@import helper._
+
+@main("Edit Menu"){
+  <h2>Update the Menu having ID @menuForm.get.id</h2><br/><br/>
+  
+  @form(routes.MenuManagement.update()) {
+  	  <input type="hidden" name="id" value=@menuForm.get.id >
+  	  
+  	  
+  	  
+      @inputText(menuForm("name"), '_label->"Menu Text")</tr>
+	  <input type="submit" value="Update">
+  }
+}

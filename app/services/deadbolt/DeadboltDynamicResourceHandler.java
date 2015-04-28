@@ -46,7 +46,7 @@ public class DeadboltDynamicResourceHandler implements DynamicResourceHandler {
 			return false;
 		
 		User user = User.findByUsername(username);
-		if (user==null || user.isLocked || !user.isApproved || !user.isActive)
+		if (user==null)
 			return false;
 
 		List<UserPermission> userPermissions = UserPermission.findListByUserIdAndPermissionId(user.id, permission.id);

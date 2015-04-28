@@ -1,0 +1,15 @@
+@(userForm: Form[models.User])
+@import helper._
+
+@main("Edit User"){
+  <h2>Update the User having ID @userForm.get.id</h2><br/><br/>
+  
+  @form(routes.UserInfoManagement.update()) {
+  	  <input type="hidden" name="id" value=@userForm.get.id >
+  	  
+      @inputText(userForm("username"), '_label->"User Name")</tr>
+      @inputPassword(userForm("password"), '_label->"Password")</tr>
+      
+	  <input type="submit" value="Update">
+  }
+}

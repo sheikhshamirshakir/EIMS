@@ -1,0 +1,28 @@
+@(permissions: List[models.Permission])
+@import helper._
+
+@main("List of Permissions"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  
+  <table>
+  <thead>
+    <tr>
+       <th>ID</th>
+       <th>Permission Name</th>
+     </tr>
+   </thead>
+    <tbody>
+    @for(permission <- permissions) {
+      <tr>
+        <td><a href="@routes.PermissionManagement.show(permission.id)">@permission.id</a></td>
+        <td>@permission.permissionName</td>
+      </tr> 
+    }
+ </tbody>
+ </table>
+
+}      

@@ -164,3 +164,59 @@ POST	/student-course/edit						controllers.StudentCourseManagement.update()
 ###### JAVASCRIPT ROUTES
 GET     /div/:id     controllers.DistrictFunctions.getDistByDiv(id: Long)
 GET     /javascriptRoutes     controllers.DistrictFunctions.javascriptRoutes
+
+
+#Usermanagement
+GET		/user/create						     controllers.UserInfoManagement.create()
+POST	/user/create						     controllers.UserInfoManagement.save()
+GET		/user/list							 controllers.UserInfoManagement.list()
+GET		/user/show/:id						 controllers.UserInfoManagement.show(id: Integer)
+GET		/user/edit/:id						 controllers.UserInfoManagement.edit(id: Integer)
+POST	/user/edit							 controllers.UserInfoManagement.update()
+GET	    /user/delete/:id					   	 controllers.UserInfoManagement.delete(id: Integer)
+
+
+#Role
+GET		/role/create						     controllers.RoleManagement.create()
+POST	/role/create						     controllers.RoleManagement.save()
+GET		/role/list							 controllers.RoleManagement.list()
+GET		/role/show/:id						 controllers.RoleManagement.show(id: Integer)
+GET		/role/edit/:id						 controllers.RoleManagement.edit(id: Integer)
+POST	/role/edit							 controllers.RoleManagement.update()
+GET	    /role/delete/:id					   	 controllers.RoleManagement.delete(id: Integer)
+
+#Menu
+GET		/menu/create						     controllers.MenuManagement.create()
+POST	/menu/create						     controllers.MenuManagement.save()
+GET		/menu/list							 controllers.MenuManagement.list()
+GET		/menu/show/:id						 controllers.MenuManagement.show(id: Integer)
+GET		/menu/edit/:id						 controllers.MenuManagement.edit(id: Integer)
+POST	/menu/edit							 controllers.MenuManagement.update()
+GET	    /menu/delete/:id					   	 controllers.MenuManagement.delete(id: Integer)
+
+#Uermission
+GET		/permission/create						     controllers.PermissionManagement.create()
+POST	/permission/create						     controllers.PermissionManagement.save()
+GET		/permission/list							 controllers.PermissionManagement.list()
+GET		/permission/show/:id						 controllers.PermissionManagement.show(id: Integer)
+GET		/permission/edit/:id						 controllers.PermissionManagement.edit(id: Integer)
+POST	/permission/edit							 controllers.PermissionManagement.update()
+GET	    /permission/delete/:id					   	 controllers.PermissionManagement.delete(id: Integer)
+
+#UserRole , Assign Roles to a user
+GET	   /user-role/create-with-user		        controllers.UserRoleManagement.createWithUser(userId ?= "1")
+GET		/user-role/create						controllers.UserRoleManagement.create()
+POST	/user-role/create						controllers.UserRoleManagement.save()
+
+#UserPermission , Assign Permission to a Role
+GET	   /role-permission/create-with-role		        controllers.UserPermissionManagement.createWithRole(roleId ?= "1")
+GET		/role-permission/create						controllers.UserPermissionManagement.create()
+POST	/role-permission/create						controllers.UserPermissionManagement.save()
+
+
+
+
+
+
+
+

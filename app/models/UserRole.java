@@ -7,18 +7,20 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import models.admission.StudentCourse;
+
 @Entity
 @Table(name = "UsersInRoles")
 public class UserRole extends Model {
 	@Id
-	@Column(name = "urID")
+	@Column(name = "ur_id")
 	public Integer id;
 
 	// @Required
-	@Column(name = "UserID")
+	@Column(name = "user_id")
 	public Integer userId;
 
-	@Column(name = "RoleID")
+	@Column(name = "role_id")
 	public Integer roleId;
 
 	private static Finder<Integer, UserRole> find = new Finder(Integer.class, UserRole.class);
@@ -51,6 +53,50 @@ public class UserRole extends Model {
 		}
 		
 		return roles;
+	}
+	
+	public static void delete(int id) {
+		find.ref(id).delete();
+	}
+	  
+    public static void update(UserRole userRole) {
+    	userRole.update();
+    }
+    
+    
+    public static void create(UserRole userRole) {
+    	userRole.save();
+    }
+    
+   
+    
+	public static List<Integer> findRoleIdsByUserId(Integer id) {
+		List<UserRole> userRoles = UserRole.find.where().eq("userId", id).findList();
+		ArrayList<Integer> roles = new ArrayList<Integer>(userRoles.size());
+		for (int i = 0; i < userRoles.size(); i++) {
+			roles.add(userRoles.get(i).roleId);
+		}
+		return roles;
+	}
+	
+    
+	
+	public static List<Integer> finduserIdsByRoleId(Integer roleId) {
+		List<UserRole> userRoles = UserRole.find.where().eq("roleId", roleId).findList();
+		ArrayList<Integer> users = new ArrayList<Integer>(userRoles.size());
+		for (int i = 0; i < userRoles.size(); i++) {
+			users.add(userRoles.get(i).userId);
+		}
+		return users;
+	}
+	
+	
+	public static void deleteUserRolesByUser(Integer id) {
+		List<UserRole> userRoles =UserRole.find.where().eq("userId", id).findList();
+
+		for (UserRole ur : userRoles) {
+			ur.delete();
+		}
 	}
 
 }

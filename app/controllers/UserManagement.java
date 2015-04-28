@@ -41,26 +41,26 @@ public class UserManagement extends Controller {
 			return ok(loginRequest.render());
 		}
 
-		if (!user.isApproved) {
-			flash("error", "User is not approved yet, please contact the admin.");
-			return ok(loginRequest.render());
-		}
+//		if (!user.isApproved) {
+//			flash("error", "User is not approved yet, please contact the admin.");
+//			return ok(loginRequest.render());
+//		}
 
-		if (!user.isActive) {
-			flash("error", "User is not active, please contact the admin.");
-			return ok(loginRequest.render());
-		}
+//		if (!user.isActive) {
+//			flash("error", "User is not active, please contact the admin.");
+//			return ok(loginRequest.render());
+//		}
 
-		if (user.isLocked) {
-			flash("error", "The account is locked, please contact the admin.");
-			return ok(loginRequest.render());
-		}
+//		if (user.isLocked) {
+//			flash("error", "The account is locked, please contact the admin.");
+//			return ok(loginRequest.render());
+//		}
 
-		int pwdSalt = Integer.parseInt(user.passwordSalt);
-		Password pwd = new Password(login.password, pwdSalt);
-		String hashedPwd = pwd.ComputeSaltedHash();
+//		int pwdSalt = Integer.parseInt(user.passwordSalt);
+//		Password pwd = new Password(login.password, pwdSalt);
+		String hashedPwd = user.password;
 
-		if (!user.hashedPassword.equals(hashedPwd)) {
+		if (!user.password.equals(hashedPwd)) {
 			flash("error", "Password does not match.");
 			return ok(loginRequest.render());
 		}

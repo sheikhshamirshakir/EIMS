@@ -1,0 +1,14 @@
+@(permission: models.Permission)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@permission.id</td> </tr>
+    <tr> <th >Permission Name</th> <td>@permission.permissionName</td> </tr>
+  </table>
+   
+     @form(routes.PermissionManagement.edit(permission.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

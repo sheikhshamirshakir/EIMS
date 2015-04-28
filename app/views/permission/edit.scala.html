@@ -1,0 +1,13 @@
+@(permissionForm: Form[models.Permission])
+@import helper._
+
+@main("Edit Permission"){
+  <h2>Update the Permission having ID @permissionForm.get.id</h2><br/><br/>
+  
+  @form(routes.PermissionManagement.update()) {
+  	  <input type="hidden" name="id" value=@permissionForm.get.id >
+  	  
+      @inputText(permissionForm("permissionName"), '_label->"Permission Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

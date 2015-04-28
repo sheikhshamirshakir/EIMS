@@ -1,0 +1,31 @@
+@(isChecked :List[Boolean])(content: Html)
+@import helper._
+@import models.Role
+@import models.Permission
+
+
+@main("User Permission") {
+
+	  @content
+  	
+    <table>
+    <tr align="center">
+        <th></th>
+        <th>Permissions</th>
+    </tr>
+
+    @for((permission, idx) <- Permission.all.zipWithIndex) {
+    <tr align="center">
+        <td><input type="checkbox" name="permissionId" value="@permission.id" @(if(isChecked.get(idx)== true) "checked")></td>
+        <td>@Permission.get(permission.id).permissionName</td>
+    </tr>
+    }
+  </table>
+   <br/>
+  <input type="submit" value="Assign Permission to this Role">
+  </form>
+
+
+                       
+     }
+

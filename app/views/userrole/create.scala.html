@@ -1,0 +1,27 @@
+@(isChecked :List[Boolean])(content: Html)
+@import models.Role
+@import helper._
+
+
+@main(""){
+  @content
+
+  <table>
+    <tr align="center">
+        <th>Active</th>
+        <th>Role Name</th>
+    </tr>
+
+    @for((role, idx) <- Role.all.zipWithIndex) {
+    <tr align="center">
+        <td><input type="checkbox" name="roleId" value="@role.id" @(if(isChecked.get(idx)== true) "checked")></td>
+        <td>@Role.get(role.id).roleName</td>
+    </tr>
+    }
+  </table>
+  <br/>
+  <input type="submit" value="Assign Role to this User">
+  </form>
+
+ 
+}

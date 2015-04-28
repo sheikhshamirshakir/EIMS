@@ -1,0 +1,14 @@
+@(user: models.User)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@user.id</td> </tr>
+    <tr> <th >User Name</th> <td>@user.username</td> </tr>
+  </table>
+   
+     @form(routes.UserInfoManagement.edit(user.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

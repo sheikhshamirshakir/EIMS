@@ -1,0 +1,15 @@
+@(menuForm: Form[models.Menu])
+@import helper._
+
+
+@main("Menu Entry") {
+	
+       @form(routes.MenuManagement.save()) { 
+      
+              
+              @inputText(field=menuForm("name"), args='_label->"Menu Text")
+             <input type="submit" value="Create">
+            }
+                       
+     }
+

@@ -1,0 +1,24 @@
+@(userRoleForm: Form[models.UserRole])
+@import models.User
+@import helper._
+
+@main(""){
+
+  <h2>Assign Role to a User</h2><br/><br/>
+
+  @form(routes.UserRoleManagement.createWithUser()){
+    @select(userRoleForm("userId"),
+      options(User.getUsersAsMap),
+       '_label -> "User", '_id -> "id", '_default -> "-- Choose a User --",
+       '_showConstraints -> false
+    )
+       <br/>
+        <input type="submit" value="Assign Role to this User">
+       }
+
+
+}
+
+
+
+

@@ -1,0 +1,13 @@
+@(roleForm: Form[models.Role])
+@import helper._
+
+@main("Edit Role"){
+  <h2>Update the Role having ID @roleForm.get.id</h2><br/><br/>
+  
+  @form(routes.RoleManagement.update()) {
+  	  <input type="hidden" name="id" value=@roleForm.get.id >
+  	  
+      @inputText(roleForm("roleName"), '_label->"Role Name")</tr>
+	  <input type="submit" value="Update">
+  }
+}

@@ -1,0 +1,10 @@
+@(roleId: Integer, roleName: String, isChecked: List[Boolean])
+@import helper._
+
+@userpermission.create(isChecked){
+
+       <h2>Assign Permission to Role <b>@roleId : @roleName</b></h2><br/><br/>
+
+        <form method="post" action=@routes.UserPermissionManagement.save()>
+        <input type="hidden" name="roleId" value="@roleId">
+}

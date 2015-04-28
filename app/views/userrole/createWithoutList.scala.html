@@ -1,0 +1,10 @@
+@(userId: Integer, userName: String, isChecked: List[Boolean])
+@import helper._
+
+@userrole.create(isChecked){
+
+       <h2>Assign Course to Student <b>@userId : @userName</b></h2><br/><br/>
+
+        <form method="post" action=@routes.UserRoleManagement.save()>
+        <input type="hidden" name="userId" value="@userId">
+}

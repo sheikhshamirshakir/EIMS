@@ -1,0 +1,16 @@
+@(permissionForm: Form[models.Permission])
+@import helper._
+
+
+@main("Permission Entry") {
+	
+       @form(routes.PermissionManagement.save()) { 
+       		
+       
+              @inputText(field=permissionForm("permissionName"), args='_label->"Permission Name")
+              
+              <input type="submit" value="Create">
+            }
+                       
+     }
+

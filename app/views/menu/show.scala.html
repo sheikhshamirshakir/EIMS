@@ -1,0 +1,14 @@
+@(menu: models.Menu)
+@import helper._
+
+@main(""){
+
+  <table>
+    <tr> <th >ID</th> <td>@menu.id</td> </tr>
+    <tr> <th >Menu Name</th> <td>@menu.name</td> </tr>
+  </table>
+   
+     @form(routes.MenuManagement.edit(menu.id)) {
+		    <input type="submit" value="Edit">
+  		  }
+     }

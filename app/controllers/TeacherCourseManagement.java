@@ -17,6 +17,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import services.TeacherCourseCheck;
 import services.UpdatePermission;
 import utils.AppConstants;
 import views.html.teachercourse.*;
@@ -27,7 +28,7 @@ public class TeacherCourseManagement extends Controller{
 	
 	public static Result createWithTeacher(String teacherId) {
 		Long tId = Long.parseLong(teacherId);
-		List<Boolean> isChecked = UpdatePermission.viewUpdatePermission(tId);
+		List<Boolean> isChecked = TeacherCourseCheck.check(tId);
 		String teacherName = Teacher.findById(tId).name;
 		return ok(createWithoutList.render(tId, teacherName, isChecked));
 	}
