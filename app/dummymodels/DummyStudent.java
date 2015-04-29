@@ -35,11 +35,17 @@ public class DummyStudent {
 	public String parentPhone;
 	public String parentEmail;
 	
+	
 	public String departmentId;
     public String degreeId;
 	public String classId;
 	public String sectionId;
 
     public Double atleastCredit;
+    
+    
+    public String username;
+    public String password;
+    public String role;
 	
 }

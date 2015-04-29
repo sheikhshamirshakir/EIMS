@@ -34,10 +34,11 @@ public class UserRoleManagement extends Controller{
 		Long uId = Long.parseLong(userId);
 		Integer uID = Integer.parseInt(userId);
 		List<Boolean> isChecked = UserRoleCheck.check(uID);
-		int uid = Integer.parseInt(uId.toString());
+		String userName=User.get(uID).username;
+//		int uid = Integer.parseInt(uId.toString());
+
 		
-		
-		int role = User.get(uid).roleId;
+/*		int role = User.get(uid).roleId;
 		String roleName = Role.get(role).roleName;
 		String userName="";
 		if(roleName=="Student"){
@@ -51,9 +52,9 @@ public class UserRoleManagement extends Controller{
 		}
 		else if(roleName=="Admin"){
 			userName="Admin";
-		}
+		}*/
 
-		return ok(createWithoutList.render(uid, userName, isChecked));
+		return ok(createWithoutList.render(uID, userName, isChecked));
 	}
 
 
@@ -61,7 +62,6 @@ public class UserRoleManagement extends Controller{
         return ok(createWithList.render(userRoleForm));
 	}
     
-       
     
 	 public static Result save() {
 		 Form<UserRole> filledForm = userRoleForm.bindFromRequest();
@@ -80,17 +80,16 @@ public class UserRoleManagement extends Controller{
 				userRole2.userId = user.id;
 				userRole2.roleId = roleId;
 				UserRole.create(userRole2);
+				User user2 = User.get(user.id);
+				user2.roleId=roleId;
+				User.update(user2);
 			}
 			}
 		 
-
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	  	return redirect(routes.UserRoleManagement.create());
 	    }
-
-	 
-	 
 	 
 //	 public static Result list() {
 //			return ok(list.render(UserRole.all()));

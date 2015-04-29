@@ -2,13 +2,21 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@role.id</td> </tr>
-    <tr> <th >Role Name</th> <td>@role.roleName</td> </tr>
-  </table>
-   
+<div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <label for="catName">Role Name</label>
+           <span class="form-control" id="catName">@role.roleName</span>
+        </div>  
+      </div>  
      @form(routes.RoleManagement.edit(role.id)) {
-		    <input type="submit" value="Edit">
-  		  }
-     }
+		 <div class="row">  
+	    <div class="col-md-12">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+  </div>
+</div>			   		    	  		  
+   }

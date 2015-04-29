@@ -2,13 +2,23 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@user.id</td> </tr>
-    <tr> <th >User Name</th> <td>@user.username</td> </tr>
-  </table>
+<div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <label for="catName">User Name</label>
+           <span class="form-control" id="catName">@user.username</span>
+        </div>  
+      </div>  
+ 
    
      @form(routes.UserInfoManagement.edit(user.id)) {
-		    <input type="submit" value="Edit">
-  		  }
-     }
+		   <div class="row">  
+	    <div class="col-md-12">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+  </div>
+</div>			   		    	  		  
+   }

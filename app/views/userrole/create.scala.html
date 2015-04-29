@@ -14,7 +14,8 @@
 
     @for((role, idx) <- Role.all.zipWithIndex) {
     <tr align="center">
-        <td><input type="checkbox" name="roleId" value="@role.id" @(if(isChecked.get(idx)== true) "checked")></td>
+        <td><input type="radio" name="roleId" value="@role.id" @(if(isChecked.get(idx)== true) "checked")></td>
+        
         <td>@Role.get(role.id).roleName</td>
     </tr>
     }
@@ -22,6 +23,6 @@
   <br/>
   <input type="submit" value="Assign Role to this User">
   </form>
-
- 
+</div>
+</div></div> 
 }

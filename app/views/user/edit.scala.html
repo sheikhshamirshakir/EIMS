@@ -2,14 +2,21 @@
 @import helper._
 
 @main("Edit User"){
-  <h2>Update the User having ID @userForm.get.id</h2><br/><br/>
+  <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit User</span></div>	
   
   @form(routes.UserInfoManagement.update()) {
   	  <input type="hidden" name="id" value=@userForm.get.id >
   	  
-      @inputText(userForm("username"), '_label->"User Name")</tr>
-      @inputPassword(userForm("password"), '_label->"Password")</tr>
-      
-	  <input type="submit" value="Update">
+      @inputText(userForm("username"), '_showConstraints -> false, 'class->"form-control",'_label->"User Name")</tr>
+      @inputPassword(userForm("password"),'_showConstraints -> false, 'class->"form-control", '_label->"Password")</tr>
+      <input type="submit" value="Update" class="btn btn-primary">
   }
+   </div>
+	      </div>
+	    </div>
+	 </div>   
 }

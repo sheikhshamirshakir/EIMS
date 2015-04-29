@@ -3,7 +3,9 @@
 @import helper._
 
 @main(""){
-
+ <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
   <h2>Assign Permission to a Role</h2><br/><br/>
 
   @form(routes.UserPermissionManagement.createWithRole()){
@@ -17,7 +19,9 @@
        <br/>
         <input type="submit" value="Assign Permission to this Role">
        }
-
+</div>
+</div>
+</div>
 
 }
 

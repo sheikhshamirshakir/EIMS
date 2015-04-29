@@ -2,13 +2,21 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@menu.id</td> </tr>
-    <tr> <th >Menu Name</th> <td>@menu.name</td> </tr>
-  </table>
-   
-     @form(routes.MenuManagement.edit(menu.id)) {
-		    <input type="submit" value="Edit">
-  		  }
-     }
+<div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+        <label for="catName">Menu Name</label>
+           <span class="form-control" id="catName">@menu.name</span>
+        </div>  
+      </div>  
+         @form(routes.MenuManagement.edit(menu.id)) {
+		    <div class="row">  
+	    <div class="col-md-12">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+  </div>
+</div>			   		    	  		  
+   }

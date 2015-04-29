@@ -2,14 +2,21 @@
 @import helper._
 
 @main("Edit Menu"){
-  <h2>Update the Menu having ID @menuForm.get.id</h2><br/><br/>
-  
+ <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Menu</span></div>	
   @form(routes.MenuManagement.update()) {
   	  <input type="hidden" name="id" value=@menuForm.get.id >
   	  
   	  
   	  
-      @inputText(menuForm("name"), '_label->"Menu Text")</tr>
-	  <input type="submit" value="Update">
+      @inputText(menuForm("name"),'_showConstraints -> false, 'class->"form-control",  '_label->"Menu Text")
+	<input type="submit" value="Update" class="btn btn-primary">
   }
+   </div>
+	      </div>
+	    </div>
+	 </div>   
 }

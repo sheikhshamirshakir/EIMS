@@ -2,12 +2,21 @@
 @import helper._
 
 @main("Edit Permission"){
-  <h2>Update the Permission having ID @permissionForm.get.id</h2><br/><br/>
+  <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Permission</span></div>	
+  
   
   @form(routes.PermissionManagement.update()) {
   	  <input type="hidden" name="id" value=@permissionForm.get.id >
   	  
-      @inputText(permissionForm("permissionName"), '_label->"Permission Name")</tr>
-	  <input type="submit" value="Update">
+      @inputText(permissionForm("permissionName"), '_showConstraints -> false, 'class->"form-control",'_label->"Permission Name")</tr>
+	 <input type="submit" value="Update" class="btn btn-primary">
   }
+   </div>
+	      </div>
+	    </div>
+	 </div>   
 }

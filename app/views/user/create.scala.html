@@ -5,13 +5,26 @@
 @main("User Entry") {
 	
        @form(routes.UserInfoManagement.save()) { 
-       		
+       			     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Create User</span></div>
+                        <div class="row">
+                            <div class="col-md-12">
        
-              @inputText(field=userForm("username"), args='_label->"User Name")
-              @inputPassword(field=userForm("username"), args='_label->"Password")
+              @inputText(field=userForm("username"), '_showConstraints -> false, 'class->"form-control",  '_label->"User Name")
+              @inputPassword(field=userForm("password"), '_showConstraints -> false, 'class->"form-control",  '_label->"Password")
               
-              
-              <input type="submit" value="Create">
+                </div>
+                             <div class="col-md-12">
+                              <input type="submit" value="Create" class="btn btn-primary">
+                             </div> 
+                        </div>
+                     </div>
+                 </div>
+               </div>
+             </div>
             }
                        
      }

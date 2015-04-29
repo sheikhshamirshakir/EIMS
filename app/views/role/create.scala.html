@@ -5,11 +5,25 @@
 @main("Role Entry") {
 	
        @form(routes.RoleManagement.save()) { 
-       		
+       		     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Create Role</span></div>
+                        <div class="row">
+                            <div class="col-md-12">
        
-              @inputText(field=roleForm("roleName"), args='_label->"Role Name")
+              @inputText(field=roleForm("roleName"), '_showConstraints -> false, 'class->"form-control", '_label->"Role Name")
               
-              <input type="submit" value="Create">
+                               </div>
+                             <div class="col-md-12">
+                              <input type="submit" value="Create" class="btn btn-primary">
+                             </div> 
+                        </div>
+                     </div>
+                 </div>
+               </div>
+             </div>
             }
                        
      }

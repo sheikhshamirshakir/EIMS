@@ -2,12 +2,20 @@
 @import helper._
 
 @main("Edit Role"){
-  <h2>Update the Role having ID @roleForm.get.id</h2><br/><br/>
+  <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Role</span></div>	
   
   @form(routes.RoleManagement.update()) {
   	  <input type="hidden" name="id" value=@roleForm.get.id >
   	  
-      @inputText(roleForm("roleName"), '_label->"Role Name")</tr>
-	  <input type="submit" value="Update">
+      @inputText(roleForm("roleName"),'_showConstraints -> false, 'class->"form-control", '_label->"Role Name")
+	  <input type="submit" value="Update" class="btn btn-primary">
   }
+   </div>
+	      </div>
+	    </div>
+	 </div>   
 }

@@ -234,6 +234,23 @@
 	   </div>  
        <!--other fields-->
       </section> 
+
+      <h3>Login Information</h3>     		 
+       	<section>
+           <div class="col-md-12">
+             <div class="form-group">
+	           @inputText(field=studentForm("username"), '_showConstraints->false,'class->"form-control",'_label->"User Name")
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputPassword(field=studentForm("password"), '_showConstraints->false,'class->"form-control",'_label->"Password")
+            </div>  
+           </div> 
+ 
+		</section>
+      
+      
     </div>
    </div>   
    </div>           

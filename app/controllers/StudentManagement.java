@@ -13,6 +13,9 @@ import org.apache.commons.io.FileUtils;
 
 import dummymodels.DummyEmployee;
 import dummymodels.DummyStudent;
+import models.Role;
+import models.User;
+import models.UserRole;
 import models.admission.Category;
 import models.admission.ClassYear;
 import models.admission.Degree;
@@ -89,16 +92,30 @@ public class StudentManagement extends Controller{
 		 student.maritalStatus=dStudent.maritalStatus;  
 		 student.mobile=dStudent.mobile;
 		 student.email=dStudent.email;
-		
-		 
-		 
 		 
 		 student.atleastCredit = dStudent.atleastCredit; 
-		student.completecredit=0.0;
+		 student.completecredit=0.0;
 		 
 		 Student.create(student);
-		 String sID = Student.findLastId().toString();
 		 
+		 
+		 String sID = Student.findLastId().toString();
+//		 Long sid = Student.findLastId();
+		 int sidint = Integer.parseInt(sID);
+		 
+		 User user = new User();
+		 
+		 user.username=dStudent.username;
+		 user.password = dStudent.password;
+		 user.userId=sidint;
+		 //student
+		 user.roleId=1;
+		 User.create(user);
+		 		 
+		 UserRole userRole = new UserRole();
+		 userRole.userId = sidint;
+		 userRole.roleId=1;
+		 UserRole.create(userRole);
 		 
 			
 		String image_name = student.name+sID+"_image.png";
