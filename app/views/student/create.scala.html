@@ -10,101 +10,197 @@
 @import  models.District
 
 @main("Student Entry") {
-	
-		<script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
-       @form(routes.StudentManagement.save(), 'enctype -> "multipart/form-data") { 
-       		
-       		 
-       		  @inputText(field=studentForm("studentName"), args='_label->"Student Name")
-       		  
-       		  @inputRadioGroup(
-	          studentForm("gender"),
-	          options = options("Male"->"Male","Female"->"Female"),
-	          '_label -> "Gender"
-	          )
-	          
-	          @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
-	          	          
-	          @select(
-		      studentForm("placeOfBirth"),
-		      options(District.getDistrictsAsMap),
-		      '_label -> "Place Of Birth",
-		      '_default -> "-- Choose one --"
-		     ) 
-		     
-		     	
-    	
-    	@inputText(field=studentForm("nationality"), args='_label->"Nationality")
-		@textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Present Address")
-	    @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_label->"Permanent Address")
-	  
-     	 
-     	 <table>
-		     <tr>
-		         <th>Select Image </th>
-		         <td><input type="file" name="stimage"></td>
-		     </tr>
-		</table>
-        
-		 @select(
-		      studentForm("religion"),
-		      options(Seq("Islam","Hindu","Christian","Buddhist","Others")),
-		      '_label -> "Religion",
-		      '_default -> "-- Choose Your Religion --"
-		    )	
-       		  
-       		  @select(
-		      studentForm("bloodGroup"),
-		      options(Seq("O-","O+","A-","A+","B-","B+","AB-","AB+")),
-		      '_label -> "Blood Group",
-		      '_default -> "-- Choose Your Blood Group --"
-		    )
-		@inputRadioGroup(
-          studentForm("maritalStatus"),
-          options = options("Single"->"Single","Married"->"Married"),
-          '_label -> "Maritual Status"
-          )
-          
-		@inputText(field=studentForm("mobile"), args='_label->"Mobile")
-	    @inputText(field=studentForm("email"), args='_label->"Email")
-  
-
-	    @inputText(field=studentForm("parentName"), args='_label->"Parent Name")
-        @inputText(field=studentForm("parentPhone"), args='_label->"Parent Phone")
-        @inputText(field=studentForm("parentEmail"), args='_label->"Parent Email")
-		
-		
-  
-             		 
-       		  @select(
-		      studentForm("departmentId"),
-		      options(Department.getDepartmentsAsMap),
-		      '_label -> "Department",
-		      '_default -> "-- Choose a Department --"
-		    )
-		    
-		    @select(
-		      studentForm("degreeId"),
-		      options(Degree.getDegreesAsMap),
-		      '_label -> "Degree",
-		      '_default -> "-- Choose a Degree --"
-		    )
-		    
-		    @select(
-		      studentForm("classId"),
-		      options(ClassYear.getClassYearsAsMap),
-		      '_label -> "Class or Year",
-		      '_default -> "-- Choose a Class --"
-		    )
-		    
-		       
-		    @select(
-		      studentForm("sectionId"),
-		      options(SectionSemester.getSectionSemestersAsMap),
-		      '_label -> "Class or Section",
-		      '_default -> "-- Choose a Section --"
-		    )
-       
+ <script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
+ <!-- Main Content -->
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+       @form(routes.StudentManagement.save(), 'id->"form_validation",'enctype -> "multipart/form-data") { 	
+       <div id="student_form" class="wizard clearfix"> 	
+        <h3>Student Information</h3>       	
+          <section>
+            <div class="col-md-12">
+              <div class="form-group">	
+       		    @inputText(field=studentForm("studentName"), '_showConstraints->false, 'class->"form-control",'_label->"Student Name")
+       		  </div> 
+       	    </div>
+	        <div class="col-md-12">
+	          <div class="form-group">  
+	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"student_dob")
+	          </div> 
+	        </div>
+	        <div class="col-md-12">  
+	          <div class="form-group"> 	 
+	           <label for="birthPlace">Place of Birth</label>     
+	           <select name="placeOfBirth" id="birthPlace">
+	                <option></option>
+	                <optgroup label="Place Of Birth">
+	                  @for((id,name)<-District.getDistrictsAsMap){
+	                    <option value="@id">@name</option>
+	                  }
+	                </optgroup>
+	           </select>
+	         </div>      
+		    </div>
+		    <div class="col-md-12">    
+		      <div class="form-group"> 	
+    	        @inputText(field=studentForm("nationality"), '_showConstraints->false,'class->"form-control",'_label->"Nationality")
+    	      </div>
+    	    </div>  
+    	    <div class="col-md-12">	   
+       		  <div class="form-group">
+       		    @inputRadioGroup(
+		          studentForm("Gender"),
+		          options = options("Male"->"Male","Female"->"Female"),
+		          'class->"icheck",
+		          'id->"iradio_1"
+		          )
+		       </div>    
+	        </div>
+    	</section>
+    	<h3>Address & Others</h3>  
+    	<section>  
+    	  <div class="col-md-12">
+    	    <div class="form-group">  
+		      @textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Present Address")
+		    </div> 
+		  </div>
+		  <div class="col-md-12">  
+		    <div class="form-group"> 
+	          @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Permanent Address")
+     	    </div> 
+     	  </div>
+     	  <div class="col-md-12">  
+            <div class="form-group">
+              <label for="regID">Religion</label>
+              <select name="religion" id="regID">
+                 <option></option>
+                 <optgroup label="Find Religion">
+                    <option>Islam</option>
+                    <option>Hindu</option>
+                    <option>Christian</option>
+                    <option>Buddhist</option>
+                    <option>Others</option>
+                 </optgroup>
+              </select>
+       		 </div>
+       	  </div>
+       	  <div class="col-md-12">	 
+       		<div class="form-group"> 
+       		 <label for="groupID">Blood Group</label>
+       		 <select name="bloodGroup" id="groupID">
+       		    <option></option>
+       		    <optgroup label="Find Boold Group">
+       		       <option>A+</option>
+       		       <option>A-</option>
+       		       <option>B+</option>
+       		       <option>B-</option>
+       		       <option>AB+</option>
+       		       <option>AB-</option>
+       		       <option>O+</option>
+       		       <option>O-</option>
+       		    </optgroup>
+       		 </select>
+		    </div>
+		  </div>
+		  <div class="col-md-12">   
+		   <div class="form-group">
+		      @inputRadioGroup(
+                 studentForm("maritalStatus"),
+                 options = options("Single"->"Single","Married"->"Married"),
+                 '_label -> "Maritual Status"
+                )
+           </div>
+          </div>
+          <div class="col-md-12"> 
+           <div class="form-group"> 
+		     @inputText(field=studentForm("mobile"), 'class->"form-control",'_label->"Mobile")
+		   </div>
+		  </div> 
+		  <div class="col-md-12">  
+		     <div class="form-group"> 
+	           @inputText(field=studentForm("email"), 'class->"form-control",'_label->"Email")
+             </div>
+          </div>
+          <div class="col-md-12">   
+             <div class="form-group">
+		       <label for="studentImgae">Student Image </label>
+		       <input type="file" name="stimage">
+		    </div>
+		  </div>  
+          </section>   
+          <h3>Parent Information</h3>
+          <section>
+           <div class="col-md-12">
+             <div class="form-group">
+	           @inputText(field=studentForm("parentName"), '_showConstraints->false,'class->"form-control",'_label->"Parent Name")
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputText(field=studentForm("parentPhone"), '_showConstraints->false,'class->"form-control",'_label->"Parent Phone")
+            </div>  
+           </div> 
+           <div class="col-md-12">
+            <div class="form-group">
+              @inputText(field=studentForm("parentEmail"), '_showConstraints->false,'class->"form-control",'_label->"Parent Email")
+		    </div>
+		  </div>  
+		</section>
+        <h3>Admission Information</h3>     		 
+       	<section>
+       	 <div class="col-md-12">
+       	   <div class="form-group">
+       	     <label for="deptID">Select Department</label>
+       	     <select name="departmentId" id="deptID">
+       	        <option></option>
+       	        <optgroup label="Find Department">
+       	           @for((id,name)<-Department.getDepartmentsAsMap){
+       	             <option value="@id">@name</option>
+       	           }
+       	        </optgroup>
+       	     </select>
+		   </div>
+		 </div>  
+		 <div class="col-md-12">
+		   <div class="form-group"> 
+		     <label for="degID">Select Degree</label>
+		     <select name="degreeId" id="degID">
+		          <option></option>
+		          <optgroup label="Find Degree">
+		            @for((id,name)<-Degree.getDegreesAsMap){
+		              <option value="@id">@name</option>
+		            }
+		          </optgroup>
+		     </select>
+		    </div>
+		  </div>  
+		  <div class="col-md-12">
+		    <div class="form-group">
+		      <label for="yearID">Select Class/Year</label>
+		      <select name="classId" id="yearID">
+		         <option></option>
+		         <optgroup label="Find Class/Year">
+		           @for((id,name)<-ClassYear.getClassYearsAsMap){
+		             <option value="@id">@name</option>
+		           }
+		         </optgroup>
+		      </select>
+		    </div> 
+		  </div>  
+		  <div class="col-md-12">
+		    <div class="form-group">  
+		      <label for="facultyid">Select Class/Section</label> 
+		      <select name="sectionId" id="facultyid">
+		         <option></option>
+		         <optgroup label="Find Section">
+		           @for((id,name)<-SectionSemester.getSectionSemestersAsMap){
+		             <option value="@id">@name</option>
+		            }
+		         </optgroup>
+		      </select>
+            </div>
+          </div>  
  
     	
 	    <!--   <select name="division" id="division">
@@ -131,13 +227,17 @@
 			     } --> ***@
    			</select>
    		-->	
-		    
-	   
-	      @inputText(field=studentForm("atleastCredit"), args='_label->"Atleast Credit")
+   		<div class="col-md-12">
+		 <div class="form-group">  	   
+	       @inputText(field=studentForm("atleastCredit"), '_showConstraints->false,'class->"form-control",'_label->"Atleast Credit")
+	     </div> 
+	   </div>  
        <!--other fields-->
-             
-              <input type="submit" value="Create">
-              
+      </section> 
+    </div>
+   </div>   
+   </div>           
+</div>
               <script>
 $('#division').on('change', function() {
 var idToGet = this.value;

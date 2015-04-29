@@ -2,12 +2,24 @@
 @import helper._
 
 @main("Edit Course"){
-  <h2>Update the Course having ID @courseForm.get.id</h2><br/><br/>
-  
-  @form(routes.CourseManagement.update()) {
-  	  <input type="hidden" name="id" value=@courseForm.get.id >
-  	  
-      @inputText(courseForm("name"), '_label->"Course Name")</tr>
-	  <input type="submit" value="Update">
-  }
+<!-- main content -->
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="heading_a"><span class="heading_text">Edit Course</span></div>   
+		  @form(routes.CourseManagement.update()) {
+		  	  <input type="hidden" name="id" value=@courseForm.get.id>
+		  	<div class="col-md-12">
+		      @inputText(courseForm("name"), '_showConstraints->false,'class->"form-control",'_label->"Course Name")
+		    </div>
+		    <div class="col-md-12">
+		      @inputText(courseForm("code"), '_showConstraints->false,'class->"form-control",'_label->"Course Code")
+		    </div>
+		    <div class="col-md-12">  
+			  <input type="submit" value="Update" class="btn btn-primary">
+			</div>  
+		  }
+	 </div>
+   </div>
+ </div>  	 	  
 }

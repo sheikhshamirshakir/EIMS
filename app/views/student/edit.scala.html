@@ -6,17 +6,24 @@
 @import models.admission.Department
 
 @main("Edit Student"){
-  <h2>Update the Student having ID @studentForm.get.sid</h2><br/><br/>
-  
-  @form(routes.StudentManagement.update()) {
-  	  <input type="hidden" name="sid" value=@studentForm.get.sid>
-  	  
-      @inputText(studentForm("name"), '_label->"Student Name")</tr>
-       
-      <label>Gender</label>
-	   <input type="radio" name="gender"value="Male" @if(studentForm.get.gender.toString=="Male"){selected}><label>Male</label>
-       <input type="radio" name="gender"value="Female" @if(studentForm.get.gender.toString=="Female"){selected}><label>Female</label>
-      </select>
+ <!-- Main Content -->
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="heading_a"><span class="heading_text">Edit Student Information</span></div>    
+          @form(routes.StudentManagement.update(),'id->"form_validation",'enctype -> "multipart/form-data") {
+  	      <div id="student_form" class="wizard clearfix"> 	
+           <h3>Student Information</h3>       	
+            <section>
+             <div class="col-md-12">
+               <div class="form-group">
+                 @inputText(studentForm("name"), '_showConstraints->false,'class->"form-control",'_label->"Student Name")
+               </div>  
+             </div>
+	        <label>Gender</label>
+		   <input type="radio" name="gender"value="Male" @if(studentForm.get.gender.toString=="Male"){selected}><label>Male</label>
+	       <input type="radio" name="gender"value="Female" @if(studentForm.get.gender.toString=="Female"){selected}><label>Female</label>
+	      </select>
 	 
 	  @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth")
 
@@ -88,13 +95,17 @@
         }
         </select>	
        
+	    <input type="hidden" name="sid" value=@studentForm.get.sid>
 	 
 	 
-	 
-	  <input type="submit" value="Update">
+	    <input type="submit" value="Update">
 	  
 	  
 	  
 	  
   }
+  </div>
+ </div>
+</div> 
+  
 }

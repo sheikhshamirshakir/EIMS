@@ -3,16 +3,27 @@
 @import  models.admission.Department
 
 @main("Course Entry") {
-	
-       @form(routes.CourseManagement.save()) { 
-       		
-       
-              @inputText(field=courseForm("name"), args='_label->"Course Name")
-               @inputText(field=courseForm("code"), args='_label->"Course Code")
-                @inputText(field=courseForm("credit"), args='_label->"Course Credit")
-                
-              <input type="submit" value="Create">
-            }
-                       
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="heading_a"><span class="heading_text">Create Course</span></div>
+            @form(routes.CourseManagement.save()) { 
+       		 <div class="col-md-12">
+       		     @inputText(field=courseForm("name"), '_showConstraints->false,'class->"form-control",'_label->"Course Name")
+       		 </div>
+             <div class="col-md-12"> 
+               @inputText(field=courseForm("code"), '_showConstraints->false,'class->"form-control",'_label->"Course Code")
+             </div>  
+             <div class="col-md-12">
+                @inputText(field=courseForm("credit"), '_showConstraints->false,'class->"form-control",'_label->"Course Credit")
+             </div>   
+             <div class="col-md-12">
+              <input type="submit" value="Create" class="btn btn-primary">
+             </div> 
+            }   
+     </div>
+  </div>          
+</div>                       
      }
 

@@ -198,6 +198,8 @@
                                 <li><a href="/class-or-year/list">Class/Year List</a></li>
                                 <li><a href="/section-or-semester/create">New Semester</a></li>
                                 <li><a href="/section-or-semester/list">Semester List</a></li>
+                                <li><a href="/course/create">Student Course</a></li>
+                                <li><a href="/course/list">Course List</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -207,11 +209,9 @@
                             </a>
                             <ul>
                                 <li class="submenu-title">Forms</li>
-                                <li><a href="/student/create">New Student Form</a></li>
-                                <li><a href="">Old Student Form</a></li>
-                                <li><a href="">Spot Admission</a></li>
-                                <li><a href="">Student List</a></li>
-                                <li><a href="">Eligible Student List</a></li>
+                                <li><a href="/student/create">Admission Form</a></li>
+                                <li><a href="/student/list">Student List</a></li>
+                                <li><a href="/student-course/create-with-student">Assign To Student</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -220,8 +220,8 @@
                                 <span class="menu-title">Student</span>
                             </a>
                             <ul>
-                                <li><a href="">Student Course</a></li>
-                                <li><a href="">Student Semester</a></li>
+                                <li><a href="/student-course/create">Student Course</a></li>
+                                <li><a href="/student-course/list">Student Course List</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -382,7 +382,7 @@
                     // wysiwg editor
                     yukon_wysiwg.p_forms_extended();
                     // form validation
-                    yukon_parsley_validation.p_forms_wizard();
+                    yukon_parsley_validation.p_forms_validation();
                 })
             </script>       
        </div>  

@@ -3,35 +3,42 @@
 @import models.admission.Parent
 
 
-@main("List of Students"){
+@mainlist("List of Students"){
 
  
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
-  
-  <table>
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Student Name</th>
-       <th>Parent's Name</th>
-       <th>Phone</th>
-	   <th>Email</th>
-     </tr>
-   </thead>
-    <tbody>
-    @for(student <- students) {
-      <tr>
-        <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
-        <td><img src=@routes.Assets.at("images/photos/"+student.name+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></td>
-        <td>@student.name</td>
-        <td>@Parent.findById(student.parentId).name</td>
-        <td>@student.mobile</td>
-        <td>@student.email</td>
-      </tr> 
-    }
- </tbody>
- </table>
-
+  <!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead> 
+             <tr>
+		       <th>ID</th>
+		       <th>Student Name</th>
+		       <th>Parent's Name</th>
+		       <th>Phone</th>
+			   <th>Email</th>
+             </tr>
+   		   </thead>
+		   <tbody>
+		    @for(student <- students) {
+		      <tr>
+		        <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
+		        <td><img src=@routes.Assets.at("images/photos/"+student.name+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></td>
+		        <td>@student.name</td>
+		        <td>@Parent.findById(student.parentId).name</td>
+		        <td>@student.mobile</td>
+		        <td>@student.email</td>
+		      </tr> 
+		    }
+		 </tbody>
+       </table>
+      </div> 
+    </div>
+   </div>
+ </div>   
 }      

@@ -1206,6 +1206,11 @@
 			if ($("#dp_inline").length) {
 				$("#dp_inline").datepicker();
 			}
+			if ($("#student_dob").length) {
+				$("#student_dob").datepicker({
+				  autoclose:true
+				});
+			}
 		}
 	};
 
@@ -1807,8 +1812,20 @@
 				});
 			}
 			
+			if ($("#degID").length) {
+				$("#degID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
 			if ($("#desID").length) {
 				$("#desID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#yearID").length) {
+				$("#yearID").select2({
 					placeholder: "Select..."
 				});
 			}
@@ -1821,6 +1838,24 @@
 			
 			if ($("#placeID").length) {
 				$("#placeID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#birthPlace").length) {
+				$("#birthPlace").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#regID").length) {
+				$("#regID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#groupID").length) {
+				$("#groupID").select2({
 					placeholder: "Select..."
 				});
 			}
@@ -2023,8 +2058,8 @@
                     yukon_steps.setContentHeight('#wizard_101');
                 })
 			}
-			if ($("#wizard_form").length) {
-				var wizard_form = $('#wizard_form');
+			if ($("#student_form").length) {
+				var wizard_form = $('#student_form');
 				// initialize wizard
 				wizard_form.steps({
 					headerTag: 'h3',
@@ -2036,7 +2071,7 @@
 						next: "Next Step <i class=\"fa fa-angle-right\"></i>",
 						previous: "<i class=\"fa fa-angle-left\"></i> Previous Step",
 						current: "",
-						finish: "<i class=\"fa fa-check\"></i> Register"
+						finish: "<i class=\"fa fa-check\"></i> Save"
 					},
 					onStepChanging: function (event, currentIndex, newIndex) {
 						var cursentStep = wizard_form.find('.content > .body').eq(currentIndex);
@@ -2049,7 +2084,7 @@
 					},
 					onStepChanged: function (event, currentIndex, priorIndex) {
 						// adjust wizard height
-						yukon_steps.setContentHeight('#wizard_form');
+						yukon_steps.setContentHeight('#student_form');
 					},
 					onFinishing: function (event, currentIndex) {
 						var cursentStep = wizard_form.find('.content > .body').eq(currentIndex);
@@ -2061,16 +2096,15 @@
                         return cursentStep.find('.parsley-error').length ? false : true;
 					},
 					onFinished: function(event, currentIndex) {
-						alert("Submitted!");
                         // uncomment the following line to submit form
-                        //wizard_form.submit();
+                        $('#form_validation').submit();
 					}
 				});
 				// set initial wizard height
-				yukon_steps.setContentHeight('#wizard_form');
+				yukon_steps.setContentHeight('#student_form');
                 // rezie wizard on window resize
                 $(window).on('resize',function() {
-                    yukon_steps.setContentHeight('#wizard_form');
+                    yukon_steps.setContentHeight('#student_form');
                 })
             }
         },

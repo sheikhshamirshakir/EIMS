@@ -3,20 +3,32 @@
 @import  models.admission.Department
 
 @main("Edit Degree"){
-  <h2>Update the Degree having ID @degreeForm.get.id</h2><br/><br/>
-  
-  @form(routes.DegreeManagement.update()) {
-  	  <input type="hidden" name="id" value=@degreeForm.get.id >
-  	  
-  	   <label> Department Name </label><br>
-  	 	<select name="department.id">
-			 <option value="" class="blank">-- Choose a Department --</option>
-			  	  @for((id, name) <- Department.getDepartmentsAsMap){
-			  	 	<option value="@id" @if(id==degreeForm.get.department.id.toString){selected}>@name</option>
-			     } 
-    	</select>
-  	  
-      @inputText(degreeForm("name"), '_label->"Degree Name")</tr>
-	  <input type="submit" value="Update">
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">Edit Degree Information</span></div>   
+               @form(routes.DegreeManagement.update()) {
+  	             <input type="hidden" name="id" value=@degreeForm.get.id >
+  	              <div class="row">
+  	               <label for="deptID">Select Department</label>
+			  	 	<select name="department.id" id="deptID">
+					  <option></option>
+					    <optgroup label="Find Department">
+					      @for((id, name) <- Department.getDepartmentsAsMap){
+						  	 	<option value="@id" @if(id==degreeForm.get.department.id.toString){selected}>@name</option>
+						     } 
+					    </optgroup>
+			    	</select>
+			      </div> 	
+  	              <div class="row">
+  	                  @inputText(degreeForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Degree Name")
+  	              </div>
+				  <div class="row">
+				      <input type="submit" class="btn btn-primary" value="Update">
+				 </div>   
+	     </div>
+     </div>
+</div>		   			  
   }
 }

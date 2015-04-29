@@ -3,20 +3,35 @@
 @import  models.admission.ClassYear
 
 @main("Section or Semester Entry") {
-	
-       @form(routes.SectionSemesterManagement.save()) { 
-       		 
-       		 @select(
-		      sectionSemesterForm("classYear.id"),
-		      options(ClassYear.getClassYearsAsMap),
-		      '_label -> "Class or Year",
-		      '_default -> "-- Choose a Class or Year --"
-		    )
-		    
-              @inputText(field=sectionSemesterForm("name"), args='_label->"Section or Semester Name")
-              @inputText(field=sectionSemesterForm("code"), args='_label->"Section or Semester Code")
-              <input type="submit" value="Create">
+  <!-- main content -->
+   <div id="main_wrapper">
+     <div class="container-fluid">
+       <div class="col-md-12">
+         <div class="heading_a"><span class="heading_text">New Section/Semester</span></div>
+           @form(routes.SectionSemesterManagement.save()) { 
+       		 <div class="row">
+       		    <label for="yearID">Select Class/Year</label>
+       		    <select name="classYear.id" id="yearID">
+       		       <option></option>
+       		       <optgroup label="Find Year">
+       		          @for((id,name)<-ClassYear.getClassYearsAsMap){
+       		            <option value="@id">@name</option>
+       		          }
+       		       </optgroup>
+       		    </select>
+       		 </div>
+       		 <div class="row">
+       		    @inputText(field=sectionSemesterForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Section or Semester Name")
+       		 </div>		    
+             <div class="row"> 
+               @inputText(field=sectionSemesterForm("code"), '_showConstraints -> false, 'class->"form-control",'_label->"Section or Semester Code")
+             </div>
+             <div class="row"> 
+              <input type="submit" value="Create" class="btn btn-primary">
+             </div>  
             }
-                       
+       </div>
+    </div>
+  </div>                       
      }
 

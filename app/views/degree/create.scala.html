@@ -3,19 +3,32 @@
 @import  models.admission.Department
 
 @main("Degree Entry") {
-	
-       @form(routes.DegreeManagement.save()) { 
-       		
-       		 @select(
-		      degreeForm("department.id"),
-		      options(Department.getDepartmentsAsMap),
-		      '_label -> "Department",
-		      '_default -> "-- Choose a Department --"
-		    )
-       
-              @inputText(field=degreeForm("name"), args='_label->"Degree Name")
-              <input type="submit" value="Create">
+ <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">New Degree</span></div>
+            @form(routes.DegreeManagement.save()) { 
+             <div class="row">   
+               <label for="deptID">Select Department</label>
+               <select name="department.id" id="deptID">
+                 <option></option>
+                 <optgroup label="Find Department">
+                   @for((id,name)<-Department.getDepartmentsAsMap){
+                      <option value="@id">@name</option>
+                   }
+                 </optgroup>
+               </select>    		  
+            </div>
+            <div class="row">
+              @inputText(field=degreeForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Degree Name")
+            </div>
+            <div class="row">  
+              <input type="submit" value="Create" class="btn btn-primary">
+            </div>  
             }
-                       
+        </div>
+     </div>
+  </div>                     
      }
 

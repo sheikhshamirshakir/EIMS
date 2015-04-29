@@ -1,33 +1,38 @@
 @(sectionSemesters: List[models.admission.SectionSemester])
 @import helper._
 
-@main("List of Section or Semesters"){
-
+@mainlist("List of Section or Semesters"){
  
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
-  
-  <table>
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Section or Semester Name</th>
-       <th>Section or Semester Code</th>
-       <th>Class or Year</th>
-     </tr>
-   </thead>
-    <tbody>
-    @for(sectionSemester <- sectionSemesters) {
-      <tr>
-        <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
-        <td>@sectionSemester.name</td>
-        <td>@sectionSemester.code</td>
-        <td>@sectionSemester.classYear.name</td>
-      </tr> 
-    }
- </tbody>
- </table>
-  <a href="@routes.SectionSemesterManagement.create()">Create Another Section or Semester</a>
-
+  <!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead> 
+             <tr>
+               <th>ID</th>
+		       <th>Section or Semester Name</th>
+		       <th>Section or Semester Code</th>
+		       <th>Class or Year</th>
+             </tr>
+            </thead>
+		    <tbody>
+		    @for(sectionSemester <- sectionSemesters) {
+		      <tr>
+		        <td><a href="@routes.SectionSemesterManagement.show(sectionSemester.id)">@sectionSemester.id</a></td>
+		        <td>@sectionSemester.name</td>
+		        <td>@sectionSemester.code</td>
+		        <td>@sectionSemester.classYear.name</td>
+		      </tr> 
+		    }
+		 </tbody>
+       </table>
+      </div> 
+    </div>
+  </div>
+</div>    
 }      

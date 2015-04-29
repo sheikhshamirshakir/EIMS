@@ -3,20 +3,31 @@
 @import  models.admission.Faculty
 
 @main("Edit Department"){
-  <h2>Update the Department having ID @deptForm.get.id</h2><br/><br/>
-  
-  @form(routes.DepartmentManagement.update()) {
-  	  <input type="hidden" name="id" value=@deptForm.get.id >
-  	  
-  	  <label> Faculty Name </label><br>
-  	 	<select name="faculty.id">
-			 <option value="" class="blank">-- Choose a Faculty --</option>
+<!-- main content -->
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+       <div class="heading_a"><span class="heading_text">Edit Department</span></div>    
+        @form(routes.DepartmentManagement.update()) {
+  	      <input type="hidden" name="id" value=@deptForm.get.id >
+  	      <div class="row">
+  	        <label for="facultyid"> Faculty Name </label>
+  	        <select name="faculty.id" id="facultyid">
+  	          <option></option>
+  	          <optgroup label="Find Faculty"></optgroup>
 			  	  @for((id, name) <- Faculty.getFacultiesAsMap){
 			  	 	<option value="@id" @if(id==deptForm.get.faculty.id.toString){selected}>@name</option>
 			     } 
-    	</select>
-  	  
-      @inputText(deptForm("name"), '_label->"Department Name")</tr>
-	  <input type="submit" value="Update">
-  }
+    	    </select>
+  	     </div>
+         <div class="row">
+           @inputText(deptForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Department Name")
+         </div>
+         <div class="row">
+           <input type="submit" value="Update" class="btn btn-primary">
+         </div>
+       }
+    </div>
+  </div>
+</div>     
 }

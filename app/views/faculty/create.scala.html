@@ -4,31 +4,32 @@
 
 
 @main("Faculty Entry") {
-    <!-- main content -->
-     <div id="main_wrapper">
-          <div class="container-fluid">
-             <div class="row">
-                 <div class="col-md-12">
-                     <div class="heading_a"><span class="heading_text">Create Employee Category</span></div>
-                        <div class="row">
-                           @form(routes.FacultyManagement.save()) { 
-                               <label for="universityID">Select University</label>
-                               <select name="university.id" id="universityID">
-                                  <option></option>
-                                  <optgroup label="Find Faculty">
-						             @for((id, name) <- University.getUnivsAsMap){
-                                     <option value="@id">@name</option>
-                                     }
-						          </optgroup> 
-                               </select>
-		                </div> 
-		                <div class="row">
-		                   @inputText(field=facultyForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Faculty Name")
-		                </div>      
-                        <div>
-                          <input type="submit" class="btn btn-primary" value="Create">
-                        </div>
+  <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">New Faculty</span></div>
+            <div class="row">
+              @form(routes.FacultyManagement.save()) { 
+                <label for="universityID">Select University</label>
+                  <select name="university.id" id="universityID">
+                    <option></option>
+                    <optgroup label="Find University">
+	              @for((id, name) <- University.getUnivsAsMap){
+                    <option value="@id">@name</option>
+                  }
+		            </optgroup> 
+                  </select>
+		    </div> 
+		    <div class="row">
+		      @inputText(field=facultyForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Faculty Name")
+		    </div>      
+            <div class="row">
+              <input type="submit" class="btn btn-primary" value="Create">
+            </div>
             }
-                       
-     }
+        </div>
+     </div>
+   </div>                      
+ }
 

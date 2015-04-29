@@ -3,18 +3,29 @@
 @import  models.admission.Degree
 
 @main("Class Or Year Entry") {
-	
-       @form(routes.ClassYearManagement.save()) { 
-       		
-       		  @select(
-		      classYearForm("degree.id"),
-		      options(Degree.getDegreesAsMap),
-		      '_label -> "Degree",
-		      '_default -> "-- Choose a Degree --"
-		    )
-       
-              @inputText(field=classYearForm("name"), args='_label->"Class or Year Name")
-              <input type="submit" value="Create">
+  <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">New Class/Year</span></div>
+          @form(routes.ClassYearManagement.save()) { 
+       		<div class="row">   
+               <label for="degID">Select Degree</label>
+               <select name="degree.id" id="degID">
+                 <option></option>
+                 <optgroup label="Find Degree">
+                 @for((id,name)<-Degree.getDegreesAsMap){
+                   <option value="@id">@name</option>
+                 }
+                 <optgroup>
+               </select>
+            </div>
+            <div class="row">
+              @inputText(field=classYearForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Class or Year Name")
+            </div>  
+            <div class="row">
+              <input type="submit" class="btn btn-primary" value="Create">
+            </div>  
             }
                        
      }

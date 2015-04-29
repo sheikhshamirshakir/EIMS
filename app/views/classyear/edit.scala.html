@@ -3,18 +3,29 @@
 @import models.admission.Degree
 
 @main("Edit Class Or Year"){
-  <h2>Update the Class/Year having ID @classYearForm.get.id</h2><br/><br/>
-  
-  @form(routes.ClassYearManagement.update()) {
-  	  <input type="hidden" name="id" value=@classYearForm.get.id >
-  	  <label>Degree</label>
-  	   <select name="degree.id" >
-        @for((id, name) <- Degree.getDegreesAsMap){
-          <option value="@id" @if(classYearForm.get.degree.id.toString==id){selected}>@name</option>
-        }
-        </select>
-  	  
-      @inputText(classYearForm("name"), '_label->"Class or Year Name")</tr>
-	  <input type="submit" value="Update">
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">Edit Class/Year</span></div>
+         @form(routes.ClassYearManagement.update()) {
+  	       <input type="hidden" name="id" value=@classYearForm.get.id >
+  	       <div class="row">
+  	          <label for="degID">Select Degree</label>
+  	          <select name="degree.id" id="degID">
+               @for((id, name) <- Degree.getDegreesAsMap){
+                 <option value="@id" @if(classYearForm.get.degree.id.toString==id){selected}>@name</option>
+               }
+              </select>
+  	     </div>
+  	     <div class="row">
+  	        @inputText(classYearForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Class or Year Name")
+  	     </div> 
+  	     <div class="row">
+  	       <input type="submit" value="Update" class="btn btn-primary">
+  	     </div> 
+	  </div>
+	</div>
+</div>	  
   }
 }

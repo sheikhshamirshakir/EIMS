@@ -4,13 +4,25 @@
 
 @main("Class or Year"){
 
-  <table>
-    <tr> <th >ID</th> <td>@classYear.id</td> </tr>
-    <tr> <th >Class or Year Name</th> <td>@classYear.name</td> </tr>
-    <tr> <th >Degree Name</th> <td>@classYear.degree.name</td> </tr>
-  </table>
-   
-     @form(routes.ClassYearManagement.edit(classYear.id)) {
-		    <input type="submit" value="Edit">
+<!-- main content -->   
+   <div id="main_wrapper">
+    <div class="container-fluid">
+     <div class="col-md-12">
+      <div class="heading_a"><span class="heading_text">Class/Year Details</span></div>
+       <div class="row">
+          <label for="className">Class or Year Name</label>
+          <span class="form-control" id="className">@classYear.name</span>
+       </div>
+       <div class="row">
+          <label for="degName">Degree Name</label>
+          <span class="form-control" id="degName">@classYear.degree.name</span>
+       </div>  
+       <div class="row">
+        @form(routes.ClassYearManagement.edit(classYear.id)) {
+		    <input type="submit" value="Edit" class="btn btn-primary">
   		  }
+       </div>  
+      </div>
+    </div>
+  </div>    
      }

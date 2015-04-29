@@ -2,14 +2,25 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@faculty.id</td> </tr>
-     <tr> <th >University</th> <td>@faculty.university.name</td> </tr>
-    <tr> <th >Faculty Name</th> <td>@faculty.name</td> </tr>
-  </table>
-   
-     @form(routes.FacultyManagement.edit(faculty.id)) {
-		    <input type="submit" value="Edit">
-  		  }
+ <!-- main content -->   
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+     <div class="heading_a"><span class="heading_text">Faculty Deatils</span></div>
+      <div class="row">
+        <label for="uniName">University Name</label>
+        <span class="form-control" id="uniName">@faculty.university.name</span>
+       </div>  
+       <div class="row">
+        <label for="facName">Faculty Name</label>
+        <span class="form-control" id="facName">@faculty.name</span>
+       </div>
+       @form(routes.FacultyManagement.edit(faculty.id)) {
+        <div class="row">
+		    <input type="submit" value="Edit" class="btn btn-primary">
+		</div>    
   		}
+  	   }
+      </div>
+   </div>
+ </div>        
