@@ -21,6 +21,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import services.RolePermissionCheck;
 import services.UpdatePermission;
 import services.UserRoleCheck;
 import utils.AppConstants;
@@ -35,7 +36,7 @@ public class UserPermissionManagement extends Controller{
 		Long rId = Long.parseLong(roleId);
 		
 		Integer rID = Integer.parseInt(roleId);
-		List<Boolean> isChecked = UserRoleCheck.check(rID);
+		List<Boolean> isChecked = RolePermissionCheck.check(rID);
 		//List<Boolean> isChecked = UpdatePermission.viewUpdatePermission(rId);
 		
 		int rid = Integer.parseInt(rId.toString());

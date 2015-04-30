@@ -58,22 +58,22 @@ public class UserManagement extends Controller {
 
 //		int pwdSalt = Integer.parseInt(user.passwordSalt);
 //		Password pwd = new Password(login.password, pwdSalt);
-		String hashedPwd = user.password;
+		String hashedPwd = login.password;
 
 		if (!user.password.equals(hashedPwd)) {
 			flash("error", "Password does not match.");
 			return ok(loginRequest.render());
 		}
 
-//		session(Constants.SESN_USERNAME, login.username);
+		session(Constants.SESN_USERNAME, login.username);
 //		 int role = User.findRoleByUserName(login.username);
 		
 //		if(role == 134){
 //			return redirect(controllers.routes.LiveManagement.showAllRequestToAdmin());
 //		}
-//		return redirect(controllers.routes.FindrManagement.searchTransaction());
+		return redirect(routes.Dashboard.viewDashboard());
 
-		return ok("");
+//		return ok("");
 	}
 	
 	
