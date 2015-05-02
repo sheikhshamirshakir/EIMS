@@ -147,9 +147,8 @@
                             <span class="caret"></span>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="pages-user_profile.html">User Profile</a></li>
-                            <li><a href="pages-user_profile2.html">User Profile 2</a></li>
-                            <li><a href="logout.html">Log Out</a></li>
+                             <li><a href="">User Profile 2</a></li>
+                            <li><a href="/logout">Log Out</a></li>
                         </ul>
                     </div>
                     <div class="search_section hidden-sm hidden-xs">
@@ -174,7 +173,7 @@
                 <div class="menu_wrapper">
                     <ul>
                         <li class="first_level">
-                            <a href="">
+                            <a href="/dashboard">
                                 <span class="icon_house_alt first_level_icon"></span>
                                 <span class="menu-title">Dashboard</span>
                             </a>
@@ -266,6 +265,16 @@
                                 <li><a href="/employee/create">Employee Information</a></li>
                             </ul>
                         </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_document first_level_icon"></span>
+                                <span class="menu-title">Settings</span>
+                            </a>
+                            <ul>
+                                <li class="submenu-title">Settings</li>
+                                <li><a href="">Student Category</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div class="menu_toggle">
@@ -348,6 +357,18 @@
             <!-- selectize.js -->
             <script src="assets/lib/selectize-js/js/standalone/selectize.min.js"></script>
             
+            <!-- page specific plugins -->
+
+            <!-- c3 charts -->
+            <script src="assets/lib/d3/d3.min.js"></script>
+            <script src="assets/lib/c3/c3.min.js"></script>
+            <!-- vector maps -->
+            <script src="assets/lib/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="assets/lib/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+            <!-- countUp animation -->
+            <script src="assets/js/countUp.min.js"></script>
+            <!-- easePie chart -->
+            <script src="assets/lib/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
             
             <script>
                 $(function() {
@@ -359,6 +380,16 @@
                     yukon_datepicker.p_forms_extended();
                     // date range picker
                     yukon_date_range_picker.p_forms_extended();
+                    // c3 charts
+                    yukon_charts.p_dashboard();
+                    // countMeUp
+                    yukon_count_up.init();
+                    // easy pie chart
+                    yukon_easyPie_chart.p_dashboard();
+                    // vector maps
+                    yukon_vector_maps.p_dashboard();
+                    // match height
+                    yukon_matchHeight.p_dashboard();
                     // masked inputs
                     yukon_maskedInputs.p_forms_extended();
                     // maxlength for textareas

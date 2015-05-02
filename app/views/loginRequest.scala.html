@@ -3,42 +3,53 @@
 <html>
 
 <head>
+   <meta charset="UTF-8">
+   <title>Education Management System</title>
+   <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+   <!-- bootstrap framework -->
+   <link href="@routes.Assets.at("assets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+        <!-- google webfonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <!-- elegant icons -->
+        <link href="@routes.Assets.at("assets/icons/elegant/style.css")" rel="stylesheet" media="screen">
+        <!-- main stylesheet -->
+		<link href="@routes.Assets.at("assets/css/main.min.css")" rel="stylesheet" media="screen">
 
- <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+        <!-- jQuery -->
+        <script src="@routes.Assets.at("assets/js/jquery.min.js")"></script>
 
 </head>
 
-<body>
-  <div class="wrapper">
-  <div class="google-header-bar  centered"></div>
-  
-  
-  <div class="main content clearfix">
-     <div class="card signin-card clearfix">
-         <div id="cc_iframe_parent">
-             <iframe id="youtube" src="Gmail_files/CheckConnection.htm" style="visibility: hidden; width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
-         </div>
-         
-         @*<img class="profile-img" src="@routes.Assets.at("images/login/bblicon.png")" alt="">*@
-         
-         <p class="profile-name"></p>
-         
-         <form action="@routes.UserManagement.authenticate()" method="post">
-         
-             <input type="text" id="Email" name="username" placeholder="User Name" spellcheck="false" class="" >
-             <input type="password" id="Passwd" name="Password" placeholder="Password" class="" >
-             @if(flash.get("error")){
-				<span class="error-msg" role="alert">
-					@flash.get("error")
-				</span>
-			 }
-             <input type="submit" id="signIn" class="rc-button rc-button-submit" value="Sign in" >
-         </form>
+<body class="login_page">
+ <div class="login_header">
+     <h3 style="color: #ffffff;">Lekhoni</h3>
+ </div>
+ <div class="login_register_form">
+   <div class="form_wrapper animated-short" id="login_form">
+   <h3 class="sepH_c text-center"><span>Login</span></h3>
+                
+   <form action="@routes.UserManagement.authenticate()" method="post">
+     <div class="input-group input-group-lg sepH_a">
+       <span class="input-group-addon"><span class="icon_profile"></span></span>
+	   <input type="text" id="Email" name="username" placeholder="User Name" spellcheck="false" class="form-control">
+	 </div>
+	 <div class="input-group input-group-lg">
+      <span class="input-group-addon"><span class="icon_key_alt"></span></span>    
+	  <input type="password" id="Passwd" name="Password" placeholder="Password" class="form-control">
+	 </div>  
+	 <div class="sepH_c text-right"></div>
+     <div class="form-group sepH_c">
+       <input type="submit" id="signIn" class="btn btn-lg btn-primary btn-block" value="Sign in" >
      </div>
-  </div>
-</div>
- 
-  
-
+	   @if(flash.get("error")){
+	      <span class="error-msg" role="alert">
+		     @flash.get("error")
+		  </span>
+	   }           
+	 </form>
+   </div>
+ </div>
 </body>
 </html>
