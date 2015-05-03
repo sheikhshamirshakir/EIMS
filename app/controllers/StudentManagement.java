@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+import be.objectify.deadbolt.java.actions.Dynamic;
 import dummymodels.DummyEmployee;
 import dummymodels.DummyStudent;
 import models.Role;
@@ -31,6 +32,7 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
+import services.deadbolt.DeadboltHandler;
 import utils.AppConstants;
 import views.html.student.*;
 
@@ -41,10 +43,11 @@ public class StudentManagement extends Controller{
 	
 	static Form<Student> studentForm = Form.form(Student.class);
 	
+	@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result create() {
 	        return ok(create.render(dStudentForm));
 	    }
-	 
+	@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
 		 DummyStudent dStudent = filledForm.get();
@@ -135,14 +138,15 @@ public class StudentManagement extends Controller{
    			}
 	    }
 
-
+	@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
 	 public static Result list(){
 	    	List<Student> students =Student.all();
 	     	return ok(list.render(students));
 	    }
 
 	 
-	 public static Result show(Long id) {
+	@Dynamic(value = "Show Individual Student", handler = DeadboltHandler.class)
+	public static Result show(Long id) {
 			Student student = Student.findById(id);
 					
 		  	if (student == null) {
@@ -152,8 +156,9 @@ public class StudentManagement extends Controller{
 			} else
 				return ok(show.render(student));
 		}
-	 
-	 public static Result edit(Long id) {
+	
+	@Dynamic(value = "Edit Students", handler = DeadboltHandler.class)
+	public static Result edit(Long id) {
 		 Student student = Student.findById(id);
 			
 		  	if (student == null) {
@@ -164,7 +169,7 @@ public class StudentManagement extends Controller{
 				return ok(edit.render(studentForm.fill(student)));
 		}
 	 
-	 
+	@Dynamic(value = "Edit Student", handler = DeadboltHandler.class)
 	 public static Result update(){
 			Form<Student> filledForm = studentForm.bindFromRequest();
 			if (filledForm.hasErrors()) {
@@ -178,7 +183,8 @@ public class StudentManagement extends Controller{
 			
 		}
 	 
-	 public static Result delete(Long id){
+	@Dynamic(value = "Delete Student", handler = DeadboltHandler.class)
+	public static Result delete(Long id){
 		 Student.delete(id);
 		 flash("success", AppConstants.SUCCESSFUL_DELETE_MESSAGE);
 		 return ok(list.render(Student.all()));

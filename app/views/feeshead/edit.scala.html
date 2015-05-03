@@ -1,0 +1,30 @@
+@(feesHeadForm: Form[models.Fees.FeesHead])
+@import models.Fees.Category
+@import helper._
+
+@main("Edit FeesHead"){
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">Edit Fees Head</span></div>
+           @form(routes.FeesHeadManagement.update()) {
+  	        <input type="hidden" name="id" value=@feesHeadForm.get.id >
+             <div class="row">        
+  	          <label for="universityID"> Fees Category Name </label><br>
+  	 	      <select name="feesCategory.id" id="universityID">
+			    <option></option>
+			    <optgroup label="Find Category">
+			  	  @for((id, name) <- Category.getCategoriesAsMap){
+			       <option value="@id" @if(id==feesHeadForm.get.feesCategory.id.toString){selected}>@name</option>
+			     } 
+    	     </select>
+		    </div>
+		    <div class="row"> 
+             @inputText(feesHeadForm("name"), '_showConstraints -> false, 'class->"form-control", '_label->"FeesHead Name")
+            </div>
+            <div class="row">
+	         <input type="submit" value="Update" class="btn btn-primary">
+	        </div>  
+  }
+}

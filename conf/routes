@@ -217,8 +217,22 @@ POST	/role-permission/create						controllers.UserPermissionManagement.save()
 
 
 
+#Fees portion:
+GET		/fees-head/create						     controllers.FeesHeadManagement.create()
+POST	/fees-head/create						     controllers.FeesHeadManagement.save()
+GET		/fees-head/list							 controllers.FeesHeadManagement.list()
+GET		/fees-head/show/:id						 controllers.FeesHeadManagement.show(id: Long)
+GET		/fees-head/edit/:id						 controllers.FeesHeadManagement.edit(id: Long)
+POST	/fees-head/edit							 controllers.FeesHeadManagement.update()
+GET	    /fees-head/delete/:id					   	 controllers.FeesHeadManagement.delete(id: Long)
 
 
-
-
+#Course
+GET		/fees-category/create						     controllers.FeesCategoryManagement.create()
+POST	/fees-category/create						     controllers.FeesCategoryManagement.save()
+GET		/fees-category/list							 controllers.FeesCategoryManagement.list()
+GET		/fees-category/show/:id						 controllers.FeesCategoryManagement.show(id: Long)
+GET		/fees-category/edit/:id						 controllers.FeesCategoryManagement.edit(id: Long)
+POST	/fees-category/edit							 controllers.FeesCategoryManagement.update()
+GET	    /fees-category/delete/:id					   	 controllers.FeesCategoryManagement.delete(id: Long)
 

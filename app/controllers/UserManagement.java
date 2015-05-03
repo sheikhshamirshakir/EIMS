@@ -22,6 +22,7 @@ public class UserManagement extends Controller {
 	
 	
 	public static Result login() {
+		flash("error", "Sorry, either the page does not exists or you do not have permission to this page.");
 		return ok(loginRequest.render());
 	}
 	

@@ -1,0 +1,22 @@
+@(category: models.Fees.Category)
+@import helper._
+
+@main(""){
+ <div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <label for="catName">Fees Category Name</label>
+           <span class="form-control" id="catName">@category.name</span>
+        </div>  
+      </div>        					   
+	  @form(routes.FeesCategoryManagement.edit(category.id)) {
+	  <div class="row">  
+	    <div class="col-md-12">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+  </div>
+</div>			   		    	  		  
+   }
