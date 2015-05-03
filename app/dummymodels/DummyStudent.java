@@ -17,7 +17,6 @@ public class DummyStudent {
 	public String studentName;	
 	public String gender;
 	
-	@Formats.DateTime(pattern="d/M/yyyy")
 	public Date dateOfBirth;
 	public String placeOfBirth; 
 	

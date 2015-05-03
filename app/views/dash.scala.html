@@ -22,14 +22,6 @@
             <!-- scrollbar -->
                 <link rel="stylesheet" href="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css")">
 
-        <!-- page specific stylesheets -->
-
-            <!-- select2 -->
-            <link href="@routes.Assets.at("assets/lib/select2/select2.css")" rel="stylesheet" media="screen">
-            <!-- prism highlight -->
-            <link href="@routes.Assets.at("assets/lib/prism/prism_default.css")" rel="stylesheet" media="screen">
-            <link href="@routes.Assets.at("assets/lib/prism/line_numbers.css")" rel="stylesheet" media="screen">
-		
         <!-- google webfonts -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
@@ -147,7 +139,7 @@
                             <span class="caret"></span>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="">User Profile</a></li>
+                             <li><a href="">User Profile</a></li>
                             <li><a href="/logout">Log Out</a></li>
                         </ul>
                     </div>
@@ -161,8 +153,6 @@
             <nav id="breadcrumbs">
                 <ul>
                     <li><a href="/dashboard">Home</a></li>
-		            <li><span>Forms</span></li>
-		            <li><span>Student Management</span></li>
 		        </ul>
             </nav>
     
@@ -197,6 +187,8 @@
                                 <li><a href="/class-or-year/list">Class/Year List</a></li>
                                 <li><a href="/section-or-semester/create">New Semester</a></li>
                                 <li><a href="/section-or-semester/list">Semester List</a></li>
+                                <li><a href="/course/create">Student Course</a></li>
+                                <li><a href="/course/list">Course List</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -206,7 +198,7 @@
                             </a>
                             <ul>
                                 <li class="submenu-title">Forms</li>
-                               <li><a href="/student/create">Admission Form</a></li>
+                                <li><a href="/student/create">Admission Form</a></li>
                                 <li><a href="/student/list">Student List</a></li>
                                 <li><a href="/student-course/create-with-student">Assign To Student</a></li>
                             </ul>
@@ -235,12 +227,12 @@
                             </a>
                             <ul>
                                 <li><a href="/student-course/create">Student Course</a></li>
-                                 <li><a href="/student-course/list">Student Course List</a></li>
+                                <li><a href="/student-course/list">Student Course List</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
                             <a href="javascript:void(0)">
-                                <span class="icon_folder-alt first_level_icon"></span>
+                                <span class="icon_document_alt first_level_icon"></span>
                                 <span class="menu-title">Exam</span>
                             </a>
                             <ul>
@@ -250,22 +242,22 @@
                         </li>
                         <li class="first_level">
                             <a href="javascript:void(0)">
-                                <span class="icon_puzzle first_level_icon"></span>
+                                <span class="icon_document_alt first_level_icon"></span>
                                 <span class="menu-title">Result</span>
                             </a>
                             <ul>
-                                <li class="submenu-title">Subject Result</li>
-                                <li><a href="">Student Result</a></li>
+                                <li class="submenu-title">Result Management</li>
+                                <li><a href=""></a></li>
                             </ul>
                         </li>
                         <li class="first_level">
                             <a href="javascript:void(0)">
-                                <span class="icon_lightbulb_alt first_level_icon"></span>
+                                <span class="icon_document_alt first_level_icon"></span>
                                 <span class="menu-title">Hostel</span>
                             </a>
                             <ul>
                                 <li class="submenu-title">Hostel Management</li>
-                                <li><a href="">Hostel Cost</a></li>
+                                <li><a href=""></a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -282,7 +274,7 @@
                         </li>
                         <li class="first_level">
                             <a href="javascript:void(0)">
-                                <span class="icon_folder-alt"></span>
+                                <span class="icon_document first_level_icon"></span>
                                 <span class="menu-title">Settings</span>
                             </a>
                             <ul>
@@ -301,8 +293,8 @@
             </nav>
 
         </div>
-
-        <!-- jQuery -->
+       </div> 
+       <!-- jQuery -->
         <script src="@routes.Assets.at("assets/js/jquery.min.js")"></script>
         <!-- jQuery Cookie -->
         <script src="@routes.Assets.at("assets/js/jqueryCookie.min.js")"></script>
@@ -322,21 +314,34 @@
         <script src="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js")"></script>
 
         <!-- Yukon Admin functions -->
-        <script src="@routes.Assets.at("assets/js/yukon_all.js")"></script>
-        
-           <!-- page specific plugins -->
+        <script src="@routes.Assets.at("assets/js/yukon_all.min.js")"></script>
 
-            <!-- datatable -->
-            <script src="@routes.Assets.at("assets/lib/DataTables/media/js/jquery.dataTables.min.js")"></script>
-            <script src="@routes.Assets.at("assets/lib/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js")"></script>
-            <script src="@routes.Assets.at("assets/lib/DataTables/media/js/dataTables.bootstrap.js")"></script>
+	    <!-- page specific plugins -->
+
+            <!-- c3 charts -->
+            <script src="@routes.Assets.at("assets/lib/d3/d3.min.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/c3/c3.min.js")"></script>
+            <!-- vector maps -->
+            <script src="@routes.Assets.at("assets/lib/jvectormap/jquery-jvectormap-1.2.2.min.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/jvectormap/maps/jquery-jvectormap-world-mill-en.js")"></script>
+            <!-- countUp animation -->
+            <script src="@routes.Assets.at("assets/js/countUp.min.js")"></script>
+            <!-- easePie chart -->
+            <script src="@routes.Assets.at("assets/lib/easy-pie-chart/dist/jquery.easypiechart.min.js")"></script>
 
             <script>
                 $(function() {
-                    // footable
-                    yukon_datatables.p_plugins_tables_datatable();
+                    // c3 charts
+                    yukon_charts.p_dashboard();
+                    // countMeUp
+                    yukon_count_up.init();
+                    // easy pie chart
+                    yukon_easyPie_chart.p_dashboard();
+                    // vector maps
+                    yukon_vector_maps.p_dashboard();
+                    // match height
+                    yukon_matchHeight.p_dashboard();
                 })
-            </script>
-       </div>  
+            </script> 
     </body>
 </html>

@@ -1859,6 +1859,24 @@
 					placeholder: "Select..."
 				});
 			}
+			
+			if ($("#broID").length) {
+				$("#broID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#eduBoard").length) {
+				$("#eduBoard").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#eduBoardTwo").length) {
+				$("#eduBoardTwo").select2({
+					placeholder: "Select..."
+				});
+			}
 						
 			if($('#s2_tokenization').length) {
 				$('#s2_tokenization').select2({

@@ -26,7 +26,7 @@
        	    </div>
 	        <div class="col-md-12">
 	          <div class="form-group">  
-	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"student_dob")
+	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"dp_basic")
 	          </div> 
 	        </div>
 	        <div class="col-md-12">  
@@ -57,6 +57,12 @@
 		          )
 		       </div>    
 	        </div>
+	        <div class="col-md-12">   
+             <div class="form-group">
+		       <label for="studentImgae">Student Image </label>
+		       <input type="file" name="stimage">
+		    </div>
+		  </div>  
     	</section>
     	<h3>Address & Others</h3>  
     	<section>  
@@ -122,30 +128,195 @@
 	           @inputText(field=studentForm("email"), 'class->"form-control",'_label->"Email")
              </div>
           </div>
-          <div class="col-md-12">   
-             <div class="form-group">
-		       <label for="studentImgae">Student Image </label>
-		       <input type="file" name="stimage">
-		    </div>
-		  </div>  
           </section>   
           <h3>Parent Information</h3>
           <section>
            <div class="col-md-12">
              <div class="form-group">
-	           @inputText(field=studentForm("parentName"), '_showConstraints->false,'class->"form-control",'_label->"Parent Name")
+	           @inputText(field=studentForm("fatherName"), '_showConstraints->false,'class->"form-control",'_label->"Father Name")
 	         </div>
 	       </div> 
 	       <div class="col-md-12"> 
 	        <div class="form-group"> 
-              @inputText(field=studentForm("parentPhone"), '_showConstraints->false,'class->"form-control",'_label->"Parent Phone")
+              @inputText(field=studentForm("fatherPhone"), '_showConstraints->false,'class->"form-control",'_label->"Father Mobile No")
             </div>  
            </div> 
            <div class="col-md-12">
             <div class="form-group">
-              @inputText(field=studentForm("parentEmail"), '_showConstraints->false,'class->"form-control",'_label->"Parent Email")
+              @inputText(field=studentForm("fatherEmail"), '_showConstraints->false,'class->"form-control",'_label->"Father Email")
 		    </div>
 		  </div>  
+		  <div class="col-md-12">
+		     <div class="form-group">
+	           @inputText(field=studentForm("fatherEducation"), '_showConstraints->false,'class->"form-control",'_label->"Father Last Education")
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputText(field=studentForm("motherName"), '_showConstraints->false,'class->"form-control",'_label->"Mother Name")
+            </div>  
+           </div> 
+           <div class="col-md-12">
+            <div class="form-group">
+              @inputText(field=studentForm("motherPhone"), '_showConstraints->false,'class->"form-control",'_label->"Mother Mobile No")
+		    </div>
+		   </div> 
+		   <div class="col-md-12">
+            <div class="form-group">
+              @inputText(field=studentForm("motherEducation"), '_showConstraints->false,'class->"form-control",'_label->"Mother Last Education")
+		    </div>
+		   </div> 
+		   <div class="col-md-12">  
+            <div class="form-group">
+               <label for="broID">No Of Brother/Sister</label>
+               <select name="brosisNo" id="broID">
+                 <option></option>
+                 <optgroup label="Find Number">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                 </optgroup>
+               </select>
+       		 </div>
+       	  </div>
+		</section>
+		<h3>Guardian Information</h3>
+		<section>
+		<div style="height:380px;">
+		  <div class="col-md-12">
+       	    <div class="form-group">
+       	      <label for="">Guardian</label>
+       	      <p><input type="radio" name="guardian" value="1" id="otherGuardian" onclick="removeGuardian()"><label>Parent As Guardian</label></p>
+       	      <p><input type="radio" name="guardian" value="2" id="otherGuardian" onclick="showGuardian()"><label>Not Parent As Guardian</label></p>
+       	    </div>
+       	  </div> 
+       	  <div id="guardianDiv" style="display:none;">
+       	    <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guardianName">Guardian Name</label>
+       	        <input type="text" name="guardianName" class="form-control">
+       	      </div>
+       	    </div>
+       	     <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guarMobile">Guardian Mobile No</label>
+       	        <input type="text" name="guardianMobile" class="form-control">
+       	      </div>
+       	    </div>
+       	    <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guarEmail">Guardian Email</label>
+       	        <input type="text" name="guardianEmail" class="form-control">
+       	      </div>
+       	    </div>
+       	    <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guarEducation">Guardian Last Education</label>
+       	        <input type="text" name="guarEducation" class="form-control">
+       	      </div>
+       	    </div>
+       	  </div>
+       	 </div> 
+		</section>
+		<h3>Education Information</h3>
+		<section>
+		  <div class="col-md-12">
+		   <div class="col-md-3">
+		      <div class="form-group">
+		        <label for="eduInstitute">Institute Name</label>
+		        <input type="text" name="instituteName[]" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-3">
+		      <div class="form-group">
+		        <label for="eduBoard">Education Board</label>
+		        <select name="educationBoard[]" id="eduBoard">
+		          <option></option>
+		          <optgroup label="Find Board">
+		            <option>Dhaka</option>
+		            <option>Chittagong</option>
+		            <option>Jessore</option>
+		            <option>Rajshahi</option>
+		            <option>Sylhet</option>
+		            <option>Barishal</option>
+		            <option>Comilla</option>
+		            <option>Dinajpur</option>
+		            <option>Madrasah</option>
+		            <option>Technical</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-3">
+		      <div class="form-group">
+		        <label for="eduPassing">Passing Year</label>
+		        <input type="text" name="passingYear[]" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-2">
+		      <div class="form-group">
+		        <label for="eduResult">Result</label>
+		        <input type="text" name="eduResult[]" class="form-control">
+		      </div>
+		   </div>
+		   </div>
+		   <div class="col-md-1">
+             <div class="form-group">
+               <button id="b5" class="btn add-more" type="button" onclick="addEducation()">+</button>
+             </div>
+            </div>
+		   </div>
+		   <div style="height:250px;">
+		    <div id="moreEducation" style="display:none">
+		     <div class="col-md-12"> 
+		       <div class="col-md-3">
+		         <div class="form-group">
+		           <label for="instiName">Institute Name</label>
+		           <input type="text" name="instituteName[]" class="form-control">
+		         </div>
+		       </div>
+		       <div class="col-md-3">
+		         <div class="form-group">
+		           <label for="eduBoard">Education Board</label>
+		            <select name="educationBoard[]" id="eduBoardTwo">
+			         <option></option>
+			         <optgroup label="Find Board">
+			            <option>Dhaka</option>
+			            <option>Chittagong</option>
+			            <option>Jessore</option>
+			            <option>Rajshahi</option>
+			            <option>Sylhet</option>
+			            <option>Barishal</option>
+			            <option>Comilla</option>
+			            <option>Dinajpur</option>
+			            <option>Madrasah</option>
+			            <option>Technical</option>
+			         </optgroup>
+		            </select>
+		         </div>
+		       </div>
+		      <div class="col-md-3">
+		        <div class="form-group">
+		          <label for="passYear">Passing Year</label>
+		          <input type="text" name="passingYear[]" class="form-control">
+		        </div>
+		     </div>
+		     <div class="col-md-2">
+		      <div class="form-group">
+		        <label for="eduResult">Result</label>
+		        <input type="text" name="eduResult[]" class="form-control">
+		      </div>
+		    </div>
+		    <div class="col-md-1">
+             <div class="form-group">
+               <button id="b7" class="btn add-more" type="button" onclick="moreEducation()">+</button>
+               <button id="b8" class="btn btn-danger remove-me" type="button" onclick="removeEducation()">-</button>
+             </div>
+            </div>
+		   </div>
+		  </div> 
 		</section>
         <h3>Admission Information</h3>     		 
        	<section>
@@ -254,7 +425,7 @@
    </div>   
    </div>           
 </div>
-              <script>
+<script>
 $('#division').on('change', function() {
 var idToGet = this.value;
 jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
@@ -286,8 +457,51 @@ jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
 	return false;
 	  					
 		});
-              
-              </script>
+		
+		function showGuardian()
+		{
+		  var guarDiv=document.getElementById("guardianDiv");
+		  
+		    guarDiv.style.display='block';
+		 		  
+		}
+		
+		function removeGuardian()
+		{
+		  var guarDiv=document.getElementById("guardianDiv");
+		  
+		    guarDiv.style.display='none';
+		 		  
+		}
+          
+        function addEducation()
+        {
+           var moreEdu=document.getElementById("moreEducation");
+           
+           moreEdu.style.display='block';
+        }   
+        
+        function removeEducation()
+        {
+          var morEdu=document.getElementById("moreEducation");
+          
+          morEdu.style.display='none';
+        }   
+        
+        function moreEducation()
+        {
+          var otherEducation=document.getElementById("orEducation");
+          
+          otherEducation.style.display='block';
+        }
+        
+        function orMoreEducation()
+        {
+          var othEducation=document.getElementById("orEducation");
+          
+          othEducation.style.display='none';
+        }
+      </script>
             }
                        
      }
