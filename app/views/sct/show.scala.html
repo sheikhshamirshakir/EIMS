@@ -1,0 +1,30 @@
+@(sct: models.Fees.StudentCollectionType)
+@import helper._
+
+@main(""){
+ <!-- main content -->   
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+     <div class="heading_a"><span class="heading_text">Student Collection Type Deatils</span></div>
+      <div class="row">
+        <label for="uniName">Student Name</label>
+        <span class="form-control" id="uniName">@sct.student.name</span>
+       </div>  
+       <div class="row">
+        <label for="facName">Fees Category Name</label>
+        <span class="form-control" id="facName">@sct.feesCategory.name</span>
+       </div>
+        <div class="row">
+        <label for="facName">Discount Category</label>
+        <span class="form-control" id="facName">@sct.discountCategory.name</span>
+       </div>
+       @form(routes.StudentCollectionTypeManagement.edit(sct.id)) {
+        <div class="row">
+		    <input type="submit" value="Edit" class="btn btn-primary">
+		</div>    
+  		}
+  	   }
+      </div>
+   </div>
+ </div>        

@@ -1,0 +1,60 @@
+@(sctForm: Form[models.Fees.StudentCollectionType])
+@import models.Fees.DiscountCategory
+@import models.Fees.Category
+@import models.admission.Student
+@import helper._
+
+
+
+@main("Collection Set Entry") {
+  <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">New Collection Set</span></div>
+            
+            
+		    <div class="row">
+              @form(routes.StudentCollectionTypeManagement.save()) { 
+                <label for="universityID">Select Student</label>
+                  <select name="student.sid" id="universityID">
+                    <option></option>
+                    <optgroup label="Find Fees Head">
+	              @for((id, name) <- Student.getStudentsAsMap){
+                    <option value="@id">@name</option>
+                  }
+		            </optgroup> 
+                  </select>
+		
+		   
+                <label for="universityID">Select Fees Category</label>
+                  <select name="feesCategory.id" id="universityID">
+                    <option></option>
+                    <optgroup label="Find Fees Head">
+	              @for((id, name) <- Category.getCategoriesAsMap){
+                    <option value="@id">@name</option>
+                  }
+		            </optgroup> 
+                  </select>
+		  
+		    
+                <label for="universityID">Select Discount</label>
+                  <select name="discountCategory.id" id="universityID">
+                    <option></option>
+                    <optgroup label="Find Fees Head">
+	              @for((id, name) <- DiscountCategory.getDiscountsAsMap){
+                    <option value="@id">@name</option>
+                  }
+		            </optgroup> 
+                  </select>
+		    
+		        </div> 
+		    
+              <input type="submit" class="btn btn-primary" value="Create">
+            </div>
+            }
+        </div>
+     </div>
+   </div>                      
+ }
+

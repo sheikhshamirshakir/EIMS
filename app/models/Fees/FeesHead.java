@@ -9,7 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 
 
@@ -30,9 +33,12 @@ public class FeesHead extends Model{
 
     
     @ManyToOne
-    @JoinColumn(name = "fees_category_id", referencedColumnName = "id")  // TOREAD;
+    @JoinColumn(name = "fees_category_id", referencedColumnName = "id")  
     public Category feesCategory;
 	
+    
+    @OneToMany(mappedBy = "feesHead")
+    public List<DiscountCategory> discounts;
       
 	public static Finder<Long, FeesHead> find = new Finder(Long.class, FeesHead.class);
 

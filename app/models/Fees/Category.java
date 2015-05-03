@@ -29,6 +29,9 @@ public class Category extends Model{
 	
     @OneToMany(mappedBy = "feesCategory")
     public List<FeesHead> feesHead;
+    
+    @OneToMany(mappedBy = "feesCategory")
+    public List<StudentCollectionType> studentCollectionTypes;
 
     public static Finder<Long, Category> find = new Finder(Long.class, Category.class);
 

@@ -1,0 +1,39 @@
+@(scts: List[models.Fees.StudentCollectionType])
+@import helper._
+
+@mainlist("List of Student Collections"){
+
+ 
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+  <!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead> 
+             <tr>
+              <th>ID</th>
+               <th>Student Name</th>
+               <th>Fees Category</th>
+        	   <th>Discount Category</th>	
+             </tr>
+           </thead>
+           <tbody>
+             @for(sct <- scts) {
+             <tr>
+               <td><a href="@routes.StudentCollectionTypeManagement.show(sct.id)">@sct.id</a></td>
+               <td>@sct.student.name</td>
+               <td>@sct.feesCategory.name</td>
+               <td>@sct.discountCategory.name</td>
+             </tr>
+            }
+          </tbody>
+         </table>
+       </div>
+     </div>
+   </div>
+ </div>        
+}      
