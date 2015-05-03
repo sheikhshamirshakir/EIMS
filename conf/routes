@@ -217,8 +217,42 @@ POST	/role-permission/create						controllers.UserPermissionManagement.save()
 
 
 
+#Fees portion:
+#Fees Head
+GET		/fees-head/create						     controllers.FeesHeadManagement.create()
+POST	/fees-head/create						     controllers.FeesHeadManagement.save()
+GET		/fees-head/list							 controllers.FeesHeadManagement.list()
+GET		/fees-head/show/:id						 controllers.FeesHeadManagement.show(id: Long)
+GET		/fees-head/edit/:id						 controllers.FeesHeadManagement.edit(id: Long)
+POST	/fees-head/edit							 controllers.FeesHeadManagement.update()
+GET	    /fees-head/delete/:id					   	 controllers.FeesHeadManagement.delete(id: Long)
 
 
+#Fees Category
+GET		/fees-category/create						     controllers.FeesCategoryManagement.create()
+POST	/fees-category/create						     controllers.FeesCategoryManagement.save()
+GET		/fees-category/list							 controllers.FeesCategoryManagement.list()
+GET		/fees-category/show/:id						 controllers.FeesCategoryManagement.show(id: Long)
+GET		/fees-category/edit/:id						 controllers.FeesCategoryManagement.edit(id: Long)
+POST	/fees-category/edit							 controllers.FeesCategoryManagement.update()
+GET	    /fees-category/delete/:id					   	 controllers.FeesCategoryManagement.delete(id: Long)
 
 
+#Fees Discount
+GET		/discount/create						     controllers.DiscountManagement.create()
+POST	/discount/create						     controllers.DiscountManagement.save()
+GET		/discount/list							 controllers.DiscountManagement.list()
+GET		/discount/show/:id						 controllers.DiscountManagement.show(id: Long)
+GET		/discount/edit/:id						 controllers.DiscountManagement.edit(id: Long)
+POST	/discount/edit							 controllers.DiscountManagement.update()
+GET	    /discount/delete/:id					   	 controllers.DiscountManagement.delete(id: Long)
 
+
+#Student Fees Collection Type
+GET		/sct/create						     controllers.StudentCollectionTypeManagement.create()
+POST	/sct/create						     controllers.StudentCollectionTypeManagement.save()
+GET		/sct/list							 controllers.StudentCollectionTypeManagement.list()
+GET		/sct/show/:id						 controllers.StudentCollectionTypeManagement.show(id: Long)
+GET		/sct/edit/:id						 controllers.StudentCollectionTypeManagement.edit(id: Long)
+POST	/sct/edit							 controllers.StudentCollectionTypeManagement.update()
+GET	    /sct/delete/:id					   	 controllers.StudentCollectionTypeManagement.delete(id: Long)

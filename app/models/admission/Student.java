@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import models.Division;
+import models.Fees.DiscountCategory;
+import models.Fees.StudentCollectionType;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
@@ -62,6 +64,11 @@ public class Student extends Model {
     @ManyToOne
     @JoinColumn(name = "divisionId", referencedColumnName = "id")
     public Division division;
+    
+    
+    
+    @OneToMany(mappedBy = "student")
+    public List<StudentCollectionType> studentCollectionTypes;
     
     // public String division;  
     public String district;

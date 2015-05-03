@@ -1,0 +1,35 @@
+@(categories: List[models.Fees.Category])
+@import helper._
+
+@mainlist("List of Categories"){
+
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+ <!-- main content -->
+            <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                             <thead>
+							    <tr>
+							       <th>ID</th>
+							       <th>Fees Category Name</th>
+							     </tr>
+							   </thead>
+							    <tbody>
+							    @for(category <- categories) {
+							      <tr>
+							        <td><a href="@routes.FeesCategoryManagement.show(category.id)">@category.id</a></td>
+							        <td>@category.name</td>
+							      </tr> 
+							      
+							    }
+							 </tbody>
+							 </table>
+					    </div>
+					 </div>
+		        </div>		 
+		     </div>   
+}      
