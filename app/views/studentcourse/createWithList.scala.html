@@ -8,7 +8,7 @@
   <h2>Assign Course to a Student</h2><br/><br/>
 
   @form(routes.StudentCourseManagement.createWithStudent()){
-    @select(studentCourseForm("teacherId"),
+    @select(studentCourseForm("studentId"),
       options(Student.getStudentsAsMap),
        '_label -> "Student", '_id -> "id", '_default -> "-- Choose a Student --",
        '_showConstraints -> false
