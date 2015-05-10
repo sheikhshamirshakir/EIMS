@@ -1,0 +1,21 @@
+@(studentFeesForm: Form[dummymodels.DummyStudentFeesCollection])
+@import models.Fees.FeesHead
+@import models.admission.Student
+@import helper._
+
+@main{
+  <h2>Assign FeesHead to a Student</h2><br/><br/>
+   @form(routes.StudentFeesCollectionManagement.createWithStore(0L)){
+ 
+    @select(studentFeesForm("studentId"),
+      options(Student.getStudentsAsMap),
+       '_label -> "Student", '_default -> "-- Choose a Student --",
+       '_showConstraints -> false
+    )
+
+     <br/>
+     <input type="submit" value="Get Payment from this Student">
+  }
+   <br/> <br/>
+   <h3>View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of all payments</h3>
+}

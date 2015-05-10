@@ -1,0 +1,45 @@
+@(studentFees: models.Fees.StudentFees)
+@import helper._
+
+@main{
+@if(flash.get("msg")) {
+<b>@flash.get("msg")</b>
+}
+
+<h1>Student's Fees Information</h1>
+
+<table border=1>
+    <tr>
+        <th align="left">Id</th>
+        <td>@studentFees.id</td>
+    </tr>
+     <tr>
+        <th align="left">Student Id</th>
+        <td>@studentFees.student.id</td>
+    </tr>
+    <tr>
+        <th align="left">Student Name</th>
+        <td>@studentFees.student.name</td>
+    </tr>
+
+     <tr>
+        <th align="left">Fees Head Id</th>
+        <td>@studentFees.feesHead.id</td>
+    </tr>
+    <tr>
+        <th align="left">Card Type</th>
+        <td>@studentFees.feesHead.name</td>
+    </tr>
+        <th align="left">Amount</th>
+        <td>@studentFees.amount</td>
+    </tr>
+ </table>
+
+<br/> <br/>
+@form(routes.StudentFeesCollectionManagement.edit(studentFees.id)) {
+<input type="submit" value="Edit">
+}
+<br/> <br/>
+<h3>View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of Student's Payment</h3>
+
+}
