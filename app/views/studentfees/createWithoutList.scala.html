@@ -4,7 +4,7 @@
 @import models.Fees.StudentFees
 @import models.Fees.FeesHead
 
-@main{
+@main(""){
   <h2>Get Fees from  <b> @student.name</b></h2><br/><br/>
 
   <form method="post" action=@routes.StudentFeesCollectionManagement.insert()>
@@ -16,7 +16,7 @@
       @for((feesHead, idx) <- FeesHead.all.zipWithIndex) {
       <tr align="center">
         <td>@feesHead.name</td>
-        <td><input type="text" name="amount[@idx]" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value = @StudentFees.findByStudentAndFeesHead(student.id, feesHeaf.id).amount}></td>
+        <td><input type="text" name="amount[@idx]" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value = @StudentFees.findByStudentAndFeesHead(student.sid, feesHead.id).amount}></td>
       </tr>
       }
   </table>

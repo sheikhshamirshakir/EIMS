@@ -3,14 +3,14 @@
 @import models.admission.Student
 @import helper._
 
-@main{
-<h2>Update the store's cards having Id @storeCardForm.get.id</h2><br/><br/>
+@main(""){
+<h2>Update the Student's Payment having Id @studentFeesForm.get.id</h2><br/><br/>
 
 @form(routes.StudentFeesCollectionManagement.update()) {
 
 <input type="hidden" name="id" value=@studentFeesForm.get.id>
 
-@select(studentFeesForm("student.id"),
+@select(studentFeesForm("student.sid"),
 	options(Student.getStudentsAsMap),
 	'_label -> "Student", '_default -> "-- Choose a Student --",
 	'_showConstraints -> false

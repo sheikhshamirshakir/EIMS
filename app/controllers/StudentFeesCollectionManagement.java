@@ -46,7 +46,7 @@ public class StudentFeesCollectionManagement extends Controller{
             List<Long> existingFeesHead = StudentFees.findFeesHeadIdsByStudentId(dsfc.studentId);
             List<Long> newFeesHeads = new ArrayList<Long>();
             			
-            /** add new cards */
+            
             Student student = Student.findById(dsfc.studentId);
             for (int i = 0; i<dsfc.fessHeadIds.size(); i++) {
             	String fhIdStr = dsfc.fessHeadIds.get(i);
@@ -58,7 +58,7 @@ public class StudentFeesCollectionManagement extends Controller{
 					newFeesHeads.add(fhId);
 					
 					if (existingFeesHead.contains(fhId)) {
-						StudentFees sf = StudentFees.findByStudentAndFeesHead(student.id, fhId);
+						StudentFees sf = StudentFees.findByStudentAndFeesHead(student.sid, fhId);
 						if (sf.amount != amount) {
 							System.out.println("New: "+amount+", old: "+sf.amount);
 							sf.amount = amount;

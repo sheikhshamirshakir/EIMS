@@ -1,7 +1,7 @@
 @(studentFees: models.Fees.StudentFees)
 @import helper._
 
-@main{
+@main(""){
 @if(flash.get("msg")) {
 <b>@flash.get("msg")</b>
 }
@@ -15,7 +15,7 @@
     </tr>
      <tr>
         <th align="left">Student Id</th>
-        <td>@studentFees.student.id</td>
+        <td>@studentFees.student.sid</td>
     </tr>
     <tr>
         <th align="left">Student Name</th>
