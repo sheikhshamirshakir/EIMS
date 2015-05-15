@@ -3,15 +3,18 @@ package models.Fees;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import models.admission.Student;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
-
+@Entity
+@Table (name="student_fees")
 public class StudentFees extends Model{
 	
 	@Id
@@ -19,7 +22,7 @@ public class StudentFees extends Model{
 	
 	@Required
 	@ManyToOne
-	@JoinColumn(name = "student_id", referencedColumnName = "id")
+	@JoinColumn(name = "student_id", referencedColumnName = "sid")
 	public Student student;
 
 	@Required
@@ -55,7 +58,7 @@ public class StudentFees extends Model{
 
 	public static List<Long> findFeesHeadIdsByStudentId(Long id) {
 
-		List<StudentFees> studentFees = StudentFees.find.where().eq("student.id", id).findList();
+		List<StudentFees> studentFees = StudentFees.find.where().eq("student.sid", id).findList();
 		ArrayList<Long> fHIds = new ArrayList<Long>(studentFees.size());
 		for (int i = 0; i < studentFees.size(); i++) {
 			fHIds.add(studentFees.get(i).feesHead.id);
@@ -65,12 +68,12 @@ public class StudentFees extends Model{
 	}
 
 	public static StudentFees findByStudentAndFeesHead(Long studentId, Long feesHeadId) {
-		StudentFees sf = find.where().eq("student.id", studentId).eq("feesHead.id", feesHeadId).findUnique();
+		StudentFees sf = find.where().eq("student.sid", studentId).eq("feesHead.id", feesHeadId).findUnique();
 		return sf;
 	}
 
 	public static List<StudentFees> findByStudent(Long studentId) {
-		List<StudentFees> sf = find.where().eq("student.id", studentId).findList();
+		List<StudentFees> sf = find.where().eq("student.sid", studentId).findList();
 
 		return sf;
 	}
@@ -78,7 +81,7 @@ public class StudentFees extends Model{
 
 	public static List<FeesHead> findFeesHeadByStudent(Long studentId) {
 		List<FeesHead> feesHeads = new ArrayList<FeesHead>();
-		List<StudentFees> studentFees = find.where().eq("student.id", studentId).findList();
+		List<StudentFees> studentFees = find.where().eq("student.sid", studentId).findList();
 
 		for (StudentFees sf : studentFees) {
 			FeesHead fh = FeesHead.findById(sf.feesHead.id);
@@ -104,7 +107,7 @@ public class StudentFees extends Model{
 	}
 
 	public static void deleteByStudent(Long id) {
-		List<StudentFees> studentFees = StudentFees.find.where().eq("student.id", id).findList();
+		List<StudentFees> studentFees = StudentFees.find.where().eq("student.sid", id).findList();
 
 		for (StudentFees sf : studentFees) {
 			delete(sf.id);

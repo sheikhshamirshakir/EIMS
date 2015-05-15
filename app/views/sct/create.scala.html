@@ -13,9 +13,9 @@
         <div class="col-md-12">
           <div class="heading_a"><span class="heading_text">New Collection Set</span></div>
             
-            
-		    <div class="row">
+      
               @form(routes.StudentCollectionTypeManagement.save()) { 
+              <div class="row">
                 <label for="universityID">Select Student</label>
                   <select name="student.sid" id="universityID">
                     <option></option>
@@ -25,8 +25,8 @@
                   }
 		            </optgroup> 
                   </select>
-		
-		   
+		         </div> 
+		   <div class="row">
                 <label for="universityID">Select Fees Category</label>
                   <select name="feesCategory.id" id="universityID">
                     <option></option>
@@ -36,12 +36,12 @@
                   }
 		            </optgroup> 
                   </select>
-		  
-		    
+		  </div>
+		    <div class="row">
                 <label for="universityID">Select Discount</label>
                   <select name="discountCategory.id" id="universityID">
                     <option></option>
-                    <optgroup label="Find Fees Head">
+                    <optgroup label="Find Discount">
 	              @for((id, name) <- DiscountCategory.getDiscountsAsMap){
                     <option value="@id">@name</option>
                   }
@@ -55,6 +55,6 @@
             }
         </div>
      </div>
-   </div>                      
+                       
  }
 

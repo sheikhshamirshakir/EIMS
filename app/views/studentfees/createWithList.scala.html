@@ -1,21 +1,38 @@
-@(studentFeesForm: Form[dummymodels.DummyStudentFeesCollection])
-@import models.Fees.FeesHead
-@import models.admission.Student
+@(studentFeesForm: Form[dummymodels.DummyStudentFeesCollection]) 
+@import models.Fees.FeesHead 
+@import models.admission.Student 
 @import helper._
 
 @main(""){
-  <h2>Assign FeesHead to a Student</h2><br/><br/>
-   @form(routes.StudentFeesCollectionManagement.createWithStudent(0L)){
- 
-    @select(studentFeesForm("studentId"),
-      options(Student.getStudentsAsMap),
-       '_label -> "Student", '_default -> "-- Choose a Student --",
-       '_showConstraints -> false
-    )
 
-     <br/>
-     <input type="submit" value="Get Payment from this Student">
-  }
-   <br/> <br/>
-   <h3>View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of all payments</h3>
+
+@form(routes.StudentFeesCollectionManagement.createWithStudent(0L)){
+
+<div id="main_wrapper">
+	<div class="container-fluid">
+	
+			<div class="col-md-12">
+				<div class="heading_a">
+					<span class="heading_text">Assign FeesHead to a Student</span>
+				</div>
+				<div class="row">
+				
+					
+						@select(studentFeesForm("studentId"),
+						options(Student.getStudentsAsMap), '_label -> "Student", '_default
+						-> "-- Choose a Student --", '_showConstraints -> false ) <br />
+					
+					<div class="col-md-12">
+						<input type="submit" value="Get Payment from this Student"
+							class="btn btn-primary">
+					</div>
+				@*<span class="heading_text">View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of all payments</span>*@
+				</div>
+			</div>
+		</div>
+</div>
+}
+<br />
+<br />
+
 }

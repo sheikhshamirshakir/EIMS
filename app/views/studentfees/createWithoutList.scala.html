@@ -1,29 +1,46 @@
-@(student: models.admission.Student, feesHeadIds: List[Long])
-@import helper._
-@import helper.twitterBootstrap._
-@import models.Fees.StudentFees
-@import models.Fees.FeesHead
-
+@(student: models.admission.Student, feesHeadIds: List[Long]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@import models.Fees.StudentFees 
+@import models.Fees.FeesHead 
 @main(""){
-  <h2>Get Fees from  <b> @student.name</b></h2><br/><br/>
 
-  <form method="post" action=@routes.StudentFeesCollectionManagement.insert()>
-    <input type="hidden" name="studentId" value="student">
-    
-    <table>
-      <tr align="center"> <th>Fees Heads </th> <th style="text-align: right;">Amount (BDT)</th> 
+<div id="main_wrapper">
+	<div class="container-fluid">
 
-      @for((feesHead, idx) <- FeesHead.all.zipWithIndex) {
-      <tr align="center">
-        <td>@feesHead.name</td>
-        <td><input type="text" name="amount[@idx]" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value = @StudentFees.findByStudentAndFeesHead(student.sid, feesHead.id).amount}></td>
-      </tr>
-      }
-  </table>
-  
-  <input type="submit" value="Get Fees">
-  </form>
+		<div class="col-md-12">
+			<div class="heading_a">
+				<span class="heading_text">Get Fees from @student.name</span>
+			</div>
+			<div class="row">
 
-  <br/> <br/>
-  <h3>View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of payments</h3>
+
+				<form method="post"
+					action=@routes.StudentFeesCollectionManagement.insert()>
+					<input type="hidden" name="studentId" value="student">
+
+					<table>
+						<tr align="center">
+							<th>Fees Heads</th>
+							<th style="text-align: right;">Amount (BDT)</th> @for((feesHead,idx) <- FeesHead.all.zipWithIndex) {
+						</tr>
+						<tr align="center">
+							<td>@feesHead.name</td>
+							<td><input type="text" name="amount[@idx]" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value=@StudentFees.findByStudentAndFeesHead(student.sid,feesHead.id).amount}></td>
+						</tr>
+						}
+					</table>
+					<div class="col-md-12">
+						<input type="submit" value="Get Fees">
+					</div>
+				</form>
+
+
+				<h3>
+					View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of payments
+				</h3>
+			</div>
+		</div>
+	</div>
+</div>
 }
