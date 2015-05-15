@@ -1,0 +1,270 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+GET   /dashboard           controllers.Dashboard.viewDashboard()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# User Management(Login Panel)
+GET		/login									controllers.UserManagement.login()
+POST	/login									controllers.UserManagement.authenticate()
+GET		/logout									controllers.UserManagement.logout()
+
+#University
+GET     /university/create                       controllers.UniversityManagement.create()
+POST    /university/create                       controllers.UniversityManagement.save()
+GET     /university/list                         controllers.UniversityManagement.list()
+GET     /university/show/:id                     controllers.UniversityManagement.show(id: Long)
+GET     /university/edit/:id                     controllers.UniversityManagement.edit(id: Long)
+POST    /university/edit                         controllers.UniversityManagement.update()
+GET     /university/delete/:id                   controllers.UniversityManagement.delete(id: Long)
+
+#Faculty
+GET		/faculty/create						     controllers.FacultyManagement.create()
+POST	/faculty/create						     controllers.FacultyManagement.save()
+GET		/faculty/list							 controllers.FacultyManagement.list()
+GET		/faculty/show/:id						 controllers.FacultyManagement.show(id: Long)
+GET		/faculty/edit/:id						 controllers.FacultyManagement.edit(id: Long)
+POST	/faculty/edit							 controllers.FacultyManagement.update()
+GET	    /faculty/delete/:id					   	 controllers.FacultyManagement.delete(id: Long)
+
+
+#Department
+GET		/department/create						     controllers.DepartmentManagement.create()
+POST	/department/create						     controllers.DepartmentManagement.save()
+GET		/department/list							 controllers.DepartmentManagement.list()
+GET		/department/show/:id						 controllers.DepartmentManagement.show(id: Long)
+GET		/department/edit/:id						 controllers.DepartmentManagement.edit(id: Long)
+POST	/department/edit							 controllers.DepartmentManagement.update()
+GET	    /department/delete/:id					   	 controllers.DepartmentManagement.delete(id: Long)
+
+
+#Degree
+GET		/degree/create						     controllers.DegreeManagement.create()
+POST	/degree/create						     controllers.DegreeManagement.save()
+GET		/degree/list							 controllers.DegreeManagement.list()
+GET		/degree/show/:id						 controllers.DegreeManagement.show(id: Long)
+GET		/degree/edit/:id						 controllers.DegreeManagement.edit(id: Long)
+POST	/degree/edit							 controllers.DegreeManagement.update()
+GET	    /degree/delete/:id					   	 controllers.DegreeManagement.delete(id: Long)
+
+#Class or Year
+GET		/class-or-year/create						     controllers.ClassYearManagement.create()
+POST	/class-or-year/create						     controllers.ClassYearManagement.save()
+GET		/class-or-year/list							 controllers.ClassYearManagement.list()
+GET		/class-or-year/show/:id						 controllers.ClassYearManagement.show(id: Long)
+GET		/class-or-year/edit/:id						 controllers.ClassYearManagement.edit(id: Long)
+POST	/class-or-year/edit							 controllers.ClassYearManagement.update()
+GET	    /class-or-year/delete/:id					   	 controllers.ClassYearManagement.delete(id: Long)
+
+#SectionSemester
+GET		/section-or-semester/create						     controllers.SectionSemesterManagement.create()
+POST	/section-or-semester/create						     controllers.SectionSemesterManagement.save()
+GET		/section-or-semester/list							 controllers.SectionSemesterManagement.list()
+GET		/section-or-semester/show/:id						 controllers.SectionSemesterManagement.show(id: Long)
+GET		/section-or-semester/edit/:id						 controllers.SectionSemesterManagement.edit(id: Long)
+POST	/section-or-semester/edit							 controllers.SectionSemesterManagement.update()
+GET	    /section-or-semester/delete/:id					   	             controllers.SectionSemesterManagement.delete(id: Long)
+
+
+#Employee
+GET		/employee/create						     controllers.EmployeeManagement.create()
+POST	/employee/create						     controllers.EmployeeManagement.save()
+GET		/employee/list							     controllers.EmployeeManagement.list()
+GET		/employee/show/:id							 controllers.EmployeeManagement.show(id: Long)
+GET		/employee/edit/:id							 controllers.EmployeeManagement.edit(id: Long)
+POST	/employee/edit								 controllers.EmployeeManagement.update()
+GET	    /employee/delete/:id					   	 controllers.EmployeeManagement.delete(id: Long)
+
+#Category
+GET		/category/create						     controllers.CategoryManagement.create()
+POST	/category/create						     controllers.CategoryManagement.save()
+GET		/category/list							     controllers.CategoryManagement.list()
+GET		/category/show/:id						     controllers.CategoryManagement.show(id: Long)
+GET		/category/edit/:id						     controllers.CategoryManagement.edit(id: Long)
+POST	/category/edit							     controllers.CategoryManagement.update()
+GET	    /category/delete/:id					   	 controllers.CategoryManagement.delete(id: Long)
+
+#Teacher
+#GET		/teacher/create						     controllers.TeacherManagement.create()
+#POST	/teacher/create						     controllers.TeacherManagement.save()
+GET		/teacher/list							 controllers.TeacherManagement.list()
+GET		/teacher/show/:id						 controllers.TeacherManagement.show(id: Long)
+GET		/teacher/edit/:id						 controllers.TeacherManagement.edit(id: Long)
+POST	/teacher/edit							 controllers.TeacherManagement.update()
+GET	    /teacher/delete/:id					   	 controllers.TeacherManagement.delete(id: Long)
+
+#Teacher Qualifications
+#GET		/teacher-qualifications/list							 controllers.TQManagement.list()
+#GET		/teacher-qualifications/show/:id						 controllers.TQManagement.show(id: Long)
+#GET		/teacher-qualifications/edit/:id						 controllers.TQManagement.edit(id: Long)
+#POST	/teacher-qualifications/edit							 controllers.TQManagement.update()
+#GET	    /teacher-qualifications/delete/:id					   	 controllers.TQManagement.delete(id: Long)
+
+#Designation
+GET		/designation/create						     controllers.DesignationManagement.create()
+POST	/designation/create						     controllers.DesignationManagement.save()
+GET		/designation/list							 controllers.DesignationManagement.list()
+GET		/designation/show/:id						 controllers.DesignationManagement.show(id: Long)
+GET		/designation/edit/:id						 controllers.DesignationManagement.edit(id: Long)
+POST	/designation/edit							 controllers.DesignationManagement.update()
+GET	    /designation/delete/:id					   	 controllers.DesignationManagement.delete(id: Long)
+
+
+
+#Course
+GET		/course/create						     controllers.CourseManagement.create()
+POST	/course/create						     controllers.CourseManagement.save()
+GET		/course/list							 controllers.CourseManagement.list()
+GET		/course/show/:id						 controllers.CourseManagement.show(id: Long)
+GET		/course/edit/:id						 controllers.CourseManagement.edit(id: Long)
+POST	/course/edit							 controllers.CourseManagement.update()
+GET	    /course/delete/:id					   	 controllers.CourseManagement.delete(id: Long)
+
+
+#TeacherCourse , Assign Courses to a teacher
+GET	   /teacher-course/create-with-teacher		        controllers.TeacherCourseManagement.createWithTeacher(teacherId ?= "1")
+GET		/teacher-course/create						controllers.TeacherCourseManagement.create()
+POST	/teacher-course/create						controllers.TeacherCourseManagement.insert()
+GET		/teacher-course/list						controllers.TeacherCourseManagement.list()
+GET		/teacher-course/show/:id					controllers.TeacherCourseManagement.show(id: Long)
+GET		/teacher-course/edit/:id					controllers.TeacherCourseManagement.edit(id: Long)
+POST	/teacher-course/edit						controllers.TeacherCourseManagement.update()
+
+
+#Student
+GET		/student/create						     controllers.StudentManagement.create()
+POST	/student/create						     controllers.StudentManagement.save()
+GET		/student/list							 controllers.StudentManagement.list()
+GET		/student/show/:id						 controllers.StudentManagement.show(id: Long)
+GET		/student/edit/:id						 controllers.StudentManagement.edit(id: Long)
+POST	/student/edit							 controllers.StudentManagement.update()
+GET	    /student/delete/:id					   	 controllers.StudentManagement.delete(id: Long)
+
+
+#Parent
+GET		/parent/list							 controllers.ParentManagement.list()
+GET		/parent/show/:id						 controllers.ParentManagement.show(id: Long)
+GET		/parent/edit/:id						 controllers.ParentManagement.edit(id: Long)
+POST	/parent/edit							 controllers.ParentManagement.update()
+GET	    /parent/delete/:id					   	 controllers.ParentManagement.delete(id: Long)
+
+#StudentCourse , Assign Courses to a student
+GET	   /student-course/create-with-student		        controllers.StudentCourseManagement.createWithStudent(studentId ?= "1")
+GET		/student-course/create						controllers.StudentCourseManagement.create()
+POST	/student-course/create						controllers.StudentCourseManagement.insert()
+GET		/student-course/list						controllers.StudentCourseManagement.list()
+GET		/student-course/show/:id					controllers.StudentCourseManagement.show(id: Long)
+GET		/student-course/edit/:id					controllers.StudentCourseManagement.edit(id: Long)
+POST	/student-course/edit						controllers.StudentCourseManagement.update()
+
+###### JAVASCRIPT ROUTES
+GET     /div/:id     controllers.DistrictFunctions.getDistByDiv(id: Long)
+GET     /javascriptRoutes     controllers.DistrictFunctions.javascriptRoutes
+
+
+#Usermanagement
+GET		/user/create						     controllers.UserInfoManagement.create()
+POST	/user/create						     controllers.UserInfoManagement.save()
+GET		/user/list							 controllers.UserInfoManagement.list()
+GET		/user/show/:id						 controllers.UserInfoManagement.show(id: Integer)
+GET		/user/edit/:id						 controllers.UserInfoManagement.edit(id: Integer)
+POST	/user/edit							 controllers.UserInfoManagement.update()
+GET	    /user/delete/:id					   	 controllers.UserInfoManagement.delete(id: Integer)
+
+
+#Role
+GET		/role/create						     controllers.RoleManagement.create()
+POST	/role/create						     controllers.RoleManagement.save()
+GET		/role/list							 controllers.RoleManagement.list()
+GET		/role/show/:id						 controllers.RoleManagement.show(id: Integer)
+GET		/role/edit/:id						 controllers.RoleManagement.edit(id: Integer)
+POST	/role/edit							 controllers.RoleManagement.update()
+GET	    /role/delete/:id					   	 controllers.RoleManagement.delete(id: Integer)
+
+#Menu
+GET		/menu/create						     controllers.MenuManagement.create()
+POST	/menu/create						     controllers.MenuManagement.save()
+GET		/menu/list							 controllers.MenuManagement.list()
+GET		/menu/show/:id						 controllers.MenuManagement.show(id: Integer)
+GET		/menu/edit/:id						 controllers.MenuManagement.edit(id: Integer)
+POST	/menu/edit							 controllers.MenuManagement.update()
+GET	    /menu/delete/:id					   	 controllers.MenuManagement.delete(id: Integer)
+
+#Uermission
+GET		/permission/create						     controllers.PermissionManagement.create()
+POST	/permission/create						     controllers.PermissionManagement.save()
+GET		/permission/list							 controllers.PermissionManagement.list()
+GET		/permission/show/:id						 controllers.PermissionManagement.show(id: Integer)
+GET		/permission/edit/:id						 controllers.PermissionManagement.edit(id: Integer)
+POST	/permission/edit							 controllers.PermissionManagement.update()
+GET	    /permission/delete/:id					   	 controllers.PermissionManagement.delete(id: Integer)
+
+#UserRole , Assign Roles to a user
+GET	   /user-role/create-with-user		        controllers.UserRoleManagement.createWithUser(userId ?= "1")
+GET		/user-role/create						controllers.UserRoleManagement.create()
+POST	/user-role/create						controllers.UserRoleManagement.save()
+
+#UserPermission , Assign Permission to a Role
+GET	   /role-permission/create-with-role		        controllers.UserPermissionManagement.createWithRole(roleId ?= "1")
+GET		/role-permission/create						controllers.UserPermissionManagement.create()
+POST	/role-permission/create						controllers.UserPermissionManagement.save()
+
+
+
+#Fees portion:
+#Fees Head
+GET		/fees-head/create						     controllers.FeesHeadManagement.create()
+POST	/fees-head/create						     controllers.FeesHeadManagement.save()
+GET		/fees-head/list							 controllers.FeesHeadManagement.list()
+GET		/fees-head/show/:id						 controllers.FeesHeadManagement.show(id: Long)
+GET		/fees-head/edit/:id						 controllers.FeesHeadManagement.edit(id: Long)
+POST	/fees-head/edit							 controllers.FeesHeadManagement.update()
+GET	    /fees-head/delete/:id					   	 controllers.FeesHeadManagement.delete(id: Long)
+
+
+#Fees Category
+GET		/fees-category/create						     controllers.FeesCategoryManagement.create()
+POST	/fees-category/create						     controllers.FeesCategoryManagement.save()
+GET		/fees-category/list							 controllers.FeesCategoryManagement.list()
+GET		/fees-category/show/:id						 controllers.FeesCategoryManagement.show(id: Long)
+GET		/fees-category/edit/:id						 controllers.FeesCategoryManagement.edit(id: Long)
+POST	/fees-category/edit							 controllers.FeesCategoryManagement.update()
+GET	    /fees-category/delete/:id					   	 controllers.FeesCategoryManagement.delete(id: Long)
+
+
+#Fees Discount
+GET		/discount/create						     controllers.DiscountManagement.create()
+POST	/discount/create						     controllers.DiscountManagement.save()
+GET		/discount/list							 controllers.DiscountManagement.list()
+GET		/discount/show/:id						 controllers.DiscountManagement.show(id: Long)
+GET		/discount/edit/:id						 controllers.DiscountManagement.edit(id: Long)
+POST	/discount/edit							 controllers.DiscountManagement.update()
+GET	    /discount/delete/:id					   	 controllers.DiscountManagement.delete(id: Long)
+
+
+#Student Fees Collection Type
+GET		/sct/create						     controllers.StudentCollectionTypeManagement.create()
+POST	/sct/create						     controllers.StudentCollectionTypeManagement.save()
+GET		/sct/list							 controllers.StudentCollectionTypeManagement.list()
+GET		/sct/show/:id						 controllers.StudentCollectionTypeManagement.show(id: Long)
+GET		/sct/edit/:id						 controllers.StudentCollectionTypeManagement.edit(id: Long)
+POST	/sct/edit							 controllers.StudentCollectionTypeManagement.update()
+GET	    /sct/delete/:id					   	 controllers.StudentCollectionTypeManagement.delete(id: Long)
+
+
+# Student Fees
+GET 	/student-fees/create/with-student			controllers.StudentFeesCollectionManagement.createWithStudent(studentId: Long)
+GET 	/student-fees/create						controllers.StudentFeesCollectionManagement.create()
+POST 	/student-fees/create						controllers.StudentFeesCollectionManagement.insert()
+GET 	/student-fees/list					     	controllers.StudentFeesCollectionManagement.list()
+GET 	/student-fees/show/:id				    	controllers.StudentFeesCollectionManagement.show(id: Long)
+GET 	/student-fees/edit/:id				    	controllers.StudentFeesCollectionManagement.edit(id: Long)
+
+POST 	/student-fees/edit					    	controllers.StudentFeesCollectionManagement.update()
+
