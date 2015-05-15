@@ -43,11 +43,11 @@ public class StudentManagement extends Controller{
 	
 	static Form<Student> studentForm = Form.form(Student.class);
 	
-	@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result create() {
 	        return ok(create.render(dStudentForm));
 	    }
-	@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
 		 DummyStudent dStudent = filledForm.get();
@@ -138,14 +138,14 @@ public class StudentManagement extends Controller{
    			}
 	    }
 
-	@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
+	//@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
 	 public static Result list(){
 	    	List<Student> students =Student.all();
 	     	return ok(list.render(students));
 	    }
 
 	 
-	@Dynamic(value = "Show Individual Student", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Show Individual Student", handler = DeadboltHandler.class)
 	public static Result show(Long id) {
 			Student student = Student.findById(id);
 					
@@ -157,7 +157,7 @@ public class StudentManagement extends Controller{
 				return ok(show.render(student));
 		}
 	
-	@Dynamic(value = "Edit Students", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Edit Students", handler = DeadboltHandler.class)
 	public static Result edit(Long id) {
 		 Student student = Student.findById(id);
 			
@@ -169,7 +169,7 @@ public class StudentManagement extends Controller{
 				return ok(edit.render(studentForm.fill(student)));
 		}
 	 
-	@Dynamic(value = "Edit Student", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Edit Student", handler = DeadboltHandler.class)
 	 public static Result update(){
 			Form<Student> filledForm = studentForm.bindFromRequest();
 			if (filledForm.hasErrors()) {
@@ -183,7 +183,7 @@ public class StudentManagement extends Controller{
 			
 		}
 	 
-	@Dynamic(value = "Delete Student", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Delete Student", handler = DeadboltHandler.class)
 	public static Result delete(Long id){
 		 Student.delete(id);
 		 flash("success", AppConstants.SUCCESSFUL_DELETE_MESSAGE);

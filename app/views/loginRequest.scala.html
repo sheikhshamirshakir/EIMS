@@ -1,7 +1,6 @@
 @()
 
-<html>
-
+@mainGuest{
 <head>
    <meta charset="UTF-8">
    <title>Education Management System</title>
@@ -43,13 +42,13 @@
      <div class="form-group sepH_c">
        <input type="submit" id="signIn" class="btn btn-lg btn-primary btn-block" value="Sign in" >
      </div>
-	   @if(flash.get("error")){
+	  @* @if(flash.get("error")){
 	      <span class="error-msg" role="alert">
 		     @flash.get("error")
 		  </span>
-	   }           
+	   }*@           
 	 </form>
    </div>
  </div>
 </body>
-</html>
+}
