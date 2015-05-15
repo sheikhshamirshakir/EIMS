@@ -19,7 +19,7 @@ import play.db.ebean.Model;
 
 
 @Entity
-@Table (name="student_collection_type)")
+@Table (name="student_collection_type")
 public class StudentCollectionType extends Model{
 	
 	@Id
