@@ -702,7 +702,7 @@
                         },
                         y : {
                             tick: {
-                                format: d3.format("$,")
+                                format: d3.format("")
                             }
                         }
                     },
@@ -1350,7 +1350,7 @@
 					trackColor: '#ddd',
 					easing: 'easeOutBounce',
 					onStep: function(from, to, percent) {
-						$(this.el).children('.easy_chart_percent').html(Math.round(percent) + '%');
+						$(this.el).children('.easy_chart_percent').html(Math.round(percent) + '');
 					}
 				});
 			}

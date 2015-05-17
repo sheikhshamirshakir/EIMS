@@ -5,25 +5,27 @@
 
 @main(""){
   @content
-
-  <table>
-    <tr align="center">
-        <th>Active</th>
-        <th>Course Name</th>
-    </tr>
-
-    @for((course, idx) <- Course.all.zipWithIndex) {
-    <tr align="center">
-        <td><input type="checkbox" name="courseId" value="@course.id" @(if(isChecked.get(idx)== true) "checked")></td>
-        <td>@course.name</td>
-    </tr>
-    }
-  </table>
-  <br/>
-  <input type="submit" value="Assign Course to this Student">
+ <!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Course Assign To Student</span></div>
+                        <div class="row">
+                          <div class="col-md-12">
+                             <label for="corName">Course Name</labe>
+                             @for((course, idx) <- Course.all.zipWithIndex) {
+                               <input type="checkbox" name="courseId" value="@course.id" @(if(isChecked.get(idx)== true) "checked")>
+                                @course.name
+                             }
+                          </div>
+                          <div class="col-md-12">
+                            <input type="submit" value="Assign Course to this Student" class="btn btn-primary">
+                          </div>
+                        </div>
+                 </div>
+             </div>
+          </div>
+     </div>                        
   </form>
-
-  <br/> <br/>
-  <h3>View the <a href="@routes.StudentCourseManagement.list()">list</a> of all assigned courses to students</h3>
-
 }

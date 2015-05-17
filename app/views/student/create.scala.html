@@ -184,7 +184,7 @@
 		</section>
 		<h3>Guardian Information</h3>
 		<section>
-		<div style="height:380px;">
+		<div style="min-height:380px;">
 		  <div class="col-md-12">
        	    <div class="form-group">
        	      <label for="">Guardian</label>
@@ -220,17 +220,17 @@
        	  </div>
        	 </div> 
 		</section>
-		<h3>Education Information</h3>
+		<h3>Previous Education</h3>
 		<section>
-		  <div class="col-md-12">
-		   <div class="col-md-3">
+		  <legend>Education 1:</legend>
+		   <div class="col-md-12">
 		      <div class="form-group">
 		        <label for="eduInstitute">Institute Name</label>
 		        <input type="text" name="instituteName[]" class="form-control">
 		      </div>
 		   </div>
-		   <div class="col-md-3">
-		      <div class="form-group">
+		   <div class="col-md-12">
+		     <div class="form-group">
 		        <label for="eduBoard">Education Board</label>
 		        <select name="educationBoard[]" id="eduBoard">
 		          <option></option>
@@ -249,74 +249,109 @@
 		        </select>
 		      </div>
 		   </div>
-		   <div class="col-md-3">
-		      <div class="form-group">
+		   <div class="col-md-12">
+		     <div class="form-group">
 		        <label for="eduPassing">Passing Year</label>
 		        <input type="text" name="passingYear[]" class="form-control">
 		      </div>
 		   </div>
-		   <div class="col-md-2">
-		      <div class="form-group">
+		   <div class="col-md-12">
+		    <div class="form-group">
 		        <label for="eduResult">Result</label>
 		        <input type="text" name="eduResult[]" class="form-control">
 		      </div>
 		   </div>
+		   <legend>Education 2:</legend>
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="eduInstitute">Institute Name</label>
+		        <input type="text" name="instituteName[]" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduBoard">Education Board</label>
+		        <select name="educationBoard[]" id="eduBoardTwo">
+		          <option></option>
+		          <optgroup label="Find Board">
+		            <option>Dhaka</option>
+		            <option>Chittagong</option>
+		            <option>Jessore</option>
+		            <option>Rajshahi</option>
+		            <option>Sylhet</option>
+		            <option>Barishal</option>
+		            <option>Comilla</option>
+		            <option>Dinajpur</option>
+		            <option>Madrasah</option>
+		            <option>Technical</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduPassing">Passing Year</label>
+		        <input type="text" name="passingYear[]" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		    <div class="form-group">
+		        <label for="eduResult">Result</label>
+		        <input type="text" name="eduResult[]" class="form-control">
+		      </div>
 		   </div>
 		   <div class="col-md-1">
              <div class="form-group">
                <button id="b5" class="btn add-more" type="button" onclick="addEducation()">+</button>
              </div>
             </div>
-		   </div>
-		   <div style="height:250px;">
-		    <div id="moreEducation" style="display:none">
-		     <div class="col-md-12"> 
-		       <div class="col-md-3">
-		         <div class="form-group">
-		           <label for="instiName">Institute Name</label>
-		           <input type="text" name="instituteName[]" class="form-control">
-		         </div>
-		       </div>
-		       <div class="col-md-3">
-		         <div class="form-group">
-		           <label for="eduBoard">Education Board</label>
-		            <select name="educationBoard[]" id="eduBoardTwo">
-			         <option></option>
-			         <optgroup label="Find Board">
-			            <option>Dhaka</option>
-			            <option>Chittagong</option>
-			            <option>Jessore</option>
-			            <option>Rajshahi</option>
-			            <option>Sylhet</option>
-			            <option>Barishal</option>
-			            <option>Comilla</option>
-			            <option>Dinajpur</option>
-			            <option>Madrasah</option>
-			            <option>Technical</option>
-			         </optgroup>
-		            </select>
-		         </div>
-		       </div>
-		      <div class="col-md-3">
-		        <div class="form-group">
-		          <label for="passYear">Passing Year</label>
-		          <input type="text" name="passingYear[]" class="form-control">
-		        </div>
-		     </div>
-		     <div class="col-md-2">
-		      <div class="form-group">
-		        <label for="eduResult">Result</label>
-		        <input type="text" name="eduResult[]" class="form-control">
-		      </div>
-		    </div>
-		    <div class="col-md-1">
-             <div class="form-group">
-               <button id="b7" class="btn add-more" type="button" onclick="moreEducation()">+</button>
-               <button id="b8" class="btn btn-danger remove-me" type="button" onclick="removeEducation()">-</button>
-             </div>
-            </div>
-		   </div>
-		  </div> 
+            <div style="min-height:350px;">
+	          <div id="moreEducation" style="display:none;">
+	               <div class="col-md-12">
+			         <div class="form-group">
+			           <label for="eduInstitute">Institute Name</label>
+			           <input type="text" name="instituteName[]" class="form-control">
+			         </div>
+			        </div>
+			        <div class="col-md-12">
+			          <div class="form-group">
+				        <label for="eduBoard">Education Board</label>
+				        <select name="educationBoard[]" id="eduBoardTwo">
+				          <option></option>
+				          <optgroup label="Find Board">
+				            <option>Dhaka</option>
+				            <option>Chittagong</option>
+				            <option>Jessore</option>
+				            <option>Rajshahi</option>
+				            <option>Sylhet</option>
+				            <option>Barishal</option>
+				            <option>Comilla</option>
+				            <option>Dinajpur</option>
+				            <option>Madrasah</option>
+				            <option>Technical</option>
+				          </optgroup>
+				        </select>
+			            </div>
+			           </div>
+					   <div class="col-md-12">
+					     <div class="form-group">
+					        <label for="eduPassing">Passing Year</label>
+					        <input type="text" name="passingYear[]" class="form-control">
+					      </div>
+					   </div>
+					   <div class="col-md-12">
+					    <div class="form-group">
+					        <label for="eduResult">Result</label>
+					        <input type="text" name="eduResult[]" class="form-control">
+					      </div>
+					   </div>
+					   <div class="col-md-1">
+			             <div class="form-group">
+			               <button id="b5" class="btn remove-more" type="button" onclick="removeEducation()">-</button>
+			             </div>
+			            </div>
+	           </div>
+	          </div>  
 		</section>
         <h3>Admission Information</h3>     		 
        	<section>
@@ -420,7 +455,6 @@
            </div> 
  
 		</section>
-     
     </div>
    </div>   
    </div>           
