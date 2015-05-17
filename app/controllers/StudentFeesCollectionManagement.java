@@ -39,10 +39,16 @@ public class StudentFeesCollectionManagement extends Controller{
     public static Result insert() {
         Form<DummyStudentFeesCollection> filledForm = sfcForm.bindFromRequest();
         if (filledForm.hasErrors()) {
+        	System.out.println("......................"+filledForm.globalErrors().toString());
             return badRequest(createWithList.render(filledForm));
         } else {
 
         	DummyStudentFeesCollection dsfc = filledForm.get();
+        	
+        	System.out.println("................."+dsfc.studentId);
+        	System.out.println("................."+dsfc.fessHeadIds.get(0));
+        	System.out.println("................."+dsfc.feesAmount.get(1));
+        	
             List<Long> existingFeesHead = StudentFees.findFeesHeadIdsByStudentId(dsfc.studentId);
             List<Long> newFeesHeads = new ArrayList<Long>();
             			
