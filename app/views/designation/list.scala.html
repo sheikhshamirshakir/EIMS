@@ -15,25 +15,17 @@
             <thead> 
              <tr>
               <th>ID</th>
-              <th>Department Name</th>
+              <th>Designation Name</th>
              </tr>
            </thead>
            <tbody>
-  <table>
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Designation Name</th>
-     </tr>
-   </thead>
-    <tbody>
-    @for(designation <- designations) {
-      <tr>
-        <td><a href="@routes.DesignationManagement.show(designation.id)">@designation.id</a></td>
-        <td>@designation.name</td>
-      </tr> 
-    }
- </tbody>
- </table>
-   <a href="@routes.DesignationManagement.create()">Create Another Designation</a>
+		    @for(designation <- designations) {
+		      <tr>
+		        <td><a href="@routes.DesignationManagement.show(designation.id)">@designation.id</a></td>
+		        <td>@designation.name</td>
+		      </tr> 
+		    }
+          </tbody>
+        </table>
+      </div>  
 }      
