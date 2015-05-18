@@ -10,7 +10,7 @@
         <div class="heading_a"><span class="heading_text">Create Designation</span></div>
            @form(routes.DesignationManagement.save()) { 
             <div class="row">
-              @inputText(field=designationForm("name"), '_showConstraints -> false, 'class->"form-control", args='_label->"Designation Name")
+              @inputText(field=designationForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Designation Name")
             </div>
             <div class="row">  
               <input type="submit" value="Create" class="btn btn-primary">
