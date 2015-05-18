@@ -3,11 +3,21 @@
 
 @main("Edit Designation"){
   <h2>Update the Designation having ID @designationForm.get.id</h2><br/><br/>
-  
-  @form(routes.DesignationManagement.update()) {
-  	  <input type="hidden" name="id" value=@designationForm.get.id >
-  	  
-      @inputText(designationForm("name"), '_label->"Designation Name")</tr>
-	  <input type="submit" value="Update">
-  }
+ <!-- main content -->
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+       <div class="heading_a"><span class="heading_text">Edit Designation</span></div>  
+		  @form(routes.DesignationManagement.update()) {
+		  	<input type="hidden" name="id" value=@designationForm.get.id >
+		  	<div class="row">   
+		      @inputText(designationForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Designation Name")
+		    </div>
+		    <div class="row">  
+			  <input type="submit" value="Update" class="btn btn-primary">
+			</div>  
+		  }
+    </div>
+  </div>
+</div>    		  
 }

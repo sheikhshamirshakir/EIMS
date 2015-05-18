@@ -3,13 +3,21 @@
 @import  models.admission.Department
 
 @main("Designation Entry") {
-	
-       @form(routes.DesignationManagement.save()) { 
-       		
-       	
-              @inputText(field=designationForm("name"), args='_label->"Designation Name")
-              <input type="submit" value="Create">
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">Create Designation</span></div>
+           @form(routes.DesignationManagement.save()) { 
+            <div class="row">
+              @inputText(field=designationForm("name"), '_showConstraints -> false, 'class->"form-control", args='_label->"Designation Name")
+            </div>
+            <div class="row">  
+              <input type="submit" value="Create" class="btn btn-primary">
+            </div>  
             }
-                       
-     }
+        </div>
+     </div>
+  </div>                     
+}
 

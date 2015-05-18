@@ -1,9 +1,8 @@
 @(designations: List[models.admission.Designation])
 @import helper._
 
-@main("List of Designations"){
+@mainlist("List of Designations"){
 
- 
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
