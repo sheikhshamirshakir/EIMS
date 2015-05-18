@@ -19,13 +19,13 @@
 			  	 	<option value="@id" @if(id==deptForm.get.faculty.id.toString){selected}>@name</option>
 			     } 
     	    </select>
-  	     </div>
-         <div class="row">
+  	      </div>
+          <div class="row">
            @inputText(deptForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Department Name")
-         </div>
-         <div class="row">
+          </div>
+          <div class="row">
            <input type="submit" value="Update" class="btn btn-primary">
-         </div>
+          </div>
        }
     </div>
   </div>
