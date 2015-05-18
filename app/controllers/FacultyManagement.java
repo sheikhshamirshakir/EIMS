@@ -25,12 +25,17 @@ public class FacultyManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Faculty> filledForm = facultyForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Faculty faculty = filledForm.get();
 	     Faculty.create(faculty);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	    // return ok("");
 	     return redirect(controllers.routes.FacultyManagement.list());
 	    }
+	 }
 
 	 public static Result list(){
 	    	List<Faculty> faculties = Faculty.all();

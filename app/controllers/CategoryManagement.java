@@ -25,13 +25,18 @@ public class CategoryManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Category> filledForm = categoryForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
+ 
 		 Category category = filledForm.get();
 	     Category.create(category);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.CategoryManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Category> categories = Category.all();
 	     	return ok(list.render(categories));

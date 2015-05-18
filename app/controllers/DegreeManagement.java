@@ -25,13 +25,17 @@ public class DegreeManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Degree> filledForm = degreeForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Degree degree = filledForm.get();
 	     Degree.create(degree);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.DegreeManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Degree> degrees = Degree.all();
 	     	return ok(list.render(degrees));

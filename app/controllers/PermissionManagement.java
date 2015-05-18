@@ -25,13 +25,17 @@ public class PermissionManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Permission> filledForm = permissionForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Permission permission = filledForm.get();
 	     Permission.create(permission);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.PermissionManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Permission> permissions = Permission.all();
 	     	return ok(list.render(permissions));

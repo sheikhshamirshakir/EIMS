@@ -25,12 +25,16 @@ public class FeesHeadManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<FeesHead> filledForm = feesHeadForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 FeesHead feesHead = filledForm.get();
 	     FeesHead.create(feesHead);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     return redirect(controllers.routes.FeesHeadManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<FeesHead> faculties = FeesHead.all();
 	     	return ok(list.render(faculties));

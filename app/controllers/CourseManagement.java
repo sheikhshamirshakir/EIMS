@@ -25,13 +25,17 @@ public class CourseManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Course> filledForm = courseForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Course course = filledForm.get();
 	     Course.create(course);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.CourseManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Course> courses = Course.all();
 	     	return ok(list.render(courses));

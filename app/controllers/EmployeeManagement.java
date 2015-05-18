@@ -39,6 +39,10 @@ public class EmployeeManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<DummyEmployee> filledForm = dEmployeeForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 DummyEmployee dEmployee = filledForm.get();
 		 
 		 MultipartFormData body = request().body().asMultipartFormData();
@@ -128,6 +132,7 @@ public class EmployeeManagement extends Controller{
 	     //return ok("");
 	   	return redirect(controllers.routes.EmployeeManagement.list());
 	    }
+	 }
 
 	 public static Result list(){
 	    	List<Employee> employees = Employee.all();

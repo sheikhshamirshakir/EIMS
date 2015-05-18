@@ -50,6 +50,10 @@ public class StudentManagement extends Controller{
 	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 DummyStudent dStudent = filledForm.get();
 		 
 		 MultipartFormData body = request().body().asMultipartFormData();
@@ -137,6 +141,7 @@ public class StudentManagement extends Controller{
 	   	return redirect(controllers.routes.StudentManagement.list());
    			}
 	    }
+	 }
 
 	//@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
 	 public static Result list(){

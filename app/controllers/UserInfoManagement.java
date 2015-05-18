@@ -25,12 +25,17 @@ public class UserInfoManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<User> filledForm = userForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 User user = filledForm.get();
 	     User.create(user);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.UserInfoManagement.list());
 	    }
+	 }
 
 	 public static Result list(){
 	    	List<User> users = User.all();

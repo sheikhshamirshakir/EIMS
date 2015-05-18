@@ -65,6 +65,10 @@ public class UserRoleManagement extends Controller{
     
 	 public static Result save() {
 		 Form<UserRole> filledForm = userRoleForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(createWithList.render(filledForm));
+
+			} else {
 		 UserRole userRole = filledForm.get();
 	     
 		 UserRole.deleteUserRolesByUser(userRole.userId);
@@ -90,7 +94,7 @@ public class UserRoleManagement extends Controller{
 	     //return ok("");
 	  	return redirect(routes.UserRoleManagement.create());
 	    }
-	 
+	 }
 //	 public static Result list() {
 //			return ok(list.render(UserRole.all()));
 //		}

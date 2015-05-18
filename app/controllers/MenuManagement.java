@@ -25,13 +25,17 @@ public class MenuManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Menu> filledForm = menuForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Menu menu = filledForm.get();
 	     Menu.create(menu);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.MenuManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Menu> menus = Menu.all();
 	     	return ok(list.render(menus));

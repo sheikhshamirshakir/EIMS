@@ -25,13 +25,17 @@ public class DepartmentManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Department> filledForm = departmentForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Department department = filledForm.get();
 	     Department.create(department);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.DepartmentManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Department> depts = Department.all();
 	     	return ok(list.render(depts));

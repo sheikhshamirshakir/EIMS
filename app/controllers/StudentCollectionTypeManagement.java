@@ -25,13 +25,17 @@ public class StudentCollectionTypeManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<StudentCollectionType> filledForm = sctForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 StudentCollectionType sct = filledForm.get();
 	     StudentCollectionType.create(sct);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	    // return ok("");
 	     return redirect(controllers.routes.StudentCollectionTypeManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<StudentCollectionType> faculties = StudentCollectionType.all();
 	     	return ok(list.render(faculties));

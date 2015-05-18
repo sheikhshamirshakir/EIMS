@@ -25,13 +25,17 @@ public class DesignationManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Designation> filledForm = designationForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Designation designation = filledForm.get();
 	     Designation.create(designation);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.DesignationManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Designation> designations = Designation.all();
 	     	return ok(list.render(designations));

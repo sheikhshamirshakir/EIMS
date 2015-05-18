@@ -55,6 +55,10 @@ public class UserPermissionManagement extends Controller{
     
 	 public static Result save() {
 		 Form<UserPermission> filledForm = userPermissionForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(createWithList.render(filledForm));
+
+			} else {
 		 UserPermission userPermission = filledForm.get();
 	     
 		 UserPermission.deleteUserPermissionsByRole(userPermission.roleId);
@@ -84,7 +88,7 @@ public class UserPermissionManagement extends Controller{
 	     //return ok("");
 	   	return redirect(routes.UserPermissionManagement.create());
 	    }
-
+	 }
 	 
 	 
 //	 

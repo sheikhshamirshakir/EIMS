@@ -26,12 +26,17 @@ public class SectionSemesterManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<SectionSemester> filledForm = sectionSemesterForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 SectionSemester sectionSemester = filledForm.get();
 	     SectionSemester.create(sectionSemester);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.SectionSemesterManagement.list());
 	    }
+	 }
 
 	 public static Result list(){
 	    	List<SectionSemester> sectionSemesters = SectionSemester.all();

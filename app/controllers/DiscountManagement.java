@@ -25,13 +25,17 @@ public class DiscountManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<DiscountCategory> filledForm = discountForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 DiscountCategory discount = filledForm.get();
 	     DiscountCategory.create(discount);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	    // return ok("");
 	     return redirect(controllers.routes.DiscountManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<DiscountCategory> faculties = DiscountCategory.all();
 	     	return ok(list.render(faculties));

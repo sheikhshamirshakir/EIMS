@@ -42,7 +42,7 @@ public class TeacherCourseManagement extends Controller{
     public static Result insert() {
 		Form<DummyTeacherCourse> filledForm = teacherCourseForm.bindFromRequest();
 		if (filledForm.hasErrors()) {
-			System.out.println(filledForm.errors().toString());
+			//System.out.println(filledForm.errors().toString());
 			
 			return badRequest(createWithList.render(filledForm));
 

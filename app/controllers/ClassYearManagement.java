@@ -7,6 +7,7 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import models.admission.Category;
 import models.admission.ClassYear;
 import play.data.Form;
 import play.mvc.Controller;
@@ -25,13 +26,18 @@ public class ClassYearManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<ClassYear> filledForm = classYearForm.bindFromRequest();
+		 
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 ClassYear classYear = filledForm.get();
 	     ClassYear.create(classYear);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.ClassYearManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<ClassYear> classYears = ClassYear.all();
 	     	return ok(list.render(classYears));

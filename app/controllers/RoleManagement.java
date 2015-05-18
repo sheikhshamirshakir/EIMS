@@ -25,13 +25,17 @@ public class RoleManagement extends Controller{
 	 
 	 public static Result save() {
 		 Form<Role> filledForm = roleForm.bindFromRequest();
+		 if (filledForm.hasErrors()) {
+				return badRequest(create.render(filledForm));
+
+			} else {
 		 Role role = filledForm.get();
 	     Role.create(role);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.RoleManagement.list());
 	    }
-
+	 }
 	 public static Result list(){
 	    	List<Role> roles = Role.all();
 	     	return ok(list.render(roles));

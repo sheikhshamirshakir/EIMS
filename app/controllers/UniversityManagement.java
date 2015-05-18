@@ -26,11 +26,16 @@ public class UniversityManagement extends Controller{
 	
 	public static Result save(){
 		Form<University> filledForm = universityForm.bindFromRequest();
+		if (filledForm.hasErrors()) {
+			return badRequest(create.render(filledForm));
+
+		} else {
 		University university = filledForm.get();
 		University.create(university);
 		flash("success",AppConstants.SUCCESS_MESSAGE);
 		//return ok("");
 		return redirect(controllers.routes.UniversityManagement.list());
+	    }
 	}
 	
 	public static Result show(Long id){
