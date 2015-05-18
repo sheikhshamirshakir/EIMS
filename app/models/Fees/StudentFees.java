@@ -25,7 +25,7 @@ public class StudentFees extends Model{
 	@JoinColumn(name = "student_id", referencedColumnName = "sid")
 	public Student student;
 
-	@Required
+	//@Required
 	@ManyToOne
 	@JoinColumn(name = "fees_head_id", referencedColumnName = "id")
 	public FeesHead feesHead;
