@@ -29,7 +29,15 @@ public class StudentCourseManagement extends Controller{
 	public static Result createWithStudent(String studentId) {
 		Long tId = Long.parseLong(studentId);
 		List<Boolean> isChecked = StudentCourseCheck.check(tId);
-		String studentName = Student.findById(tId).name;
+		 Student student = Student.findById(tId);
+		
+		String studentName =""; 
+		if(student!=null){
+		studentName = student.name;
+		}
+		else{
+			 return redirect(routes.StudentCourseManagement.create());
+		}
 		return ok(createWithoutList.render(tId, studentName, isChecked));
 	}
 
