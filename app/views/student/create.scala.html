@@ -138,7 +138,7 @@
 	       </div> 
 	       <div class="col-md-12"> 
 	        <div class="form-group"> 
-              @inputText(field=studentForm("fatherPhone"), '_showConstraints->false,'class->"form-control",'_label->"Father Mobile No")
+              @inputText(field=studentForm("fatherMobile"), '_showConstraints->false,'class->"form-control",'_label->"Father Mobile No")
             </div>  
            </div> 
            <div class="col-md-12">
@@ -148,7 +148,7 @@
 		  </div>  
 		  <div class="col-md-12">
 		     <div class="form-group">
-	           @inputText(field=studentForm("fatherEducation"), '_showConstraints->false,'class->"form-control",'_label->"Father Last Education")
+	           @inputText(field=studentForm("fathersLastEduQual"), '_showConstraints->false,'class->"form-control",'_label->"Father Last Education")
 	         </div>
 	       </div> 
 	       <div class="col-md-12"> 
@@ -158,25 +158,25 @@
            </div> 
            <div class="col-md-12">
             <div class="form-group">
-              @inputText(field=studentForm("motherPhone"), '_showConstraints->false,'class->"form-control",'_label->"Mother Mobile No")
+              @inputText(field=studentForm("motherMobile"), '_showConstraints->false,'class->"form-control",'_label->"Mother Mobile No")
 		    </div>
 		   </div> 
 		   <div class="col-md-12">
             <div class="form-group">
-              @inputText(field=studentForm("motherEducation"), '_showConstraints->false,'class->"form-control",'_label->"Mother Last Education")
+              @inputText(field=studentForm("mothersLastEduQual"), '_showConstraints->false,'class->"form-control",'_label->"Mother Last Education")
 		    </div>
 		   </div> 
 		   <div class="col-md-12">  
             <div class="form-group">
                <label for="broID">No Of Brother/Sister</label>
-               <select name="brosisNo" id="broID">
+               <select name="numberOfChild" id="broID">
                  <option></option>
                  <optgroup label="Find Number">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
                  </optgroup>
                </select>
        		 </div>
@@ -223,28 +223,55 @@
 		<h3>Previous Education</h3>
 		<section>
 		  <legend>Education 1:</legend>
+   		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation1">Level of Education</label>
+		        <select name="levelOfEducation1" id="levelOfEducation1">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC">SSC</option>
+			            <option value="HSC">HSC</option>
+			            <option value="Diploma">Diploma</option>
+			            <option value="Bachelor/Hons">Bachelor/Hons</option>
+			            <option value="Others">Others</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div>   
 		   <div class="col-md-12">
 		      <div class="form-group">
-		        <label for="eduInstitute">Institute Name</label>
-		        <input type="text" name="instituteName[]" class="form-control">
+		        <label for="degree1">Degree Title</label>
+		        <input type="text" name="degree1" class="form-control">
+		      </div>
+		   </div>
+  		     <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup1">Major or group</label>
+		        <input type="text" name="majorOrGroup1" class="form-control">
+		      </div>
+		   </div> 
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="eduInstitute1">Institute Name</label>
+		        <input type="text" name="instituteName1" class="form-control">
 		      </div>
 		   </div>
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduBoard">Education Board</label>
-		        <select name="educationBoard[]" id="eduBoard">
+		        <select name="board1" id="eduBoard">
 		          <option></option>
 		          <optgroup label="Find Board">
-		            <option>Dhaka</option>
-		            <option>Chittagong</option>
-		            <option>Jessore</option>
-		            <option>Rajshahi</option>
-		            <option>Sylhet</option>
-		            <option>Barishal</option>
-		            <option>Comilla</option>
-		            <option>Dinajpur</option>
-		            <option>Madrasah</option>
-		            <option>Technical</option>
+		            <option value="Dhaka">Dhaka</option>
+		            <option value="Chittagong">Chittagong</option>
+		            <option value="Jessore">Jessore</option>
+		            <option value="Rajshahi">Rajshahi</option>
+		            <option value="Sylhet">Sylhet</option>
+		            <option value="Barishal">Barishal</option>
+		            <option value="Comilla">Comilla</option>
+		            <option value="Dinajpur">Dinajpur</option>
+		            <option value="Madrasah">Madrasah</option>
+		            <option value="Technical">Technical</option>
 		          </optgroup>
 		        </select>
 		      </div>
@@ -252,38 +279,65 @@
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduPassing">Passing Year</label>
-		        <input type="text" name="passingYear[]" class="form-control">
+		        <input type="text" name="year1" class="form-control">
 		      </div>
 		   </div>
 		   <div class="col-md-12">
 		    <div class="form-group">
 		        <label for="eduResult">Result</label>
-		        <input type="text" name="eduResult[]" class="form-control">
+		        <input type="text" name="result1" class="form-control">
 		      </div>
 		   </div>
 		   <legend>Education 2:</legend>
 		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation2">Level of Education</label>
+		        <select name="levelOfEducation2" id="levelOfEducation2">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC">SSC</option>
+			            <option value="HSC">HSC</option>
+			            <option value="Diploma">Diploma</option>
+			            <option value="Bachelor/Hons">Bachelor/Hons</option>
+			            <option value="Others">Others</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div> 
+		    <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="degree2">Degree Title</label>
+		        <input type="text" name="degree2" class="form-control">
+		      </div>
+		   </div>    
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup2">Major or group</label>
+		        <input type="text" name="majorOrGroup2" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
 		      <div class="form-group">
 		        <label for="eduInstitute">Institute Name</label>
-		        <input type="text" name="instituteName[]" class="form-control">
+		        <input type="text" name="instituteName2" class="form-control">
 		      </div>
 		   </div>
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduBoard">Education Board</label>
-		        <select name="educationBoard[]" id="eduBoardTwo">
+		        <select name="board2" id="eduBoardTwo">
 		          <option></option>
 		          <optgroup label="Find Board">
-		            <option>Dhaka</option>
-		            <option>Chittagong</option>
-		            <option>Jessore</option>
-		            <option>Rajshahi</option>
-		            <option>Sylhet</option>
-		            <option>Barishal</option>
-		            <option>Comilla</option>
-		            <option>Dinajpur</option>
-		            <option>Madrasah</option>
-		            <option>Technical</option>
+		            <option value="Dhaka">Dhaka</option>
+		            <option value="Chittagong">Chittagong</option>
+		            <option value="Jessore">Jessore</option>
+		            <option value="Rajshahi">Rajshahi</option>
+		            <option value="Sylhet">Sylhet</option>
+		            <option value="Barishal">Barishal</option>
+		            <option value="Comilla">Comilla</option>
+		            <option value="Dinajpur">Dinajpur</option>
+		            <option value="Madrasah">Madrasah</option>
+		            <option value="Technical">Technical</option>
 		          </optgroup>
 		        </select>
 		      </div>
@@ -291,13 +345,13 @@
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduPassing">Passing Year</label>
-		        <input type="text" name="passingYear[]" class="form-control">
+		        <input type="text" name="year2" class="form-control">
 		      </div>
 		   </div>
 		   <div class="col-md-12">
 		    <div class="form-group">
 		        <label for="eduResult">Result</label>
-		        <input type="text" name="eduResult[]" class="form-control">
+		        <input type="text" name="result2" class="form-control">
 		      </div>
 		   </div>
 		   <div class="col-md-1">
@@ -307,28 +361,55 @@
             </div>
             <div style="min-height:350px;">
 	          <div id="moreEducation" style="display:none;">
+	         <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation">Level of Education</label>
+		        <select name="levelOfEducation" id="levelOfEducation">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC">SSC</option>
+			            <option value="HSC">HSC</option>
+			            <option value="Diploma">Diploma</option>
+			            <option value="Bachelor/Hons">Bachelor/Hons</option>
+			            <option value="Others">Others</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div>    
+	         <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="degree3">Degree Title</label>
+		        <input type="text" name="degree3" class="form-control">
+		      </div>
+		   </div> 
+		     <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup3">Major or group</label>
+		        <input type="text" name="majorOrGroup3" class="form-control">
+		      </div>
+		   </div> 
 	               <div class="col-md-12">
 			         <div class="form-group">
 			           <label for="eduInstitute">Institute Name</label>
-			           <input type="text" name="instituteName[]" class="form-control">
+			           <input type="text" name="instituteName3" class="form-control">
 			         </div>
 			        </div>
 			        <div class="col-md-12">
 			          <div class="form-group">
 				        <label for="eduBoard">Education Board</label>
-				        <select name="educationBoard[]" id="eduBoardTwo">
+				        <select name="board3" id="eduBoardTwo">
 				          <option></option>
 				          <optgroup label="Find Board">
-				            <option>Dhaka</option>
-				            <option>Chittagong</option>
-				            <option>Jessore</option>
-				            <option>Rajshahi</option>
-				            <option>Sylhet</option>
-				            <option>Barishal</option>
-				            <option>Comilla</option>
-				            <option>Dinajpur</option>
-				            <option>Madrasah</option>
-				            <option>Technical</option>
+				            <option value="Dhaka">Dhaka</option>
+				            <option value="Chittagong">Chittagong</option>
+				            <option value="Jessore">Jessore</option>
+				            <option value="Rajshahi">Rajshahi</option>
+				            <option value="Sylhet">Sylhet</option>
+				            <option value="Barishal">Barishal</option>
+				            <option value="Comilla">Comilla</option>
+				            <option value="Dinajpur">Dinajpur</option>
+				            <option value="Madrasah">Madrasah</option>
+				            <option value="Technical">Technical</option>
 				          </optgroup>
 				        </select>
 			            </div>
@@ -336,13 +417,13 @@
 					   <div class="col-md-12">
 					     <div class="form-group">
 					        <label for="eduPassing">Passing Year</label>
-					        <input type="text" name="passingYear[]" class="form-control">
+					        <input type="text" name="year3" class="form-control">
 					      </div>
 					   </div>
 					   <div class="col-md-12">
 					    <div class="form-group">
 					        <label for="eduResult">Result</label>
-					        <input type="text" name="eduResult[]" class="form-control">
+					        <input type="text" name="result3" class="form-control">
 					      </div>
 					   </div>
 					   <div class="col-md-1">

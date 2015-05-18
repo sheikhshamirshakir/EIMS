@@ -65,10 +65,18 @@ public class StudentManagement extends Controller{
     	} 
    		else {
 		 Parent parent =new Parent();
-		 parent.name = dStudent.parentName;
-		 parent.email = dStudent.parentEmail;
-		 parent.phone = dStudent.parentPhone;
+//		 parent.name = dStudent.parentName;
+//		 parent.email = dStudent.parentEmail;
+//		 parent.phone = dStudent.parentPhone;
 		 
+		 parent.fatherName=dStudent.fatherName;            
+		 parent.fatherMobile=dStudent.fatherMobile;
+		 parent.fatherEmail=dStudent.fatherEmail;
+		 parent.fathersLastEduQual=dStudent.fathersLastEduQual; 
+		 parent.motherName=dStudent.motherName; 
+		 parent.motherMobile=dStudent.motherMobile; 
+		 parent.mothersLastEduQual=dStudent.mothersLastEduQual; 
+		 parent.numberOfChild=dStudent.numberOfChild;
 		 Parent.create(parent);
 		 Long id = Parent.findLastId();
 		 
@@ -99,6 +107,34 @@ public class StudentManagement extends Controller{
 		 student.maritalStatus=dStudent.maritalStatus;  
 		 student.mobile=dStudent.mobile;
 		 student.email=dStudent.email;
+		 
+		 
+		 
+		 student.levelOfEducation1=dStudent.levelOfEducation1;
+		    student.degree1=dStudent.degree1;
+		    student.majorOrGroup1=dStudent.majorOrGroup1;
+		    student.instituteName1=dStudent.instituteName1;
+		    student.board1=dStudent.board1;
+		    student.year1=dStudent.year1;
+		    student.result1=dStudent.result1;
+		    
+		    student.levelOfEducation2=dStudent.levelOfEducation2;
+		    student.degree2=dStudent.degree2;
+		    student.majorOrGroup2=dStudent.majorOrGroup2;
+		    student.instituteName2=dStudent.instituteName2;
+		    student.board2=dStudent.board2;
+		    student.year2=dStudent.year2;
+		    student.result2=dStudent.result2;
+		    
+		    student.levelOfEducation3=dStudent.levelOfEducation3;
+		    student.degree3=dStudent.degree3;
+		    student.majorOrGroup3=dStudent.majorOrGroup3;
+		    student.instituteName3=dStudent.instituteName3;
+		    student.board3=dStudent.board3;
+		    student.year3=dStudent.year3;
+		    student.result3=dStudent.result3;
+		 
+	
 		 
 		 student.atleastCredit = dStudent.atleastCredit; 
 		 student.completecredit=0.0;

@@ -23,39 +23,34 @@ public class Parent extends Model {
 	@Id
     public Long pid;
 	
-    public String name;
-    public String email;
-	public String phone;
-	public String profession; 
-    public String fax;  
-	public String guardian_edu; 
-    public String relationship; 
-	
-
-//    public String fathersName;            
-//	public String fatherProfession;
-//	public String workAddress;
-//	public String nationalID;        
-//	public String fatherTelephone; 
-//	public String fatherMobile;
-//	public String fatherFax;    
-//	public String fatherEmail;
-//	public String fatherEduQual; // Fathers educational Qualification 
-//	public String mothersName; 
-//	public String motherProfession;
-//	public String motherMobile; 
-//	public String motherMail; 
-//	public String mothersEduQual; // Mother Educational Qualification
-
-	
-
+    public String fatherName;            
+	public String fatherMobile;
+   	public String fatherEmail;
+	public String fathersLastEduQual; // Fathers educational Qualification 
+	public String motherName; 
+	public String motherMobile; 
+	public String mothersLastEduQual; // Mother Educational Qualification
+    public int numberOfChild;
+    
+	//public String name;
+	//public String email;
+	//public String phone;
+	//public String profession; 
+	//public String fax;  
+	//public String guardian_edu; 
+	//public String relationship; 
+	//public String fatherProfession;
+	//public String workAddress;
+	//public String nationalID;        
+	//public String fatherTelephone; 
+	//public String fatherFax;
+    //public String motherProfession;
+    //public String motherMail; 
     //public String degreeName; 
     //public String instituteName;
     //public String board;
     //public String result;  
     //public String passingYear; 
-
-	
 	public static Finder<Long,Parent> find =  new Finder(Long.class, Parent.class);
 	
 	public static List<Parent> all(){

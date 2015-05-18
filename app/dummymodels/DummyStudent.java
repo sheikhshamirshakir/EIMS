@@ -30,10 +30,45 @@ public class DummyStudent {
 	public String mobile;
     public String email; 
     
-	public String parentName;
-	public String parentPhone;
-	public String parentEmail;
+//	public String parentName;
+//	public String parentPhone;
+//	public String parentEmail;
+    
+    public String fatherName;            
+	public String fatherMobile;
+   	public String fatherEmail;
+	public String fathersLastEduQual;
+	public String motherName; 
+	public String motherMobile; 
+	public String mothersLastEduQual;
+    public int numberOfChild;
 	
+    
+    public String levelOfEducation1;
+    public String degree1;
+    public String majorOrGroup1;
+    public String instituteName1;
+    public String board1;
+    public String year1;
+    public String result1;
+    
+    public String levelOfEducation2;
+    public String degree2;
+    public String majorOrGroup2;
+    public String instituteName2;
+    public String board2;
+    public String year2;
+    public String result2;
+    
+    public String levelOfEducation3;
+    public String degree3;
+    public String majorOrGroup3;
+    public String instituteName3;
+    public String board3;
+    public String year3;
+    public String result3;
+    
+    
 	
 	public String departmentId;
     public String degreeId;
