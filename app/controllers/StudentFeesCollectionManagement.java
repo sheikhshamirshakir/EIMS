@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import models.Fees.FeesHead;
+import models.Fees.StudentCollectionType;
 import models.Fees.StudentFees;
 import models.admission.Student;
 import dummymodels.DummyStudentFeesCollection;
@@ -28,7 +29,10 @@ public class StudentFeesCollectionManagement extends Controller{
     public static Result createWithStudent(Long studentId) {
     	Student student = Student.findById(studentId);
     	List<Long> feesHeads = StudentFees.findFeesHeadIdsByStudentId(studentId);
-    	return ok(createWithoutList.render(student, feesHeads));
+    	
+        List<FeesHead> feesHeades = 	StudentCollectionType.findByStudentId(studentId).feesCategory.feesHead;
+        
+    	return ok(createWithoutList.render(student, feesHeads, feesHeades));
     }
     
 

@@ -1,4 +1,4 @@
-@(student: models.admission.Student, feesHeadIds: List[Long]) 
+@(student: models.admission.Student, feesHeadIds: List[Long], feesHeades: List[models.Fees.FeesHead]) 
 @import helper._ 
 @import helper.twitterBootstrap._ 
 @import models.Fees.StudentFees 
@@ -24,7 +24,7 @@
 							<th>Fees Heads</th>
 							<th style="text-align: right;">Amount (BDT)</th> 
 						</tr>
-						@for((feesHead,idx) <- FeesHead.all.zipWithIndex) {
+						@for((feesHead,idx) <- feesHeades.zipWithIndex) {
 						<tr align="center">
 							<td><input type="hidden" name="fessHeadIds[@idx]" value="@feesHead.id">@feesHead.name</td>
 							<td><input type="text" name="feesAmount[@idx]" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value=@StudentFees.findByStudentAndFeesHead(student.sid,feesHead.id).amount}></td>

@@ -60,6 +60,10 @@ public class StudentCollectionType extends Model{
     	delete(id);
     }
     
+    public static StudentCollectionType findByStudentId(Long sid) {
+        return find.where().eq("student_id", sid).findUnique();
+    }
+    
 
 //    public static Map<String,String> getsctsAsMap() {
 //        LinkedHashMap<String,String> scts = new LinkedHashMap<String,String>();
