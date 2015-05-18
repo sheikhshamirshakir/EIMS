@@ -37,6 +37,7 @@ public class StudentCourseManagement extends Controller{
 		}
 		else{
 			 return redirect(routes.StudentCourseManagement.create());
+			 
 		}
 		return ok(createWithoutList.render(tId, studentName, isChecked));
 	}
