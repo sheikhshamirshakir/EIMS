@@ -3,19 +3,35 @@
 @import models.admission.ClassYear
 
 @main("Edit Section or Semester"){
-  <h2>Update the Section or Semester having ID @sectionSemesterForm.get.id</h2><br/><br/>
-  
+  <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">Edit Section or Semester Information</span></div>   
+          
   @form(routes.SectionSemesterManagement.update()) {
   	  <input type="hidden" name="id" value=@sectionSemesterForm.get.id>
-  	   <label>Class or Year</label>
-  	   <select name="classYear.id" >
-        @for((id, name) <- ClassYear.getClassYearsAsMap){
-          <option value="@id" @if(sectionSemesterForm.get.classYear.id.toString==id){selected}>@name</option>
-        }
+  	   <div class="row">
+  	   <label for="deptID">Class or Year</label>
+  	   <select name="classYear.id" id="deptID">
+  	   		<option></option>
+		    <optgroup label="Find Class or Year">
+	        @for((id, name) <- ClassYear.getClassYearsAsMap){
+	          <option value="@id" @if(sectionSemesterForm.get.classYear.id.toString==id){selected}>@name</option>
+	        }
+	        </optgroup>
         </select>
-  	  
+      </div>
+     <div class="row">
       @inputText(sectionSemesterForm("name"), '_label->"Section or Semester Name")
+     </div>
+     <div class="row">
       @inputText(sectionSemesterForm("code"), '_label->"Section or Semester Code")
-	  <input type="submit" value="Update">
+	 </div>
+		<div class="row">
+	  		<input type="submit" value="Update"  class="btn btn-primary">
+	     </div>
+	    </div>
+     </div>
+</div>
   }
 }

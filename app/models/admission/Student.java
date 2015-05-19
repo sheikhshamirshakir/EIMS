@@ -69,6 +69,7 @@ public class Student extends Model {
     
     
     public Long parentId;
+    public Long guardianId;
 	
     @ManyToOne
     @JoinColumn(name = "department_id", referencedColumnName = "id")

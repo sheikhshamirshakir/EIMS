@@ -12,9 +12,8 @@
   <thead>
     <tr>
        <th>ID</th>
-       <th>Parent Name</th>
-   	   <th>Email</th>
-   	   <th>Phone</th>
+       <th>Father's Name</th>
+   	   <th>Mother's Mobile</th>
    	   
      </tr>
    </thead>
@@ -22,10 +21,9 @@
     @for(parent <- parents) {
       <tr>
         <td><a href="@routes.ParentManagement.show(parent.pid)">@parent.pid</a></td>
-        <td>@parent.name</td>
-      	<td>@parent.email</td>
-      	<td>@parent.phone</td> 
-     
+        <td>@parent.fatherName</td>
+      	<td>@parent.motherName</td> 
+       
        </tr> 
     }
  </tbody>

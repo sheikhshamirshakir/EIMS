@@ -23,6 +23,7 @@ import models.admission.Degree;
 import models.admission.Department;
 import models.admission.Designation;
 import models.admission.Employee;
+import models.admission.Guardian;
 import models.admission.Parent;
 import models.admission.SectionSemester;
 import models.admission.Student;
@@ -65,11 +66,7 @@ public class StudentManagement extends Controller{
     	} 
    		else {
 		 Parent parent =new Parent();
-//		 parent.name = dStudent.parentName;
-//		 parent.email = dStudent.parentEmail;
-//		 parent.phone = dStudent.parentPhone;
-		 
-		 parent.fatherName=dStudent.fatherName;            
+    	 parent.fatherName=dStudent.fatherName;            
 		 parent.fatherMobile=dStudent.fatherMobile;
 		 parent.fatherEmail=dStudent.fatherEmail;
 		 parent.fathersLastEduQual=dStudent.fathersLastEduQual; 
@@ -78,16 +75,26 @@ public class StudentManagement extends Controller{
 		 parent.mothersLastEduQual=dStudent.mothersLastEduQual; 
 		 parent.numberOfChild=dStudent.numberOfChild;
 		 Parent.create(parent);
-		 Long id = Parent.findLastId();
+		 Long pid = Parent.findLastId();
+		 
+		 
+		 Long gid =0L;
+		 
+		 if(dStudent.isParentGuardian.equals("1")){
+			 gid=pid;
+		 }else{
+		 Guardian guardian = new Guardian();
+		 guardian.guardianName=dStudent.guardianName;            
+		 guardian.guardianMobile=dStudent.guardianMobile;
+		 guardian.guardianEmail=dStudent.guardianEmail;
+		 guardian.guarEducation=dStudent.guarEducation; 
+		 Guardian.create(guardian);
+		 gid = Guardian.findLastId(); 
+		 }   
 		 
 		 Student student = new Student();
-		 
-		 
 	     student.name = dStudent.studentName;
-	     
-//	     SimpleDateFormat format1 = new SimpleDateFormat("d/M/yyyy");
-//	     Date date = format1.parse("05/01/1999");
-		
+	
 	     student.dateOfBirth = dStudent.dateOfBirth;		
 		 student.gender=dStudent.gender;
 		 
@@ -96,7 +103,9 @@ public class StudentManagement extends Controller{
 	     student.permanentAddress=dStudent.permanentAddress;
 	     student.presentAddress = dStudent.presentAddress;
 		 
-		 student.parentId = id;
+		 student.parentId = pid;
+		 student.guardianId=gid;
+		 
 		 student.department = Department.findById(Long.parseLong(dStudent.departmentId));
 		 student.degree = Degree.findById(Long.parseLong(dStudent.degreeId));
 		 student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
@@ -107,40 +116,35 @@ public class StudentManagement extends Controller{
 		 student.maritalStatus=dStudent.maritalStatus;  
 		 student.mobile=dStudent.mobile;
 		 student.email=dStudent.email;
-		 
-		 
-		 
-		 student.levelOfEducation1=dStudent.levelOfEducation1;
-		    student.degree1=dStudent.degree1;
-		    student.majorOrGroup1=dStudent.majorOrGroup1;
-		    student.instituteName1=dStudent.instituteName1;
-		    student.board1=dStudent.board1;
-		    student.year1=dStudent.year1;
-		    student.result1=dStudent.result1;
-		    
-		    student.levelOfEducation2=dStudent.levelOfEducation2;
-		    student.degree2=dStudent.degree2;
-		    student.majorOrGroup2=dStudent.majorOrGroup2;
-		    student.instituteName2=dStudent.instituteName2;
-		    student.board2=dStudent.board2;
-		    student.year2=dStudent.year2;
-		    student.result2=dStudent.result2;
-		    
-		    student.levelOfEducation3=dStudent.levelOfEducation3;
-		    student.degree3=dStudent.degree3;
-		    student.majorOrGroup3=dStudent.majorOrGroup3;
-		    student.instituteName3=dStudent.instituteName3;
-		    student.board3=dStudent.board3;
-		    student.year3=dStudent.year3;
-		    student.result3=dStudent.result3;
-		 
-	
-		 
+				 
+	     student.levelOfEducation1=dStudent.levelOfEducation1;
+	     student.degree1=dStudent.degree1;
+	     student.majorOrGroup1=dStudent.majorOrGroup1;
+	     student.instituteName1=dStudent.instituteName1;
+	     student.board1=dStudent.board1;
+	     student.year1=dStudent.year1;
+	     student.result1=dStudent.result1;
+	    
+	     student.levelOfEducation2=dStudent.levelOfEducation2;
+	     student.degree2=dStudent.degree2;
+	     student.majorOrGroup2=dStudent.majorOrGroup2;
+	     student.instituteName2=dStudent.instituteName2;
+	     student.board2=dStudent.board2;
+	     student.year2=dStudent.year2;
+	     student.result2=dStudent.result2;
+	    
+	     student.levelOfEducation3=dStudent.levelOfEducation3;
+	     student.degree3=dStudent.degree3;
+	     student.majorOrGroup3=dStudent.majorOrGroup3;
+	     student.instituteName3=dStudent.instituteName3;
+	     student.board3=dStudent.board3;
+	     student.year3=dStudent.year3;
+	     student.result3=dStudent.result3;
+			 
 		 student.atleastCredit = dStudent.atleastCredit; 
 		 student.completecredit=0.0;
 		 
 		 Student.create(student);
-		 
 		 
 		 String sID = Student.findLastId().toString();
 //		 Long sid = Student.findLastId();

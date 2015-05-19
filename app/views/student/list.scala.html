@@ -19,7 +19,7 @@
              <tr>
 		       <th>ID</th>
 		       <th>Student Name</th>
-		       <th>Parent's Name</th>
+		       <th>Father's Name</th>
 		       <th>Phone</th>
 			   <th>Email</th>
              </tr>
@@ -30,7 +30,7 @@
 		        <td><a href="@routes.StudentManagement.show(student.sid)">@student.sid</a></td>
 		        <td><img src=@routes.Assets.at("images/photos/"+student.name+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></td>
 		        <td>@student.name</td>
-		        <td>@Parent.findById(student.parentId).name</td>
+		        <td>@Parent.findById(student.parentId).fatherName</td>
 		        <td>@student.mobile</td>
 		        <td>@student.email</td>
 		      </tr> 

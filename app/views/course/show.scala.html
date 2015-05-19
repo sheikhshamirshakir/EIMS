@@ -14,6 +14,10 @@
            <label for="corID">Course Code</label>
            <span class="form-control" id="corID">@course.code</span>
          </div>
+          <div class="col-md-12">
+           <label for="corID">Course Credit</label>
+           <span class="form-control" id="corID">@course.credit</span>
+         </div>
          <div class="col-md-12">
            @form(routes.CourseManagement.edit(course.id)) {
 		    <input type="submit" value="Edit" class="btn btn-primary">

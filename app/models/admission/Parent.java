@@ -85,7 +85,7 @@ public class Parent extends Model {
 	 public static Map<String,String> getParentsAsMap() {
 	        LinkedHashMap<String,String> parents = new LinkedHashMap<String,String>();
 	        for(Parent parent: Parent.find.orderBy("name").findList()) {
-	        	parents.put(parent.pid.toString(), parent.name);
+	        	parents.put(parent.pid.toString(), parent.fatherName);
 	        }
 	        
 	        return parents;

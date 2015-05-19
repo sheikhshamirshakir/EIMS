@@ -64,8 +64,8 @@
           <span class="form-control">@student.email</span>
         </div>
         <div class=""col-md-12>
-          <label for="parentName">Parent Name</label>
-          <span class="form-control"><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).name</a></span>
+          <label for="parentName">Father's Name</label>
+          <span class="form-control"><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).fatherName</a></span>
         </div>
         <div class="col-md-12">
           <label for="deptName">Department Name</labe> 
@@ -89,7 +89,7 @@
         </div>
         <div class="col-md-12">
            <label for="needCom">Need to complete</label>
-           <span class="form-control">@student.atleastCredit-student.completecredit</span>
+           <span class="form-control">@(student.atleastCredit-student.completecredit)</span>
         </div>
       </div>
     </div>

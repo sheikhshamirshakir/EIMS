@@ -7,14 +7,14 @@
   @form(routes.ParentManagement.update()) {
   	  <input type="hidden" name="pid" value=@parentForm.get.pid >
   	  
-      @inputText(parentForm("name"), '_label->"Parent Name")
-      @inputText(parentForm("email"), '_label->"Email")
-      @inputText(parentForm("phone"), '_label->"Phone")
-      @inputText(parentForm("fax"), '_label->"Fax")
-      @inputText(parentForm("profession"), '_label->"Profession")
-      @inputText(parentForm("guardian_edu"), '_label->"Education Details")
-      @inputText(parentForm("relationship"), '_label->"Relationship with Student")
-       
+      @inputText(parentForm("fatherName"), '_label->"Father's Name")
+      @inputText(parentForm("fatherEmail"), '_label->"Father's Email")
+      @inputText(parentForm("fatherMobile"), '_label->"Father's Mobile no.")
+      @inputText(parentForm("fathersLastEduQual"), '_label->"Father's Educational qualification")
+      @inputText(parentForm("motherName"), '_label->"Mother's Name")
+      @inputText(parentForm("motherMobile"), '_label->"Mother's Mobile no.")
+      @inputText(parentForm("mothersLastEduQual"), '_label->"Mother's Educational qualification")
+      @inputText(parentForm("numberOfChild"), '_label->"Number of Child") 
 	  <input type="submit" value="Update">
      	
   }

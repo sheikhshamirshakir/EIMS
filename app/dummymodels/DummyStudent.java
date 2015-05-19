@@ -43,6 +43,10 @@ public class DummyStudent {
 	public String mothersLastEduQual;
     public int numberOfChild;
 	
+    public String guardianName;            
+  	public String guardianMobile;
+ 	public String guardianEmail;
+  	public String guarEducation; 
     
     public String levelOfEducation1;
     public String degree1;
@@ -68,7 +72,7 @@ public class DummyStudent {
     public String year3;
     public String result3;
     
-    
+    public String isParentGuardian;
 	
 	public String departmentId;
     public String degreeId;
