@@ -81,7 +81,8 @@ public class StudentManagement extends Controller{
 		 Long gid =0L;
 		 
 		 if(dStudent.isParentGuardian.equals("1")){
-			 gid=pid;
+			 System.out.println("kjhjkhkjhkj.........................");
+			
 		 }else{
 		 Guardian guardian = new Guardian();
 		 guardian.guardianName=dStudent.guardianName;            
@@ -89,6 +90,8 @@ public class StudentManagement extends Controller{
 		 guardian.guardianEmail=dStudent.guardianEmail;
 		 guardian.guarEducation=dStudent.guarEducation; 
 		 Guardian.create(guardian);
+		 System.out.println("kjhjkhkjhkj............55555555555.............");
+
 		 gid = Guardian.findLastId(); 
 		 }   
 		 

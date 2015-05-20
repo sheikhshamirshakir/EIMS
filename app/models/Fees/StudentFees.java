@@ -1,6 +1,7 @@
 package models.Fees;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -33,6 +34,19 @@ public class StudentFees extends Model{
 	@Required
 	public Float amount;
 	
+	
+    public Date fromDate;
+    
+    public Date endDate;
+    
+    public Double withoutDiscount;
+    
+    public Double withDiscount;
+    
+    public Double paidAmount;
+    
+    public Double forwardAmount;
+    
 	
 	public static Finder<Long, StudentFees> find = new Finder(Long.class, StudentFees.class);
 

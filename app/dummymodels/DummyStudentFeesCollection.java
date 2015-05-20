@@ -1,5 +1,6 @@
 package dummymodels;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Id;
@@ -19,4 +20,16 @@ public class DummyStudentFeesCollection {
     
     @Required
     public List<String> feesAmount;
+    
+    public Date fromDate;
+    
+    public Date endDate;
+    
+    public Double withoutDiscount;
+    
+    public Double withDiscount;
+    
+    public Double paidAmount;
+    
+    public Double forwardAmount;
 }
