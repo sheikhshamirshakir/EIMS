@@ -16,7 +16,7 @@ public class DummyEmployee {
 	
 	public String employeeName;
 	
-	@Formats.DateTime(pattern="d/M/yyyy")
+	//@Formats.DateTime(pattern="d/M/yyyy")
 	public Date dateOfBirth;
 	
 	public String gender;
@@ -24,7 +24,7 @@ public class DummyEmployee {
     public String categoryId;
 	
 	//joining date
-    @Formats.DateTime(pattern="d/M/yyyy")
+    //@Formats.DateTime(pattern="d/M/yyyy")
     public Date joiningDate;
 	
 	//employee_type
