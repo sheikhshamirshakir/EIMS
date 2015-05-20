@@ -35,6 +35,7 @@ public class StudentFeesCollectionManagement extends Controller{
         
     	return ok(createWithoutList.render(student, feesHeads, feesHeades));
     }
+   
     
 
     public static Result create() {
