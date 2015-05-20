@@ -59,10 +59,10 @@ public class StudentManagement extends Controller{
 		 
 		 MultipartFormData body = request().body().asMultipartFormData();
    		 FilePart student_image = body.getFile("stimage");
-//   		if (filledForm.hasErrors() || student_image == null) {
+   		  //if (filledForm.hasErrors() || student_image == null) {
    			if (filledForm.hasErrors()) {
    			return ok("error");
-   				//return badRequest(create.render(filledForm));
+   		  //return badRequest(create.render(filledForm));
     	} 
    		else {
 		 Parent parent =new Parent();
@@ -164,8 +164,8 @@ public class StudentManagement extends Controller{
 		 userRole.roleId=1;
 		 UserRole.create(userRole);
 		 
-			
-		String image_name = student.name+sID+"_image.png";
+		 String sName=student.name.replaceAll("\\s+","");	
+		String image_name = sName+sID+"_image.png";
 	    String contentType = student_image.getContentType(); 
 	    File file_type = student_image.getFile();
 	    				    

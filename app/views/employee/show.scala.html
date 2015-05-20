@@ -12,7 +12,7 @@
    
   
 
-        <img src=@routes.Assets.at("images/photos/employee/"+employee.name+employee.id+"_image.png") alt="" title="" width="64" height="64" border="0" />
+        <img src=@routes.Assets.at("images/photos/employee/"+employee.name.replaceAll("\\s+","")+employee.id+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;" />
 
                
                     <div class="col-md-12">

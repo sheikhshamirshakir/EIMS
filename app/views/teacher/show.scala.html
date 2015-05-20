@@ -8,9 +8,9 @@
                     <div class="row">
                         <div class="col-md-10">
   <table>
-    <tr> <th >ID</th> <td>@teacher.tid</td> </tr>
+    
     <tr> <th >Teacher Name</th> <td>@teacher.name</td> </tr>
-    <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/employee/"+teacher.name+teacher.employeeId+"_image.png") alt="" title="" width="64" height="64" border="0" /></td> </tr>
+    <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/employee/"+teacher.name.replaceAll("\\s+","")+teacher.employeeId+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;"/></td> </tr>
     
      <tr> <th >Department</th> <td>@teacher.department.name</td> </tr>
      <tr> <th >Designation</th> <td>@teacher.designation.name</td> </tr>

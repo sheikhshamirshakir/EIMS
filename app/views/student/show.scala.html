@@ -10,11 +10,9 @@
    <div id="main_wrapper">
     <div class="container-fluid">
       <div class="row">
-        <div class="heading_a"><span class="heading_text">University Details</span></div>
-        <div class="col-md-12">
-           <label for="studentImage">Student Image</label>
-           <span class="form-control"><img src=@routes.Assets.at("images/photos/student/"+student.name+student.sid+"_image.png") alt="" title="" width="64" height="64" border="0" /></span>
-        </div>
+        <div class="heading_a"><span class="heading_text">Student Details</span></div>
+       <img src=@routes.Assets.at("images/photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;"/></span>
+      
         <div class="col-md-12">
            <label for="StudentName">Student Name</label>
            <span class="form-control">@student.name</span>

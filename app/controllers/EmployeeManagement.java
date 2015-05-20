@@ -79,8 +79,8 @@ public class EmployeeManagement extends Controller{
 		 Long id = Employee.findLastId();
 	//	 System.out.println("........id........."+id);
  
-			
-		String image_name = employee.name+id+"_image.png";
+		 String eName=employee.name.replaceAll("\\s+","");		
+		String image_name = eName+id+"_image.png";
 	    String contentType = emp_image.getContentType(); 
 	    File file_type = emp_image.getFile();
 	    				    
