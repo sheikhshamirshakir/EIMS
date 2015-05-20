@@ -20,6 +20,7 @@ public class DummyStudent {
 	public Date dateOfBirth;
 	public String placeOfBirth; 
 	
+	
     public String nationality;
     public String presentAddress;
     public String permanentAddress;

@@ -21,6 +21,7 @@
         @for((id, name) <- Category.getCategoriesAsMap){
           <option value="@id" @if(employeeForm.get.category.id.toString==id){selected}>@name</option>
         }
+        
         </select>
         <br/>
         <label>Employee Type</label>

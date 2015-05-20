@@ -78,6 +78,7 @@ public class StudentManagement extends Controller{
 		 Long pid = Parent.findLastId();
 		 
 		 
+		 
 		 Long gid =0L;
 		 
 		 if(dStudent.isParentGuardian.equals("1")){

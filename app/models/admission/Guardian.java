@@ -28,6 +28,7 @@ public class Guardian extends Model {
    	public String guardianEmail;
 	public String guarEducation; 
 
+	
 	public static Finder<Long,Guardian> find =  new Finder(Long.class, Guardian.class);
 	
 	public static List<Guardian> all(){

@@ -31,6 +31,7 @@ public class Employee extends Model {
 	
 	public String gender;
 		
+	
     
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")

@@ -25,6 +25,7 @@ public class StudentFeesCollectionManagement extends Controller{
 	
 	static Form<DummyStudentFeesCollection> sfcForm = Form.form(DummyStudentFeesCollection.class);
 
+	
 
     public static Result createWithStudent(Long studentId) {
     	Student student = Student.findById(studentId);

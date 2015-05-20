@@ -25,6 +25,7 @@
           <label for="dob">Date of Birth</label>
           <span class="form-control">@Utils.formatDate(student.dateOfBirth)</span>
         </div>
+      
         <div class="col-md-12">
           <label for="birthPlace">Place of Birth</label>
           <span class="form-control">@District.findById(Long.parseLong(student.placeOfBirth)).name</span>
