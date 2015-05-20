@@ -37,6 +37,7 @@ public class StudentFees extends Model{
 	
     public Date fromDate;
     
+    
     public Date endDate;
     
     public Double withoutDiscount;
