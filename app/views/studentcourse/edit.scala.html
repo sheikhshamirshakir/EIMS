@@ -4,30 +4,44 @@
 @import helper._
 
 @main(""){
+<!-- main content -->
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+       <div class="heading_a"><span class="heading_text">Edit Student's assigned Courses</span></div> 
 
-
-   <h2>Update the Student's assigned Courses information having Id @studentCourseForm.get.id</h2><br/><br/>
-
-@form(routes.StudentCourseManagement.update()) {
-
-<input type="hidden" name="id" value=studentCourseForm>
-
-@select(studentCourseForm("student.id"),
-options(Student.getStudentsAsMap),
-'_label -> "Student", '_default -> "-- Choose a Student --",
-'_showConstraints -> false
-)
-
-<br/>
-@select(studentCourseForm("course.id"),
-options(Course.getCoursesAsMap),
-'_label -> "Course",
-'_showConstraints -> false
-)
-<br/>
-
-<input type="submit" value="Save">
-
-}
+		@form(routes.StudentCourseManagement.update()) {
+		
+		<input type="hidden" name="id" value=studentCourseForm>
+		<div class="col-md-12">
+		   <label for="studentID">Choose Student</label>
+		   <select name="student.id" id="stdID">
+		       <option></option>
+		       <optgroup label="Find Student">
+		          @for((id,name)<-Student.getStudentsAsMap){
+		            <option value="@id">@name</option>
+		          }
+		       </optgroup>
+		   </select>
+		</div>
+		<div class="col-md-12">
+		  <label for="corID">Course</label>
+		  <select name="course.id" id="corID">
+		      <option></option>
+		      <optgroup label="Find Course">
+		        @for((id,name)<-getCoursesAsMap)
+		        {
+		          <option value="@id">@name</option>
+		        }
+		      </optgroup>
+		  </select>
+		</div>
+		<div class="col-md-12">
+		  <input type="submit" value="Save" class="btn btn-primary">
+		</div>
+		}
+     </div>
+   </div>
+ </div>    		
    
 }

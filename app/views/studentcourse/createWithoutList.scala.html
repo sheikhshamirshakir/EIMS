@@ -2,11 +2,26 @@
 @import helper._
 
 @studentcourse.create(isChecked){
-
-       <h2>Assign Course to Student <b>@studentId : @studentName</b></h2><br/><br/>
-
+ @content
+ <!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Assign Course to Student</span></div>
+                        <div class="row">
+                          <div class="col-md-12">
+                             <label>Student ID: @studentId</label>
+                          </div>
+                          <div class="col-md-12">
+                            <label>Student Name: @studentName </label>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>                                                  
         <form method="post" action=@routes.StudentCourseManagement.insert()>
         <input type="hidden" name="studentId" value="@studentId">
-
 
 }

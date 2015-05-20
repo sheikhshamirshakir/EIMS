@@ -12,8 +12,7 @@
     <div class="container-fluid">
         <div class="col-md-12">
           <div class="heading_a"><span class="heading_text">New Collection Set</span></div>
-            
-      
+                  
               @form(routes.StudentCollectionTypeManagement.save()) { 
               <div class="row">
                 <label for="universityID">Select Student</label>
@@ -26,8 +25,8 @@
 		            </optgroup> 
                   </select>
 		         </div> 
-		   <div class="row">
-                <label for="universityID">Select Fees Category</label>
+		        <div class="row">
+                  <label for="universityID">Select Fees Category</label>
                   <select name="feesCategory.id" id="universityID">
                     <option></option>
                     <optgroup label="Find Fees Head">
@@ -36,8 +35,8 @@
                   }
 		            </optgroup> 
                   </select>
-		  </div>
-		    <div class="row">
+		      </div>
+		      <div class="row">
                 <label for="universityID">Select Discount</label>
                   <select name="discountCategory.id" id="universityID">
                     <option></option>

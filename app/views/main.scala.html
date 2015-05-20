@@ -45,7 +45,7 @@
             <header id="main_header">
                 <div class="container-fluid">
                     <div class="brand_section">
-                        <a href="/dashboard"><img src="@routes.Assets.at("assets/img/shomoy_logo.png")" alt="site_logo" width="63" height="26"></a>
+                        <a href="dashboard.html"><img src="@routes.Assets.at("assets/img/shomoy_logo.png")" alt="site_logo" width="63" height="26"></a>
                     </div>
                     <ul class="header_notifications clearfix">
                         <li class="dropdown">
@@ -181,10 +181,26 @@
                         <li class="first_level">
                             <a href="javascript:void(0)">
                                 <span class="icon_document_alt first_level_icon"></span>
+                                <span class="menu-title">Forms</span>
+                            </a>
+                            <ul>
+                                <li><a href="/faculty/create">New Faculty</a></li>
+                                <li><a href="/faculty/list">Faculty List</a></li>
+                                <li><a href="/department/create">New Department</a></li>
+                                <li><a href="/department/list">Department List</a></li>
+                                <li><a href="/class-or-year/create">New Class/Year</a></li>
+                                <li><a href="/class-or-year/list">Class/Year List</a></li>
+                                <li><a href="/course/create">Create Course</a></li>
+                                <li><a href="/course/list">Course List</a></li>
+                            </ul>
+                        </li>
+                        <li class="first_level">
+                            <a href="javascript:void(0)">
+                                <span class="icon_document_alt first_level_icon"></span>
                                 <span class="menu-title">Admission</span>
                             </a>
                             <ul>
-                                <li class="submenu-title">Forms</li>
+                                <li class="submenu-title">Admission</li>
                                 <li><a href="/student/create">Admission Form</a></li>
                                 <li><a href="/student/list">Admit Student List</a></li>
                                 <li><a href="/student-course/create-with-student">Assign Courses</a></li>
@@ -196,7 +212,9 @@
                                 <span class="menu-title">Fees Collection</span>
                             </a>
                             <ul>
-                                <li><a href="/fees-head/create">Head Category</a></li>
+                                <li><a href="/fees-category/create">Fees Category</a></li>
+                                <li><a href="/fees-category/list">Category List</a></li>
+                                <li><a href="/fees-head/create">Head Name</a></li>
                                 <li><a href="/fees-head/list">Head List</a></li>
                                 <li><a href="/discount/create">Discount Set</a></li>
                                 <li><a href="/discount/list">Discount List</a></li>
@@ -254,9 +272,10 @@
                                 <li class="submenu-title">Employee Management</li>
                                 <li><a href="/category/create">Employee Category</a></li>
                                 <li><a href="/category/list">Category List</a></li>
-                                <li><a href="/designation/create">Designation Create</a></li>
+                                <li><a href="/designation/create">Employee Designation</a></li>
                                 <li><a href="/designation/list">Designation List</a></li>
-                                <li><a href="/employee/create">Entry Employee Information</a></li>
+                                <li><a href="/employee/create">Employee Information</a></li>
+                                <li><a href="/employee/list">Employee List</a></li>
                             </ul>
                         </li>
                         <li class="first_level">
@@ -266,20 +285,11 @@
                             </a>
                             <ul>
                                 <li class="submenu-title">Settings</li>
-                                <li><a href="/faculty/create">New Faculty</a></li>
-                                <li><a href="/faculty/list">Faculty List</a></li>
-                                <li><a href="/department/create">New Department</a></li>
-                                <li><a href="/department/list">Department List</a></li>
+                                <li><a href="/category/create">Student Category</a></li>
                                 <li><a href="/degree/create">New Degree</a></li>
                                 <li><a href="/degree/list">Degree List</a></li>
-                                <li><a href="/class-or-year/create">New Class/Year</a></li>
-                                <li><a href="/class-or-year/list">Class/Year List</a></li>
                                 <li><a href="/section-or-semester/create">New Semester</a></li>
                                 <li><a href="/section-or-semester/list">Semester List</a></li>
-                                <li><a href="/course/create">Student Course</a></li>
-                                <li><a href="/course/list">Course List</a></li>
-                                <li><a href="/category/create">Create Employee Category</a></li>
-                                <li><a href="/category/list">Employee Category List</a></li>
                                 <li><a href="/university/create">Institute Information</a></li>
                                 <li><a href="/university/list">Institute Data</a></li>
                             </ul>
