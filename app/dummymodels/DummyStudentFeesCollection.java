@@ -27,6 +27,7 @@ public class DummyStudentFeesCollection {
     
     public Date endDate;
     
+    
     public Double withoutDiscount;
     
     public Double withDiscount;
