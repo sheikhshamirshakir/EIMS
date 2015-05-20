@@ -22,6 +22,7 @@ public class DummyStudentFeesCollection {
     @Required
     public List<String> feesAmount;
     
+    
     public Date fromDate;
     
     public Date endDate;
