@@ -28,6 +28,7 @@
 	  @inputDate(field=studentForm("dateOfBirth"), '_label->"Date of Birth")
 
     
+    
 	   <select name="placeOfBirth" >
         @for((id, name) <- District.getDistrictsAsMap){
           <option value="@id" @if(studentForm.get.placeOfBirth.toString==id){selected}>@name</option>
