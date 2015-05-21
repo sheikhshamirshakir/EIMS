@@ -39,11 +39,11 @@
 		    
 		    <div class="row">        
   	          <label for="universityID"> Discount Category </label><br>
-  	 	      <select name="discountCategory.id" id="universityID">
+  	 	      <select name="discountName" id="universityID">
 			    <option></option>
 			    <optgroup label="Find Fees Head">
 			  	  @for((id, name) <- DiscountCategory.getDiscountsAsMap){
-			       <option value="@id" @if(id==sctForm.get.discountCategory.id.toString){selected}>@name</option>
+			       <option value="@id" @if(id==sctForm.get.discountName.toString){selected}>@name</option>
 			     } 
     	     </select>
 		    </div>

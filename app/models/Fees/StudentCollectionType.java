@@ -33,10 +33,11 @@ public class StudentCollectionType extends Model{
     @JoinColumn(name = "fees_category_id", referencedColumnName = "id")  
     public Category feesCategory;
 	
-	@ManyToOne
-    @JoinColumn(name = "discount_id", referencedColumnName = "id")  
-    public DiscountCategory discountCategory;
+//	@ManyToOne
+//    @JoinColumn(name = "discount_name", referencedColumnName = "id")  
+//    public DiscountCategory discountCategory;
 	
+	public String discountName;
       
 	public static Finder<Long, StudentCollectionType> find = new Finder(Long.class, StudentCollectionType.class);
 
