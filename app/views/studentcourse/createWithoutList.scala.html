@@ -2,7 +2,7 @@
 @import helper._
 
 @studentcourse.create(isChecked){
- @content
+
  <!-- main content -->
      <div id="main_wrapper">
           <div class="container-fluid">
@@ -20,7 +20,8 @@
                   </div>
               </div>
           </div>
-      </div>                                                  
+      </div>            
+                                            
         <form method="post" action=@routes.StudentCourseManagement.insert()>
         <input type="hidden" name="studentId" value="@studentId">
 

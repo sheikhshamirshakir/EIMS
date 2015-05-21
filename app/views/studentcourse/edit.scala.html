@@ -22,6 +22,7 @@
 		            <option value="@id">@name</option>
 		          }
 		       </optgroup>
+		       
 		   </select>
 		</div>
 		<div class="col-md-12">
@@ -29,8 +30,7 @@
 		  <select name="course.id" id="corID">
 		      <option></option>
 		      <optgroup label="Find Course">
-		        @for((id,name)<-getCoursesAsMap)
-		        {
+		        @for((id,name)<-Course.getCoursesAsMap){
 		          <option value="@id">@name</option>
 		        }
 		      </optgroup>
@@ -43,4 +43,5 @@
      </div>
    </div>
  </div>    		
+   
 }
