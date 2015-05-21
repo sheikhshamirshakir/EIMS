@@ -1,0 +1,31 @@
+@(isChecked :List[Boolean])(content: Html)
+@import models.admission.Course
+@import helper._
+
+
+@main(""){
+  @content
+ <!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Course Assign To Student</span></div>
+                        <div class="row">
+                          <div class="col-md-12">
+                             <label for="corName">Course Name</labe>
+                             @for((course, idx) <- Course.all.zipWithIndex) {
+                               <input type="checkbox" name="courseId" value="@course.id" @(if(isChecked.get(idx)== true) "checked")>
+                                @course.name
+                             }
+                          </div>
+                          <div class="col-md-12">
+                            <input type="submit" value="Assign Course to this Student" class="btn btn-primary">
+                          </div>
+                        </div>
+                 </div>
+             </div>
+          </div>
+     </div>                        
+  </form>
+}

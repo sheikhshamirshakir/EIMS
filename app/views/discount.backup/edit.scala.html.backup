@@ -1,0 +1,33 @@
+@(discountForm: Form[models.Fees.DiscountCategory])
+@import models.Fees.FeesHead
+@import helper._
+
+@main("Edit Discount"){
+<!-- main content -->
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">Edit Discount</span></div>
+           @form(routes.DiscountManagement.update()) {
+  	        <input type="hidden" name="id" value=@discountForm.get.id >
+             <div class="row">        
+  	          <label for="universityID"> Fees Head </label><br>
+  	 	      <select name="feesHead.id" id="universityID">
+			    <option></option>
+			    <optgroup label="Find Fees Head">
+			  	  @for((id, name) <- FeesHead.getFeesHeadsAsMap){
+			       <option value="@id" @if(id==discountForm.get.feesHead.id.toString){selected}>@name</option>
+			     } 
+    	     </select>
+		    </div>
+		    <div class="row"> 
+             @inputText(discountForm("name"), '_showConstraints -> false, 'class->"form-control", '_label->"Discount Name")
+            </div>
+             <div class="row"> 
+             @inputText(discountForm("discountRate"), '_showConstraints -> false, 'class->"form-control", '_label->"Discount Rate")%
+            </div>
+            <div class="row">
+	         <input type="submit" value="Update" class="btn btn-primary">
+	        </div>  
+  }
+}

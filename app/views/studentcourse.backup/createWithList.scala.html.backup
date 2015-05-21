@@ -1,0 +1,37 @@
+@(studentCourseForm: Form[dummymodels.DummyStudentCourse])
+@import models.admission.Course
+@import models.admission.Student
+@import helper._
+
+@main(""){
+<!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Course Assign To Student</span></div>
+                        <div class="row">
+						   @form(routes.StudentCourseManagement.createWithStudent(),'_id->"form_validate",'novalidate->"true"){
+							  <div class="col-md-12">
+							    <label for="stdCourse">Choose Student</label>
+							    <select name="studentId" id="stdID">
+							        <option></option>
+							        <optgroup label="Find Students">
+							           @for((id,studentName)<-Student.getStudentsAsMap){
+							            <option value="@id">@studentName</option>
+							           }
+							        </optroup>
+							    </select>
+							   </div>
+							   <div class="col-md-12">    
+							        <input type="submit" class="btn btn-primary" value="Assign Course to this Student">
+							   </div>     
+							       }
+
+                   </div>
+            </div>
+         </div>
+      </div>             
+}
+
+

@@ -1,0 +1,46 @@
+@(studentCourseForm: Form[models.admission.StudentCourse])
+@import models.admission.Student
+@import models.admission.Course
+@import helper._
+
+@main(""){
+<!-- main content -->
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+       <div class="heading_a"><span class="heading_text">Edit Student's assigned Courses</span></div> 
+
+		@form(routes.StudentCourseManagement.update()) {
+		
+		<input type="hidden" name="id" value=studentCourseForm>
+		<div class="col-md-12">
+		   <label for="studentID">Choose Student</label>
+		   <select name="student.id" id="stdID">
+		       <option></option>
+		       <optgroup label="Find Student">
+		          @for((id,name)<-Student.getStudentsAsMap){
+		            <option value="@id">@name</option>
+		          }
+		       </optgroup>
+		   </select>
+		</div>
+		<div class="col-md-12">
+		  <label for="corID">Course</label>
+		  <select name="course.id" id="corID">
+		      <option></option>
+		      <optgroup label="Find Course">
+		        @for((id,name)<-getCoursesAsMap)
+		        {
+		          <option value="@id">@name</option>
+		        }
+		      </optgroup>
+		  </select>
+		</div>
+		<div class="col-md-12">
+		  <input type="submit" value="Save" class="btn btn-primary">
+		</div>
+		}
+     </div>
+   </div>
+ </div>    		
+}

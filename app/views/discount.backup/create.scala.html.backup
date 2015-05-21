@@ -1,4 +1,4 @@
-@(discountForm: Form[dummymodels.DummyDiscount])
+@(discountForm: Form[models.Fees.DiscountCategory])
 @import models.Fees.FeesHead
 @import helper._
 
@@ -9,26 +9,24 @@
     <div class="container-fluid">
         <div class="col-md-12">
           <div class="heading_a"><span class="heading_text">New Discount</span></div>
-            
+            <div class="row">
               @form(routes.DiscountManagement.save()) { 
-
+                <label for="universityID">Select Fees Head</label>
+                  <select name="feesHead.id" id="universityID">
+                    <option></option>
+                    <optgroup label="Find Fees Head">
+	              @for((id, name) <- FeesHead.getFeesHeadsAsMap){
+                    <option value="@id">@name</option>
+                  }
+		            </optgroup> 
+                  </select>
+		    </div> 
 		    <div class="row">
 		      @inputText(field=discountForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Discount Name")
 		    </div>      
 		       <div class="row">
 		      @inputText(field=discountForm("discountRate"), '_showConstraints -> false, 'class->"form-control",'_label->"Discount Rate")%
 		    </div>   
-		    
-		     <div class="row">
-                <div class="col-md-12">
-                     <label for="corName">Select Fees Head</labe>
-                     @for((feesHead, idx) <- FeesHead.all.zipWithIndex) {
-                       <input type="checkbox" name="feesHeadIds" value="@feesHead.id">
-                        @feesHead.name
-                     }
-                  </div>
-  		      </div> 
-		    
             <div class="row">
               <input type="submit" class="btn btn-primary" value="Create">
             </div>

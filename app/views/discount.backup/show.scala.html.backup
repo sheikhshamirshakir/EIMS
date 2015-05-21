@@ -7,7 +7,10 @@
    <div class="container-fluid">
      <div class="col-md-12">
      <div class="heading_a"><span class="heading_text">Discount Deatils</span></div>
-  
+      <div class="row">
+        <label for="uniName">Fees Head Name</label>
+        <span class="form-control" id="uniName">@discount.feesHead.name</span>
+       </div>  
        <div class="row">
         <label for="facName">Discount Name</label>
         <span class="form-control" id="facName">@discount.name</span>
@@ -16,7 +19,7 @@
         <label for="facName">Discount Rate</label>
         <span class="form-control" id="facName">@discount.discountRate</span>
        </div>
-       @form(routes.DiscountManagement.edit(discount.name)) {
+       @form(routes.DiscountManagement.edit(discount.id)) {
         <div class="row">
 		    <input type="submit" value="Edit" class="btn btn-primary">
 		</div>    

@@ -24,7 +24,7 @@
            <tbody>
              @for(discount <- discounts) {
              <tr>
-               <td><a href="@routes.DiscountManagement.edit(discount.name)">@discount.id</a></td>
+               <td><a href="@routes.DiscountManagement.show(discount.id)">@discount.id</a></td>
                <td>@discount.name</td>
                <td>@discount.feesHead.name</td>
              </tr>
