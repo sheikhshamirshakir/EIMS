@@ -10,104 +10,116 @@
      <div class="row">
          @form(routes.EmployeeManagement.save(), 'id->"form_validation", 'enctype -> "multipart/form-data") { 
            <div id="student_form" class="wizard clearfix"> 	
-             <h3>Employee Information</h3>
-       		  <div class="col-md-12">
-       		    @inputText(field=employeeForm("employeeName"),'_showConstraints -> false, 'class->"form-control",'_label->"Employee Name")
-              </div>
-              <div class="col-md-12"> 
-                <label for="catID">Choose Category</label>
-                <select name="categoryId" id="catID">
-                   <option></option>
-                   <optgroup label="Find Category">
-                     @for((id,name)<-Category.getCategoriesAsMap){
-                      <option value="@id">@name</option>
-                     }
-                   </optgroup>
-		      </div>
-		    
-       		 
-       		  @select(
-		      employeeForm("departmentId"),
-		      options(Department.getDepartmentsAsMap),
-		      '_label -> "Department",
-		      '_default -> "-- Choose a Department --"
-		    )
-		    
-		     @select(
-		      employeeForm("designationId"),
-		      options(Designation.getDesignationsAsMap),
-		      '_label -> "Designation",
-		      '_default -> "-- Choose a Designation --"
-		    )
-       
-	  		 @select(
-		      employeeForm("employeeType"),
-		      options(Seq("Teacher","Staff")),
-		      '_label -> "Employee Type",
-		      '_default -> "-- Choose a Employee Type --"
-		    )			
-		           
-		      @inputRadioGroup(
-	          employeeForm("gender"),
-	          options = options("Male"->"Male","Female"->"Female"),
-	          '_label -> "Gender"
-	          )
-	          
-       		  @inputDate(field=employeeForm("dateOfBirth"), '_label->"Date of Birth", '_help -> "format dd/mm/yy")
-		      
-		      @inputDate(field=employeeForm("joiningDate"), '_label->"Joining Date", '_help -> "format dd/mm/yy")  
-		         
-       		  @inputText(field=employeeForm("fathersName"), '_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")
-       		  @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")
-       		  
-       		  
-       		  @textarea(field=employeeForm("presentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")
-       		  @textarea(field=employeeForm("permanentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
-       		  
-       		  
-       		  @select(
-		      employeeForm("placeOfBirth"),
-		      options(District.getDistrictsAsMap),
-		      '_label -> "Place Of Birth",
-		      '_default -> "-- Choose one --"
-		     )
-       		  
-       		  @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control", '_label->"National Id No")
-       		  @inputText(field=employeeForm("birthCertNo"),'_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
-       		  @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
-       		  @inputText(field=employeeForm("nationality"),'_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
-
-
-       		  @select(
-		      employeeForm("religion"),
-		      options(Seq("Islam","Hindu","Christian","Buddhist","Others")),
-		      '_label -> "Religion",
-		      '_default -> "-- Choose Your Religion --"
-		    )	
-       		  
-       		  @select(
-		      employeeForm("bloodGroup"),
-		      options(Seq("O-","O+","A-","A+","B-","B+","AB-","AB+")),
-		      '_label -> "Blood Group",
-		      '_default -> "-- Choose Your Blood Group --"
-		    )
-       		 
-       		  @inputRadioGroup(
-	          employeeForm("maritalStat"),
-	          options = options("Single"->"Single","Married"->"Married"),
-	          '_label -> "Marital Status"
-	          )
-       		  
-       		  @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
-       		 
-       		  @select(
-		      employeeForm("noOfChild"),
-		      options(Seq("1","2","3","4","5")),
-		      '_label -> "No Of Child",
-		      '_default -> "-- Choose a number --"
-		    )
-       		  
-       		 @inputText(field=employeeForm("SSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Session")
+             <h3>General Information</h3>
+              <section>
+	       		  <div class="col-md-12">
+	       		    @inputText(field=employeeForm("employeeName"),'_showConstraints -> false, 'class->"form-control",'_label->"Employee Name")
+	              </div>
+	              <div class="col-md-12">
+	                @inputText(field=employeeForm("fathersName"), '_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")
+	              </div>
+	              <div class="col-md-12">
+	                @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")
+	              </div>
+	              <div class="col-md-12">
+	                @textarea(field=employeeForm("presentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")
+	              </div>
+	              <div class="col-md-12">
+	                @textarea(field=employeeForm("permanentAddress"),'_showConstraints -> false, 'class->"form-control",'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
+	              </div>
+	              <div class="col-md-12">
+	                 @inputRadioGroup(
+	                  employeeForm("gender"),
+	                  options = options("Male"->"Male","Female"->"Female"),
+	                  '_label -> "Gender"
+	                  )
+	              </div>
+	              <div class="col-md-12">
+	                <label for="reliID">Religion</label>
+	                <select name="religion" id="reliID">
+	                   <option></option>
+	                   <optgroup label="Find Religion">
+	                      <option>Islam</option>
+	                      <option>Hindu</option>
+	                      <option>Christian</option>
+	                      <option>Buddhist</option>
+	                      <option>Others</option>
+	                   </optgroup>
+	                </select>
+	              </div>
+	              <div class="col-md-12">
+	                @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control", '_label->"National Id No")
+	              </div>
+	              <div class="col-md-12">  
+       		        @inputText(field=employeeForm("birthCertNo"),'_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
+       		      </div>
+       		      <div class="col-md-12">  
+       		        @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
+       		      </div>
+       		      <div class="col-md-12">  
+       		        @inputText(field=employeeForm("nationality"),'_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
+	              </div>  
+	          </section>
+		      <h3>Employee Others</h3>
+		      <section>
+		          <div class="col-md-12">
+		            @inputDate(field=employeeForm("dateOfBirth"), '_label->"Date of Birth", '_id->"dp_range")
+		          </div>
+		          <div class="col-md-12">
+	                <label for="birthPlace">Place Of Birth</label>
+	                <select name="placeOfBirth" id="birthPlace">
+	                   <option></option>
+	                   <optgroup label="Find Place Of Birth">
+	                     @for((id,name)<-District.getDistrictsAsMap){
+	                        <option value="@id">@name</option>
+	                     }
+	                   </optgroup>
+	                </select>
+	              </div>
+	              <div class="col-md-12">       		
+       		        <label for="bloodGroup">Blood Group</label>
+       		        <select>
+       		          <option></option>
+       		          <optgroup label="Find Blood Group">
+       		             <option>A+</option>
+       		             <option>A-</option>
+       		             <option>B+</option>
+       		             <option>B-</option>
+       		             <option>AB+</option>
+       		             <option>AB-</option>
+       		             <option>O+</option>
+       		             <option>O-</option>
+       		          </optgroup>
+       		        </select>
+       		      </div>
+       		      <div class="col-md-12">
+       		        <label for="marital">Marital Status</label>
+       		        <p><input type="radio" name="maritalStat" value="Single" id="mStatus" onclick="removeStatus()"><label>Single</label></p>
+       	            <p><input type="radio" name="maritalStat" value="Married" id="mStatus" onclick="showStatus()"><label>Married</label></p>
+       		      </div>
+       		      <div class="col-md-12">       		  
+       		        @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
+       		      </div>
+       		      <div class="col-md-12">
+       		        <label for="childID">No Of Child</label>
+       		        <select name="noOfChild" id="childID">
+       		           <option>1</option>
+       		           <option>2</option>
+       		           <option>3</option>
+       		           <option>4</option>
+       		           <option>5</option>
+       		        </select>
+		      </section>
+		      <h3>Employee Education</h3>
+		      <section>
+		        <div class="col-md-12">
+			         <label for="desID">Choose Employee Type</label>
+			          <p><input type="radio" name="employeeType" value="Teacher" id="empType" onclick="showTeacher()"><label>Teacher</label></p>
+       	              <p><input type="radio" name="employeeType" value="Staff"   id="empType" onclick="removeTeacher()"><label>General Staff</label></p>
+			      </div>
+			      <div id="teacherDiv" style="display:none">
+			         <div class="col-md-12">
+			              @inputText(field=employeeForm("SSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Session")
 			 @inputText(field=employeeForm("SSCResult"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Result")
 			 @inputText(field=employeeForm("SSCSchool"), '_showConstraints -> false, 'class->"form-control",'_label->"School Name")
 					
@@ -126,19 +138,80 @@
 			 @inputText(field=employeeForm("PHDYear"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Year")
 			 @inputText(field=employeeForm("PHDTopics"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Topics")
 			 @inputText(field=employeeForm("PHDUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"University")
-       		  
-       		  
-       		 <table>
-		     <tr>
-		         <th>Select Image </th>
-		         <td><input type="file" name="empimage"></td>
-		     </tr>
-		     </table>
+			              
+			         </div>
+			      </div>
+		      </section>
+       		  <h3>Joining Information</h3>
+       		  <section>
+       		    <div class="col-md-12"> 
+	                <label for="catID">Choose Category</label>
+	                <select name="categoryId" id="catID">
+	                   <option></option>
+	                   <optgroup label="Find Category">
+	                     @for((id,name)<-Category.getCategoriesAsMap){
+	                      <option value="@id">@name</option>
+	                     }
+	                   </optgroup>
+			      </div>
+			      <div class="col-md-12">
+			        <label for="deptID">Choose Department</label>
+			        <select name="departmentId" id="deptID">
+			          <option></option>
+			          <optgroup label="Find Department">
+			             @for((id,name)<-Department.getDepartmentsAsMap){
+			               <option value="@id">@name</option>
+			             }
+			          </optgroup>
+			        </select>
+			      </div>
+			      <div class="col-md-12">
+			         <label for="desID">Choose Designation</label>
+			         <select name="designationId" id="desID">
+			           <option></option>
+			           <optgroup label="Find Designation">
+			             @for((id,name)<-Designation.getDesignationsAsMap){
+			               <option value="@id">@name</option>
+			             }
+			           </optgroup>
+			         </select>
+			      </div>
+			      <div class="col-md-12">
+			         @inputDate(field=employeeForm("joiningDate"), '_label->"Joining Date", '_id->"dp_basic")  
+			      </div>
+       		  </section>
+       		  <h3>Employee Image</h3>		    
+		      <section>     	            		  
+       		    <div class="col-md-12">
+		         <label>Select Image </label>
+		         <input type="file" name="empimage" class="form-control">
+		        </div>
+		     </section>
             </div> 
             }
           </div>
         </div>
       </div>
+         
+      
+     <script type="text/javascript">
+     
+         function showTeacher()
+		{
+		  var teacherDiv=document.getElementById("teacherDiv");
+		  
+		    teacherDiv.style.display='block';
+		 		  
+		}
+		
+		function removeTeacher()
+		{
+		  var teacherDiv=document.getElementById("teacherDiv");
+		  
+		    teacherDiv.style.display='none';
+		 		  
+		}
+     </script>        
                         
      }
 

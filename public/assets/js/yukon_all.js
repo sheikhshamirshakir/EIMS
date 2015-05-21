@@ -1889,6 +1889,18 @@
 					placeholder: "Select..."
 				});
 			}
+			
+			if($("#childID").length){
+			  $("#childID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#reliID").length){
+			  $("#reliID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
 						
 			if($('#s2_tokenization').length) {
 				$('#s2_tokenization').select2({
