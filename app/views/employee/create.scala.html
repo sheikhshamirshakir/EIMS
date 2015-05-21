@@ -19,8 +19,7 @@
                 <select name="categoryId" id="catID">
                    <option></option>
                    <optgroup label="Find Category">
-                     @for((id,name)<-Category.getCategoriesAsMap)
-                     {
+                     @for((id,name)<-Category.getCategoriesAsMap){
                       <option value="@id">@name</option>
                      }
                    </optgroup>
