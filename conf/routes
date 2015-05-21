@@ -242,8 +242,8 @@ GET	    /fees-category/delete/:id					   	 controllers.FeesCategoryManagement.de
 GET		/discount/create						     controllers.DiscountManagement.create()
 POST	/discount/create						     controllers.DiscountManagement.save()
 GET		/discount/list							 controllers.DiscountManagement.list()
-GET		/discount/show/:id						 controllers.DiscountManagement.show(name ?= "1")
-GET		/discount/edit						 controllers.DiscountManagement.edit(name ?= "1")
+GET		/discount/show						 controllers.DiscountManagement.show(name ?="1")
+GET		/discount/edit						 controllers.DiscountManagement.edit(name ?="1")
 POST	/discount/edit							 controllers.DiscountManagement.update()
 GET	    /discount/delete/:id					   	 controllers.DiscountManagement.delete(id: Long)
 
