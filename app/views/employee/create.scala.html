@@ -5,23 +5,26 @@
 @import  models.admission.Category
 
 @main("Employee Entry") {
-	<div id="main_wrapper">
-    <div class="container-fluid">
-       <div class="row">
-          <div class="col-md-12">
-             <div class="heading_a"><span class="heading_text">Create Employee</span></div>
-                <div class="row">
-       @form(routes.EmployeeManagement.save(), 'enctype -> "multipart/form-data") { 
-       		
-       		  @inputText(field=employeeForm("employeeName"),'_showConstraints -> false, 'class->"form-control",'_label->"Employee Name")
-            
-       		  @select(
-		      employeeForm("categoryId"),
-		      options(Category.getCategoriesAsMap),
-		      '_label -> "Category",
-		      '_default -> "-- Choose a Category --"
-		    )
-		 
+<div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+         @form(routes.EmployeeManagement.save(), 'id->"form_validation", 'enctype -> "multipart/form-data") { 
+           <div id="student_form" class="wizard clearfix"> 	
+             <h3>Employee Information</h3>
+       		  <div class="col-md-12">
+       		    @inputText(field=employeeForm("employeeName"),'_showConstraints -> false, 'class->"form-control",'_label->"Employee Name")
+              </div>
+              <div class="col-md-12"> 
+                <label for="catID">Choose Category</label>
+                <select name="categoryId" id="catID">
+                   <option></option>
+                   <optgroup label="Find Category">
+                     @for((id,name)<-Category.getCategoriesAsMap)
+                     {
+                      <option value="@id">@name</option>
+                     }
+                   </optgroup>
+		      </div>
 		    
        		 
        		  @select(
@@ -132,12 +135,8 @@
 		         <td><input type="file" name="empimage"></td>
 		     </tr>
 		     </table>
-             <div class="col-md-12"> 
-              <input type="submit" value="Create">
-              </div> 
+            </div> 
             }
-              </div>
-            </div>
           </div>
         </div>
       </div>

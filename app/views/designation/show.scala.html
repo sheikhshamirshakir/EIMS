@@ -2,13 +2,20 @@
 @import helper._
 
 @main(""){
-
-  <table>
-    <tr> <th >ID</th> <td>@designation.id</td> </tr>
-    <tr> <th >Designation Name</th> <td>@designation.name</td> </tr>
-  </table>
-   
-     @form(routes.DesignationManagement.edit(designation.id)) {
-		    <input type="submit" value="Edit">
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="heading_a"><span class="heading_text">Designation Details</span></div>
+         <div class="col-md-12">
+           <label for="desName">Designation Name</label>
+           <span class="form-control">@designation.name</span>
+         </div>
+         <div class="col-md-12">
+            @form(routes.DesignationManagement.edit(designation.id)) {
+		    <input type="submit" value="Edit" class="btn btn-primary">
   		  }
+         </div>  
+       </div>
+     </div>
+   </div>    
      }

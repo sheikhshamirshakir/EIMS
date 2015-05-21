@@ -8,38 +8,28 @@
 @if(flash.get("msg")) {
 <b>@flash.get("msg")</b>
 }
-
-<h1>Student's Course Information</h1>
-
-<table border=1>
-    <tr>
-        <th align="left">Id</th>
-        <td>@studentCourse.id</td>
-    </tr>
-     <tr>
-        <th align="left">Student Id</th>
-        <td>@studentCourse.student.sid</td>
-    </tr>
-    <tr>
-        <th align="left">Student Name</th>
-        <td>@studentCourse.student.name</td>
-    </tr>
-
-     <tr>
-        <th align="left">Course Id</th>
-        <td>@studentCourse.course.id</td>
-    </tr>
-    <tr>
-        <th align="left">Course Name</th>
-        <td>@studentCourse.course.name</td>
-    </tr>
- </table>
-
-<br/> <br/>
-@form(routes.StudentCourseManagement.edit(studentCourse.id)) {
-<input type="submit" value="Edit">
-}
-<br/> <br/>
-<h3>View the <a href="@routes.StudentCourseManagement.list()">list</a> of all Student's Courses</h3>
-
+  <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="heading_a"><span class="heading_text">Student's Course Details</span></div>
+	     <div class="col-md-12">
+	       <label for="stdID">Student ID</label>
+	       <span class="form-control">@studentCourse.student.sid</span>
+	     </div>		 
+		 <div class="col-md-12">
+	       <label for="stdName">Student Name</label>
+		   <span class="form-control">@studentCourse.student.name</span>
+		 </div>
+		 <div class="col-md-12">
+		   <label for="corName">Course Name</label>
+		   <span class="form-control">@studentCourse.course.name</span>
+	     </div>
+	     <div class="col-md-12">
+			@form(routes.StudentCourseManagement.edit(studentCourse.id)) {
+			<input type="submit" class="btn btn-primary" value="Edit">
+	     </div>		
+			}
+	   </div>
+	 </div>
+   </div>	   		
 }
