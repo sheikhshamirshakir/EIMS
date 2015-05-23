@@ -51,8 +51,11 @@ public class StudentManagement extends Controller{
 	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
+		 System.out.println("......................"+filledForm.value());
+		 
 		 if (filledForm.hasErrors()) {
-				return badRequest(create.render(filledForm));
+			System.out.println("......................"+filledForm.globalError());	
+			 return badRequest(create.render(filledForm));
 
 				
 			} else {

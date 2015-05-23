@@ -39,8 +39,8 @@ public class DiscountCategory extends Model{
     @JoinColumn(name = "fees_head_id", referencedColumnName = "id")  
     public FeesHead feesHead;
 	
-    @OneToMany(mappedBy = "discountCategory")
-    public List<StudentCollectionType> studentCollectionTypes;
+//    @OneToMany(mappedBy = "discountCategory")
+//    public List<StudentCollectionType> studentCollectionTypes;
       
 	public static Finder<Long, DiscountCategory> find = new Finder(Long.class, DiscountCategory.class);
 
@@ -73,7 +73,7 @@ public class DiscountCategory extends Model{
     public static Map<String,String> getDiscountsAsMap() {
         LinkedHashMap<String,String> discounts = new LinkedHashMap<String,String>();
         
-        String sql ="select distinct name,id,discount_rate,fees_head_id  from discount_category";
+        /*String sql ="select distinct name,id,discount_rate,fees_head_id  from discount_category";
         RawSql rawSql = RawSqlBuilder.parse(sql)
         		.columnMapping("name", "name")
         		.columnMapping("id", "id")
@@ -82,11 +82,11 @@ public class DiscountCategory extends Model{
          		.create();
         
         List<DiscountCategory> discountList = find.setRawSql(rawSql).findList();
-        
-        //for(DiscountCategory discount: DiscountCategory.find.orderBy("name asc").findList()) {
-        for(DiscountCategory discount: discountList) {
-//        discounts.put(discount.id.toString(), discount.name);
-        	discounts.put(discount.id.toString(), discount.name);
+        */
+        for(DiscountCategory discount: DiscountCategory.find.orderBy("name asc").findList()) {
+        //for(DiscountCategory discount: discountList) {
+        //discounts.put(discount.id.toString(), discount.name);
+        	discounts.put(discount.name, discount.name);
         }
         
         return discounts;
