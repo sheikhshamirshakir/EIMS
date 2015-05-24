@@ -1,14 +1,19 @@
 package models.Fees;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.avaje.ebean.RawSql;
+import com.avaje.ebean.RawSqlBuilder;
 
 import models.admission.Student;
 import play.data.validation.Constraints.Required;
@@ -44,8 +49,10 @@ public class StudentFees extends Model{
     
     public Double withDiscount;
     
+    @Column(name="paid_amount")
     public Double paidAmount;
     
+    @Column(name="forward_amount")
     public Double forwardAmount;
     
 	
@@ -92,6 +99,33 @@ public class StudentFees extends Model{
 
 		return sf;
 	}
+	
+	public static List<StudentFees> findByStudentAndDate(Long studentId, String from, String to) {
+	  	 System.out.println("....................................>>>>>>>>>>>>>"+studentId);
+    	 System.out.println("....................................>>>>>>>>>>>>>"+from);
+    	 System.out.println("....................................>>>>>>>>>>>>>"+to);
+		Date fromDate = new Date();
+		Date toDate = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		try{
+		fromDate =  formatter.parse(from);
+		toDate =  formatter.parse(to);
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+	  	 System.out.println("....................................>>>>>>>>>>>>>"+studentId);
+    	 System.out.println("....................................>>>>>>>>>>>>>"+fromDate);
+    	 System.out.println("....................................>>>>>>>>>>>>>"+toDate);
+		List<StudentFees> sf = find.where()
+				.eq("student.sid", studentId)
+				.eq("fromDate", fromDate)
+				.eq("endDate", toDate)
+				.orderBy("id asc" )
+				.findList();
+
+		return sf;
+	}
 
 
 	public static List<FeesHead> findFeesHeadByStudent(Long studentId) {
@@ -129,6 +163,8 @@ public class StudentFees extends Model{
 		}
 	}
 
+	
+
 	public static void deleteByStudentAndFeesHead(Long studentId, Long feesHeadId) {
 		StudentFees sf = findByStudentAndFeesHead(studentId, feesHeadId);
 		if (sf != null) {
@@ -148,6 +184,68 @@ public class StudentFees extends Model{
 		studentFees.save();
 		return studentFees.id;
 	}
+	
+	public static Long findLastId(){
+		List<StudentFees> studentFees =  StudentFees.find.where().orderBy("id Desc").findList();
+		return studentFees.get(0).id;
+	}
+	
+	
+	public static void update(StudentFees studentFees){
+		studentFees.update();
+	}
+	
+	
+	public static Double fidLastForwardAmount(Long id ){
+		
+//		String sql ="select sf.forward_amount,sf.paid_amount"
+//				+ " from student_fees sf ";
+////				+ "where sf.student_id = "+id;
+//	    RawSql rawSql = RawSqlBuilder.unparsed(sql)
+//	    		.columnMapping("sf.forward_amount", "forwardAmount")
+////	    		.columnMapping("sf.student_id", "student.sid")
+//	    		.columnMapping("sf.paid_amount", "paidAmount")
+////	    		.columnMapping("fees_head_id", "feesHead.id")
+//	     		.create();
+//	    
+//	    
+//	    List<StudentFees> studentFees =  find.setRawSql(rawSql).findList();
+	   
+		List<StudentFees> studentFees = StudentFees.findByStudent(id);
+		List<Double> fas = new ArrayList<Double>();
+		for(StudentFees sfs : studentFees){
+			if(sfs.forwardAmount!=null)
+			{
+				System.out.println(".............................."+sfs.forwardAmount);
+  			fas.add(sfs.forwardAmount);
+			}
+		}
+		Double forwardAmount=0.0;
+		for(Double num :fas)
+		{
+			forwardAmount+=num;
+		}
+	    return forwardAmount;
+	}
+	
+	
+	
+	public static void doZeroForwardAmount(Long id ){
+		
+   
+		List<StudentFees> studentFees = StudentFees.findByStudent(id);
+//		List<Double> fas = new ArrayList<Double>();
+		for(StudentFees sfs : studentFees){
+			if(sfs.forwardAmount!=null)
+			{
+			    sfs.forwardAmount=0.0;
+  			    StudentFees.update(sfs);
+			}
+		}
+		
+	  
+	}
+	
 	
 	
 }
