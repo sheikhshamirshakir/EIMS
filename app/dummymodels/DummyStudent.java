@@ -42,7 +42,7 @@ public class DummyStudent {
 	public String motherName; 
 	public String motherMobile; 
 	public String mothersLastEduQual;
-    public int numberOfChild;
+    public String numberOfChild;
 	
     public String guardianName;            
   	public String guardianMobile;
