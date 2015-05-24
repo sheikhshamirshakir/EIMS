@@ -28,6 +28,7 @@ import models.admission.Parent;
 import models.admission.SectionSemester;
 import models.admission.Student;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -51,13 +52,25 @@ public class StudentManagement extends Controller{
 	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
-		 System.out.println("......................"+filledForm.value());
+		 //System.out.println("......................"+filledForm.value());
 		 
 		 if (filledForm.hasErrors()) {
-			System.out.println("......................"+filledForm.globalError());	
+			
+			
+		      /*important code to remember*/
+		            String errorMsg = "";
+		            java.util.Map<String, List<play.data.validation.ValidationError>> errorsAll = filledForm.errors();
+		            for (String field : errorsAll.keySet()) {
+		                errorMsg += field + " ";
+		                for (ValidationError error : errorsAll.get(field)) {
+		                    errorMsg += error.message() + ", ";
+		                }
+		            }
+		           
+		            System.out.println("Please correct the following errors:................... " + errorMsg);	
+			
 			 return badRequest(create.render(filledForm));
-
-				
+			
 			} else {
 		 DummyStudent dStudent = filledForm.get();
 		 
