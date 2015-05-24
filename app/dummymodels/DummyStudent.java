@@ -21,6 +21,7 @@ public class DummyStudent {
 	public String placeOfBirth; 
 	
 	
+	
     public String nationality;
     public String presentAddress;
     public String permanentAddress;
