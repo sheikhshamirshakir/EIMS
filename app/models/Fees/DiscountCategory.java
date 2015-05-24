@@ -79,6 +79,7 @@ public class DiscountCategory extends Model{
         		.columnMapping("id", "id")
         		.columnMapping("discount_rate", "discountRate")
         		.columnMapping("fees_head_id", "feesHead.id")
+        		
          		.create();
         
         List<DiscountCategory> discountList = find.setRawSql(rawSql).findList();
