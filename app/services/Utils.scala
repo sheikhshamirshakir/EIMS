@@ -15,9 +15,10 @@ object Utils {
     if(dt==null) { return "" }
     
     //val sdf = new SimpleDateFormat("d MMM yyyy h:mm:ssa")
-    val sdf = new SimpleDateFormat("d/M/yyyy h:mm:ssa")
+    val sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
     sdf.format(dt)
   }
+  
   
   def formatDate(dt: Date): String = {
     if(dt==null) { return "" }
