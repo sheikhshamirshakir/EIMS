@@ -30,7 +30,7 @@ public class Parent extends Model {
 	public String motherName; 
 	public String motherMobile; 
 	public String mothersLastEduQual; // Mother Educational Qualification
-    public int numberOfChild;
+    public String numberOfChild;
     
 	//public String name;
 	//public String email;
