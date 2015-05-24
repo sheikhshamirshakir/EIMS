@@ -30,6 +30,11 @@ public class StudentCollectionTypeManagement extends Controller{
 
 			} else {
 		 StudentCollectionType sct = filledForm.get();
+	     StudentCollectionType sct2 =StudentCollectionType.findByStudentId(sct.student.sid);
+		 
+	     if(sct2!=null){
+	    	 return badRequest(create.render(filledForm));
+	     }
 	     StudentCollectionType.create(sct);
 	   	 flash("success", AppConstants.SUCCESS_MESSAGE);
 	    // return ok("");

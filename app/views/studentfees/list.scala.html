@@ -1,24 +1,80 @@
-@(studentFees: List[models.Fees.StudentFees])
+@(studentFees: List[models.Fees.StudentFees],isSingle: String)
 @import helper._
+@import services.Utils
+@import models.Fees.StudentFees; var a=0.0
 
 @main(""){
 
-  
+<div id="main_wrapper">
+	<div class="container-fluid">
+	
+			<div class="col-md-12">
+				<div class="heading_a">
+					<span class="heading_text">Student's Fees Information</span>
+				</div>
+  <div class="col-md-12">
+  <label>Student Name : <b>@studentFees.get(0).student.name</b></label>
+  </div>
+  <br>
   <table border="1">
-    <tr> <th>Id</th> <th>Student Name</th> <th>Fees Heads</th><th style="text-align: right;">Amountn (BDT)</th></tr>
+    <tr> <th>Id</th>  <th>Fees Head</th><th style="text-align: right;">From Date</th><th style="text-align: right;">To Date</th><th style="text-align: right;">BDT</th></tr>
+ 
+    
+ 
     @for(sf <- studentFees) {
     <tr>
       <td><a href="@routes.StudentFeesCollectionManagement.show(sf.id)">@sf.id</a></td>
-      <td>@sf.student.name</td>
-      <td>@sf.feesHead.name</td>
+       <td>@sf.feesHead.name</td>
+             <td style="text-align: right;">@Utils.formatDate(sf.fromDate)</td>
+      <td style="text-align: right;">@Utils.formatDate(sf.endDate)</td>
       <td style="text-align: right;">@sf.amount</td>
-  
+
     </tr>
     }
  
   </table>
+  @if(isSingle.equals("yes")){
+  <label>Net Amount:             
+ @for(sf1 <- studentFees){ 
+   @if(sf1.withoutDiscount!=null){
+    @sf1.withoutDiscount BDT</label>
   
+    }
+    
+    
+    }
+
+ </br>
+ <label>Net Amount with discount : 
+  @for(sf1 <- studentFees){ 
+   @if(sf1.withDiscount!=null){
+    @sf1.withDiscount BDT</label>}
+    
+    }
+  </br>
+ <label>Received Amount :         @if(studentFees.get(studentFees.size-1).paidAmount !=null){@studentFees.get(studentFees.size-1).paidAmount BDT}else{ N/A}  </label> 
+ </br>
+ <label>Forwarded Amount :  @if(StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) !=null){@StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) BDT}else{ N/A}  </label>
+ <br/>
+ 
+ <form name="receiveForm" method="post" action="@routes.StudentFeesCollectionManagement.receive">
+
+ <input type="hidden" name="id" value="@studentFees.get(0).student.sid">
+ <input type="hidden" name="wd" value="@studentFees.get(studentFees.size-1).withDiscount">
   
  
+ <input type="hidden" name="fromdate" value="@Utils.formatDateTime(studentFees.get(0).fromDate)">
+ <input type="hidden" name="todate" value="@Utils.formatDateTime(studentFees.get(0).endDate)">
+ @if(studentFees.get(studentFees.size-1).paidAmount !=null){
+ <label>received</label>
+ }else{
+  <label>Receive Amount </label><input type="text" name ="receive">
+ <input type="submit" value="Receive" >
+  }
+  </form>
+  }
   <h3><a href="@routes.StudentFeesCollectionManagement.create()">Get Payment.</a> </h3>
+  </div>
+  </div>
+  </div>
 }      

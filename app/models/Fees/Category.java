@@ -43,6 +43,7 @@ public class Category extends Model{
         return find.where().eq("id", id).findUnique();
     }
 
+    
     public static void create(Category category) {
     	category.save();
     }

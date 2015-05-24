@@ -21,6 +21,7 @@ public class DummyStudent {
 	public String placeOfBirth; 
 	
 	
+	
     public String nationality;
     public String presentAddress;
     public String permanentAddress;
@@ -42,7 +43,7 @@ public class DummyStudent {
 	public String motherName; 
 	public String motherMobile; 
 	public String mothersLastEduQual;
-    public int numberOfChild;
+    public String numberOfChild;
 	
     public String guardianName;            
   	public String guardianMobile;
