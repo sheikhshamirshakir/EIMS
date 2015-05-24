@@ -262,9 +262,11 @@ GET	    /sct/delete/:id					   	 controllers.StudentCollectionTypeManagement.del
 GET 	/student-fees/create/with-student			controllers.StudentFeesCollectionManagement.createWithStudent(studentId: Long)
 GET 	/student-fees/create						controllers.StudentFeesCollectionManagement.create()
 POST 	/student-fees/create						controllers.StudentFeesCollectionManagement.insert()
-GET 	/student-fees/list					     	controllers.StudentFeesCollectionManagement.list()
+GET 	/student-fees/list/:id					     	controllers.StudentFeesCollectionManagement.listofthisstudent(id: Long)
+GET 	/student-fees/list					     	controllers.StudentFeesCollectionManagement.list(id: Long,from ?= "1",to ?= "1")
 GET 	/student-fees/show/:id				    	controllers.StudentFeesCollectionManagement.show(id: Long)
 GET 	/student-fees/edit/:id				    	controllers.StudentFeesCollectionManagement.edit(id: Long)
 
 POST 	/student-fees/edit					    	controllers.StudentFeesCollectionManagement.update()
+POST    /student-fees/receive                       controllers.StudentFeesCollectionManagement.receive()
 
