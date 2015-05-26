@@ -14,7 +14,7 @@
 						   @form(routes.StudentCourseManagement.createWithStudent(),'_id->"form_validate",'novalidate->"true"){
 							  <div class="col-md-12">
 							    <label for="stdCourse">Choose Student</label>
-							    <select name="studentId" id="stdID">
+							    <select name="studentId" id="stdID" class="form-control">
 							        <option></option>
 							        <optgroup label="Find Students">
 							           @for((id,studentName)<-Student.getStudentsAsMap){

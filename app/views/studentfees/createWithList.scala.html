@@ -5,34 +5,29 @@
 
 @main(""){
 
-
 @form(routes.StudentFeesCollectionManagement.createWithStudent(0L)){
 
 <div id="main_wrapper">
-	<div class="container-fluid">
-	
-			<div class="col-md-12">
-				<div class="heading_a">
-					<span class="heading_text">Assign FeesHead to a Student</span>
-				</div>
-				<div class="row">
-								
-					
-						@select(studentFeesForm("studentId"),
-						options(Student.getStudentsAsMap), '_label -> "Student", '_default
-						-> "-- Choose a Student --", '_showConstraints -> false ) <br />
-					
-					<div class="col-md-12">
-						<input type="submit" value="Get Payment from this Student"
-							class="btn btn-primary">
-					</div>
-				@*<span class="heading_text">View the <a href="@routes.StudentFeesCollectionManagement.list()">list</a> of all payments</span>*@
-				</div>
-			</div>
-		</div>
+  <div class="container-fluid">
+    <div class="row">
+	  <div class="heading_a"><span class="heading_text">Assign FeesHead to a Student</span></div>
+	    <div class="col-md-12">	
+	      <label for="stdFees">Choose a Student</label>	
+	       <select name="studentId" id="stdID" class="form-control">	
+	         <option></option>
+	         <optgroup label="Find Student">
+	           @for((id,name)<-Student.getStudentsAsMap){
+	             <option value="@id">@name</option>
+	           }
+	         </optgroup>
+	        </select>	
+	      </div>      
+		  <div class="col-md-12">
+			<input type="submit" value="Get Payment from this Student" class="btn btn-primary">
+		  </div>
+	 </div>
+  </div>
 </div>
 }
-<br />
-<br />
 
 }

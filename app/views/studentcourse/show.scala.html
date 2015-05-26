@@ -2,44 +2,36 @@
 @import helper._
 
 @main(""){
-
-
    
 @if(flash.get("msg")) {
 <b>@flash.get("msg")</b>
 }
-
-<h1>Student's Course Information</h1>
-
-<table border=1>
-    <tr>
-        <th align="left">Id</th>
-        <td>@studentCourse.id</td>
-    </tr>
-     <tr>
-        <th align="left">Student Id</th>
-        <td>@studentCourse.student.sid</td>
-    </tr>
-    <tr>
-        <th align="left">Student Name</th>
-        <td>@studentCourse.student.name</td>
-    </tr>
-
-     <tr>
-        <th align="left">Course Id</th>
-        <td>@studentCourse.course.id</td>
-    </tr>
-    <tr>
-        <th align="left">Course Name</th>
-        <td>@studentCourse.course.name</td>
-    </tr>
- </table>
-
-<br/> <br/>
-@form(routes.StudentCourseManagement.edit(studentCourse.id)) {
-<input type="submit" value="Edit">
-}
-<br/> <br/>
-<h3>View the <a href="@routes.StudentCourseManagement.list()">list</a> of all Student's Courses</h3>
-
+ <div id="main_wrapper">
+    <div class="container-fluid">
+     <div class="row">
+      <div class="heading_a"><span class="heading_text">Student's Course Information</span></div>
+       <div class="col-md-12">
+          <label for="stdID">Student Id</label>
+          <span class="form-control">@studentCourse.student.sid</span>
+       </div>
+      <div class="col-md-12">
+        <label for="stdName">Student Name</label>
+        <span class="form-control">@studentCourse.student.name</span>
+      </div>
+      <div class="col-md-12">
+        <label for="courID">Course Id</label>
+        <span class="form-control">@studentCourse.course.id</span>
+      </div>
+      <div class="col-md-12">
+        <label for="couName">Course Name</label>
+        <span class="form-control">@studentCourse.course.name</span>
+    </div>
+    @form(routes.StudentCourseManagement.edit(studentCourse.id)) {
+     <div class="col-md-12">
+       <input type="submit" value="Edit" class="btn btn-primary">
+     </div>  
+     }
+   </div>
+  </div>
+ </div>   
 }

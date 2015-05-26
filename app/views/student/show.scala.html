@@ -11,8 +11,10 @@
     <div class="container-fluid">
       <div class="row">
         <div class="heading_a"><span class="heading_text">Student Details</span></div>
-       <img src=@routes.Assets.at("images/photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;"/></span>
-      
+        
+        <div class="col-md-12">
+          <img src=@routes.Assets.at("images/photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>
+        </div> 
         <div class="col-md-12">
            <label for="StudentName">Student Name</label>
            <span class="form-control">@student.name</span>
@@ -90,20 +92,14 @@
         <div class="col-md-12">
            <label for="needCom">Need to complete</label>
            <span class="form-control">@(student.atleastCredit-student.completecredit)</span>
-        </div>
-      </div>
-    </div>
-   </div>     
-        
-    @*<tr> <th >Division</th> <td>@student.division.name</td> </tr>
-    <tr> <th >District</th> <td>@student.district.name</td> </tr>*@    
-   <div class="col-md-12">
-     @form(routes.StudentManagement.edit(student.sid)) {
+        </div>  
+        <div class="col-md-12">
+          @form(routes.StudentManagement.edit(student.sid)) {
 		    <input type="submit" value="Edit" class="btn btn-primary">
   		  }
-   </div> 	
-  </div>
- </div>
+        </div> 	
+      </div>
+   </div>
 </div>    	  
      }
 

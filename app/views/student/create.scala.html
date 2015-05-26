@@ -33,7 +33,7 @@
 	        <div class="col-md-12">  
 	          <div class="form-group"> 	 
 	           <label for="birthPlace">Place of Birth</label>     
-	           <select name="placeOfBirth" id="birthPlace">
+	           <select name="placeOfBirth" id="birthPlace" class="form-control">
 	                <option></option>
 	                <optgroup label="Place Of Birth">
 	                  @for((id,name)<-District.getDistrictsAsMap){
@@ -133,7 +133,7 @@
      	  <div class="col-md-12">  
             <div class="form-group">
               <label for="regID">Religion</label>
-              <select name="religion" id="regID">
+              <select name="religion" id="regID" class="form-control">
                  <option></option>
                  <optgroup label="Find Religion">
                     <option>Islam</option>
@@ -148,7 +148,7 @@
        	  <div class="col-md-12">	 
        		<div class="form-group"> 
        		 <label for="groupID">Blood Group</label>
-       		 <select name="bloodGroup" id="groupID">
+       		 <select name="bloodGroup" id="groupID" class="form-control">
        		    <option></option>
        		    <optgroup label="Find Boold Group">
        		       <option>A+</option>
@@ -223,7 +223,7 @@
 		   <div class="col-md-12">  
             <div class="form-group">
                <label for="broID">No Of Brother/Sister</label>
-               <select name="numberOfChild" id="broID">
+               <select name="numberOfChild" id="broID" class="form-control">
                  <option></option>
                  <optgroup label="Find Number">
                     <option value="1">1</option>
@@ -280,7 +280,7 @@
    		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="levelOfEducation1">Level of Education</label>
-		        <select name="levelOfEducation1" id="levelOfEducation1">
+		        <select name="levelOfEducation1" id="levelOfEducation1" class="form-control">
 			        <option></option>
 			          <optgroup label="Find Degree">
 			            <option value="SSC">SSC</option>
@@ -313,7 +313,7 @@
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduBoard">Education Board</label>
-		        <select name="board1" id="eduBoard">
+		        <select name="board1" id="eduBoard" class="form-control">
 		          <option></option>
 		          <optgroup label="Find Board">
 		            <option value="Dhaka">Dhaka</option>
@@ -346,7 +346,7 @@
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="levelOfEducation2">Level of Education</label>
-		        <select name="levelOfEducation2" id="levelOfEducation2">
+		        <select name="levelOfEducation2" id="levelOfEducation2" class="form-control">
 			        <option></option>
 			          <optgroup label="Find Degree">
 			            <option value="SSC">SSC</option>
@@ -379,7 +379,7 @@
 		   <div class="col-md-12">
 		     <div class="form-group">
 		        <label for="eduBoard">Education Board</label>
-		        <select name="board2" id="eduBoardTwo">
+		        <select name="board2" id="eduBoardTwo" class="form-control">
 		          <option></option>
 		          <optgroup label="Find Board">
 		            <option value="Dhaka">Dhaka</option>
@@ -546,10 +546,7 @@
               @inputPassword(field=studentForm("password"), '_showConstraints->false,'class->"form-control",'_label->"Password")
             </div>  
            </div> 
- 
 		</section>
-		
-
     </div>
    </div>   
    </div>           
