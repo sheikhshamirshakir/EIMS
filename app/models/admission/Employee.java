@@ -37,6 +37,16 @@ public class Employee extends Model {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     public Category category;
 	
+    
+    @ManyToOne
+    @JoinColumn(name = "department_id", referencedColumnName = "id")
+    public Department department;
+	
+    
+    @ManyToOne
+    @JoinColumn(name = "designation_id", referencedColumnName = "id")
+    public Designation designation;
+	
 	
 	//joining date
 	 public Date joiningDate;

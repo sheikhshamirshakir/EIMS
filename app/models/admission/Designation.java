@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
@@ -34,6 +33,8 @@ public class Designation extends Model{
     @OneToMany(mappedBy = "designation")
     public List<Teacher> teachers;  // TOREAD;
     
+  @OneToMany(mappedBy = "designation")
+  public List<Employee> employees;
     
 	public static Finder<Long, Designation> find = new Finder(Long.class, Designation.class);
 

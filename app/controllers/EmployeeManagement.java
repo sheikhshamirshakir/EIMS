@@ -73,8 +73,9 @@ public class EmployeeManagement extends Controller{
 		 employee.maritalStat=dEmployee.maritalStat;
 		 employee.spouseName=dEmployee.spouseName;
 		 employee.noOfChild=dEmployee.noOfChild;
-		
-		 
+		 employee.department=Department.findById(Long.parseLong(dEmployee.departmentId));
+		 employee.designation=Designation.findById(Long.parseLong(dEmployee.designationId));
+				 
 		 Employee.create(employee);
 		 
 		 

@@ -39,6 +39,9 @@ public class Department extends Model{
     @OneToMany(mappedBy = "department")
     public List<Student> students;
     
+    @OneToMany(mappedBy = "department")
+    public List<Employee> employees;
+    
 	public static Finder<Long, Department> find = new Finder(Long.class, Department.class);
 
     public static List<Department> all() {

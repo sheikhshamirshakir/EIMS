@@ -1,6 +1,9 @@
 @(employeeForm: Form[models.admission.Employee])
 @import helper._
 @import models.admission.Category
+@import models.admission.Department
+@import models.admission.Designation
+
 
 @main("Edit Employee"){
 <div id="main_wrapper">
@@ -349,12 +352,13 @@
 	                </select>   
 			      </div>
 			      <div class="col-md-12">
+			        
 			        <label for="deptID">Choose Department</label>
 			        <select name="departmentId" id="deptID" class="form-control">
 			          <option></option>
 			          <optgroup label="Find Department">
 			             @for((id,name)<-Department.getDepartmentsAsMap){
-			               <option value="@id">@name</option>
+			               <option value="@id" @if(employeeForm.get.department.id.toString==id){selected}>@name</option>
 			             }
 			          </optgroup>
 			        </select>
@@ -365,7 +369,7 @@
 			           <option></option>
 			           <optgroup label="Find Designation">
 			             @for((id,name)<-Designation.getDesignationsAsMap){
-			               <option value="@id">@name</option>
+			               <option value="@id" @if(employeeForm.get.designation.id.toString==id){selected}>@name</option>
 			             }
 			           </optgroup>
 			         </select>
