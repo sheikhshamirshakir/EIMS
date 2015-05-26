@@ -4,119 +4,118 @@
 @import helper._
 
 @main("Employee"){
-
 <div id="main_wrapper">
-    <div class="container-fluid">
-      <div class="row">
-  <div class="heading_a"><span class="heading_text">Employee Details</span></div>
-   
-  
-
-        <img src=@routes.Assets.at("images/photos/employee/"+employee.name.replaceAll("\\s+","")+employee.id+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;" />
-
-               
-    
-    
-                    <div class="col-md-12">
+   <div class="container-fluid">
+     <div class="col-md-12">
+      <div class="heading_a"><span class="heading_text">Employee Deatils</span></div>
+       <div class="col-md-12">
+         <img src=@routes.Assets.at("images/photos/employee/"+employee.name.replaceAll("\\s+","")+employee.id+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;" />
+       </div>
+       <div class="col-md-12">
            <label for="corID">Employee Name</label>
            <span class="form-control" id="corID">@employee.name</span>
-         </div>
-                   <div class="col-md-12">
-        
+       </div>
+       <div class="col-md-12"> 
            <label for="corID">Employee Type</label>
            <span class="form-control" id="corID">@employee.employeeType</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Category</label>
            <span class="form-control" id="corID">@employee.category.name</span>
-         </div>
-
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Date of Birth</label>
            <span class="form-control" id="corID">@Utils.formatDate(employee.dateOfBirth)</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Joining Date</label>
            <span class="form-control" id="corID">@Utils.formatDate(employee.joiningDate)</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Gender</label>
            <span class="form-control" id="corID">@employee.gender</span>
-         </div>
-
-      
-       
-                   <div class="col-md-12">
+       </div>     
+       <div class="col-md-12">
            <label for="corID">Father's Name</label>
            <span class="form-control" id="corID">@employee.fathersName</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Mother's Name</label>
            <span class="form-control" id="corID">@employee.mothersName</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Present Address</label>
            <span class="form-control" id="corID">@employee.presentAddress</span>
-         </div>
-         
-                   <div class="col-md-12">
+       </div> 
+       <div class="col-md-12">
            <label for="corID">Permanent Address</label>
            <span class="form-control" id="corID">@employee.permanentAddress</span>
-         </div>
-
-       
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Place Of Birth</label>
            <span class="form-control" id="corID">@employee.placeOfBirth</span>
-         </div>
-
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">National Id No</label>
            <span class="form-control" id="corID">@employee.natIdNo</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Birth Certificate No</label>
            <span class="form-control" id="corID">@employee.birthCertNo</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">TIN</label>
            <span class="form-control" id="corID">@employee.tin</span>
-         </div>          
-         <div class="col-md-12">
+       </div>          
+       <div class="col-md-12">
            <label for="corID">Nationality</label>
            <span class="form-control" id="corID">@employee.nationality</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Religion</label>
            <span class="form-control" id="corID">@employee.religion</span>
-         </div>
-  
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Blood Group</label>
            <span class="form-control" id="corID">@employee.bloodGroup</span>
-         </div>
-                   <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">Marital Status</label>
            <span class="form-control" id="corID">@employee.maritalStat</span>
-         </div>          
-         <div class="col-md-12">
+       </div>          
+       <div class="col-md-12">
            <label for="corID">Spouse Name</label>
            <span class="form-control" id="corID">@employee.spouseName</span>
-         </div>
-          <div class="col-md-12">
+       </div>
+       <div class="col-md-12">
            <label for="corID">No Of Child</label>
            <span class="form-control" id="corID">@employee.noOfChild</span>
-         </div>
-         
-    
-    
-   <div class="col-md-12">
-     @form(routes.EmployeeManagement.edit(employee.id)) {
+       </div> 
+       <div class="col-md-12">
+         <table width="100%">
+           <thead>
+             <th>Level Of Education</th>
+             <th>Degree Title</th>
+             <th>Group</th>
+             <th>Institute Name</th>
+             <th>Result</th>
+             <th>Passing Year</th>
+             <th>Duration</th>
+           </thead>
+           <tbody>
+            <tr>
+              <td></td>
+            </tr>
+           </tbody> 
+         </table>
+       </div>   
+       <div class="col-md-12">
+          @form(routes.EmployeeManagement.edit(employee.id)) {
 		    <input type="submit" value="Edit" class="btn btn-primary">
   		  }
-  		   </div> 
-  	  </div>
-  	</div>
+  	   </div> 
+  	 </div>
+   </div>
  </div> 	 
      }
 

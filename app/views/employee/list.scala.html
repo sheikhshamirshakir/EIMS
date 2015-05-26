@@ -1,7 +1,7 @@
 @(employees: List[models.admission.Employee])
 @import helper._
 
-@main("List of Employees"){
+@mainlist("List of Employees"){
 
  
   	@if(flash.get("msg")){
@@ -9,35 +9,32 @@
      }
   
   <div id="main_wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
-
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Employee Name</th>
-        <th>Employee Type</th>
-
-
-
-
-       
-     </tr>
-   </thead>
-    <tbody>
-    @for(employee <- employees) {
-      <tr>
-        <td><a href="@routes.EmployeeManagement.show(employee.id)">@employee.id</a></td>
-        <td>@employee.name</td>
-         <td>@employee.employeeType</td>
-       
-      </tr> 
-    }
- </tbody>
- </table>
- </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	         <thead>
+			   <tr>
+			     <th>ID</th>
+			     <th>Employee Name</th>
+			     <th>Employee Type</th>
+			     <th>Employee Department</th>
+			     <th>Employee Image</th>
+			   </tr>
+			 </thead>
+			 <tbody>
+			  @for(employee <- employees) {
+			    <tr>
+			      <td><a href="@routes.EmployeeManagement.show(employee.id)">@employee.id</a></td>
+			      <td>@employee.name</td>
+			      <td>@employee.employeeType</td>
+			      <td></td>
+			      <td><img src=""/></td>
+			    </tr> 
+			  }
+			</tbody>
+		</table>
+      </div>
      </div>
    </div>
 </div>     		  

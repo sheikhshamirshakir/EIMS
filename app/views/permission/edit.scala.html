@@ -6,16 +6,17 @@
      <div class="container-fluid">
         <div class="row">
            <div class="col-md-12">
-             <div class="heading_a"><span class="heading_text">Edit Permission</span></div>	
-  
-  
-  @form(routes.PermissionManagement.update()) {
-  	  <input type="hidden" name="id" value=@permissionForm.get.id >
-  	  
-      @inputText(permissionForm("permissionName"), '_showConstraints -> false, 'class->"form-control",'_label->"Permission Name")</tr>
-	 <input type="submit" value="Update" class="btn btn-primary">
-  }
-   </div>
+             <div class="heading_a"><span class="heading_text">Edit Permission</span></div>	  
+              @form(routes.PermissionManagement.update()) {
+  	           <input type="hidden" name="id" value=@permissionForm.get.id >
+  	             <div class="col-md-12">
+			      @inputText(permissionForm("permissionName"), '_showConstraints -> false, 'class->"form-control",'_label->"Permission Name")
+			     </div>
+			     <div class="col-md-12">
+				  <input type="submit" value="Update" class="btn btn-primary">
+				 </div>
+			  }
+           </div>
 	      </div>
 	    </div>
 	 </div>   

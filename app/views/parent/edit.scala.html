@@ -2,22 +2,43 @@
 @import helper._
 
 @main("Edit Parent"){
-  <h2>Update the Parent having ID @parentForm.get.pid</h2><br/><br/>
-  
-  @form(routes.ParentManagement.update()) {
-  	  <input type="hidden" name="pid" value=@parentForm.get.pid >
-  	  
-      @inputText(parentForm("fatherName"), '_label->"Father's Name")
-      @inputText(parentForm("fatherEmail"), '_label->"Father's Email")
-      @inputText(parentForm("fatherMobile"), '_label->"Father's Mobile no.")
-      @inputText(parentForm("fathersLastEduQual"), '_label->"Father's Educational qualification")
-      @inputText(parentForm("motherName"), '_label->"Mother's Name")
-      @inputText(parentForm("motherMobile"), '_label->"Mother's Mobile no.")
-      @inputText(parentForm("mothersLastEduQual"), '_label->"Mother's Educational qualification")
-      @inputText(parentForm("numberOfChild"), '_label->"Number of Child") 
-	  <input type="submit" value="Update">
-     	
-  }
+<div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="heading_a"><span class="heading_text">Edit Parent Information</span></div>
+        @form(routes.ParentManagement.update()) {
+  	     <input type="hidden" name="pid" value=@parentForm.get.pid >
+  	      <div class="col-md-12">
+  	         @inputText(parentForm("fatherName"), '_showConstraints -> false, 'class->"form-control", '_label->"Father's Name")
+  	      </div>
+  	      <div class="col-md-12">
+  	         @inputText(parentForm("fatherEmail"), '_showConstraints -> false, 'class->"form-control", '_label->"Father's Email")
+  	      </div>
+          <div class="col-md-12">
+            @inputText(parentForm("fatherMobile"), '_showConstraints -> false, 'class->"form-control", '_label->"Father's Mobile no.")
+          </div>
+          <div class="col-md-12">
+            @inputText(parentForm("fathersLastEduQual"), '_showConstraints -> false, 'class->"form-control", '_label->"Father's Educational qualification")
+          </div>
+          <div class="col-md-12">
+             @inputText(parentForm("motherName"), '_showConstraints -> false, 'class->"form-control", '_label->"Mother's Name")
+          </div>
+          <div class="col-md-12">
+             @inputText(parentForm("motherMobile"), '_showConstraints -> false, 'class->"form-control", '_label->"Mother's Mobile no.")
+          </div>
+          <div class="col-md-12">
+             @inputText(parentForm("mothersLastEduQual"), '_showConstraints -> false, 'class->"form-control", '_label->"Mother's Educational qualification")
+          </div>
+          <div class="col-md-12">
+            @inputText(parentForm("numberOfChild"), '_showConstraints -> false, 'class->"form-control", '_label->"Number of Child") 
+          </div>
+          <div class="col-md-12">  
+	       <input type="submit" class="btn btn-primary" value="Update">
+	      </div 
+    }
+  </div>
+ </div>
+</div>  
 }
 
 

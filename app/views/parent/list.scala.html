@@ -1,33 +1,39 @@
 @(parents: List[models.admission.Parent])
 @import helper._
 
-@main("List of Parents"){
-
- 
+@mainlist("List of Parents"){
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
-  
-  <table>
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Father's Name</th>
-   	   <th>Mother's Mobile</th>
-   	   
-     </tr>
-   </thead>
-    <tbody>
-    @for(parent <- parents) {
-      <tr>
-        <td><a href="@routes.ParentManagement.show(parent.pid)">@parent.pid</a></td>
-        <td>@parent.fatherName</td>
-      	<td>@parent.motherName</td> 
-       
-       </tr> 
-    }
- </tbody>
- </table>
-
+ <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+           <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	         <thead>
+			   <tr>
+			       <th>ID</th>
+			       <th>Father's Name</th>
+			       <th>Father's Mobile</th>
+			       <th>Mother's Name</th>
+			   	   <th>Mother's Mobile</th>
+			   </tr>
+			</thead>
+		    <tbody>
+		    @for(parent <- parents) {
+		      <tr>
+		        <td><a href="@routes.ParentManagement.show(parent.pid)">@parent.pid</a></td>
+		        <td>@parent.fatherName</td>
+		        <td></td>
+		      	<td>@parent.motherName</td> 
+		        <td></td>
+		       </tr> 
+    			}
+		   </tbody>
+		</table>
+     </div>
+    </div>
+  </div>
+</div>      
 }      
 

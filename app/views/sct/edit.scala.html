@@ -8,49 +8,47 @@
 <!-- main content -->
   <div id="main_wrapper">
     <div class="container-fluid">
-      <div class="col-md-12">
+      <div class="row">
         <div class="heading_a"><span class="heading_text">Edit Student Collection</span></div>
            @form(routes.StudentCollectionTypeManagement.update()) {
            
   	        <input type="hidden" name="id" value=@sctForm.get.id >
             
-             <div class="row">        
+             <div class="col-md-12">        
   	          <label for="universityID"> Student </label><br>
-  	 	      <select name="student.sid" id="universityID">
+  	 	       <select name="student.sid" id="universityID" class="form-control">
 			    <option></option>
 			    <optgroup label="Find Fees Head">
 			  	  @for((id, name) <- Student.getStudentsAsMap){
 			       <option value="@id" @if(id==sctForm.get.student.sid.toString){selected}>@name</option>
 			     } 
-    	     </select>
-		    </div>
-		    
-		    
-		    <div class="row">        
-  	          <label for="universityID"> Fees Category </label><br>
-  	 	      <select name="feesCategory.id" id="universityID">
-			    <option></option>
-			    <optgroup label="Find Fees Head">
-			  	  @for((id, name) <- Category.getCategoriesAsMap){
+    	       </select>
+		      </div>
+		      <div class="col-md-12">        
+  	            <label for="universityID"> Fees Category </label><br>
+  	 	        <select name="feesCategory.id" id="universityID" class="form-control">
+			     <option></option>
+			     <optgroup label="Find Fees Head">
+			  	   @for((id, name) <- Category.getCategoriesAsMap){
 			       <option value="@id" @if(id==sctForm.get.feesCategory.id.toString){selected}>@name</option>
-			     } 
-    	     </select>
-		    </div>
-		    
-		    <div class="row">        
-  	          <label for="universityID"> Discount Category </label><br>
-  	 	      <select name="discountName" id="universityID">
+			      } 
+    	        </select>
+		      </div>
+		      <div class="col-md-12">        
+  	           <label for="universityID"> Discount Category </label><br>
+  	 	       <select name="discountName" id="universityID" class="form-control">
 			    <option></option>
 			    <optgroup label="Find Fees Head">
 			  	  @for((id, name) <- DiscountCategory.getDiscountsAsMap){
 			       <option value="@id" @if(id==sctForm.get.discountName.toString){selected}>@name</option>
 			     } 
-    	     </select>
-		    </div>
-		    
-		    
-            <div class="row">
-	         <input type="submit" value="Update" class="btn btn-primary">
-	        </div>  
+    	       </select>
+		      </div>
+              <div class="col-md-12">
+	           <input type="submit" value="Update" class="btn btn-primary">
+	          </div>  
   }
+  </div>
+ </div>
+</div>  
 }

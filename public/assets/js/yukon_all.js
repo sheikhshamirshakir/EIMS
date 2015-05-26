@@ -1,6 +1,6 @@
 /* Yukon Admin all functions
  *
- * Content:
+ * Content: 
  *
  * 1. Helpers
  * 2. Common functions
@@ -1786,6 +1786,30 @@
 				});
 			}
 			
+			if ($("#division").length) {
+				$("#division").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#district").length) {
+				$("#district").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#division1").length) {
+				$("#division1").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#district1").length) {
+				$("#district1").select2({
+					placeholder: "Select..."
+				});
+			}
+			
 			if ($("#facultyid").length) {
 				$("#facultyid").select2({
 					allowClear: true,
@@ -1896,8 +1920,50 @@
 			  })			
 			}
 			
-			if($("#reliID").length){
-			  $("#reliID").select2({
+			if($("#relgID").length){
+			  $("#relgID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#birthPlace").length){
+			  $("#birthPlace").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#blgID").length){
+			  $("#blgID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#levelOfEducation1").length){
+			  $("#levelOfEducation1").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#levelOfEducation2").length){
+			  $("#levelOfEducation2").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#levelOfEducation3").length){
+			  $("#levelOfEducation3").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#levelOfEducation4").length){
+			  $("#levelOfEducation4").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#levelOfEducation5").length){
+			  $("#levelOfEducation5").select2({
 			       placeholder: "Select....."
 			  })			
 			}

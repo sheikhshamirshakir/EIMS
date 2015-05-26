@@ -3,107 +3,412 @@
 @import models.admission.Category
 
 @main("Edit Employee"){
-
-  <div id="main_wrapper">
-          <div class="container-fluid">
-                <div class="row">
-                   <div class="col-md-12">
-                      <div class="heading_a"><span class="heading_text">Update the Employee having ID @employeeForm.get.id</span></div>
-                        <div class="row">
-  @form(routes.EmployeeManagement.update()) {
-  	  <input type="hidden" name="id" value=@employeeForm.get.id >
-  	  
-      @inputText(employeeForm("name"),'_showConstraints -> false, 'class->"form-control", '_label->"Employee Name")</tr>
-      
-       <label>Category</label>
-	   <select name="category.id" >
-	    <option value="" @if(employeeForm.get.category.id.toString==null){selected}>choose a category</option>
-        @for((id, name) <- Category.getCategoriesAsMap){
-          <option value="@id" @if(employeeForm.get.category.id.toString==id){selected}>@name</option>
-        }
-        
-        
-        </select>
-        <br/>
-        <label>Employee Type</label>
-	   <select name="employeeType" >
-         <option value="Teacher" @if(employeeForm.get.employeeType.toString=="Teacher"){selected}>Teacher</option>
-         <option value="Stuff" @if(employeeForm.get.employeeType.toString=="Stuff"){selected}>Stuff</option>
-         
-       </select>
-       <br/>
-       
-       <label>Gender</label>
-	   <input type="radio" name="gender"value="Male" @if(employeeForm.get.gender.toString=="Male"){checked}><label>Male</label>
-       <input type="radio" name="gender"value="Female" @if(employeeForm.get.gender.toString=="Female"){checked}><label>Female</label>
-      </select>
-      @inputText(field=employeeForm("fathersName"),'_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")
-	  @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")	  
-      @textarea(field=employeeForm("presentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")
-  	  @textarea(field=employeeForm("permanentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
-	    
-	  <label>Place of birth</label>
-	   <select name="placeOfBirth" >
-	    <option value="" @if(employeeForm.get.placeOfBirth.toString==null){selected}>choose a district</option>
-        @for((id, name) <- District.getDistrictsAsMap){
-          <option value="@id" @if(employeeForm.get.placeOfBirth.toString==id){selected}>@name</option>
-        }
-        </select>
-	  
-	  @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control",'_label->"National Id No")
-	  @inputText(field=employeeForm("birthCertNo"), '_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
-	  @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
-	  @inputText(field=employeeForm("nationality"), '_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
-	  
-	   <label>Religion</label>
-	   <select name="religion" >
-         <option value="Islam" @if(employeeForm.get.religion.toString=="Islam"){selected}>Islam</option>
-         <option value="Hindu" @if(employeeForm.get.religion.toString=="Hindu"){selected}>Hindu</option>
-         <option value="Christian" @if(employeeForm.get.religion.toString=="Christian"){selected}>Christian</option>
-         <option value="Buddhist" @if(employeeForm.get.religion.toString=="Buddhist"){selected}>Buddhist</option>
-         <option value="Others" @if(employeeForm.get.religion.toString=="Others"){selected}>Others</option>
-       </select>
-	  <br/>
-
-	   <label>Blood Group</label>
-	   <select name="bloodGroup" >
-         <option value="O-" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
-         <option value="O+" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
-         <option value="A-" @if(employeeForm.get.bloodGroup.toString=="A-"){selected}>A-</option>
-         <option value="A+" @if(employeeForm.get.bloodGroup.toString=="A+"){selected}>A+</option>
-         <option value="B-" @if(employeeForm.get.bloodGroup.toString=="B-"){selected}>B-</option>
-         <option value="B+" @if(employeeForm.get.bloodGroup.toString=="B+"){selected}>B+</option>
-         <option value="AB-" @if(employeeForm.get.bloodGroup.toString=="AB-"){selected}>AB-</option>
-         <option value="AB+" @if(employeeForm.get.bloodGroup.toString=="AB+"){selected}>AB+</option>
-      </select>
-
-	<br/>
-	   <label>Marital status</label>
-	   <input type="radio" name="maritalStat"value="Single" @if(employeeForm.get.maritalStat.toString=="Single"){checked}> <label>Single</label>
-       <input type="radio" name="maritalStat"value="Married" @if(employeeForm.get.maritalStat.toString=="Married"){checked}><label>Married</label>
-      </select>
-	   
-	  
-	  @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
-	  
-	 
-	    <label>No. of Child</label>
-	   <select name="noOfChild" >
-         <option value="1" @if(employeeForm.get.noOfChild.toString=="1"){selected}>1</option>
-		<option value="2" @if(employeeForm.get.noOfChild.toString=="2"){selected}>2</option>
-		<option value="3" @if(employeeForm.get.noOfChild.toString=="3"){selected}>3</option>
-		<option value="4" @if(employeeForm.get.noOfChild.toString=="4"){selected}>4</option>
-		<option value="5" @if(employeeForm.get.noOfChild.toString=="5"){selected}>5</option>
-         
-      </select>
-	  
-	  <div class="col-md-12"> 
-	  <input type="submit" value="Update">
-	  </div>
+<div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+	   @form(routes.EmployeeManagement.update()) {
+	 	  <input type="hidden" name="id" value=@employeeForm.get.id >	
+	 	   <div id="student_form" class="wizard clearfix"> 	
+             <h3>General Information</h3>
+              <section>
+               <div class="col-md-12">				  	  
+                 @inputText(employeeForm("name"),'_showConstraints -> false, 'class->"form-control", '_label->"Employee Name")
+               </div>  
+               <div class="col-md-12">
+                   @inputText(field=employeeForm("fathersName"),'_showConstraints -> false, 'class->"form-control", '_label->"Fathers Name")                  
+               </div> 
+               <div class="col-md-12">
+                  @inputText(field=employeeForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mothers Name")	                   
+               </div> 
+               <div class="col-md-12">
+                  @textarea(field=employeeForm("presentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Present Address")                 
+               </div>
+               <div class="col-md-12">
+                 @textarea(field=employeeForm("permanentAddress"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"Permanent Address")
+               </div>
+               <div class="col-md-12">
+                  <label for="gender">Gender</label>
+				   <input type="radio" name="gender"value="Male" @if(employeeForm.get.gender.toString=="Male"){checked}><label>Male</label>
+			       <input type="radio" name="gender"value="Female" @if(employeeForm.get.gender.toString=="Female"){checked}><label>Female</label>
+               </div>
+               <div class="col-md-12">
+                  <label for="relgID">Religion</label>
+				   <select name="religion" id="relgID" class="form-control">
+				     <option></option>
+	                 <optgroup label="Find Religion">
+				         <option value="Islam" @if(employeeForm.get.religion.toString=="Islam"){selected}>Islam</option>
+				         <option value="Hindu" @if(employeeForm.get.religion.toString=="Hindu"){selected}>Hindu</option>
+				         <option value="Christian" @if(employeeForm.get.religion.toString=="Christian"){selected}>Christian</option>
+				         <option value="Buddhist" @if(employeeForm.get.religion.toString=="Buddhist"){selected}>Buddhist</option>
+				         <option value="Others" @if(employeeForm.get.religion.toString=="Others"){selected}>Others</option>
+				     </optgroup>    
+			       </select>
+               </div>
+               <div class="col-md-12">
+                  @inputText(field=employeeForm("natIdNo"), '_showConstraints -> false, 'class->"form-control",'_label->"National Id No")
+               </div>
+               <div class="col-md-12">   
+	              @inputText(field=employeeForm("birthCertNo"), '_showConstraints -> false, 'class->"form-control",'_label->"Birth Certificate No")
+	           </div>
+	           <div class="col-md-12">   
+	              @inputText(field=employeeForm("tin"), '_showConstraints -> false, 'class->"form-control",'_label->"TIN")
+	           </div>
+	           <div class="col-md-12">   
+	              @inputText(field=employeeForm("nationality"), '_showConstraints -> false, 'class->"form-control",'_label->"Nationality")
+               </div>
+             </section>
+             <h3>Employee Others</h3>
+		      <section>
+		       <div style="min-height:400px">
+		           <div class="col-md-12">
+		            @inputDate(field=employeeForm("dateOfBirth"), '_showConstraints -> false, 'class->"form-control", '_label->"Date of Birth", '_id->"dp_range")
+		          </div>
+		          <div class="col-md-12">
+		            <label>Place of birth</label>
+					  <select name="placeOfBirth" id="birthPlace" class="form-control">
+					   <option></option>
+	                    <optgroup label="Find Place Of Birth">
+					    <option value="" @if(employeeForm.get.placeOfBirth.toString==null){selected}>choose a district</option>
+				          @for((id, name) <- District.getDistrictsAsMap){
+				           <option value="@id" @if(employeeForm.get.placeOfBirth.toString==id){selected}>@name</option>
+				          }
+				        </optgroup> 
+				      </select>
+		           </div>
+		          <div class="col-md-12">
+		            <label for="bloodGroup">Blood Group</label>
+					   <select name="bloodGroup" id="blgID" class="form-control">
+					    <option></option>
+       		             <optgroup label="Find Blood Group">
+					         <option value="O-" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
+					         <option value="O+" @if(employeeForm.get.bloodGroup.toString=="O+"){selected}>O+</option>
+					         <option value="A-" @if(employeeForm.get.bloodGroup.toString=="A-"){selected}>A-</option>
+					         <option value="A+" @if(employeeForm.get.bloodGroup.toString=="A+"){selected}>A+</option>
+					         <option value="B-" @if(employeeForm.get.bloodGroup.toString=="B-"){selected}>B-</option>
+					         <option value="B+" @if(employeeForm.get.bloodGroup.toString=="B+"){selected}>B+</option>
+					         <option value="AB-" @if(employeeForm.get.bloodGroup.toString=="AB-"){selected}>AB-</option>
+					         <option value="AB+" @if(employeeForm.get.bloodGroup.toString=="AB+"){selected}>AB+</option>
+					     </optgroup>    
+				      </select>
+		          </div>
+		          <div class="col-md-12">
+		             <label for="mStatus">Marital status</label>
+					   <input type="radio" name="maritalStat"value="Single" @if(employeeForm.get.maritalStat.toString=="Single"){checked}> <label>Single</label>
+				       <input type="radio" name="maritalStat"value="Married" @if(employeeForm.get.maritalStat.toString=="Married"){checked}><label>Married</label>
+		          </div>
+		          <div style="display:none" id="married">
+       		         <div class="col-md-12">       		  
+       		            @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
+       		         </div>
+       		         <div class="col-md-12">
+       		          <label for="childID">No Of Child</label>
+       		           <select name="noOfChild" id="childID" class="form-control">
+       		            <option></option>
+       		             <optgroup label="Find Child Number">
+       		                <option value="1" @if(employeeForm.get.noOfChild.toString=="1"){selected}>1</option>
+							<option value="2" @if(employeeForm.get.noOfChild.toString=="2"){selected}>2</option>
+							<option value="3" @if(employeeForm.get.noOfChild.toString=="3"){selected}>3</option>
+							<option value="4" @if(employeeForm.get.noOfChild.toString=="4"){selected}>4</option>
+							<option value="5" @if(employeeForm.get.noOfChild.toString=="5"){selected}>5</option>
+       		             </optgroup>
+       		           </select>
+       		         </div> 
+       		      </div>
+       		       <h3>Employee Education</h3>
+		      <section>
+			        <div class="col-md-12">
+				         <label for="desID">Choose Employee Type</label>
+				          <p><input type="radio" name="employeeType" value="Teacher" @if(employeeForm.get.employeeType.toString=="Teacher"){checked}><label>Teacher</label></p>
+	       	              <p><input type="radio" name="employeeType" value="Staff" @if(employeeForm.get.employeeType.toString=="Stuff"){checked}><label>General Staff</label></p>
+				      </div>
+				      <legend>Academic Qualification 1:</legend>
+				         <div class="col-md-12">
+				           <div class="form-group">
+				             <label for="label1">Level of Education</label>
+				              <select name="levelOfEducation1" id="levelOfEducation1" class="form-control">
+						        <option></option>
+						          <optgroup label="Find Degree">
+						            <option value="SSC">SSC</option>
+						            <option value="HSC">HSC</option>
+						            <option value="Diploma">Diploma</option>
+						            <option value="Bachelor">Bachelor/Honors</option>
+						            <option value="Masters">Masters</option>
+						            <option value="Doctoral">Doctoral</option>
+						          </optgroup>
+					          </select>
+				           </div>   
+						 </div>
+						 <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="degree1">Degree Title</label>
+					        <input type="text" name="degree1" class="form-control">
+					      </div>
+					     </div>
+			  		     <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="majorOrGroup1">Major or group</label>
+					        <input type="text" name="majorOrGroup1" class="form-control">
+					      </div>
+					     </div> 
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduInstitute1">Institute Name</label>
+						     <input type="text" name="instituteName1" class="form-control">
+						   </div>
+						 </div>
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduResult">Result</label>
+						     <input type="text" name="result1" class="form-control">
+						   </div>
+						  </div>
+					      <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year1" class="form-control">
+						      </div>
+						   </div>
+						   <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration1" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 2:</legend>
+				         <div class="col-md-12">
+				           <div class="form-group">
+				             <label for="label2">Level of Education</label>
+				              <select name="levelOfEducation2" id="levelOfEducation2" class="form-control">
+						        <option></option>
+						          <optgroup label="Find Degree">
+						            <option value="SSC">SSC</option>
+						            <option value="HSC">HSC</option>
+						            <option value="Diploma">Diploma</option>
+						            <option value="Bachelor">Bachelor/Honors</option>
+						            <option value="Masters">Masters</option>
+						            <option value="Doctoral">Doctoral</option>
+						          </optgroup>
+					          </select>
+				           </div>   
+						 </div>
+						 <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="degree1">Degree Title</label>
+					        <input type="text" name="degree2" class="form-control">
+					      </div>
+					     </div>
+			  		     <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="majorOrGroup1">Major or group</label>
+					        <input type="text" name="majorOrGroup2" class="form-control">
+					      </div>
+					     </div> 
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduInstitute1">Institute Name</label>
+						     <input type="text" name="instituteName2" class="form-control">
+						   </div>
+						 </div>
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduResult">Result</label>
+						     <input type="text" name="result2" class="form-control">
+						   </div>
+						  </div>
+					      <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year2" class="form-control">
+						      </div>
+						   </div>
+						   <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration2" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 3:</legend>
+					         <div class="col-md-12">
+					           <div class="form-group">
+					             <label for="label1">Level of Education</label>
+					              <select name="levelOfEducation1" id="levelOfEducation3" class="form-control">
+							        <option></option>
+							          <optgroup label="Find Degree">
+							            <option value="SSC">SSC</option>
+							            <option value="HSC">HSC</option>
+							            <option value="Diploma">Diploma</option>
+							            <option value="Bachelor">Bachelor/Honors</option>
+							            <option value="Masters">Masters</option>
+							            <option value="Doctoral">Doctoral</option>
+							          </optgroup>
+						          </select>
+					           </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree3" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup3" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName3" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result3" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year3" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration3" class="form-control">
+						      </div>
+						   </div>                         
+	                           <legend>Academic Qualification 4:</legend>
+					           <div class="col-md-12">
+					            <div class="form-group">
+					             <label for="label1">Level of Education</label>
+					              <select name="levelOfEducation4" id="levelOfEducation4" class="form-control">
+							        <option></option>
+							          <optgroup label="Find Degree">
+							            <option value="SSC">SSC</option>
+							            <option value="HSC">HSC</option>
+							            <option value="Diploma">Diploma</option>
+							            <option value="Bachelor">Bachelor/Honors</option>
+							            <option value="Masters">Masters</option>
+							            <option value="Doctoral">Doctoral</option>
+							          </optgroup>
+						          </select>
+					           </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree4" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup4" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName4" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result4" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year4" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration4" class="form-control">
+						      </div>
+						   </div>
+		      </section>
+       		  <h3>Joining Information</h3>
+       		  <section>
+       		    <div class="col-md-12"> 
+	                <label for="catID">Choose Category</label>
+	                <select name="category.id" id="catID" class="form-control">
+	                   <option></option>
+	                   <optgroup label="Find Category">
+	                    <option value="" @if(employeeForm.get.category.id.toString==null){selected}>choose a category</option>
+						        @for((id, name) <- Category.getCategoriesAsMap){
+						          <option value="@id" @if(employeeForm.get.category.id.toString==id){selected}>@name</option>
+						        }
+	                   </optgroup>
+	                </select>   
+			      </div>
+			      <div class="col-md-12">
+			        <label for="deptID">Choose Department</label>
+			        <select name="departmentId" id="deptID" class="form-control">
+			          <option></option>
+			          <optgroup label="Find Department">
+			             @for((id,name)<-Department.getDepartmentsAsMap){
+			               <option value="@id">@name</option>
+			             }
+			          </optgroup>
+			        </select>
+			      </div>
+			      <div class="col-md-12">
+			         <label for="desID">Choose Designation</label>
+			         <select name="designationId" id="desID" class="form-control">
+			           <option></option>
+			           <optgroup label="Find Designation">
+			             @for((id,name)<-Designation.getDesignationsAsMap){
+			               <option value="@id">@name</option>
+			             }
+			           </optgroup>
+			         </select>
+			      </div>
+			      <div class="col-md-12">
+			         @inputDate(field=employeeForm("joiningDate"), '_showConstraints -> false, 'class->"form-control", '_label->"Joining Date", '_id->"dp_basic")  
+			      </div>
+       		  </section>
+       		  <h3>Employee Image</h3>		    
+		      <section>     	            		  
+       		    <div class="col-md-12">
+		         <label>Select Image </label>
+		         <input type="file" name="empimage" class="form-control">
+		        </div>
+		     </section>
+		     <h3>Employee Image</h3>		    
+		      <section>         
+			  <div class="col-md-12"> 
+			    <input type="submit" class="btn btn-primary" value="Update">
+			  </div>
+			  </section>
+            </div> 
   }
-            </div>
-       </div>
      </div>
   </div>
 </div>
+
+<script type="text/javascript">
+          
+         function showStatus()
+		{
+		  var mStatusDiv=document.getElementById("married");
+		  
+		    mStatusDiv.style.display='block';
+		 		  
+		}
+		
+		function removeStatus()
+		{
+		  var mStatusDiv=document.getElementById("married");
+		  
+		    mStatusDiv.style.display='none';
+		 		  
+		}
+</script>		
 }

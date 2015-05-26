@@ -10,13 +10,13 @@
   <!-- main content -->
    <div id="main_wrapper">
     <div class="container-fluid">
+      <div class="row">
         <div class="col-md-12">
-          <div class="heading_a"><span class="heading_text">New Collection Set</span></div>
-                  
+          <div class="heading_a"><span class="heading_text">New Collection Set</span></div>  
               @form(routes.StudentCollectionTypeManagement.save()) { 
-              <div class="row">
+              <div class="col-md-12">
                 <label for="universityID">Select Student</label>
-                  <select name="student.sid" id="universityID">
+                  <select name="student.sid" id="universityID" class="form-control">
                     <option></option>
                     <optgroup label="Find Fees Head">
 	              @for((id, name) <- Student.getStudentsAsMap){
@@ -25,9 +25,9 @@
 		            </optgroup> 
                   </select>
 		         </div> 
-		        <div class="row">
+		        <div class="col-md-12">
                   <label for="universityID">Select Fees Category</label>
-                  <select name="feesCategory.id" id="universityID">
+                  <select name="feesCategory.id" id="universityID" class="form-control">
                     <option></option>
                     <optgroup label="Find Fees Head">
 	              @for((id, name) <- Category.getCategoriesAsMap){
@@ -36,9 +36,9 @@
 		            </optgroup> 
                   </select>
 		      </div>
-		      <div class="row">
+		      <div class="col-md-12">
                 <label for="universityID">Select Discount</label>
-                  <select name="discountName" id="universityID">
+                  <select name="discountName" id="universityID" class="form-control">
                     <option></option>
                     <optgroup label="Find Discount">
 	              @for((id, name) <- DiscountCategory.getDiscountsAsMap){
@@ -46,14 +46,14 @@
                   }
 		            </optgroup> 
                   </select>
-		    
 		        </div> 
-		    
-              <input type="submit" class="btn btn-primary" value="Create">
-            </div>
+		        <div class="col-md-12">
+                  <input type="submit" class="btn btn-primary" value="Create">
+                </div>
             }
         </div>
      </div>
-                       
+    </div
+   </div>                
  }
 

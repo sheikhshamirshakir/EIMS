@@ -1,38 +1,36 @@
 @(menus: List[models.Menu])
 @import helper._
 
-@main("List of Menus"){
+@mainlist("List of Menus"){
 
  
   	@if(flash.get("msg")){
          	<span>@flash.get("msg")</span>
      }
-   <div id="main_wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
-  
-
-  <thead>
-    <tr>
-       <th>ID</th>
-       <th>Menu Text</th>
-     </tr>
-   </thead>
-    <tbody>
-    @for(menu <- menus) {
-      <tr>
-        <td><a href="@routes.MenuManagement.show(menu.id)">@menu.id</a></td>
-        <td>@menu.name</td>
-      </tr> 
-    }
- </tbody>
- </table>
-  </div>
-					 </div>
-		        </div>		 
-		     </div>   
+    <div id="main_wrapper">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-md-12">
+             <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+              <thead>
+			    <tr>
+			       <th>ID</th>
+			       <th>Menu Text</th>
+			     </tr>
+			   </thead>
+			    <tbody>
+			    @for(menu <- menus) {
+			      <tr>
+			        <td><a href="@routes.MenuManagement.show(menu.id)">@menu.id</a></td>
+			        <td>@menu.name</td>
+			      </tr> 
+			    }
+			 </tbody>
+			</table>
+		</div>
+	 </div>
+   </div>		 
+</div>   
  
 
 }      

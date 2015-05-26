@@ -7,15 +7,16 @@
         <div class="row">
            <div class="col-md-12">
              <div class="heading_a"><span class="heading_text">Edit Menu</span></div>	
-  @form(routes.MenuManagement.update()) {
-  	  <input type="hidden" name="id" value=@menuForm.get.id >
-  	  
-  	  
-  	  
-      @inputText(menuForm("name"),'_showConstraints -> false, 'class->"form-control",  '_label->"Menu Text")
-	<input type="submit" value="Update" class="btn btn-primary">
+              @form(routes.MenuManagement.update()) {
+  	           <input type="hidden" name="id" value=@menuForm.get.id >
+  	            <div class="col-md-12">  	  
+                  @inputText(menuForm("name"),'_showConstraints -> false, 'class->"form-control",  '_label->"Menu Text")
+                </div>
+                <div class="col-md-12">  
+	               <input type="submit" value="Update" class="btn btn-primary">
+	            </div>   
   }
-   </div>
+           </div>
 	      </div>
 	    </div>
 	 </div>   

@@ -35,8 +35,8 @@
 	                  ) 
 	              </div>
 	              <div class="col-md-12">
-	                <label for="reliID">Religion</label>
-	                <select name="religion" id="reliID">
+	                <label for="relgID">Religion</label>
+	                <select name="religion" id="relgID" class="form-control">
 	                   <option></option>
 	                   <optgroup label="Find Religion">
 	                      <option>Islam</option>
@@ -62,12 +62,13 @@
 	          </section>
 		      <h3>Employee Others</h3>
 		      <section>
+		       <div style="min-height:400px">
 		          <div class="col-md-12">
-		            @inputDate(field=employeeForm("dateOfBirth"), '_label->"Date of Birth", '_id->"dp_range")
+		            @inputDate(field=employeeForm("dateOfBirth"), '_showConstraints -> false, 'class->"form-control", '_label->"Date of Birth", '_id->"dp_range")
 		          </div>
 		          <div class="col-md-12">
 	                <label for="birthPlace">Place Of Birth</label>
-	                <select name="placeOfBirth" id="birthPlace">
+	                <select name="placeOfBirth" id="birthPlace" class="form-control">
 	                   <option></option>
 	                   <optgroup label="Find Place Of Birth">
 	                     @for((id,name)<-District.getDistrictsAsMap){
@@ -78,7 +79,7 @@
 	              </div>
 	              <div class="col-md-12">       		
        		        <label for="bloodGroup">Blood Group</label>
-       		        <select>
+       		        <select name="blood" id="blgID" class="form-control">
        		          <option></option>
        		          <optgroup label="Find Blood Group">
        		             <option>A+</option>
@@ -94,69 +95,264 @@
        		      </div>
        		      <div class="col-md-12">
        		        <label for="marital">Marital Status</label>
-       		        <p><input type="radio" name="maritalStat" value="Single" id="mStatus" onclick="removeStatus()"><label>Single</label></p>
-       	            <p><input type="radio" name="maritalStat" value="Married" id="mStatus" onclick="showStatus()"><label>Married</label></p>
+       		        <p><input type="radio" name="maritalStat" value="Single" id="mStatus" onclick="removeStatus()"><label>Single</label>
+       	            <input type="radio" name="maritalStat" value="Married" id="mStatus" onclick="showStatus()"><label>Married</label></p>
        		      </div>
-       		      <div class="col-md-12">       		  
-       		        @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
+       		      <div style="display:none" id="married">
+       		         <div class="col-md-12">       		  
+       		            @inputText(field=employeeForm("spouseName"), '_showConstraints -> false, 'class->"form-control",'_label->"Spouse Name")
+       		         </div>
+       		         <div class="col-md-12">
+       		          <label for="childID">No Of Child</label>
+       		           <select name="noOfChild" id="childID" class="form-control">
+       		            <option></option>
+       		             <optgroup label="Find Child Number">
+       		              <option>1</option>
+       		              <option>2</option>
+       		              <option>3</option>
+       		              <option>4</option>
+       		              <option>5</option>
+       		             </optgroup>
+       		           </select>
+       		         </div> 
        		      </div>
-       		      <div class="col-md-12">
-       		        <label for="childID">No Of Child</label>
-       		        <select name="noOfChild" id="childID">
-       		           <option>1</option>
-       		           <option>2</option>
-       		           <option>3</option>
-       		           <option>4</option>
-       		           <option>5</option>
-       		        </select>
 		      </section>
 		      <h3>Employee Education</h3>
 		      <section>
-		        <div class="col-md-12">
-			         <label for="desID">Choose Employee Type</label>
-			          <p><input type="radio" name="employeeType" value="Teacher" id="empType" onclick="showTeacher()"><label>Teacher</label></p>
-       	              <p><input type="radio" name="employeeType" value="Staff"   id="empType" onclick="removeTeacher()"><label>General Staff</label></p>
-			      </div>
-			      <div id="teacherDiv" style="display:none">
-			         <div class="col-md-12">
-			              @inputText(field=employeeForm("SSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Session")
-			 @inputText(field=employeeForm("SSCResult"), '_showConstraints -> false, 'class->"form-control",'_label->"SSC Result")
-			 @inputText(field=employeeForm("SSCSchool"), '_showConstraints -> false, 'class->"form-control",'_label->"School Name")
-					
-			 @inputText(field=employeeForm("HSCSession"), '_showConstraints -> false, 'class->"form-control",'_label->"HSC Session")
-			 @inputText(field=employeeForm("HSCResult"), '_showConstraints -> false, 'class->"form-control",'_label->"HSC Result")
-			 @inputText(field=employeeForm("HSCCollage"), '_showConstraints -> false, 'class->"form-control",'_label->"College Name")
-			
-			 @inputText(field=employeeForm("HonsSession"), '_showConstraints -> false, 'class->"form-control",'_label->"Hons Session")
-			 @inputText(field=employeeForm("HonsResult"), '_showConstraints -> false, 'class->"form-control",'_label->"Hons Result")
-			 @inputText(field=employeeForm("HonsUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"University Name")
-			
-			 @inputText(field=employeeForm("MsSession"), '_showConstraints -> false, 'class->"form-control",'_label->"MS Session")
-			 @inputText(field=employeeForm("MsResult"), '_showConstraints -> false, 'class->"form-control",'_label->"MS result")
-			 @inputText(field=employeeForm("MsUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"MS University")
-			
-			 @inputText(field=employeeForm("PHDYear"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Year")
-			 @inputText(field=employeeForm("PHDTopics"), '_showConstraints -> false, 'class->"form-control",'_label->"Phd Topics")
-			 @inputText(field=employeeForm("PHDUniv"), '_showConstraints -> false, 'class->"form-control",'_label->"University")
-			              
-			         </div>
-			      </div>
+			        <div class="col-md-12">
+				         <label for="desID">Choose Employee Type</label>
+				          <p><input type="radio" name="employeeType" value="Teacher"><label>Teacher</label></p>
+	       	              <p><input type="radio" name="employeeType" value="Staff"><label>General Staff</label></p>
+				      </div>
+				      <legend>Academic Qualification 1:</legend>
+				         <div class="col-md-12">
+				           <div class="form-group">
+				             <label for="label1">Level of Education</label>
+				              <select name="levelOfEducation1" id="levelOfEducation1" class="form-control">
+						        <option></option>
+						          <optgroup label="Find Degree">
+						            <option value="SSC">SSC</option>
+						            <option value="HSC">HSC</option>
+						            <option value="Diploma">Diploma</option>
+						            <option value="Bachelor">Bachelor/Honors</option>
+						            <option value="Masters">Masters</option>
+						            <option value="Doctoral">Doctoral</option>
+						          </optgroup>
+					          </select>
+				           </div>   
+						 </div>
+						 <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="degree1">Degree Title</label>
+					        <input type="text" name="degree1" class="form-control">
+					      </div>
+					     </div>
+			  		     <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="majorOrGroup1">Major or group</label>
+					        <input type="text" name="majorOrGroup1" class="form-control">
+					      </div>
+					     </div> 
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduInstitute1">Institute Name</label>
+						     <input type="text" name="instituteName1" class="form-control">
+						   </div>
+						 </div>
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduResult">Result</label>
+						     <input type="text" name="result1" class="form-control">
+						   </div>
+						  </div>
+					      <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year1" class="form-control">
+						      </div>
+						   </div>
+						   <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration1" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 2:</legend>
+				         <div class="col-md-12">
+				           <div class="form-group">
+				             <label for="label2">Level of Education</label>
+				              <select name="levelOfEducation2" id="levelOfEducation2" class="form-control">
+						        <option></option>
+						          <optgroup label="Find Degree">
+						            <option value="SSC">SSC</option>
+						            <option value="HSC">HSC</option>
+						            <option value="Diploma">Diploma</option>
+						            <option value="Bachelor">Bachelor/Honors</option>
+						            <option value="Masters">Masters</option>
+						            <option value="Doctoral">Doctoral</option>
+						          </optgroup>
+					          </select>
+				           </div>   
+						 </div>
+						 <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="degree1">Degree Title</label>
+					        <input type="text" name="degree2" class="form-control">
+					      </div>
+					     </div>
+			  		     <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="majorOrGroup1">Major or group</label>
+					        <input type="text" name="majorOrGroup2" class="form-control">
+					      </div>
+					     </div> 
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduInstitute1">Institute Name</label>
+						     <input type="text" name="instituteName2" class="form-control">
+						   </div>
+						 </div>
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduResult">Result</label>
+						     <input type="text" name="result2" class="form-control">
+						   </div>
+						  </div>
+					      <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year2" class="form-control">
+						      </div>
+						   </div>
+						   <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration2" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 3:</legend>
+					         <div class="col-md-12">
+					           <div class="form-group">
+					             <label for="label1">Level of Education</label>
+					              <select name="levelOfEducation1" id="levelOfEducation3" class="form-control">
+							        <option></option>
+							          <optgroup label="Find Degree">
+							            <option value="SSC">SSC</option>
+							            <option value="HSC">HSC</option>
+							            <option value="Diploma">Diploma</option>
+							            <option value="Bachelor">Bachelor/Honors</option>
+							            <option value="Masters">Masters</option>
+							            <option value="Doctoral">Doctoral</option>
+							          </optgroup>
+						          </select>
+					           </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree3" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup3" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName3" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result3" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year3" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration3" class="form-control">
+						      </div>
+						   </div>                         
+	                           <legend>Academic Qualification 4:</legend>
+					           <div class="col-md-12">
+					            <div class="form-group">
+					             <label for="label1">Level of Education</label>
+					              <select name="levelOfEducation4" id="levelOfEducation4" class="form-control">
+							        <option></option>
+							          <optgroup label="Find Degree">
+							            <option value="SSC">SSC</option>
+							            <option value="HSC">HSC</option>
+							            <option value="Diploma">Diploma</option>
+							            <option value="Bachelor">Bachelor/Honors</option>
+							            <option value="Masters">Masters</option>
+							            <option value="Doctoral">Doctoral</option>
+							          </optgroup>
+						          </select>
+					           </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree4" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup4" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName4" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result4" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year4" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration4" class="form-control">
+						      </div>
+						   </div>
 		      </section>
        		  <h3>Joining Information</h3>
        		  <section>
        		    <div class="col-md-12"> 
 	                <label for="catID">Choose Category</label>
-	                <select name="categoryId" id="catID">
+	                <select name="categoryId" id="catID" class="form-control">
 	                   <option></option>
 	                   <optgroup label="Find Category">
 	                     @for((id,name)<-Category.getCategoriesAsMap){
 	                      <option value="@id">@name</option>
 	                     }
 	                   </optgroup>
+	                </select>   
 			      </div>
 			      <div class="col-md-12">
 			        <label for="deptID">Choose Department</label>
-			        <select name="departmentId" id="deptID">
+			        <select name="departmentId" id="deptID" class="form-control">
 			          <option></option>
 			          <optgroup label="Find Department">
 			             @for((id,name)<-Department.getDepartmentsAsMap){
@@ -167,7 +363,7 @@
 			      </div>
 			      <div class="col-md-12">
 			         <label for="desID">Choose Designation</label>
-			         <select name="designationId" id="desID">
+			         <select name="designationId" id="desID" class="form-control">
 			           <option></option>
 			           <optgroup label="Find Designation">
 			             @for((id,name)<-Designation.getDesignationsAsMap){
@@ -177,7 +373,7 @@
 			         </select>
 			      </div>
 			      <div class="col-md-12">
-			         @inputDate(field=employeeForm("joiningDate"), '_label->"Joining Date", '_id->"dp_basic")  
+			         @inputDate(field=employeeForm("joiningDate"), '_showConstraints -> false, 'class->"form-control", '_label->"Joining Date", '_id->"dp_basic")  
 			      </div>
        		  </section>
        		  <h3>Employee Image</h3>		    
@@ -195,22 +391,51 @@
          
       
      <script type="text/javascript">
-     
-         function showTeacher()
+          
+         function showStatus()
 		{
-		  var teacherDiv=document.getElementById("teacherDiv");
+		  var mStatusDiv=document.getElementById("married");
 		  
-		    teacherDiv.style.display='block';
+		    mStatusDiv.style.display='block';
 		 		  
 		}
 		
-		function removeTeacher()
+		function removeStatus()
 		{
-		  var teacherDiv=document.getElementById("teacherDiv");
+		  var mStatusDiv=document.getElementById("married");
 		  
-		    teacherDiv.style.display='none';
+		    mStatusDiv.style.display='none';
 		 		  
 		}
+		
+		 function addEducation()
+        {
+           var moreEdu=document.getElementById("moreEducation");
+           
+           moreEdu.style.display='block';
+        }   
+        
+        function removeEducation()
+        {
+          var morEdu=document.getElementById("moreEducation");
+          
+          morEdu.style.display='none';
+        }   
+        
+        function moreEducation()
+        {
+          var otherEducation=document.getElementById("orEducation");
+          
+          otherEducation.style.display='block';
+        }
+        
+        function orMoreEducation()
+        {
+          var othEducation=document.getElementById("orEducation");
+          
+          othEducation.style.display='none';
+        }
+		
      </script>        
                         
      }

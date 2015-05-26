@@ -3,22 +3,46 @@
 @import helper._
 
 @main("Parent"){
-
-  <table>
-    <tr> <th >ID</th> <td>@parent.pid</td> </tr>
-    <tr> <th >Father's Name</th> <td>@parent.fatherName</td> </tr>
-    <tr> <th>Father's Email</th><td>@parent.fatherMobile</td></tr>
-   	 <tr>  <th>Father's Mobile no.</th><td>@parent.fatherEmail</td></tr>
-   	 <tr>  <th>Father's Educational qualification</th><td>@parent.fathersLastEduQual</td></tr>
-   	 <tr>  <th>Mother's Name</th><td>@parent.motherName</td></tr>
-   	 <tr>  <th>Mother's Mobile no.</th><td>@parent.motherMobile</td></tr>
-   	 <tr>  <th>Mother's Educational qualification</th><td>@parent.mothersLastEduQual</td></tr>
-   	 <tr>  <th>Number of Child </th><td>@parent.numberOfChild</td></tr>
-   	 
-  </table>
-   
+<div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+      <div class="heading_a"><span class="heading_text">Parent Deatils</span></div>
+       <div class="col-md-12">
+         <label>Father's Name</label>
+         <span class="form-control">@parent.fatherName</span>
+       </div>
+       <div class="col-md-12">
+        <label> Father's Email</label>
+        <span class="form-control">@parent.fatherMobile</span>
+       </div>
+   	   <div class="col-md-12">
+   	     <label>Father's Mobile no.</label>
+   	     <span class="form-control">@parent.fatherEmail</span>
+   	   </div>
+   	   <div class="col-md-12">
+   	     <label>Father's Educational qualification</label>
+   	     <span class="form-control">@parent.fathersLastEduQual</span>
+   	   </div>
+   	   <div class="col-md-12">
+   	     <label>Mother's Name</label>
+   	     <span class="col-md-12">@parent.motherName</span>
+   	   </div>
+   	   <div class="col-md-12">
+   	     <label>Mother's Mobile no.</label>
+   	     <span class="form-control">@parent.motherMobile</span>
+   	   </div>
+   	   <div class="col-md-12">
+   	     <label>Mother's Educational qualification</label>
+   	     <span class="form-control">@parent.mothersLastEduQual</span>
+   	   </div>
+   	   <div class="col-md-12">
+   	    <label>Number of Child </label>
+   	    <span class="col-md-12">@parent.numberOfChild</span>
+   	   </div>   
      @form(routes.ParentManagement.edit(parent.pid)) {
-		    <input type="submit" value="Edit">
+        <div class="col-md-12">
+		    <input type="submit" class="btn btn-primary" value="Edit">
+		</div>    
   		  }
      }
 
