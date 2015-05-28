@@ -12,7 +12,7 @@
   	       <input type="hidden" name="id" value=@classYearForm.get.id >
   	       <div class="row">
   	          <label for="degID">Select Degree</label>
-  	          <select name="degree.id" id="degID">
+  	          <select name="degree.id" id="degID" class="form-control">
                @for((id, name) <- Degree.getDegreesAsMap){
                  <option value="@id" @if(classYearForm.get.degree.id.toString==id){selected}>@name</option>
                }

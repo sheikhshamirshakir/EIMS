@@ -9,9 +9,12 @@
              <div class="heading_a"><span class="heading_text">Edit Faculty</span></div>					  
 				@form(routes.CategoryManagement.update()) {
 				  <input type="hidden" name="id" value=@categoryForm.get.id >
-					  	  
-					      @inputText(categoryForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Category Name")
+					  <div class="col-md-12"> 
+					   @inputText(categoryForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Category Name")
+					  </div>
+					  <div class="col-md-12"> 
 						  <input type="submit" value="Update" class="btn btn-primary">
+					  </div>	  
 					  }
 			 </div>
 	      </div>

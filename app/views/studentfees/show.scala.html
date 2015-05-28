@@ -5,46 +5,33 @@
 @if(flash.get("msg")) {
 <b>@flash.get("msg")</b>
 }
-
-
 <div id="main_wrapper">
-	<div class="container-fluid">
-	
-			<div class="col-md-12">
-				<div class="heading_a">
-					<span class="heading_text">Student's Fees Information</span>
-				</div>
-
-<table border=1>
-
-     <tr>
-        <th align="left">Student Id</th>
-        <td>@studentFees.student.sid</td>
-    </tr>
-    <tr>
-        <th align="left">Student Name</th>
-        <td>@studentFees.student.name</td>
-    </tr>
-
-   <tr>
-        <th align="left">Fees Head</th>
-        <td>@studentFees.feesHead.name</td>
-    </tr>
-        <th align="left">Amount</th>
-        <td>@studentFees.amount</td>
-    </tr>
- </table>
-
-
-@*@form(routes.StudentFeesCollectionManagement.edit(studentFees.id)) {
-	                <div class="col-md-12">
-						<input type="submit" value="Edit"	class="btn btn-primary">
-					</div>
-}*@
-			
+  <div class="container-fluid">
+	<div class="row">
+	  <div class="heading_a"><span class="heading_text">Student's Fees Information</span></div>
+		<div class="col-md-12">
+		   <label>Student Id</th>
+		   <span class="form-control">@studentFees.student.sid</span>
+		</div>
+		<div class="col-md-12">
+		   <label>Student Name</label>
+		   <span class="form-control">@studentFees.student.name</span>
+		</div>
+		<div class="col-md-12">
+		   <label>Fees Head</label>
+		   <span class="form-control">@studentFees.feesHead.name</span>
+		</div>
+		<div class="col-md-12">
+		   <label>Amount</label>
+		   <span class="col-md-12">@studentFees.amount</span>
+		</div>
+			@*@form(routes.StudentFeesCollectionManagement.edit(studentFees.id)) {
+				                <div class="col-md-12">
+									<input type="submit" value="Edit"	class="btn btn-primary">
+								</div>
+			}*@
 			</div>
 		</div>
 	</div>
-
 
 }

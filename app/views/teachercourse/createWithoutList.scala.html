@@ -1,12 +1,26 @@
 @(teacherId: Long, teacherName: String, isChecked: List[Boolean])
 @import helper._
 
-@teachercourse.create(isChecked){
-
-       <h2>Assign Course to Teacher <b>@teacherId : @teacherName</b></h2><br/><br/>
-
-        <form method="post" action=@routes.TeacherCourseManagement.insert()>
-        <input type="hidden" name="teacherId" value="@teacherId">
-
-
-}
+@main(""){
+<!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">Assign Course</span></div> 
+			@teachercourse.create(isChecked){
+			   <div class="col-md-12">
+			       <label>Teacher ID</label>
+			       <span class="form-control">@teacherId </span>
+			   </div>
+			   <div class="col-md-12">
+			     <label>Teacher Name</label>
+			     <span class="form-control">: @teacherName</span>
+			   </div>
+			        <form method="post" action=@routes.TeacherCourseManagement.insert()>
+			        <input type="hidden" name="teacherId" value="@teacherId">
+			}
+	   </div>
+	 </div>
+   </div>
+ </div>  	   		

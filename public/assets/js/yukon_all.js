@@ -1967,6 +1967,30 @@
 			       placeholder: "Select....."
 			  })			
 			}
+			
+			if($("#techID").length){
+			  $("#techID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#roleId").length){
+			  $("#roleId").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#disID").length){
+			  $("#disID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
+			
+			if($("#userID").length){
+			  $("#userID").select2({
+			       placeholder: "Select....."
+			  })			
+			}
 						
 			if($('#s2_tokenization').length) {
 				$('#s2_tokenization').select2({

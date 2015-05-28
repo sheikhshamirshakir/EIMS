@@ -12,11 +12,11 @@
                      <div class="heading_a"><span class="heading_text">Create User</span></div>
                         <div class="row">
                             <div class="col-md-12">
-       
-              @inputText(field=userForm("username"), '_showConstraints -> false, 'class->"form-control",  '_label->"User Name")
-              @inputPassword(field=userForm("password"), '_showConstraints -> false, 'class->"form-control",  '_label->"Password")
-              
-                </div>
+                              @inputText(field=userForm("username"), '_showConstraints -> false, 'class->"form-control",  '_label->"User Name")
+                            </div>
+                            <div class="col-md-12">  
+                              @inputPassword(field=userForm("password"), '_showConstraints -> false, 'class->"form-control",  '_label->"Password")              
+                            </div>
                              <div class="col-md-12">
                               <input type="submit" value="Create" class="btn btn-primary">
                              </div> 

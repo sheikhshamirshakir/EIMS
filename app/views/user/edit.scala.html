@@ -7,15 +7,19 @@
         <div class="row">
            <div class="col-md-12">
              <div class="heading_a"><span class="heading_text">Edit User</span></div>	
-  
-  @form(routes.UserInfoManagement.update()) {
-  	  <input type="hidden" name="id" value=@userForm.get.id >
-  	  
-      @inputText(userForm("username"), '_showConstraints -> false, 'class->"form-control",'_label->"User Name")</tr>
-      @inputPassword(userForm("password"),'_showConstraints -> false, 'class->"form-control", '_label->"Password")</tr>
-      <input type="submit" value="Update" class="btn btn-primary">
-  }
-   </div>
+			  @form(routes.UserInfoManagement.update()) {
+			  	  <input type="hidden" name="id" value=@userForm.get.id >
+			  	  <div class="col-md-12">			  	  
+			        @inputText(userForm("username"), '_showConstraints -> false, 'class->"form-control",'_label->"User Name")
+			      </div>
+			      <div class="col-md-12">  
+			        @inputPassword(userForm("password"),'_showConstraints -> false, 'class->"form-control", '_label->"Password")
+			      </div>
+			      <div class="col-md-12"
+			        <input type="submit" value="Update" class="btn btn-primary">
+			      </div>  
+			  }
+           </div>
 	      </div>
 	    </div>
 	 </div>   

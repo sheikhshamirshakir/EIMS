@@ -12,12 +12,12 @@
             <div class="row">
               @form(routes.FacultyManagement.save()) { 
                 <label for="universityID">Select University</label>
-                  <select name="university.id" id="universityID">
+                  <select name="university.id" id="universityID" class="form-control">
                     <option></option>
                     <optgroup label="Find University">
-	              @for((id, name) <- University.getUnivsAsMap){
-                    <option value="@id">@name</option>
-                  }
+		              @for((id, name) <- University.getUnivsAsMap){
+	                    <option value="@id">@name</option>
+	                  }
 		            </optgroup> 
                   </select>
 		    </div> 

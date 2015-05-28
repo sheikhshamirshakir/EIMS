@@ -7,26 +7,30 @@
 
 <div id="main_wrapper">
 	<div class="container-fluid">
-
-		<div class="col-md-12">
 			<div class="heading_a">
 				<span class="heading_text">Get Fees from @student.name</span>
 			</div>
 			<div class="row">
 
-				<form method="post"
-					action=@routes.StudentFeesCollectionManagement.insert()>
+				<form method="post"	action=@routes.StudentFeesCollectionManagement.insert()>
 					<input type="hidden" name="studentId" value="@student.sid">
-
-
-					<label>From date</label><input type="date" name ="fromDate">
-					<label>To date</label><input type="date" name ="endDate">
-					</br>
-					<table>
+                     <div class="col-md-12">                    
+					    <label>From date</label>
+					    <input type="date" class="form-control" name ="fromDate" id="dp_basic">
+					 </div>
+					 <div class="col-md-12">   
+					    <label for="toDate">To date</label>
+					    <input type="date" class="form-control" name ="endDate" id="dp_range">
+					</div>
+					<div class="col-md-12">
+					<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+					  <thead>
 						<tr align="center">
 							<th>Fees Heads</th>
 							<th style="text-align: right;">Amount (BDT)</th> 
 						</tr>
+				      </thead>
+				      <tbody>		
 						@for((feesHead,idx) <- feesHeades.zipWithIndex) {
 						<tr align="center">
 							<td><input type="hidden" name="fessHeadIds[@idx]" value="@feesHead.id">@feesHead.name</td>
@@ -34,23 +38,15 @@
 
 @*							<td><input type="hidden" name="fessHeadIds" value="@feesHead.id">@feesHead.name</td>
 							<td><input type="text" name="feesAmount" style="text-align: right;" @if(feesHeadIds contains feesHead.id){value=@StudentFees.findByStudentAndFeesHead(student.sid,feesHead.id).amount}></td>*@
-
-
 						</tr>
 						}
+					  </tbody>	
 					</table>
-					</br>
-				
+					</div>
 					<div class="col-md-12">
-						<input type="submit" value="Get Fees">
+						<input type="submit" class="btn btn-primary" value="Get Fees">
 					</div>
 				</form>
-
-
-				<h3>
-					View the <a href="@routes.StudentFeesCollectionManagement.list(student.sid)">list</a> of payments
-				</h3>
-			</div>
 		</div>
 	</div>
 </div>

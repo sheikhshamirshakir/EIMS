@@ -3,78 +3,92 @@
 @import services.Utils
 @import models.Fees.StudentFees; var a=0.0
 
-@main(""){
+@mainlist(""){
 
 <div id="main_wrapper">
 	<div class="container-fluid">
-	
-			<div class="col-md-12">
-				<div class="heading_a">
-					<span class="heading_text">Student's Fees Information</span>
-				</div>
-  <div class="col-md-12">
-  <label>Student Name : <b>@studentFees.get(0).student.name</b></label>
-  </div>
-  <br>
-  <table border="1">
-    <tr> <th>Id</th>  <th>Fees Head</th><th style="text-align: right;">From Date</th><th style="text-align: right;">To Date</th><th style="text-align: right;">BDT</th></tr>
- 
-    
- 
-    @for(sf <- studentFees) {
-    <tr>
-      <td><a href="@routes.StudentFeesCollectionManagement.show(sf.id)">@sf.id</a></td>
-       <td>@sf.feesHead.name</td>
-             <td style="text-align: right;">@Utils.formatDate(sf.fromDate)</td>
-      <td style="text-align: right;">@Utils.formatDate(sf.endDate)</td>
-      <td style="text-align: right;">@sf.amount</td>
+		<div class="row">
+	    	<div class="heading_a"><span class="heading_text">Student's Fees Information</span></div>
+              <div class="col-md-12">
+                <label>Student Name</label>
+                <span class="form-control"><b>@studentFees.get(0).student.name</b></span>
+              </div>
+              <div class="col-md-12"
+                <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                   <thead>
+                    <tr>
+                     <th>Sl</th>
+                     <th>Fees Head</th>
+                     <th style="text-align: right;">From Date</th>
+                     <th style="text-align: right;">To Date</th>
+                     <th style="text-align: right;">BDT</th>
+                    </tr>
+                   </thead> 
+                   <tbody>
+                    @for(sf <- studentFees) {
+				    <tr>
+				      <td><a href="@routes.StudentFeesCollectionManagement.show(sf.id)">@sf.id</a></td>
+				       <td>@sf.feesHead.name</td>
+				             <td style="text-align: right;">@Utils.formatDate(sf.fromDate)</td>
+				      <td style="text-align: right;">@Utils.formatDate(sf.endDate)</td>
+				      <td style="text-align: right;">@sf.amount</td>
+				
+				    </tr>
+                   }
+               </table>
+             </div class="col-md-12">
+             <div class="col-md-12">  
+			  @if(isSingle.equals("yes")){
+			  <label for="netAmount">Net Amount</label>
+			  <span class="form-control">             
+			 @for(sf1 <- studentFees){ 
+			   @if(sf1.withoutDiscount!=null){
+			    @sf1.withoutDiscount BDT</span>			  
+			    }
+			    			    
+			    }
+             </div>
+             <div class="col-md-12">
+			  <label for="netAmount">Net Amount with discount </label> 
+			  <span class="form-control">
+			  @for(sf1 <- studentFees){ 
+			   @if(sf1.withDiscount!=null){
+			    @sf1.withDiscount BDT</span>}
+			    }
+            </div>
+            <div class="col-md-12">
+             <label for="recAmount">Received Amount</label>
+             <span class="form-control"> @if(studentFees.get(studentFees.size-1).paidAmount !=null){@studentFees.get(studentFees.size-1).paidAmount BDT}else{ N/A} </span>
+            </div>
+            <div class="col-md-12">
+              <label for="forAmount">Forwarded Amount</label>
+              <span class="form-control">  @if(StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) !=null){@StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) BDT}else{ N/A}  </span>
+            </div>  
 
-    </tr>
-    }
- 
-  </table>
-  @if(isSingle.equals("yes")){
-  <label>Net Amount:             
- @for(sf1 <- studentFees){ 
-   @if(sf1.withoutDiscount!=null){
-    @sf1.withoutDiscount BDT</label>
-  
-    }
-    
-    
-    }
-
- </br>
- <label>Net Amount with discount : 
-  @for(sf1 <- studentFees){ 
-   @if(sf1.withDiscount!=null){
-    @sf1.withDiscount BDT</label>}
-    
-    }
-  </br>
- <label>Received Amount :         @if(studentFees.get(studentFees.size-1).paidAmount !=null){@studentFees.get(studentFees.size-1).paidAmount BDT}else{ N/A}  </label> 
- </br>
- <label>Forwarded Amount :  @if(StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) !=null){@StudentFees.fidLastForwardAmount(studentFees.get(0).student.sid) BDT}else{ N/A}  </label>
- <br/>
- 
- <form name="receiveForm" method="post" action="@routes.StudentFeesCollectionManagement.receive">
-
- <input type="hidden" name="id" value="@studentFees.get(0).student.sid">
- <input type="hidden" name="wd" value="@studentFees.get(studentFees.size-1).withDiscount">
-  
- 
- <input type="hidden" name="fromdate" value="@Utils.formatDateTime(studentFees.get(0).fromDate)">
- <input type="hidden" name="todate" value="@Utils.formatDateTime(studentFees.get(0).endDate)">
- @if(studentFees.get(studentFees.size-1).paidAmount !=null){
- <label>received</label>
- }else{
-  <label>Receive Amount </label><input type="text" name ="receive">
- <input type="submit" value="Receive" >
+			 <form name="receiveForm" method="post" action="@routes.StudentFeesCollectionManagement.receive">
+			
+			 <input type="hidden" name="id" value="@studentFees.get(0).student.sid">
+			 <input type="hidden" name="wd" value="@studentFees.get(studentFees.size-1).withDiscount">
+			  
+			 
+			 <input type="hidden" name="fromdate" value="@Utils.formatDateTime(studentFees.get(0).fromDate)">
+			 <input type="hidden" name="todate" value="@Utils.formatDateTime(studentFees.get(0).endDate)">
+			 @if(studentFees.get(studentFees.size-1).paidAmount !=null){
+			 <div class="col-md-12">
+			   <label>received</label>
+			 </div>  
+			 }else{
+			   <div class="col-md-12"> 
+			     <label>Receive Amount </label>
+			     <input type="text" name ="receive" class="form-control">
+			   </div>
+			   <div class="col-md-12">  
+			     <input type="submit" class="btn btn-primary" value="Receive">
+			   </div>  
+			  }
+			  </form>
   }
-  </form>
-  }
-  <h3><a href="@routes.StudentFeesCollectionManagement.create()">Get Payment.</a> </h3>
   </div>
-  </div>
-  </div>
+ </div>
+</div>
 }      

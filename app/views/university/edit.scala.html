@@ -7,23 +7,28 @@
           <div class="container-fluid">
                 <div class="row">
                    <div class="col-md-12">
-                      <div class="heading_a"><span class="heading_text">Edit University</span></div>
-                        <div class="row">      
+                      <div class="heading_a"><span class="heading_text">Edit University</span></div>  
                            @form(routes.UniversityManagement.update()) {
   	                         <input type="hidden" name="id" value=@universityForm.get.id >
-  	  
-                               @inputText(universityForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"University Name")
-                               @inputText(field=universityForm("email"), '_showConstraints -> false, 'class->"form-control",'_label->"University Email")
-                               @textarea(field=universityForm("address"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"University Address")
-                               @textarea(field=universityForm("personDetails"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"University Person Details")
-                               @inputText(field=universityForm("contactNo"), '_showConstraints -> false, 'class->"form-control",'_label->"University Contact No")
-                               
+  	                          <div class="col-md-12">
+                                @inputText(universityForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"University Name")
+                              </div>
+                              <div class="col-md-12">  
+                                @inputText(field=universityForm("email"), '_showConstraints -> false, 'class->"form-control",'_label->"University Email")
+                              </div>
+                              <div class="col-md-12"> 
+                                @textarea(field=universityForm("address"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"University Address")
+                              </div>
+                              <div class="col-md-12">  
+                                @textarea(field=universityForm("personDetails"), '_showConstraints -> false, 'class->"form-control", 'rows -> 3, 'cols -> 50, 'id->"wysiwg_editor",'_label->"University Person Details")
+                              </div>
+                              <div class="col-md-12"  
+                                @inputText(field=universityForm("contactNo"), '_showConstraints -> false, 'class->"form-control",'_label->"University Contact No")
+                              </div>  
                                <div class="col-md-12">
                                   <input type="submit" value="Update" class="btn btn-primary">
                                </div>
                             }
-                        </div>
-                     </div>
                    </div>
                 </div>
               </div>

@@ -4,24 +4,29 @@
 @import helper._
 
 @main(""){
-<h2>Update the Student's Payment having Id @studentFeesForm.get.id</h2><br/><br/>
-
-@form(routes.StudentFeesCollectionManagement.update()) {
-
-<input type="hidden" name="id" value=@studentFeesForm.get.id>
-
-@select(studentFeesForm("student.sid"),
-	options(Student.getStudentsAsMap),
-	'_label -> "Student", '_default -> "-- Choose a Student --",
-	'_showConstraints -> false
-)
-
-<br/>
-
-<br/>
-
-
-<input type="submit" value="Save">
-
+<!-- Main Content -->
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+      <div class="heading_a"><span class="heading_text">Edit Student's Payment</span></div>    
+		@form(routes.StudentFeesCollectionManagement.update()) {
+		<input type="hidden" name="id" value=@studentFeesForm.get.id>
+		<div class="col-md-12">
+		  <label for="stdID">Student ID</label>
+		  <select name="student.sid" id="stdID" class="form-control">
+			  <option></option>
+			  <optgroup label="Find Student">
+			     @for((id,name)<-Student.getStudentsAsMap){
+			       <option value="@id">@name</option>
+			     }
+			  </optgroup>
+			)
+         </div>
+         <div class="col-md-12">
+		  <input type="submit" class="btn btn-primary" value="Save">
+         </div>
 }
+   </div>
+  </div>
+</div>
 }

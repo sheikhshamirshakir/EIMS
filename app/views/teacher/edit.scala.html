@@ -4,52 +4,304 @@
 @import models.admission.Designation
 
 @main("Edit Teacher"){
-<div id="main_wrapper">
-          <div class="container-fluid">
-                <div class="row">
-                   <div class="col-md-12">
-  <h2>Update the Teacher having ID @teacherForm.get.tid</h2><br/><br/>
-  
-  @form(routes.TeacherManagement.update()) {
-  	  <input type="hidden" name="tid" value=@teacherForm.get.tid >
-  	  
-      @inputText(field=teacherForm("name"), args='_label->"Teacher Name")
-    
-          @inputText(field=teacherForm("SSCSession"), args='_label->"SSC Session")
-        @inputText(field=teacherForm("SSCResult"), args='_label->"SSC Result")
-         @inputText(field=teacherForm("SSCSchool"), args='_label->"SSC School Name")
-          @inputText(field=teacherForm("HSCSession"), args='_label->"HSC Session")
-           @inputText(field=teacherForm("HSCResult"), args='_label->"HSC Result")
-            @inputText(field=teacherForm("HSCCollage"),args= '_label->"HSC College Name")
-            @inputText(field=teacherForm("HonsSession"),args= '_label->"Hons Session")
-           @inputText(field=teacherForm("HonsResult"),args= '_label->"Hons Result")
-          @inputText(field=teacherForm("HonsUniv"), args='_label->"Hons University Name")
-          @inputText(field=teacherForm("MsSession"),args= '_label->"Masters Session")
-         @inputText(field=teacherForm("MsResult"),args= '_label->"Masters Result")
-         @inputText(field=teacherForm("MsUniv"), args='_label->"Masters University Name")
-         @inputText(field=teacherForm("PHDYear"),args= '_label->"PHD year")
-         @inputText(field=teacherForm("PHDTopics"),args= '_label->"PHD Topics")
-         @inputText(field=teacherForm("PHDUniv"),args= '_label->"PHD University")
-         
-    	<label>Department</label>
-      	<select name="department.id" >
-        @for((id, name) <- Department.getDepartmentsAsMap){
-          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
-        }
-        </select>	
-        
-        <label>Designation</label>
-        <select name="designation.id" >
-        @for((id, name) <- Designation.getDesignationsAsMap){
-          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
-        }
-        </select>	
-      
-      
-        
-	  <input type="submit" value="Update">
-  }
-  					</div>
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+      <div class="col-md-12">
+        <div class="heading_a"><span class="heading_text">Edit Teacher Information</span></div>  
+      </div>  
+		  @form(routes.TeacherManagement.update()) {
+		  	 <input type="hidden" name="tid" value=@teacherForm.get.tid >
+		  	 <div class="col-md-12"> 
+		      @inputText(field=teacherForm("name"), '_label->"Teacher Name")
+		     </div> 
+		      <legend>Academic Qualification 1:</legend>
+				<div class="col-md-12">
+				  <div class="form-group">
+				    <label for="label1">Level of Education</label>
+				      <select name="levelOfEducation1" id="levelOfEducation1" class="form-control">
+				       <option></option>
+				       <optgroup label="Find Degree">
+				       <option value="SSC">SSC</option>
+				       <option value="HSC">HSC</option>
+				       <option value="Diploma">Diploma</option>
+				       <option value="Bachelor">Bachelor/Honors</option>
+				       <option value="Masters">Masters</option>
+				       <option value="Doctoral">Doctoral</option>
+				       </optgroup>
+				      </select>
+				   </div>   
+				  </div>
+				  <div class="col-md-12">
+					<div class="form-group">
+					  <label for="degree1">Degree Title</label>
+					  <input type="text" name="degree1" class="form-control">
+					</div>
+			      </div>
+			      <div class="col-md-12">
+				    <div class="form-group">
+				      <label for="majorOrGroup1">Major or group</label>
+				      <input type="text" name="majorOrGroup1" class="form-control">
+				    </div>
+				   </div> 
+				   <div class="col-md-12">
+					<div class="form-group">
+					  <label for="eduInstitute1">Institute Name</label>
+					  <input type="text" name="instituteName1" class="form-control">
+					</div>
+					</div>
+					<div class="col-md-12">
+					 <div class="form-group">
+					   <label for="eduResult">Result</label>
+					   <input type="text" name="result1" class="form-control">
+					 </div>
+				    </div>
+					<div class="col-md-12">
+					  <div class="form-group">
+					    <label for="eduPassing">Year of Passing</label>
+					    <input type="text" name="year1" class="form-control">
+					  </div>
+					 </div>
+					 <div class="col-md-12">
+					   <div class="form-group">
+					     <label for="eduPassing">Duration</label>
+					     <input type="text" name="duration1" class="form-control">
+					   </div>
+					 </div>
+					 <legend>Academic Qualification 2:</legend>
+				      <div class="col-md-12">
+				       <div class="form-group">
+				        <label for="label2">Level of Education</label>
+				          <select name="levelOfEducation2" id="levelOfEducation2" class="form-control">
+						        <option></option>
+						          <optgroup label="Find Degree">
+						            <option value="SSC">SSC</option>
+						            <option value="HSC">HSC</option>
+						            <option value="Diploma">Diploma</option>
+						            <option value="Bachelor">Bachelor/Honors</option>
+						            <option value="Masters">Masters</option>
+						            <option value="Doctoral">Doctoral</option>
+						          </optgroup>
+					          </select>
+				           </div>   
+						 </div>
+						 <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="degree1">Degree Title</label>
+					        <input type="text" name="degree2" class="form-control">
+					      </div>
+					     </div>
+			  		     <div class="col-md-12">
+					      <div class="form-group">
+					        <label for="majorOrGroup1">Major or group</label>
+					        <input type="text" name="majorOrGroup2" class="form-control">
+					      </div>
+					     </div> 
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduInstitute1">Institute Name</label>
+						     <input type="text" name="instituteName2" class="form-control">
+						   </div>
+						 </div>
+						 <div class="col-md-12">
+						   <div class="form-group">
+						     <label for="eduResult">Result</label>
+						     <input type="text" name="result2" class="form-control">
+						   </div>
+						  </div>
+					      <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year2" class="form-control">
+						      </div>
+						   </div>
+						   <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration2" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 3:</legend>
+					         <div class="col-md-12">
+					           <div class="form-group">
+					             <label for="label1">Level of Education</label>
+					              <select name="levelOfEducation1" id="levelOfEducation3" class="form-control">
+							        <option></option>
+							          <optgroup label="Find Degree">
+							            <option value="SSC">SSC</option>
+							            <option value="HSC">HSC</option>
+							            <option value="Diploma">Diploma</option>
+							            <option value="Bachelor">Bachelor/Honors</option>
+							            <option value="Masters">Masters</option>
+							            <option value="Doctoral">Doctoral</option>
+							          </optgroup>
+						          </select>
+					           </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree3" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup3" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName3" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result3" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year3" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration3" class="form-control">
+						      </div>
+						   </div>                         
+	                       <legend>Academic Qualification 4:</legend>
+					        <div class="col-md-12">
+					         <div class="form-group">
+					          <label for="label1">Level of Education</label>
+					           <select name="levelOfEducation4" id="levelOfEducation4" class="form-control">
+							       <option></option>
+							       <optgroup label="Find Degree">
+							       <option value="SSC">SSC</option>
+							       <option value="HSC">HSC</option>
+							       <option value="Diploma">Diploma</option>
+							       <option value="Bachelor">Bachelor/Honors</option>
+							       <option value="Masters">Masters</option>
+							       <option value="Doctoral">Doctoral</option>
+							       </optgroup>
+						        </select>
+					          </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree4" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup4" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName4" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result4" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year4" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration4" class="form-control">
+						      </div>
+						   </div>
+						   <legend>Academic Qualification 5:</legend>
+					        <div class="col-md-12">
+					         <div class="form-group">
+					          <label for="label1">Level of Education</label>
+					           <select name="levelOfEducation5" id="levelOfEducation5" class="form-control">
+							       <option></option>
+							       <optgroup label="Find Degree">
+							       <option value="SSC">SSC</option>
+							       <option value="HSC">HSC</option>
+							       <option value="Diploma">Diploma</option>
+							       <option value="Bachelor">Bachelor/Honors</option>
+							       <option value="Masters">Masters</option>
+							       <option value="Doctoral">Doctoral</option>
+							       </optgroup>
+						        </select>
+					          </div>   
+							 </div>
+						     <div class="col-md-12">
+					          <div class="form-group">
+					           <label for="degree1">Degree Title</label>
+					           <input type="text" name="degree5" class="form-control">
+					          </div>
+					         </div>
+				  		     <div class="col-md-12">
+						      <div class="form-group">
+						        <label for="majorOrGroup1">Major or group</label>
+						        <input type="text" name="majorOrGroup5" class="form-control">
+						      </div>
+						     </div> 
+							 <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduInstitute1">Institute Name</label>
+							     <input type="text" name="instituteName5" class="form-control">
+							   </div>
+							 </div>
+							  <div class="col-md-12">
+							   <div class="form-group">
+							     <label for="eduResult">Result</label>
+							     <input type="text" name="result5" class="form-control">
+							   </div>
+							  </div>
+					        <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Year of Passing</label>
+						        <input type="text" name="year5" class="form-control">
+						      </div>
+						     </div>
+						     <div class="col-md-12">
+						     <div class="form-group">
+						        <label for="eduPassing">Duration</label>
+						        <input type="text" name="duration5" class="form-control">
+						      </div>
+						   </div>
+		                   <div class="col-md-12">
+		                     <div class="form-group">
+		                       <label>Department</label>
+						      	<select name="department.id" class="form-control" id="deptID">
+						        @for((id, name) <- Department.getDepartmentsAsMap){
+						          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
+						        }
+						        </select>	
+		                     </div>
+		                   </div>  
+		    	           <div class="col-md-12">
+					        <label>Designation</label>
+					        <select name="designation.id" id="desID" class="form-control">
+					        @for((id, name) <- Designation.getDesignationsAsMap){
+					          <option value="@id" @if(teacherForm.get.department.id.toString==id){selected}>@name</option>
+					        }
+					        </select>	
+		                  </div>
+		                  <div class="col-md-12">		        
+			                <input type="submit" class="btn btn-primary" value="Update">
+			              </div>   
+		  }
 	           </div>
 	       </div>
 	 </div>   

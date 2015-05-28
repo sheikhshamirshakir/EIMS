@@ -12,7 +12,7 @@
   	        <input type="hidden" name="id" value=@feesHeadForm.get.id >
              <div class="row">        
   	          <label for="universityID"> Fees Category Name </label><br>
-  	 	      <select name="feesCategory.id" id="universityID">
+  	 	       <select name="feesCategory.id" id="universityID" class="form-control">
 			    <option></option>
 			    <optgroup label="Find Category">
 			  	  @for((id, name) <- Category.getCategoriesAsMap){
@@ -26,5 +26,8 @@
             <div class="row">
 	         <input type="submit" value="Update" class="btn btn-primary">
 	        </div>  
-  }
+     }
+     </div>
+   </div>
+ </div>    
 }

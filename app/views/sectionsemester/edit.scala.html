@@ -11,7 +11,7 @@
   	       <input type="hidden" name="id" value=@sectionSemesterForm.get.id>
   	        <div class="row">
   	         <label for="deptID">Class or Year</label>
-		  	   <select name="classYear.id" id="deptID">
+		  	   <select name="classYear.id" id="deptID" class="form-control">
 		  	   		<option></option>
 				    <optgroup label="Find Class or Year">
 			        @for((id, name) <- ClassYear.getClassYearsAsMap){

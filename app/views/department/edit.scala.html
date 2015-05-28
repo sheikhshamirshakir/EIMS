@@ -12,7 +12,7 @@
   	      <input type="hidden" name="id" value=@deptForm.get.id >
   	      <div class="row">
   	        <label for="facultyid"> Faculty Name </label>
-  	        <select name="faculty.id" id="facultyid">
+  	        <select name="faculty.id" id="facultyid" class="form-control">
   	          <option></option>
   	          <optgroup label="Find Faculty"></optgroup>
 			  	  @for((id, name) <- Faculty.getFacultiesAsMap){

@@ -6,23 +6,29 @@
  <div id="main_wrapper">
           <div class="container-fluid">
              <div class="row">
-  <h2>Assign Permission to a Role</h2><br/><br/>
+               <div class="col-md-12">
+                 <div class="heading_a"><span class="heading_text">Assign Permission</span></div>
 
-  @form(routes.UserPermissionManagement.createWithRole()){
-      		
-       		@select(userPermissionForm("roleId"),
-		      options(Role.getRolesAsMap),
-		       '_label -> "Role", '_id -> "id", '_default -> "-- Choose a Role --",
-		       '_showConstraints -> false
-		    )
-      	
-       <br/>
-        <input type="submit" value="Assign Permission to this Role">
-       }
-</div>
-</div>
-</div>
-
+				  @form(routes.UserPermissionManagement.createWithRole()){
+				      <div class="col-md-12">
+				        <label for="roleId">Find Role</label>
+				          <select name="roleId" id="roleId" class="form-control">
+				             <option></option>
+				             <optgroup label="Find Role">
+				               @for((id,name)<-Role.getRolesAsMap){
+				                 <option value="@id">@name</option>
+				                }
+				             </optgroup>
+				          </select>		
+				       </div>
+				       <div class="col-md-12">
+				         <input type="submit" value="Assign Permission" class="btn btn-primary">
+				       </div>  
+				       }
+                 </div>
+              </div>
+            </div>
+         </div>
 }
 
 

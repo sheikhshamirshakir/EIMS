@@ -11,7 +11,7 @@
             @form(routes.DegreeManagement.save()) { 
              <div class="row">   
                <label for="deptID">Select Department</label>
-               <select name="department.id" id="deptID">
+               <select name="department.id" id="deptID" class="form-control">
                  <option></option>
                  <optgroup label="Find Department">
                    @for((id,name)<-Department.getDepartmentsAsMap){

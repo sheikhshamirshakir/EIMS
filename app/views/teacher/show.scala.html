@@ -2,40 +2,245 @@
 
 @import helper._
 
-@mainlist("Teacher"){
+@main("Teacher"){
  <div id="main_wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-10">
-  <table>
-    
-    <tr> <th >Teacher Name</th> <td>@teacher.name</td> </tr>
-    <tr> <th ></th><td> <img src=@routes.Assets.at("images/photos/employee/"+teacher.name.replaceAll("\\s+","")+teacher.employeeId+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;"/></td> </tr>
-    
-     <tr> <th >Department</th> <td>@teacher.department.name</td> </tr>
-     <tr> <th >Designation</th> <td>@teacher.designation.name</td> </tr>
-	<tr> <th >SSC Session</th> <td>@teacher.SSCSession</td> </tr>
-	 <tr> <th >SSC Result</th> <td>@teacher.SSCResult</td> </tr>
-	  <tr> <th >SSC School Name</th> <td>@teacher.SSCSchool</td> </tr>
-	   <tr> <th >HSC Session</th> <td>@teacher.HSCSession</td> </tr>
-	    <tr> <th >HSC Result</th> <td>@teacher.HSCResult</td> </tr>
-	     <tr> <th >HSC College Name</th> <td>@teacher.HSCCollage</td> </tr>
-	      <tr> <th >Hons Session</th> <td>@teacher.HonsSession</td> </tr>
-	       <tr> <th >Hons Result</th> <td>@teacher.HonsResult</td> </tr>
-	        <tr> <th >Hons University Name</th> <td>@teacher.HonsUniv</td> </tr>
-	         <tr> <th >Masters Session</th> <td>@teacher.MsSession</td> </tr>
-	          <tr> <th >Masters Result</th> <td>@teacher.MsResult</td> </tr>
-	           <tr> <th >Masters University Name</th> <td>@teacher.MsUniv</td> </tr>
-	            <tr> <th >PHD year</th> <td>@teacher.PHDYear</td> </tr>
-	            <tr> <th >PHD Topics</th> <td>@teacher.PHDTopics</td> </tr>
-	            <tr> <th >PHD University</th> <td>@teacher.PHDUniv</td> </tr>
-
-
+   <div class="container-fluid">
+     <div class="row">
+        <div class="heading_a"><span class="heading_text">Teacher Details Information</span></div>  
+         <div class="col-md-12">
+           <label>Teacher Name</label>
+           <span class="col-md-12">@teacher.name</span>
+         </div>
+         <div class="col-md-12">
+          <img src=@routes.Assets.at("images/photos/employee/"+teacher.name.replaceAll("\\s+","")+teacher.employeeId+"_image.png") alt="" title="" width="200" height="200" border="0" style="margin-left: 18px;"/>
+         </div>
+         <div class="col-md-12">
+           <label>Department</label>
+           <span class="form-control">@teacher.department.name</span>
+         </div>
+         <div class="col-md-12">
+          <label>Designation</label>
+          <span class="form-control">@teacher.designation.name</span>
+         </div>
+          <legend>Academic Qualification 1:</legend>
+	       <div class="col-md-12">
+	          <label for="label1">Level of Education</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Degree Title</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Major or Group</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Institute Name</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Result</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Year of Passing</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Duration</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+           <legend>Academic Qualification 2:</legend>
+	       <div class="col-md-12">
+	          <label for="label1">Level of Education</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Degree Title</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Major or Group</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Institute Name</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Result</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Year of Passing</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Duration</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div><legend>Academic Qualification 3:</legend>
+	       <div class="col-md-12">
+	          <label for="label1">Level of Education</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Degree Title</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Major or Group</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Institute Name</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Result</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Year of Passing</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Duration</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div><legend>Academic Qualification 4:</legend>
+	       <div class="col-md-12">
+	          <label for="label1">Level of Education</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Degree Title</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Major or Group</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Institute Name</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Result</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Year of Passing</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Duration</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <legend>Academic Qualification 5:</legend>
+	       <div class="col-md-12">
+	          <label for="label1">Level of Education</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Degree Title</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Major or Group</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Institute Name</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Result</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Year of Passing</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
+	       <div class="col-md-12">
+	          <label for="label1">Duration</label>
+	          <span class="form-control">
+	          
+	          </span>
+	       </div>
    
      @form(routes.TeacherManagement.edit(teacher.tid)) {
-		    <input type="submit" value="Edit">
+          <div class="col-md-12">
+		    <input type="submit" class="btn btn-primary" value="Edit">
+		  </div>  
   		  }
-  </div>
 </div>
 </div>
 </div>	

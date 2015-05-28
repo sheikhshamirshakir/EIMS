@@ -3,24 +3,29 @@
 @import helper._
 
 @main(""){
-<div id="main_wrapper">
+ <div id="main_wrapper">
    <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-  <h2>Assign Role to a User</h2><br/><br/>
-
-  @form(routes.UserRoleManagement.createWithUser()){
-    @select(userRoleForm("userId"),
-      options(User.getUsersAsMap),
-       '_label -> "User", '_id -> "id", '_default -> "-- Choose a User --",
-       '_showConstraints -> false
-    )
-       <br/>
-        <input type="submit" value="Assign Role to this User">
+          <div class="heading_a"><span class="heading_text">User Role</span></div>  
+			  @form(routes.UserRoleManagement.createWithUser()){
+			    <div class="col-md-12">
+			      <label for="userID">Find User</label>
+			      <select name="userId" id="userID" class="form-control">
+			        <option></option>
+			        <optgroup label="Find User">
+			          @for((id,name)<-User.getUsersAsMap){
+			           <option value="@id">@name</option>
+			          }
+			        </optgroup>
+	            </div>
+	            <div class="col-md-12">
+	              <input type="submit" class="btn btn-primary" value="Assign Role">
+	            </div>  
        }
-
-</div>
-</div>
+      </div>
+   </div>
+  </div>
 </div>
 }
 

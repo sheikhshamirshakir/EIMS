@@ -7,26 +7,26 @@
 @main("User Permission") {
 
 	  @content
-  	
-    <table>
-    <tr align="center">
-        <th></th>
-        <th>Permissions</th>
-    </tr>
-
-    @for((permission, idx) <- Permission.all.zipWithIndex) {
-    <tr align="center">
-        <td><input type="checkbox" name="permissionId" value="@permission.id" @(if(isChecked.get(idx)== true) "checked")></td>
-        <td>@Permission.get(permission.id).permissionName</td>
-    </tr>
-    }
-  </table>
-   <br/>
-  <input type="submit" value="Assign Permission to this Role">
-  </form>
-</div>
-</div>
-</div>
-                       
+  	 <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">User Permission</span></div>  
+		   <div class="col-md-12"> 
+		     <label> Permissions </label>
+		     @for((permission, idx) <- Permission.all.zipWithIndex) {
+			    <p><input type="checkbox" name="permissionId" value="@permission.id" @(if(isChecked.get(idx)== true) "checked")>
+			    <label>@Permission.get(permission.id).permissionName</label></p>
+			 }
+		   </div>
+		   <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" value="Assign Permission">
+           </div> 
+        </form>
+       </div>
+      </div>
+     </div>
+   </div>                    
      }
 

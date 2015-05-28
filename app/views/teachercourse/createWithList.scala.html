@@ -4,19 +4,32 @@
 @import helper._
 
 @main(""){
-
-  <h2>Assign Course to a Teacher</h2><br/><br/>
-
-  @form(routes.TeacherCourseManagement.createWithTeacher()){
-    @select(teacherCourseForm("teacherId"),
-      options(Teacher.getTeachersAsMap),
-       '_label -> "Teacher", '_id -> "id", '_default -> "-- Choose a Teacher --",
-       '_showConstraints -> false
-    )
-       <br/>
-        <input type="submit" value="Assign Course to this Teacher">
-       }
-
+<!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">Assign Course</span></div>  
+		  @form(routes.TeacherCourseManagement.createWithTeacher()){
+		   <div class="col-md-12">
+		     <label for="techID">Select Teacher</label>
+		     <select name="teacherId" id="techID" class="form-control">
+		       <option></option>
+		       <optgroup label="Find Teacher">
+		           @for((id,name)<-Teacher.getTeachersAsMap){
+		             <option value="@id">@name</option>
+		           }
+		       </optgroup>
+		    </select>
+		   </div>
+		   <div class="col-md-12">
+		        <input type="submit" class="btn btn-primary" value="Assign Course">
+		   </div>     
+		       }
+         </div>
+       </div>
+     </div>
+   </div>      
 
 }
 
