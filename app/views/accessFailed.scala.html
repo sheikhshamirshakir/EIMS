@@ -2,10 +2,30 @@
 @import helper._
 @import helper.twitterBootstrap._
 
-@mainGuest{
-	
-  <font color="red">
+@if(session.get("sessionuser")!=null){
+@main(""){
+ 
+  <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+      <font color="red">
+    Sorry, either the page does not exists or you do not have permission to this page.<br />
+     <div>@request.uri.split('/')</div>
+
+  </font>
+  </div>
+  </div>
+  </div>
+}
+}else{
+@loginRequest()
+
+@*@mainGuest{
+<font color="red">
     Sorry, either the page does not exists or you do not have permission to this page.<br />
   </font>
-
+<font color="red">
+	<a href="/login">Please Login</a>
+</font>
+}*@
 }
