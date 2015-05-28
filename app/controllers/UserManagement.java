@@ -67,6 +67,8 @@ public class UserManagement extends Controller {
 		}
 
 		session(Constants.SESN_USERNAME, login.username);
+		
+		session("sessionuser", login.username);
 //		 int role = User.findRoleByUserName(login.username);
 		
 //		if(role == 134){

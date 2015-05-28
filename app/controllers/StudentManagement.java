@@ -45,11 +45,12 @@ public class StudentManagement extends Controller{
 	
 	static Form<Student> studentForm = Form.form(Student.class);
 	
-	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
+	@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
 	 public static Result create() {
 	        return ok(create.render(dStudentForm));
 	    }
-	//@Dynamic(value = "Student Registration", handler = DeadboltHandler.class)
+
+	@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
 		 //System.out.println("......................"+filledForm.value());
@@ -204,7 +205,7 @@ public class StudentManagement extends Controller{
 	    }
 	 }
 
-	//@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
+//	@Dynamic(value = "View Student List", handler = DeadboltHandler.class)
 	 public static Result list(){
 	    	List<Student> students =Student.all();
 	     	return ok(list.render(students));
