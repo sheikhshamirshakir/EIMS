@@ -7,11 +7,13 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import be.objectify.deadbolt.java.actions.Dynamic;
 import models.admission.Category;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import services.deadbolt.DeadboltHandler;
 import utils.AppConstants;
 import views.html.category.*;
 
@@ -19,10 +21,12 @@ public class CategoryManagement extends Controller{
 
 	static Form<Category> categoryForm = Form.form(Category.class);
 	
+//	@Dynamic(value = "Entry Employee Category", handler = DeadboltHandler.class)
 	 public static Result create() {
 	        return ok(create.render(categoryForm));
 	    }
 	 
+//	@Dynamic(value = "Entry Employee Category", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<Category> filledForm = categoryForm.bindFromRequest();
 		 if (filledForm.hasErrors()) {
@@ -37,6 +41,7 @@ public class CategoryManagement extends Controller{
 	   	return redirect(controllers.routes.CategoryManagement.list());
 	    }
 	 }
+//	@Dynamic(value = "List of Employee Category", handler = DeadboltHandler.class)
 	 public static Result list(){
 	    	List<Category> categories = Category.all();
 	     	return ok(list.render(categories));
