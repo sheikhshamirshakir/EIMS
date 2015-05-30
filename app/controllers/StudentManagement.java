@@ -45,19 +45,18 @@ public class StudentManagement extends Controller{
 	
 	static Form<Student> studentForm = Form.form(Student.class);
 	
-	@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
 	 public static Result create() {
 	        return ok(create.render(dStudentForm));
 	    }
 
-	@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
+	//@Dynamic(value = "Entry Student", handler = DeadboltHandler.class)
 	 public static Result save() {
 		 Form<DummyStudent> filledForm = dStudentForm.bindFromRequest();
 		 //System.out.println("......................"+filledForm.value());
 		 
 		 if (filledForm.hasErrors()) {
-			
-			
+						
 		      /*important code to remember*/
 		            String errorMsg = "";
 		            java.util.Map<String, List<play.data.validation.ValidationError>> errorsAll = filledForm.errors();
@@ -94,8 +93,6 @@ public class StudentManagement extends Controller{
 		 parent.numberOfChild=dStudent.numberOfChild;
 		 Parent.create(parent);
 		 Long pid = Parent.findLastId();
-		 
-		 
 		 
 		 Long gid =0L;
 		 
