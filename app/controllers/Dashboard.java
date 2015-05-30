@@ -10,7 +10,6 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.dashboard.*;
 public class Dashboard extends Controller {
-
 	
 	//@Dynamic(value = "Dashboard", handler = DeadboltHandler.class)
 	public static Result viewDashboard(){

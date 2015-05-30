@@ -56,8 +56,7 @@ public class StudentManagement extends Controller{
 		 //System.out.println("......................"+filledForm.value());
 		 
 		 if (filledForm.hasErrors()) {
-			
-			
+						
 		      /*important code to remember*/
 		            String errorMsg = "";
 		            java.util.Map<String, List<play.data.validation.ValidationError>> errorsAll = filledForm.errors();
