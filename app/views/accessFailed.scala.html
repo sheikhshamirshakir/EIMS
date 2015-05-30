@@ -10,7 +10,7 @@
      <div class="row">
       <font color="red">
     Sorry, either the page does not exists or you do not have permission to this page.<br />
-    @* <div>@request.uri.split('/')</div>*@
+     <div>@request.path().split("/")[0]</div>
 
   </font>
   </div>
