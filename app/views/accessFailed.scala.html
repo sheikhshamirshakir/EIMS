@@ -1,6 +1,7 @@
 @()
 @import helper._
 @import helper.twitterBootstrap._
+@import services.GettingUrl
 
 @if(session.get("sessionuser")!=null){
 @main(""){
@@ -10,8 +11,11 @@
      <div class="row">
       <font color="red">
     Sorry, either the page does not exists or you do not have permission to this page.<br />
-     @*<div>@request.path().split(')[0]</div>*@
-
+     @*<div>@request.path().split(')[0]</div>
+ @for(pathelement<-GettingUrl.getUrl(request.path())){
+                    <h2>  @pathelement</h2>
+  }
+*@
   </font>
   </div>
   </div>
