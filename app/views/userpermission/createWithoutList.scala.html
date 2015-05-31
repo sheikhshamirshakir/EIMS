@@ -2,15 +2,10 @@
 @import helper._
 
 @userpermission.create(isChecked){
-	     <div id="main_wrapper">
-           <div class="container-fluid">
-             <div class="row">
-               <div class="heading_a"><span class="heading_text">Assign Permission</span></div>
+
 
 		        <form method="post" action=@routes.UserPermissionManagement.save()>
 		        <input type="hidden" name="roleId" value="@roleId">
-		       </div>
-		      </div>
-		    </div>
-		  </div>       
+		       
+		      
 }

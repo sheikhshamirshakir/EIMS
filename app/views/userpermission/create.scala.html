@@ -5,16 +5,16 @@
 
 
 @main("User Permission") {
-
-	  @content
+@content
   	 <!-- main content -->
    <div id="main_wrapper">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
-          <div class="heading_a"><span class="heading_text">User Permission</span></div>  
+            <div class="heading_a"><span class="heading_text">Assign Permission</span></div>
 		   <div class="col-md-12"> 
-		     <label> Permissions </label>
+		     @*<label> Permissions </label>
+		    <p><input type="checkbox" name="allCheck" value="allCheck">
+		    <label>All</label></p>*@
 		     @for((permission, idx) <- Permission.all.zipWithIndex) {
 			    <p><input type="checkbox" name="permissionId" value="@permission.id" @(if(isChecked.get(idx)== true) "checked")>
 			    <label>@Permission.get(permission.id).permissionName</label></p>
@@ -23,8 +23,7 @@
 		   <div class="col-md-12">
             <input type="submit" class="btn btn-primary" value="Assign Permission">
            </div> 
-        </form>
-       </div>
+         </form>
       </div>
      </div>
    </div>                    
