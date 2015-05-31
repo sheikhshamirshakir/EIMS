@@ -1,6 +1,6 @@
 @(title: String)(content: Html)
 <!DOCTYPE html>
-
+@if(session.get("sessionuser")!=null){
 <html>
     <head>
         <meta charset="UTF-8">
@@ -359,3 +359,6 @@
        </div>  
     </body>
 </html>
+}else{
+@loginRequest()
+}
