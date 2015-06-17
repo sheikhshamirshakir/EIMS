@@ -1,0 +1,31 @@
+@studentValidation("Basic Entry") {
+  <!-- main content -->
+   <div id="main_wrapper">
+    <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="heading_a"><span class="heading_text">Applicant Information</span></div>
+           @form() { 
+            <div class="row">
+		      @inputText(field=applicantForm("rollNo"), '_showConstraints -> false, 'class->"form-control",'_label->"Admission Roll")
+		    </div>
+		    </div> 
+		    <div class="row">
+		      @inputText(field=applicantForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Applicant Name")
+		    </div>    
+		     <div class="row">
+		      @inputText(field=applicantForm("fatherName"), '_showConstraints -> false, 'class->"form-control",'_label->"Father Name")
+		    </div>     
+		     <div class="row">
+		      @inputText(field=applicantForm("motherName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mother Name")
+		    </div>  
+		    <div class="row">
+		      @inputDate(field=applicantForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"dp_basic")
+		    </div>       
+            <div class="row">
+              <input type="submit" class="btn btn-primary" value="Send">
+            </div>
+            }
+        </div>
+     </div>
+   </div>                      
+ }

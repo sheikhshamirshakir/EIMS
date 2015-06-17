@@ -1830,6 +1830,12 @@
 				});
 			}
 			
+			if ($("#fecID").length) {
+				$("#fecID").select2({
+					placeholder: "Select..."
+				});
+			}
+			
 			if ($("#deptID").length) {
 				$("#deptID").select2({
 					placeholder: "Select..."
@@ -1890,14 +1896,50 @@
 				});
 			}
 			
+			if ($("#fatProf").length) {
+				$("#fatProf").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#guarProf").length) {
+				$("#guarProf").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#eduPass1").length) {
+				$("#eduPass1").select2({
+					placeholder: "Select..."
+				});
+			}
+			
 			if ($("#eduBoard").length) {
 				$("#eduBoard").select2({
 					placeholder: "Select..."
 				});
 			}
 			
+			if ($("#eduPass2").length) {
+				$("#eduPass2").select2({
+					placeholder: "Select..."
+				});
+			}
+			
 			if ($("#eduBoardTwo").length) {
 				$("#eduBoardTwo").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#eduPass3").length) {
+				$("#eduPass3").select2({
+					placeholder: "Select..."
+				});
+			}
+			
+			if ($("#eduPass4").length) {
+				$("#eduPass4").select2({
 					placeholder: "Select..."
 				});
 			}

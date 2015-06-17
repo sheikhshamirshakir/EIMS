@@ -1,0 +1,120 @@
+@(title: String)(content: Html)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Education Management System</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon_1.png")">
+        <!-- bootstrap framework -->
+		<link href="@routes.Assets.at("assets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+		
+        <!-- icon sets -->
+            <!-- elegant icons -->
+                <link href="@routes.Assets.at("assets/icons/elegant/style.css")" rel="stylesheet" media="screen">
+            <!-- elusive icons -->
+                <link href="@routes.Assets.at("assets/icons/elusive/css/elusive-webfont.css")" rel="stylesheet" media="screen">
+            <!-- flags -->
+                <link rel="stylesheet" href="@routes.Assets.at("assets/icons/flags/flags.css")">
+            <!-- scrollbar -->
+                <link rel="stylesheet" href="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css")">
+
+        <!-- page specific stylesheets -->
+
+            <!-- select2 -->
+            <link href="@routes.Assets.at("assets/lib/select2/select2.css")" rel="stylesheet" media="screen">
+            <!-- prism highlight -->
+            <link href="@routes.Assets.at("assets/lib/prism/prism_default.css")" rel="stylesheet" media="screen">
+            <link href="@routes.Assets.at("assets/lib/prism/line_numbers.css")" rel="stylesheet" media="screen">
+		
+        <!-- google webfonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <!-- main stylesheet -->
+		<link href="@routes.Assets.at("assets/css/main.min.css")" rel="stylesheet" media="screen" id="mainCss">
+
+        <!-- moment.js (date library) -->
+        <script src="@routes.Assets.at("assets/js/moment-with-langs.min.js")"></script>
+    </head>
+    <body class="side_menu_active side_menu_expanded">
+        <div id="page_wrapper">
+            <!-- header -->
+            <header id="main_header">
+                <div class="container-fluid">
+                   <h3 align="center"><img src="@routes.Assets.at("assets/img/logo.png")" alt="eden_logo"> </h3>
+                </div>
+            </header>    
+             @content
+        </div>
+        
+        <!-- jQuery -->
+        <script src="@routes.Assets.at("assets/js/jquery.min.js")"></script>
+        <!-- jQuery Cookie -->
+        <script src="@routes.Assets.at("assets/js/jqueryCookie.min.js")"></script>
+        <!-- Bootstrap Framework -->
+        <script src="@routes.Assets.at("assets/bootstrap/js/bootstrap.min.js")"></script>
+        <!-- retina images -->
+        <script src="@routes.Assets.at("assets/js/retina.min.js")"></script>
+        <!-- switchery -->
+        <script src="@routes.Assets.at("assets/lib/switchery/dist/switchery.min.js")"></script>
+        <!-- typeahead -->
+        <script src="@routes.Assets.at("assets/lib/typeahead/typeahead.bundle.min.js")"></script>
+        <!-- fastclick -->
+        <script src="@routes.Assets.at("assets/js/fastclick.min.js")"></script>
+        <!-- match height -->
+        <script src="@routes.Assets.at("assets/lib/jquery-match-height/jquery.matchHeight-min.js")"></script>
+        <!-- scrollbar -->
+        <script src="@routes.Assets.at("assets/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js")"></script>
+
+        <!-- Yukon Admin functions -->
+        <script src="@routes.Assets.at("assets/js/yukon_all.js")"></script>
+
+	    <!-- page specific plugins -->
+
+            <!-- select2 -->
+            <script src="@routes.Assets.at("assets/lib/select2/select2.min.js")"></script>
+            <!-- prism highlight -->
+            <script src="@routes.Assets.at("assets/lib/prism/prism.min.js")"></script>
+            <!-- jquery steps -->
+            <script src="@routes.Assets.at("assets/js/jquery.steps.custom.min.js")"></script>
+            <!-- validation (parsley.js) -->
+            <script src="@routes.Assets.at("assets/js/parsley.config.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/parsley/dist/parsley.min.js")"></script>
+             <!-- page specific plugins -->
+
+            <!-- datepicker -->
+            <script src="@routes.Assets.at("assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+            
+            <!-- autosize -->
+            <script src="@routes.Assets.at("assets/lib/autosize/jquery.autosize.min.js")"></script>
+            <!-- inputmask -->
+            <script src="@routes.Assets.at("assets/lib/jquery.inputmask/jquery.inputmask.bundle.min.js")"></script>
+            <!-- maxlength for textareas -->
+            <script src="@routes.Assets.at("assets/lib/stopVerbosity/stopVerbosity.min.js")"></script>  
+            <!-- wysiwg editor -->
+            <script src="@routes.Assets.at("assets/lib/ckeditor/ckeditor.js")"></script>
+            <script src="@routes.Assets.at("assets/lib/ckeditor/adapters/jquery.js")"></script>
+            <!-- quicksearch -->
+            <script src="@routes.Assets.at("assets/lib/quicksearch/jquery.quicksearch.min.js")"></script>
+            <!-- icheck -->
+            <script src="@routes.Assets.at("assets/lib/iCheck/icheck.min.js")"></script>                        
+            <script>
+                $(function() {
+                    // wizard
+                    yukon_steps.init();
+                    // select2
+                    yukon_select2.p_forms_extended();
+                    // datepicker
+                    yukon_datepicker.p_forms_extended();
+                    // form validation
+                    yukon_parsley_validation.p_forms_validation();            
+                    // checkboxes & radio buttons
+                    yukon_icheck.init();
+                    // selectize.js
+                    yukon_selectize.p_forms_extended();
+                })
+            </script>   
+       </div>  
+    </body>
+</html>

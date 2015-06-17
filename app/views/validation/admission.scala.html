@@ -1,0 +1,644 @@
+@(studentForm: Form[dummymodels.DummyStudent])
+@import helper._
+@import  models.admission.Department
+@import  models.admission.Designation
+@import  models.admission.Category
+@import  models.admission.Degree
+@import  models.admission.ClassYear
+@import  models.admission.SectionSemester
+@import  models.Division
+@import  models.District
+
+@main("Student Entry") {
+ <script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
+ <!-- Main Content -->
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="row">
+       @form(routes.StudentManagement.save(), 'id->"form_validation",'enctype -> "multipart/form-data") { 	
+       <div id="student_form" class="wizard clearfix"> 	
+        <h3>Student Information</h3>       	
+        
+          <section>
+            <div class="col-md-12">
+              <div class="form-group">	
+       		    @inputText(field=studentForm("studentName"), '_showConstraints->false, 'class->"form-control",'_label->"Student Name")
+       		  </div> 
+       	    </div>
+	        <div class="col-md-12">
+	          <div class="form-group">  
+	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"dp_basic")
+	          </div> 
+	        </div>
+	        <div class="col-md-12">  
+	          <div class="form-group"> 	 
+	           <label for="birthPlace">Place of Birth</label>     
+	           <select name="placeOfBirth" id="birthPlace" class="form-control">
+	                <option></option>
+	                <optgroup label="Place Of Birth">
+	                  @for((id,name)<-District.getDistrictsAsMap){
+	                    <option value="@id">@name</option>
+	                  }
+	                </optgroup>
+	           </select>
+	         </div>      
+		    </div>
+		    
+		    <div class="col-md-12">    
+		      <div class="form-group"> 	
+    	        @inputText(field=studentForm("nationality"), '_showConstraints->false,'class->"form-control",'_label->"Nationality")
+    	      </div>
+    	    </div>  
+	        <div class="col-md-12">   
+             <div class="form-group">
+		       <label for="studentImgae">Student Image </label>
+		       <input type="file" name="stimage">
+		    </div>
+		  </div>  
+    	</section>
+    	<h3>Address & Others</h3>  
+    	<section>  
+    	  <div class="col-md-12">
+    	    <div class="form-group">  
+		      @textarea(field=studentForm("presentAddress"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Present Address")
+		    </div> 
+		  </div>
+		  <div class="col-md-12">
+            <div class="form-group">
+             <label for="division">Division</label> 
+              <select name="division" id="division" class="form-control">
+			     <option></option>
+			     <optgroup label="Find Division">
+				     @for((id, name) <- Division.getDivisionsAsMap){
+				       <option value="@id">@name</option>
+				     }
+			     <optgroup>
+   			  </select>
+            </div>
+          </div>
+    	  <div class="col-md-12">
+            <div class="form-group">
+             <label for="district">District</label> 
+              <select name="district" id="district" class="form-control">
+			     <option></option>
+			     <optgroup label="Find District">
+				     @for((id, name) <- District.getDistrictsAsMap){
+				       <option value="@id">@name</option>
+				     }
+				 </optgroup>    
+   			  </select>
+            </div>
+          </div>
+		  <div class="col-md-12">  
+		    <div class="form-group"> 
+	          @textarea(field=studentForm("permanentAddress"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Permanent Address")
+     	    </div> 
+     	  </div>
+     	  <div class="col-md-12">
+            <div class="form-group">
+             <label for="division">Division</label> 
+              <select name="division" id="division1" class="form-control">
+			     <option></option>
+			     <optgroup label="Find Division">
+				     @for((id, name) <- Division.getDivisionsAsMap){
+				       <option value="@id">@name</option>
+				     }
+			     <optgroup>
+   			  </select>
+            </div>
+          </div>
+    	  <div class="col-md-12">
+            <div class="form-group">
+             <label for="district">District</label> 
+              <select name="district" id="district1" class="form-control">
+			     <option></option>
+			     <optgroup label="Find District">
+				     @for((id, name) <- District.getDistrictsAsMap){
+				       <option value="@id">@name</option>
+				     }
+				 </optgroup>    
+   			  </select>
+            </div>
+          </div>
+     	  <div class="col-md-12">  
+            <div class="form-group">
+              <label for="regID">Religion</label>
+              <select name="religion" id="regID" class="form-control">
+                 <option></option>
+                 <optgroup label="Find Religion">
+                    <option>Islam</option>
+                    <option>Hindu</option>
+                    <option>Christian</option>
+                    <option>Buddhist</option>
+                    <option>Others</option>
+                 </optgroup>
+              </select>
+       		 </div>
+       	  </div>
+       	  <div class="col-md-12">	 
+       		<div class="form-group"> 
+       		 <label for="groupID">Blood Group</label>
+       		 <select name="bloodGroup" id="groupID" class="form-control">
+       		    <option></option>
+       		    <optgroup label="Find Boold Group">
+       		       <option>A+</option>
+       		       <option>A-</option>
+       		       <option>B+</option>
+       		       <option>B-</option>
+       		       <option>AB+</option>
+       		       <option>AB-</option>
+       		       <option>O+</option>
+       		       <option>O-</option>
+       		    </optgroup>
+       		 </select>
+		    </div>
+		  </div>
+		  <div class="col-md-12">   
+		   <div class="form-group">
+		      @inputRadioGroup(
+                 studentForm("maritalStatus"),
+                 options = options("Single"->"Single","Married"->"Married"),
+                 '_label -> "Marital Status"
+                )
+           </div>
+          </div>
+          <div class="col-md-12"> 
+           <div class="form-group"> 
+		     @inputText(field=studentForm("mobile"), 'class->"form-control",'_label->"Mobile")
+		   </div>
+		  </div> 
+		  <div class="col-md-12">  
+		     <div class="form-group"> 
+	           @inputText(field=studentForm("email"), 'class->"form-control",'_label->"Email")
+             </div>
+          </div>
+          </section>   
+          <h3>Parent Information</h3>
+          <section>
+           <div class="col-md-12">
+             <div class="form-group">
+	           @inputText(field=studentForm("fatherName"), '_showConstraints->false,'class->"form-control",'_label->"Father Name")
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputText(field=studentForm("fatherMobile"), '_showConstraints->false,'class->"form-control",'_label->"Father Mobile No")
+            </div>  
+           </div> 
+		  <div class="col-md-12">
+		     <div class="form-group">
+		     <label for="fatProf">Father Profession</label>
+               <select name="fatherProfession" id="fatProf" class="form-control">
+                 <option></option>
+                 <optgroup label="Find Profession">
+                    <option>Govt Service</option>
+                    <option>Non-Govt Service</option>
+                    <option>Business</option>
+                    <option>Farmer</option>
+                    <option>Others</option>
+                 </optgroup>
+               </select>
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputText(field=studentForm("motherName"), '_showConstraints->false,'class->"form-control",'_label->"Mother Name")
+            </div>  
+           </div> 
+           <div class="col-md-12">
+            <div class="form-group">
+              @inputText(field=studentForm("motherMobile"), '_showConstraints->false,'class->"form-control",'_label->"Mother Mobile No")
+		    </div>
+		   </div> 
+		   <div class="col-md-12">  
+            <div class="form-group">
+               <label for="broID">No Of Brother/Sister</label>
+               <select name="numberOfChild" id="broID" class="form-control">
+                 <option></option>
+                 <optgroup label="Find Number">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                 </optgroup>
+               </select>
+       		 </div>
+       	  </div>
+		</section>
+		<h3>Guardian Information</h3>
+		<section>
+		<div style="min-height:380px;">
+		  <div class="col-md-12">
+       	    <div class="form-group">
+       	      <label for="">Guardian</label>
+       	      <p><input type="radio" name="isParentGuardian" value="1" id="otherGuardian" onclick="removeGuardian()"><label>Parent As Guardian</label></p>
+       	      <p><input type="radio" name="isParentGuardian" value="2" id="otherGuardian" onclick="showGuardian()"><label>Local Guardian</label></p>
+       	    </div>
+       	  </div> 
+       	  <div id="guardianDiv" style="display:none;">
+       	    <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guardianName">Guardian Name</label>
+       	        <input type="text" name="guardianName" class="form-control">
+       	      </div>
+       	    </div>
+       	     <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guarMobile">Guardian Mobile No</label>
+       	        <input type="text" name="guardianMobile" class="form-control">
+       	      </div>
+       	    </div>
+       	     <div class="col-md-12">
+		     <div class="form-group">
+		     <label for="guarProf">Guardian Profession</label>
+               <select name="guardianProfession" id="guarProf" class="form-control">
+                 <option></option>
+                 <optgroup label="Find Profession">
+                    <option>Govt Service</option>
+                    <option>Non-Govt Service</option>
+                    <option>Business</option>
+                    <option>Farmer</option>
+                    <option>Others</option>
+                 </optgroup>
+               </select>
+	         </div>
+	       </div> 
+       	    <div class="col-md-12">
+       	      <div class="form-group">
+       	        <label for="guarRelation">Relation with Guardian</label>
+       	        <input type="text" name="guarRelation" id="guarRelation" class="form-control">
+       	      </div>
+       	    </div>
+       	  </div>
+       	 </div> 
+		</section>
+		<h3>Previous Education</h3>
+		<section>
+		  <legend>Education 1:</legend>
+   		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation1">Level of Education</label>
+		        <select name="levelOfEducation1" id="levelOfEducation1" class="form-control">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option selected="selected" value="SSC/Dakhil">SSC/Dakhil/Equivalent</option>
+			            <option value="HSC/Alim">HSC/Alim</option>
+			            <option value="Diploma">Diploma</option>
+			            <option value="Bachelor/Hons">Bachelor/Hons</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div>   
+  		   <div class="col-md-12">
+		    <div class="form-group">
+		      <label for="majorOrGroup1">Major or group</label>
+		      <input type="text" name="majorOrGroup1" class="form-control">
+		    </div>
+		   </div> 
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="eduInstitute1">Institute Name</label>
+		        <input type="text" name="instituteName1" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduBoard">Education Board</label>
+		        <select name="board1" id="eduBoard" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Board">
+		            <option value="Dhaka">Dhaka</option>
+		            <option value="Chittagong">Chittagong</option>
+		            <option value="Jessore">Jessore</option>
+		            <option value="Rajshahi">Rajshahi</option>
+		            <option value="Sylhet">Sylhet</option>
+		            <option value="Barishal">Barishal</option>
+		            <option value="Comilla">Comilla</option>
+		            <option value="Dinajpur">Dinajpur</option>
+		            <option value="Madrasah">Madrasah</option>
+		            <option value="Technical">Technical</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduPass1">Passing Year</label>
+		        <select name="year1" id="eduPass1" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Passing Year">
+		            <option>2000</option>
+		            <option>2015</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		    <div class="form-group">
+		        <label for="eduResult">Result</label>
+		        <input type="text" name="result1" class="form-control">
+		      </div>
+		   </div>
+		   <legend>Education 2:</legend>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation2">Level of Education</label>
+		        <select name="levelOfEducation2" id="levelOfEducation2" class="form-control">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC/Dakhil">SSC/Dakhil/Equivalent</option>
+			            <option selected="selected" value="HSC/Alim">HSC/Alim</option>
+			            <option value="Diploma">Diploma</option>
+			            <option value="Bachelor/Hons">Bachelor/Hons</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div> 
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup2">Major or group</label>
+		        <input type="text" name="majorOrGroup2" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="eduInstitute">Institute Name</label>
+		        <input type="text" name="instituteName2" class="form-control">
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduBoard">Education Board</label>
+		        <select name="board2" id="eduBoardTwo" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Board">
+		            <option value="Dhaka">Dhaka</option>
+		            <option value="Chittagong">Chittagong</option>
+		            <option value="Jessore">Jessore</option>
+		            <option value="Rajshahi">Rajshahi</option>
+		            <option value="Sylhet">Sylhet</option>
+		            <option value="Barishal">Barishal</option>
+		            <option value="Comilla">Comilla</option>
+		            <option value="Dinajpur">Dinajpur</option>
+		            <option value="Madrasah">Madrasah</option>
+		            <option value="Technical">Technical</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduPass2">Passing Year</label>
+		        <select name="year2" id="eduPass2" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Passing Year">
+		            <option>2000</option>
+		            <option>2015</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+		    <div class="form-group">
+		        <label for="eduResult">Result</label>
+		        <input type="text" name="result2" class="form-control">
+		      </div>
+		   </div>
+		   <legend>Education 3:  [If Needed]</legend>
+	       <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation3">Level of Education</label>
+		        <select name="levelOfEducation3" id="levelOfEducation3" class="form-control">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC">SSC</option>
+			            <option value="HSC">HSC</option>
+			            <option value="Diploma">Diploma</option>
+			            <option selected="selected" value="Bachelor/Hons">Bachelor/Hons</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div>    
+		     <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup3">Major or group</label>
+		        <input type="text" name="majorOrGroup3" class="form-control">
+		      </div>
+		   </div> 
+	       <div class="col-md-12">
+			<div class="form-group">
+			  <label for="eduInstitute">Institute Name</label>
+			   <input type="text" name="instituteName3" class="form-control">
+			</div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduPass3">Passing Year</label>
+		        <select name="year3" id="eduPass3" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Passing Year">
+		            <option>2000</option>
+		            <option>2015</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+			<div class="form-group">
+			  <label for="eduResult">Result</label>
+			  <input type="text" name="result3" class="form-control">
+			 </div>
+			</div>
+			<legend>Education 4:  [If Needed]</legend>
+	       <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="levelOfEducation4">Level of Education</label>
+		        <select name="levelOfEducation4" id="levelOfEducation4" class="form-control">
+			        <option></option>
+			          <optgroup label="Find Degree">
+			            <option value="SSC">SSC</option>
+			            <option value="HSC">HSC</option>
+			            <option value="Diploma">Diploma</option>
+			            <option >Bachelor/Hons</option>
+			            <option selected="selected" value="Masters Part-I">Master's Part-I</option>
+			          </optgroup>
+		        </select>
+		      </div>
+		   </div>    
+		     <div class="col-md-12">
+		      <div class="form-group">
+		        <label for="majorOrGroup4">Major or group</label>
+		        <input type="text" name="majorOrGroup4" class="form-control">
+		      </div>
+		   </div> 
+	       <div class="col-md-12">
+			<div class="form-group">
+			  <label for="eduInstitute">Institute Name</label>
+			   <input type="text" name="instituteName4" class="form-control">
+			</div>
+		   </div>
+		   <div class="col-md-12">
+		     <div class="form-group">
+		        <label for="eduPass4">Passing Year</label>
+		        <select name="year4" id="eduPass4" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Passing Year">
+		            <option>2000</option>
+		            <option>2015</option>
+		          </optgroup>
+		        </select>
+		      </div>
+		   </div>
+		   <div class="col-md-12">
+			<div class="form-group">
+			  <label for="eduResult">Result</label>
+			  <input type="text" name="result4" class="form-control">
+			 </div>
+			</div>
+		</section>
+        <h3>Admission Information</h3>     		 
+       	<section>
+       	<div class="col-md-12">
+		   <div class="form-group"> 
+		     <label for="fecID">Select Faculty</label>
+		     <select name="facultyId" id="fecID" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Faculty">
+		            
+		              <option value="@id">@name</option>
+		        
+		          </optgroup>
+		     </select>
+		    </div>
+		  </div>  
+       	 <div class="col-md-12">
+       	   <div class="form-group">
+       	     <label for="deptID">Select Department</label>
+       	     <select name="departmentId" id="deptID" class="form-control">
+       	        <option></option>
+       	        <optgroup label="Find Department">
+       	           @for((id,name)<-Department.getDepartmentsAsMap){
+       	             <option value="@id">@name</option>
+       	           }
+       	        </optgroup>
+       	     </select>
+		   </div>
+		 </div>  
+		 <div class="col-md-12">
+		   <div class="form-group"> 
+		     <label for="degID">Select Degree</label>
+		     <select name="degreeId" id="degID" class="form-control">
+		          <option></option>
+		          <optgroup label="Find Degree">
+		            @for((id,name)<-Degree.getDegreesAsMap){
+		              <option value="@id">@name</option>
+		            }
+		          </optgroup>
+		     </select>
+		    </div>
+		  </div>  
+        </section> 
+        <h3>Login Information</h3>     		 
+       	<section>
+           <div class="col-md-12">
+             <div class="form-group">
+	           @inputText(field=studentForm("username"), '_showConstraints->false,'class->"form-control",'_label->"User Name")
+	         </div>
+	       </div> 
+	       <div class="col-md-12"> 
+	        <div class="form-group"> 
+              @inputPassword(field=studentForm("password"), '_showConstraints->false,'class->"form-control",'_label->"Password")
+            </div>  
+           </div> 
+		</section>
+    </div>
+   </div>   
+   </div>           
+</div>
+<script>
+$('#division').on('change', function() {
+var idToGet = this.value;
+jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
+		success: function(data) 
+			{
+		            //alert(data[0]);
+		            
+							var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("district"); 
+							
+							$("#district").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Choose a District--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		            
+			}
+		});
+					  
+	return false;
+	  					
+		});
+		
+		function showGuardian()
+		{
+		  var guarDiv=document.getElementById("guardianDiv");
+		  
+		    guarDiv.style.display='block';
+		 		  
+		}
+		
+		function removeGuardian()
+		{
+		  var guarDiv=document.getElementById("guardianDiv");
+		  
+		    guarDiv.style.display='none';
+		 		  
+		}
+          
+        function addEducation()
+        {
+           var moreEdu=document.getElementById("moreEducation");
+           
+           moreEdu.style.display='block';
+        }   
+        
+        function removeEducation()
+        {
+          var morEdu=document.getElementById("moreEducation");
+          
+          morEdu.style.display='none';
+        }   
+        
+        function moreEducation()
+        {
+          var otherEducation=document.getElementById("orEducation");
+          
+          otherEducation.style.display='block';
+        }
+        
+        function orMoreEducation()
+        {
+          var othEducation=document.getElementById("orEducation");
+          
+          othEducation.style.display='none';
+        }
+      </script>
+            }
+                       
+     }
+
