@@ -270,3 +270,6 @@ GET 	/student-fees/edit/:id				    	controllers.StudentFeesCollectionManagement.
 POST 	/student-fees/edit					    	controllers.StudentFeesCollectionManagement.update()
 POST    /student-fees/receive                       controllers.StudentFeesCollectionManagement.receive()
 
+GET		/student/entry-first-step-verificatoin						     controllers.DummyRegistrationManagement.create()
+POST		/student/entry-first-step-verificatoin						     controllers.DummyRegistrationManagement.dummyCheck
+

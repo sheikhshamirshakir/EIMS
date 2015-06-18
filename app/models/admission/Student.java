@@ -67,6 +67,13 @@ public class Student extends Model {
     public String year3;
     public String result3;
     
+    public String levelOfEducation4;
+    public String degree4;
+    public String majorOrGroup4;
+    public String instituteName4;
+    public String board4;
+    public String year4;
+    public String result4;
     
     public Long parentId;
     public Long guardianId;
@@ -80,12 +87,12 @@ public class Student extends Model {
     public Degree degree;
     
     @ManyToOne
-    @JoinColumn(name = "class_id", referencedColumnName = "id")
-    public ClassYear classYear;
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
+    public Faculty faculty;
     
-    @ManyToOne
-    @JoinColumn(name = "section_id", referencedColumnName = "id")
-    public SectionSemester sectionSemester;
+//    @ManyToOne
+//    @JoinColumn(name = "section_id", referencedColumnName = "id")
+//    public SectionSemester sectionSemester;
   
    
     @ManyToOne

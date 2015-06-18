@@ -26,7 +26,9 @@ public class Parent extends Model {
     public String fatherName;            
 	public String fatherMobile;
    	public String fatherEmail;
-	public String fathersLastEduQual; // Fathers educational Qualification 
+	public String fathersLastEduQual; 
+	public String fatherProfession;
+	// Fathers educational Qualification 
 	public String motherName; 
 	public String motherMobile; 
 	public String mothersLastEduQual; // Mother Educational Qualification

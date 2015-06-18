@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 
 
+
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
@@ -35,6 +36,9 @@ public class Faculty extends Model{
 	
     @OneToMany(mappedBy = "faculty")
     public List<Department> departments;  // TOREAD;
+    
+    @OneToMany(mappedBy = "faculty")
+    public List<Student> students;
     
     
 	public static Finder<Long, Faculty> find = new Finder(Long.class, Faculty.class);

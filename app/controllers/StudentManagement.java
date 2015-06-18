@@ -23,6 +23,7 @@ import models.admission.Degree;
 import models.admission.Department;
 import models.admission.Designation;
 import models.admission.Employee;
+import models.admission.Faculty;
 import models.admission.Guardian;
 import models.admission.Parent;
 import models.admission.SectionSemester;
@@ -61,7 +62,7 @@ public class StudentManagement extends Controller{
 		            String errorMsg = "";
 		            java.util.Map<String, List<play.data.validation.ValidationError>> errorsAll = filledForm.errors();
 		            for (String field : errorsAll.keySet()) {
-		                errorMsg += field + " ";
+		                errorMsg += field + " x";
 		                for (ValidationError error : errorsAll.get(field)) {
 		                    errorMsg += error.message() + ", ";
 		                }
@@ -86,6 +87,7 @@ public class StudentManagement extends Controller{
     	 parent.fatherName=dStudent.fatherName;            
 		 parent.fatherMobile=dStudent.fatherMobile;
 		 parent.fatherEmail=dStudent.fatherEmail;
+		 parent.fatherProfession=dStudent.fatherProfession;
 		 parent.fathersLastEduQual=dStudent.fathersLastEduQual; 
 		 parent.motherName=dStudent.motherName; 
 		 parent.motherMobile=dStudent.motherMobile; 
@@ -104,7 +106,9 @@ public class StudentManagement extends Controller{
 		 guardian.guardianName=dStudent.guardianName;            
 		 guardian.guardianMobile=dStudent.guardianMobile;
 		 guardian.guardianEmail=dStudent.guardianEmail;
-		 guardian.guarEducation=dStudent.guarEducation; 
+		 guardian.guarEducation=dStudent.guarEducation;
+		 guardian.guardianProfession=dStudent.guardianProfession;
+		 guardian.guarRelation=dStudent.guarRelation;
 		 Guardian.create(guardian);
 		 System.out.println("kjhjkhkjhkj............55555555555.............");
 
@@ -115,7 +119,7 @@ public class StudentManagement extends Controller{
 	     student.name = dStudent.studentName;
 	
 	     student.dateOfBirth = dStudent.dateOfBirth;		
-		 student.gender=dStudent.gender;
+		 student.gender="Female";
 		 
 	     student.placeOfBirth=dStudent.placeOfBirth;
 	     student.nationality= dStudent.nationality;
@@ -125,10 +129,11 @@ public class StudentManagement extends Controller{
 		 student.parentId = pid;
 		 student.guardianId=gid;
 		 
+		 student.faculty = Faculty.findById(Long.parseLong(dStudent.facultyId));
 		 student.department = Department.findById(Long.parseLong(dStudent.departmentId));
 		 student.degree = Degree.findById(Long.parseLong(dStudent.degreeId));
-		 student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
-		 student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
+		// student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
+		// student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
 		 
 		 student.religion=dStudent.religion;
 		 student.bloodGroup=dStudent.bloodGroup;
@@ -159,6 +164,14 @@ public class StudentManagement extends Controller{
 	     student.board3=dStudent.board3;
 	     student.year3=dStudent.year3;
 	     student.result3=dStudent.result3;
+	     
+	     student.levelOfEducation4=dStudent.levelOfEducation4;
+	     student.degree4=dStudent.degree4;
+	     student.majorOrGroup4=dStudent.majorOrGroup4;
+	     student.instituteName4=dStudent.instituteName4;
+	     student.board4=dStudent.board4;
+	     student.year4=dStudent.year4;
+	     student.result4=dStudent.result4;
 			 
 		 student.atleastCredit = dStudent.atleastCredit; 
 		 student.completecredit=0.0;
@@ -183,7 +196,7 @@ public class StudentManagement extends Controller{
 		 userRole.roleId=1;
 		 UserRole.create(userRole);
 		 
-		 String sName=student.name.replaceAll("\\s+","");	
+		 String sName=dStudent.studentName.replaceAll("\\s+","");	
 		String image_name = sName+sID+"_image.png";
 	    String contentType = student_image.getContentType(); 
 	    File file_type = student_image.getFile();
@@ -197,7 +210,7 @@ public class StudentManagement extends Controller{
 		 
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
-	   	return redirect(controllers.routes.StudentManagement.list());
+	   	return redirect(controllers.routes.StudentManagement.show(Student.findLastId()));
    			}
 	    }
 	 }

@@ -34,8 +34,8 @@ public class SectionSemester extends Model{
     public ClassYear classYear;
 
     
-	@OneToMany(mappedBy = "sectionSemester")
-    public List<Student> students;
+//	@OneToMany(mappedBy = "sectionSemester")
+//    public List<Student> students;
     
 	public static Finder<Long, SectionSemester> find = new Finder(Long.class, SectionSemester.class);
 

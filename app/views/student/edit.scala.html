@@ -1,6 +1,7 @@
 @(studentForm: Form[models.admission.Student])
 @import helper._
 @import models.admission.Degree
+@import models.admission.Faculty
 @import models.admission.ClassYear
 @import models.admission.SectionSemester
 @import models.admission.Department
@@ -186,11 +187,11 @@
               @inputText(field=studentForm("fatherEmail"), '_showConstraints->false,'class->"form-control",'_label->"Father Email")
 		    </div>
 		  </div>  
-		  <div class="col-md-12">
+		  @*<div class="col-md-12">
 		     <div class="form-group">
 	           @inputText(field=studentForm("fathersLastEduQual"), '_showConstraints->false,'class->"form-control",'_label->"Father Last Education")
 	         </div>
-	       </div> 
+	       </div> *@
 	       <div class="col-md-12"> 
 	        <div class="form-group"> 
               @inputText(field=studentForm("motherName"), '_showConstraints->false,'class->"form-control",'_label->"Mother Name")
@@ -201,11 +202,11 @@
               @inputText(field=studentForm("motherMobile"), '_showConstraints->false,'class->"form-control",'_label->"Mother Mobile No")
 		    </div>
 		   </div> 
-		   <div class="col-md-12">
+		  @* <div class="col-md-12">
             <div class="form-group">
               @inputText(field=studentForm("mothersLastEduQual"), '_showConstraints->false,'class->"form-control",'_label->"Mother Last Education")
 		    </div>
-		   </div> 
+		   </div>*@ 
 		   <div class="col-md-12">  
             <div class="form-group">
                <label for="broID">No Of Brother/Sister</label>
@@ -251,12 +252,12 @@
        	        <input type="text" name="guardianEmail" class="form-control">
        	      </div>
        	    </div>
-       	    <div class="col-md-12">
+       	    @*<div class="col-md-12">
        	      <div class="form-group">
        	        <label for="guarEducation">Guardian Last Education</label>
        	        <input type="text" name="guarEducation" class="form-control">
        	      </div>
-       	    </div>
+       	    </div>*@
        	  </div>
        	 </div> 
 		</section>
@@ -462,6 +463,20 @@
 		</section>
 		 <h3>Admission Information</h3>     		 
        	<section>
+       	 
+       	  <div class="col-md-12">
+		    <div class="form-group">
+		      <label for="yearID">Select Faculty</label>
+		      <select name="faculty.id" id="yearID" class="form-control">
+		         <option></option>
+		         <optgroup label="Find Faculty">
+		           @for((id, name) <- Faculty.getFacultiesAsMap){
+                     <option value="@id" @if(studentForm.get.faculty.id.toString==id){selected}>@name</option>
+                    }
+		         </optgroup>
+		      </select>
+		    </div> 
+		  </div>
        	 <div class="col-md-12">
        	   <div class="form-group">
        	     <label for="deptID">Select Department</label>
@@ -488,7 +503,7 @@
 		     </select>
 		    </div>
 		  </div>  
-		  <div class="col-md-12">
+		 @* <div class="col-md-12">
 		    <div class="form-group">
 		      <label for="yearID">Select Class/Year</label>
 		      <select name="classYear.id" id="yearID" class="form-control">
@@ -514,6 +529,7 @@
 		      </select>
             </div>
           </div>  
+          *@
    		  <div class="col-md-12">
 		   <div class="form-group">  	   
 	        @inputText(field=studentForm("atleastCredit"), '_showConstraints->false,'class->"form-control",'_label->"Atleast Credit")

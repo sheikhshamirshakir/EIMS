@@ -5,11 +5,12 @@
 
 @import helper._
 
-@main("Student"){
+@studentValidation("Student"){
 <!-- main content -->   
    <div id="main_wrapper">
     <div class="container-fluid">
       <div class="row">
+       <div id="print">
         <div class="heading_a"><span class="heading_text">Student Details</span></div>
         
         <div class="col-md-12">
@@ -19,11 +20,11 @@
            <label for="StudentName">Student Name</label>
            <span class="form-control">@student.name</span>
         </div>
-        <div class="col-md-12">
+        @*<div class="col-md-12">
           <label for="gender">Gender</label>
           <span class="form-control">@student.gender</span>
         </div>
-        
+        *@
         <div class="col-md-12">
           <label for="dob">Date of Birth</label>
           <span class="form-control">@Utils.formatDate(student.dateOfBirth)</span>
@@ -33,7 +34,7 @@
           <label for="birthPlace">Place of Birth</label>
           <span class="form-control">@District.findById(Long.parseLong(student.placeOfBirth)).name</span>
         </div>
-        <div class="col-md-12">
+        @*<div class="col-md-12">
           <label for="nationality">Nationality</label>
           <span class="form-control">@student.nationality</span>
         </div>
@@ -44,12 +45,13 @@
         <div class="col-md-12">
            <label for="perAddress">Permanent Address</label>
            <span class="form-control">@student.permanentAddress</span>
-        </div>
+        </div>*@
         <div class="col-md-12">
           <label for="religion">Religion</label>
           <span class="form-control">@student.religion</span>
         </div>
-        <div class="col-md-12">
+        
+        @*<div class="col-md-12">
           <label for="bGroup">Blood group</label>
           <span class="form-control">@student.bloodGroup</span>
         </div>
@@ -64,27 +66,34 @@
         <div class=""col-md-12>
           <label for="email">Email</label>
           <span class="form-control">@student.email</span>
-        </div>
-        <div class=""col-md-12>
+        </div>*@
+        <div class="col-md-12">
           <label for="parentName">Father's Name</label>
-          <span class="form-control"><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).fatherName</a></span>
+          @*<span class="form-control"><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).fatherName</a></span>*@
+          <span class="form-control">@Parent.findById(student.parentId).fatherName</span>
+        </div>
+                <div class="col-md-12">
+           <label for="className">Faculty</label>
+           <span class="form-control">@student.faculty.name</span>
         </div>
         <div class="col-md-12">
-          <label for="deptName">Department Name</labe> 
+          <label for="deptName">Department Name</label> 
           <span class="form-control">@student.department.name</span>
         </div>
         <div class="col-md-12">
            <label for="degName">Degree Name</label>
            <span class="form-control">@student.degree.name</span>
         </div>
-        <div class="col-md-12">
+
+        @*<div class="col-md-12">
            <label for="className">Class or Year</label>
            <span class="form-control">@student.classYear.name</span>
         </div>
         <div class="col-md-12">
            <label for="sectionName">Section or Semester</label>
            <span class="form-control">@student.sectionSemester.name</span>
-        </div>
+        </div> 
+        
         <div class="col-md-12">
            <label for="creditCom">Complete Credit</label>
            <span class="form-control">@student.completecredit</span>
@@ -97,10 +106,31 @@
           @form(routes.StudentManagement.edit(student.sid)) {
 		    <input type="submit" value="Edit" class="btn btn-primary">
   		  }
-        </div> 	
+        </div>*@ 	
+        </div>
+           <div class="col-md-12">
+          
+		    <input type="button" value="Print" class="btn btn-primary" onClick="printPage()">
+  		  
+        </div>
       </div>
    </div>
-</div>    	  
+</div>  
+
+
+<script>
+function printPage()
+{
+var printContents = document.getElementById('print').innerHTML;
+var originalContents = document.body.innerHTML;
+
+document.body.innerHTML = printContents;
+
+window.print();
+
+document.body.innerHTML = originalContents;
+}
+</script>  	  
      }
 
      

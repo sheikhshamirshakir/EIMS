@@ -40,6 +40,11 @@ public class DummyStudent {
 	public String fatherMobile;
    	public String fatherEmail;
 	public String fathersLastEduQual;
+	
+	
+	public String fatherProfession;
+	
+	
 	public String motherName; 
 	public String motherMobile; 
 	public String mothersLastEduQual;
@@ -47,7 +52,15 @@ public class DummyStudent {
 	
     public String guardianName;            
   	public String guardianMobile;
- 	public String guardianEmail;
+  	
+  	
+  	public String guardianProfession;
+  	
+  	
+  	public String guarRelation;
+ 	
+  	
+  	public String guardianEmail;
   	public String guarEducation; 
     
     public String levelOfEducation1;
@@ -74,8 +87,27 @@ public class DummyStudent {
     public String year3;
     public String result3;
     
+    
+    
+    
+    
+    
+    
+    
+    public String levelOfEducation4;
+    public String degree4;
+    public String majorOrGroup4;
+    public String instituteName4;
+    public String board4;
+    public String year4;
+    public String result4;
+    
+    
+    
+    
+    
     public String isParentGuardian;
-	
+    public String facultyId;
 	public String departmentId;
     public String degreeId;
 	public String classId;

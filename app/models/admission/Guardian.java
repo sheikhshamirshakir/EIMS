@@ -27,6 +27,8 @@ public class Guardian extends Model {
 	public String guardianMobile;
    	public String guardianEmail;
 	public String guarEducation; 
+ 	public String guardianProfession;
+  	public String guarRelation;
 
 	
 	public static Finder<Long,Guardian> find =  new Finder(Long.class, Guardian.class);

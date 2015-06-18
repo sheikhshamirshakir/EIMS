@@ -2,6 +2,7 @@
 @import helper._
 @import  models.admission.Department
 @import  models.admission.Designation
+@import  models.admission.Faculty
 @import  models.admission.Category
 @import  models.admission.Degree
 @import  models.admission.ClassYear
@@ -9,7 +10,7 @@
 @import  models.Division
 @import  models.District
 
-@main("Student Entry") {
+@studentValidation("Student Entry") {
  <script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
  <!-- Main Content -->
  <div id="main_wrapper">
@@ -27,7 +28,7 @@
        	    </div>
 	        <div class="col-md-12">
 	          <div class="form-group">  
-	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control",'id->"dp_basic")
+	            @inputDate(field=studentForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control")
 	          </div> 
 	        </div>
 	        <div class="col-md-12">  
@@ -334,7 +335,22 @@
 		          <option></option>
 		          <optgroup label="Find Passing Year">
 		            <option>2000</option>
+		            <option>2001</option>
+		            <option>2002</option>
+		            <option>2003</option>
+		            <option>2004</option>
+		            <option>2005</option>
+		            <option>2006</option>
+		            <option>2007</option>
+		            <option>2008</option>
+		            <option>2009</option>
+		            <option>2010</option>
+		            <option>2011</option>
+		            <option>2012</option>
+		            <option>2013</option>
+		            <option>2014</option>
 		            <option>2015</option>
+
 		          </optgroup>
 		        </select>
 		      </div>
@@ -399,6 +415,20 @@
 		          <option></option>
 		          <optgroup label="Find Passing Year">
 		            <option>2000</option>
+		            <option>2001</option>
+		            <option>2002</option>
+		            <option>2003</option>
+		            <option>2004</option>
+		            <option>2005</option>
+		            <option>2006</option>
+		            <option>2007</option>
+		            <option>2008</option>
+		            <option>2009</option>
+		            <option>2010</option>
+		            <option>2011</option>
+		            <option>2012</option>
+		            <option>2013</option>
+		            <option>2014</option>
 		            <option>2015</option>
 		          </optgroup>
 		        </select>
@@ -444,6 +474,20 @@
 		          <option></option>
 		          <optgroup label="Find Passing Year">
 		            <option>2000</option>
+		            <option>2001</option>
+		            <option>2002</option>
+		            <option>2003</option>
+		            <option>2004</option>
+		            <option>2005</option>
+		            <option>2006</option>
+		            <option>2007</option>
+		            <option>2008</option>
+		            <option>2009</option>
+		            <option>2010</option>
+		            <option>2011</option>
+		            <option>2012</option>
+		            <option>2013</option>
+		            <option>2014</option>
 		            <option>2015</option>
 		          </optgroup>
 		        </select>
@@ -490,6 +534,20 @@
 		          <option></option>
 		          <optgroup label="Find Passing Year">
 		            <option>2000</option>
+		            <option>2001</option>
+		            <option>2002</option>
+		            <option>2003</option>
+		            <option>2004</option>
+		            <option>2005</option>
+		            <option>2006</option>
+		            <option>2007</option>
+		            <option>2008</option>
+		            <option>2009</option>
+		            <option>2010</option>
+		            <option>2011</option>
+		            <option>2012</option>
+		            <option>2013</option>
+		            <option>2014</option>
 		            <option>2015</option>
 		          </optgroup>
 		        </select>
@@ -504,6 +562,7 @@
 		</section>
         <h3>Admission Information</h3>     		 
        	<section>
+       	
        	<div class="col-md-12">
 		   <div class="form-group"> 
 		     <label for="fecID">Select Faculty</label>
@@ -511,12 +570,15 @@
 		          <option></option>
 		          <optgroup label="Find Faculty">
 		            
-		              <option value="@id">@name</option>
+		             @for((id,name)<-Faculty.getFacultiesAsMap){
+       	             <option value="@id">@name</option>
+       	           }
 		        
 		          </optgroup>
 		     </select>
 		    </div>
 		  </div>  
+		  
        	 <div class="col-md-12">
        	   <div class="form-group">
        	     <label for="deptID">Select Department</label>
