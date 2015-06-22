@@ -50,10 +50,10 @@ public class DummyRegistration extends Model{
 		public static DummyRegistration getStudent(DummyRegistration dummyRegistration) {
 			return find.where()
 				.eq("ltrim(admission_id)", dummyRegistration.admissionId.trim())
-				.eq("trim(applicant_name)", dummyRegistration.name.trim())
-				.eq("trim(fathers_name)", dummyRegistration.fathersName.trim())
-				.eq("trim(mothers_name)", dummyRegistration.mothersName.trim())
-				.eq("dob", dummyRegistration.dateOfBirth)				
+				.eq("trim(applicant_name)", dummyRegistration.name.trim().toUpperCase())
+				.eq("trim(fathers_name)", dummyRegistration.fathersName.trim().toUpperCase())
+				/*.eq("trim(mothers_name)", dummyRegistration.mothersName.trim())
+				.eq("dob", dummyRegistration.dateOfBirth)*/				
 				.findUnique();
 			 
 		}
