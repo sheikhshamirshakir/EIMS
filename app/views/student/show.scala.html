@@ -7,44 +7,51 @@
 
 @studentValidation("Student"){
 <!-- main content -->   
-   <div id="main_wrapper">
-    <div class="container-fluid">
-      <div class="row">
+    @*<div id="main_wrapper">
+   <div class="container-fluid">
+      <div class="row">*@
        <div id="print">
        
-          <div class="heading_a">
-          <table width="100%">
-             <tr>
-               <td align="center"><span class="heading_text">Eden Mohila College</span></td>
-             </tr>
-             <tr>
-                <td><span>Azimpur, Lalbag</span></td>
-             </tr>
-             <tr>   
-				<td><span>Dhaka-1205, Bangladesh</span></td>
-             </tr>
-             <tr>
-                <td><span>Telephone:	+880-2-9666898, +880-2-8625516(Principal's office)</span></td>
-             </tr>
-             <tr>   
-				<td><span>@(new String("Email Address: info@edenmohilacollege.com"))</span></td>
-             </tr>
-             <tr>   
-				<td><span>Website: www.edenmohilacollege.com</span></td>
-             </tr>
-          </table>  
+       <div class="heading_a">
+     
+       <table width="100%">
+            <tr>
+              <td align="center"><img src="@routes.Assets.at("assets/img/logo.png")" alt="eden_logo"></span></td>
+            </tr>
+            <tr>
+              <td align="center"><span class="heading_text">Eden Mohila College</span></td>
+            </tr>
+            <tr>
+               <td align="center"><span>Azimpur, Lalbag</span></td>
+            </tr>
+            <tr>   
+				<td align="center"><span>Dhaka-1205, Bangladesh</span></td>
+            </tr>
+            <tr>
+               <td align="center"><span>Telephone:	+880-2-9666898, +880-2-8625516(Principal's office)</span></td>
+            </tr>
+            <tr>   
+				<td align="center"><span>@(new String("Email Address: info@edenmohilacollege.com"))</span></td>
+            </tr>
+            <tr>   
+				<td align="center"><span>Website: www.edenmohilacollege.com</span></td>
+            </tr>
+         </table>  
         </div>
        
-       
+        <br/>
+         <br/>      
        
        
         <div class="heading_a"><span class="heading_text">Student Details</span></div>
         
-        <div class="col-md-12">
+        @*<div class="col-md-12">
           <img src=@routes.Assets.at("photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>
-        </div> 
+        </div>*@
+         
+         <br/>
         <div class="col-md-12">
-           <label for="StudentName">Student Name</label>
+           <label for="StudentName">Student Name : </label>
            <span class="form-control">@student.name</span>
         </div>
         @*<div class="col-md-12">
@@ -53,12 +60,12 @@
         </div>
         *@
         <div class="col-md-12">
-          <label for="dob">Date of Birth</label>
+          <label for="dob">Date of Birth : </label>
           <span class="form-control">@Utils.formatDate(student.dateOfBirth)</span>
         </div>
       
         <div class="col-md-12">
-          <label for="birthPlace">Place of Birth</label>
+          <label for="birthPlace">Place of Birth : </label>
           <span class="form-control">@District.findById(Long.parseLong(student.placeOfBirth)).name</span>
         </div>
         @*<div class="col-md-12">
@@ -74,7 +81,7 @@
            <span class="form-control">@student.permanentAddress</span>
         </div>*@
         <div class="col-md-12">
-          <label for="religion">Religion</label>
+          <label for="religion">Religion : </label>
           <span class="form-control">@student.religion</span>
         </div>
         
@@ -94,21 +101,23 @@
           <label for="email">Email</label>
           <span class="form-control">@student.email</span>
         </div>*@
+        
         <div class="col-md-12">
-          <label for="parentName">Father's Name</label>
+          <label for="parentName">Father's Name: </label>
           @*<span class="form-control"><a href="@routes.ParentManagement.show(student.parentId)">@Parent.findById(student.parentId).fatherName</a></span>*@
           <span class="form-control">@Parent.findById(student.parentId).fatherName</span>
         </div>
                 <div class="col-md-12">
-           <label for="className">Faculty</label>
+           <label for="className">Faculty : </label>
            <span class="form-control">@student.faculty.name</span>
         </div>
+        
         <div class="col-md-12">
-          <label for="deptName">Department Name</label> 
+          <label for="deptName">Department  : </label> 
           <span class="form-control">@student.department.name</span>
         </div>
         <div class="col-md-12">
-           <label for="degName">Degree Name</label>
+           <label for="degName">Degree  : </label>
            <span class="form-control">@student.degree.name</span>
         </div>
 
@@ -140,9 +149,9 @@
 		    <input type="button" value="Print" class="btn btn-primary" onClick="printPage()">
   		  
         </div>
-      </div>
+    @*  </div>
    </div>
-</div>  
+</div>  *@
 
 
 <script>

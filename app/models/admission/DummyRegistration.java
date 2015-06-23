@@ -52,10 +52,17 @@ public class DummyRegistration extends Model{
 	 private static Finder<Integer, DummyRegistration> find = new Finder(Integer.class, DummyRegistration.class);
 		
 		public static DummyRegistration getStudent(DummyRegistration dummyRegistration) {
+			
+			String applicantName  = dummyRegistration.name.trim().toUpperCase()+"%";
+			
+			String fatherName =  dummyRegistration.fathersName.trim().toUpperCase()+"%";
+			
 			return find.where()
-				.eq("ltrim(admission_id)", dummyRegistration.admissionId.trim())
-				.eq("trim(applicant_name)", dummyRegistration.name.trim().toUpperCase())
-				.eq("trim(fathers_name)", dummyRegistration.fathersName.trim().toUpperCase())
+				.eq("trim(admission_id)", dummyRegistration.admissionId.trim())
+				/*.eq("trim(applicant_name)", dummyRegistration.name.trim().toUpperCase())
+				.eq("trim(fathers_name)", dummyRegistration.fathersName.trim().toUpperCase())*/
+				.like("trim(applicant_name)", applicantName)
+				.like("trim(fathers_name)", fatherName)
 				/*.eq("trim(mothers_name)", dummyRegistration.mothersName.trim())
 				.eq("dob", dummyRegistration.dateOfBirth)*/				
 				.findUnique();

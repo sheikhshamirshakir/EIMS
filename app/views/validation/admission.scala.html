@@ -10,6 +10,7 @@
 @import  models.Division
 @import  models.District
 
+
 @studentValidation("Student Entry") {
  <script type="text/javascript" src='@routes.DistrictFunctions.javascriptRoutes()'></script>
  <!-- Main Content -->
@@ -67,7 +68,7 @@
 		  <div class="col-md-12">
             <div class="form-group">
              <label for="division">Division</label> 
-              <select name="division" id="division" class="form-control">
+              <select name="divisionpresent" id="divisionpresent" onChange="getPresentDistrictListByDivision()" class="form-control">
 			     <option></option>
 			     <optgroup label="Find Division">
 				     @for((id, name) <- Division.getDivisionsAsMap){
@@ -80,7 +81,7 @@
     	  <div class="col-md-12">
             <div class="form-group">
              <label for="district">District</label> 
-              <select name="district" id="district" class="form-control">
+              <select name="districtpresent" id="districtpresent" class="form-control">
 			     <option></option>
 			     <optgroup label="Find District">
 				     @for((id, name) <- District.getDistrictsAsMap){
@@ -98,7 +99,7 @@
      	  <div class="col-md-12">
             <div class="form-group">
              <label for="division">Division</label> 
-              <select name="division" id="division1" class="form-control">
+              <select name="divisionpermanent" id="divisionpermanent" onChange="getDistrictListByDivision()" class="form-control">
 			     <option></option>
 			     <optgroup label="Find Division">
 				     @for((id, name) <- Division.getDivisionsAsMap){
@@ -111,7 +112,7 @@
     	  <div class="col-md-12">
             <div class="form-group">
              <label for="district">District</label> 
-              <select name="district" id="district1" class="form-control">
+              <select name="districtpermanent" id="districtpermanent" class="form-control">
 			     <option></option>
 			     <optgroup label="Find District">
 				     @for((id, name) <- District.getDistrictsAsMap){
@@ -771,6 +772,88 @@ jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
 							$("#degree").empty();
 							var el = document.createElement("option");
 				    		el.textContent = "--Select Degree--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		               
+		                }
+		            });
+			  }
+		}
+      </script>
+      
+      
+      
+       <script  type="text/javascript" >
+
+   
+      function getDistrictListByDivision(){
+
+			var divisionpermanent = $("#divisionpermanent option:selected").val();
+			  if(divisionpermanent!=''){
+			     $.ajax({
+		                type : "GET",
+		                url : "@routes.StudentManagement.getDistrictByDivisionId()",
+		                data : "divisionId="+ divisionpermanent,
+		                success : function(data) {
+		                	
+		                
+		                    
+		                    var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("districtpermanent"); 
+							
+							$("#districtpermanent").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Select District--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		               
+		                }
+		            });
+			  }
+		}
+      </script>
+      
+      
+      
+             <script  type="text/javascript" >
+
+   
+      function getPresentDistrictListByDivision(){
+
+			var divisionpresent = $("#divisionpresent option:selected").val();
+			  if(divisionpresent!=''){
+			     $.ajax({
+		                type : "GET",
+		                url : "@routes.StudentManagement.getDistrictByDivisionId()",
+		                data : "divisionId="+ divisionpresent,
+		                success : function(data) {
+		                	
+		                
+		                    
+		                    var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("districtpresent"); 
+							
+							$("#districtpresent").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Select District--";
 				    		el.value = "";
 				    		select.appendChild(el);
 				    

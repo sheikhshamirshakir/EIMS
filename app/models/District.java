@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import models.admission.Degree;
 import play.db.ebean.Model;
 
 @Entity
@@ -59,4 +60,11 @@ public class District extends Model{
 	 return districts;
 	}
 	
+	
+   public static List<District> getDistrictByDivisionId(Long id){
+    	
+    	return find.where().eq("division_id", id).findList();
+    	
+    }
+   
 }

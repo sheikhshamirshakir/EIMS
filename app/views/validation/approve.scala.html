@@ -2,11 +2,12 @@
 @import helper._
 
 
+
 @studentValidation("Basic Entry") {
   <!-- main content -->
    <div id="main_wrapper">
     <div class="container-fluid">
-        <div class="col-md-12">
+        @*<div class="col-md-12">
           <div class="heading_a"><span class="heading_text">Applicant Information</span></div>
            @form(routes.DummyRegistrationManagement.dummyCheck()) { 
             <div class="row">
@@ -18,18 +19,35 @@
 		     <div class="row">
 		      @inputText(field=applicantForm("fathersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Father Name")
 		    </div>     
-		     @*<div class="row">
-		      @inputText(field=applicantForm("mothersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Mother Name")
-		    </div>  
-		    <div class="row">
-		      @inputDate(field=applicantForm("dateOfBirth"), '_showConstraints->false,'_label->"Date of Birth", 'class->"form-control")
-		      
-		    </div>*@       
+		       
             <div class="row">
               <input type="submit" class="btn btn-primary" value="Send">
             </div>
             }
         </div>
+        *@
+        
+        
+       <div class="row">
+        <div class="heading_a"><span class="heading_text">Applicant Information</span></div>
+         @form(routes.DummyRegistrationManagement.dummyCheck()) { 
+	          <div class="col-md-12">
+			    @inputText(field=applicantForm("admissionId"), '_showConstraints -> false, 'class->"form-control",'_label->"Admission Roll")
+			  </div>
+			  
+			  <div class="col-md-12">
+			    @inputText(field=applicantForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Applicant Name")
+			  </div>  
+			    
+			   <div class="col-md-12">
+			    @inputText(field=applicantForm("fathersName"), '_showConstraints -> false, 'class->"form-control",'_label->"Father Name")
+			  </div>     
+	     
+	          <div class="col-md-12">
+	            <input type="submit" class="btn btn-primary" value="Go Next Step">
+	          </div>
+          }
+       </div>
      </div>
    </div>                      
  }

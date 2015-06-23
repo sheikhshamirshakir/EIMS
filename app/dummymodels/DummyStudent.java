@@ -116,6 +116,12 @@ public class DummyStudent {
     public Double atleastCredit;
     
     
+    public String divisionpresent;
+    public String districtpresent;
+    
+    public String divisionpermanent;
+    public String districtpermanent;
+    
     public String username;
     public String password;
     public String role;

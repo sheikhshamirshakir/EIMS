@@ -279,3 +279,6 @@ GET     /get-department                            controllers.DepartmentManagem
 
 GET     /get-degree                            controllers.DegreeManagement.getDegreeByDepartmentId()
 
+
+GET     /get-district                           controllers.StudentManagement.getDistrictByDivisionId()
+

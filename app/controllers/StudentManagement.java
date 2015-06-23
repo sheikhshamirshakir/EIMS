@@ -7,13 +7,18 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+
+import com.google.gson.Gson;
 
 import be.objectify.deadbolt.java.actions.Dynamic;
 import dummymodels.DummyEmployee;
 import dummymodels.DummyStudent;
+import models.District;
 import models.Role;
 import models.User;
 import models.UserRole;
@@ -123,8 +128,8 @@ public class StudentManagement extends Controller{
 		 
 	     student.placeOfBirth=dStudent.placeOfBirth;
 	     student.nationality= dStudent.nationality;
-	     student.permanentAddress=dStudent.permanentAddress;
-	     student.presentAddress = dStudent.presentAddress;
+	     student.permanentAddress=dStudent.permanentAddress+", "+dStudent.districtpermanent+", "+dStudent.divisionpermanent;
+	     student.presentAddress = dStudent.presentAddress+", "+dStudent.districtpresent+", "+dStudent.divisionpresent;
 		 
 		 student.parentId = pid;
 		 student.guardianId=gid;
@@ -134,6 +139,7 @@ public class StudentManagement extends Controller{
 		 student.degree = Degree.findById(Long.parseLong(dStudent.degreeId));
 		// student.classYear = ClassYear.findById(Long.parseLong(dStudent.classId));
 		// student.sectionSemester = SectionSemester.findById(Long.parseLong(dStudent.sectionId));
+		 
 		 
 		 student.religion=dStudent.religion;
 		 student.bloodGroup=dStudent.bloodGroup;
@@ -267,6 +273,21 @@ public class StudentManagement extends Controller{
 		 return ok(list.render(Student.all()));
 	 }
 	 
+	public static Result getDistrictByDivisionId(){
+		   Map<String, String[]> params = request().queryString();
+		   String divisionId = params.get("divisionId")[0];
+		   
+	       List<District> districtList = District.getDistrictByDivisionId(Long.parseLong(divisionId));
+		   Gson gson = new Gson();
+		   Map<String,String> districtIdName = new HashMap<String,String>();
+		   
+		   for(District district:districtList){
+			   districtIdName.put(""+district.id,district.name);
+		   }
+		   
+		   String toJson = gson.toJson(districtIdName);
+		   return ok(""+toJson);
+	}
 	 
 }
 
