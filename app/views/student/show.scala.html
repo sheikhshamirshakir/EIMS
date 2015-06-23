@@ -11,10 +11,37 @@
     <div class="container-fluid">
       <div class="row">
        <div id="print">
+       
+          <div class="heading_a">
+          <table width="100%">
+             <tr>
+               <td align="center"><span class="heading_text">Eden Mohila College</span></td>
+             </tr>
+             <tr>
+                <td><span>Azimpur, Lalbag</span></td>
+             </tr>
+             <tr>   
+				<td><span>Dhaka-1205, Bangladesh</span></td>
+             </tr>
+             <tr>
+                <td><span>Telephone:	+880-2-9666898, +880-2-8625516(Principal's office)</span></td>
+             </tr>
+             <tr>   
+				<td><span>@(new String("Email Address: info@edenmohilacollege.com"))</span></td>
+             </tr>
+             <tr>   
+				<td><span>Website: www.edenmohilacollege.com</span></td>
+             </tr>
+          </table>  
+        </div>
+       
+       
+       
+       
         <div class="heading_a"><span class="heading_text">Student Details</span></div>
         
         <div class="col-md-12">
-          <img src=@routes.Assets.at("images/photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>
+          <img src=@routes.Assets.at("photos/student/"+student.name.replaceAll("\\s+","")+student.sid+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>
         </div> 
         <div class="col-md-12">
            <label for="StudentName">Student Name</label>

@@ -5,9 +5,14 @@
 package controllers;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 import models.admission.Degree;
+import models.admission.Department;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -84,6 +89,22 @@ public class DegreeManagement extends Controller{
 		 return ok(list.render(Degree.all()));
 	 }
 	 
+	 
+	  public static Result getDegreeByDepartmentId(){
+		   Map<String, String[]> params = request().queryString();
+		   String departmentId = params.get("departmentId")[0];
+		   
+	       List<Degree> degreetList = Degree.getDegreeByepartmentId(Long.parseLong(departmentId));
+		   Gson gson = new Gson();
+		   Map<String,String> degreeIdName = new HashMap<String,String>();
+		   
+		   for(Degree degree:degreetList){
+			   degreeIdName.put(""+degree.id,degree.name);
+		   }
+		   
+		   String toJson = gson.toJson(degreeIdName);
+		   return ok(""+toJson);
+	  }
 	 
 }
 

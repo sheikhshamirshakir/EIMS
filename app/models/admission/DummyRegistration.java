@@ -44,6 +44,10 @@ public class DummyRegistration extends Model{
 	public Date dateOfBirth;
 	
 	
+//	@Column(name="status")
+//	public String status;
+	
+	
 
 	 private static Finder<Integer, DummyRegistration> find = new Finder(Integer.class, DummyRegistration.class);
 		

@@ -88,7 +88,7 @@ public class EmployeeManagement extends Controller{
 	    File file_type = emp_image.getFile();
 	    				    
 	    try {
-            FileUtils.copyFile(file_type, new File("public/images/photos/employee", image_name));
+            FileUtils.copyFile(file_type, new File("public/photos/employee", image_name));
             } catch (IOException ioe) {
             System.out.println("Problem operating on filesystem");
         }		

@@ -566,7 +566,7 @@
        	<div class="col-md-12">
 		   <div class="form-group"> 
 		     <label for="fecID">Select Faculty</label>
-		     <select name="facultyId" id="fecID" class="form-control">
+		     <select name="facultyId" id="faculty" onChange="getDepartmentListByFaculty()" class="form-control">
 		          <option></option>
 		          <optgroup label="Find Faculty">
 		            
@@ -582,7 +582,7 @@
        	 <div class="col-md-12">
        	   <div class="form-group">
        	     <label for="deptID">Select Department</label>
-       	     <select name="departmentId" id="deptID" class="form-control">
+       	     <select name="departmentId" id="department" onChange="getDegreeListByDepartment()" class="form-control">
        	        <option></option>
        	        <optgroup label="Find Department">
        	           @for((id,name)<-Department.getDepartmentsAsMap){
@@ -595,7 +595,7 @@
 		 <div class="col-md-12">
 		   <div class="form-group"> 
 		     <label for="degID">Select Degree</label>
-		     <select name="degreeId" id="degID" class="form-control">
+		     <select name="degreeId" id="degree" class="form-control">
 		          <option></option>
 		          <optgroup label="Find Degree">
 		            @for((id,name)<-Degree.getDegreesAsMap){
@@ -700,6 +700,93 @@ jsRoute.controllers.DistrictFunctions.getDistByDiv(idToGet).ajax({
           othEducation.style.display='none';
         }
       </script>
+      
+      
+      
+      
+    <script  type="text/javascript" >
+
+   
+      function getDepartmentListByFaculty(){
+
+			var faculty = $("#faculty option:selected").val();
+			  if(faculty!=''){
+			     $.ajax({
+		                type : "GET",
+		                url : "@routes.DepartmentManagement.getDepartmentByFacultyId()",
+		                data : "facultyId="+ faculty,
+		                success : function(data) {
+		                	
+		                
+		                    
+		                    var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("department"); 
+							
+							$("#department").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Select Department--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		               
+		                }
+		            });
+			  }
+		}
+      </script>
+      
+      
+      
+      
+      
+      
+       <script  type="text/javascript" >
+
+   
+      function getDegreeListByDepartment(){
+
+			var department = $("#department option:selected").val();
+			  if(department!=''){
+			     $.ajax({
+		                type : "GET",
+		                url : "@routes.DegreeManagement.getDegreeByDepartmentId()",
+		                data : "departmentId="+ department,
+		                success : function(data) {
+		                	
+		                
+		                    
+		                    var result = $.parseJSON(data);
+							
+							
+							var select = document.getElementById("degree"); 
+							
+							$("#degree").empty();
+							var el = document.createElement("option");
+				    		el.textContent = "--Select Degree--";
+				    		el.value = "";
+				    		select.appendChild(el);
+				    
+							$.each(result, function(k, v) {
+							  	var el = document.createElement("option");
+						    	el.textContent = v;
+						    	el.value = k;
+						    	select.appendChild(el);
+							 });
+		               
+		                }
+		            });
+			  }
+		}
+      </script>
+      
             }
                        
      }

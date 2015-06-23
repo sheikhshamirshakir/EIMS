@@ -271,5 +271,11 @@ POST 	/student-fees/edit					    	controllers.StudentFeesCollectionManagement.up
 POST    /student-fees/receive                       controllers.StudentFeesCollectionManagement.receive()
 
 GET		/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.create()
-POST		/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.dummyCheck
+POST		/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.dummyCheck()
+
+
+GET     /get-department                            controllers.DepartmentManagement.getDepartmentByFacultyId()
+
+
+GET     /get-degree                            controllers.DegreeManagement.getDegreeByDepartmentId()
 

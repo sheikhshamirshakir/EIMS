@@ -68,5 +68,10 @@ public class Degree extends Model{
         return degrees;
     }
     
-
+    
+    public static List<Degree> getDegreeByepartmentId(Long id){
+    	
+    	return find.where().eq("dept_id", id).findList();
+    	
+    }
 }

@@ -5,7 +5,11 @@
 package controllers;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 import models.admission.Department;
 import play.data.Form;
@@ -83,6 +87,22 @@ public class DepartmentManagement extends Controller{
 		 flash("success", AppConstants.SUCCESSFUL_DELETE_MESSAGE);
 		 return ok(list.render(Department.all()));
 	 }
+	 
+	  public static Result getDepartmentByFacultyId(){
+		   Map<String, String[]> params = request().queryString();
+		   String facultyId = params.get("facultyId")[0];
+		   
+	       List<Department> deptList = Department.getDepartmentByFacultyId(Long.parseLong(facultyId));
+		   Gson gson = new Gson();
+		   Map<String,String> deptIdName = new HashMap<String,String>();
+		   
+		   for(Department dept:deptList){
+			   deptIdName.put(""+dept.id,dept.name);
+		   }
+		   
+		   String toJson = gson.toJson(deptIdName);
+		   return ok(""+toJson);
+	  }
 	 
 	 
 }

@@ -73,5 +73,11 @@ public class Department extends Model{
         return departments;
     }
     
+    public static List<Department> getDepartmentByFacultyId(Long id){
+    	
+    	return find.where().eq("faculty_id", id).findList();
+    	
+    }
+    
 
 }
