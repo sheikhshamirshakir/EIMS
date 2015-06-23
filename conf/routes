@@ -9,6 +9,8 @@ GET   /dashboard           controllers.Dashboard.viewDashboard()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+#GET     /image/*file             controllers.Assets.at(path="/image/photos", file)
+
 
 # User Management(Login Panel)
 GET		/login									controllers.UserManagement.login()
