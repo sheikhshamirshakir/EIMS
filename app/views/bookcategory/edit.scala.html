@@ -1,0 +1,23 @@
+@(categoryForm: Form[models.book.Category])
+@import helper._
+
+@main("Edit Category"){
+   <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Book Category</span></div>					  
+				@form(routes.BookCategoryManagement.update()) {
+				  <input type="hidden" name="id" value=@categoryForm.get.id >
+					  <div class="col-md-12"> 
+					   @inputText(categoryForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Book Category Name")
+					  </div>
+					  <div class="col-md-12"> 
+						  <input type="submit" value="Update" class="btn btn-primary">
+					  </div>	  
+					  }
+			 </div>
+	      </div>
+	    </div>
+	 </div>          				  
+}

@@ -1,0 +1,26 @@
+@(authorForm: Form[models.book.Author])
+@import helper._
+
+@main("Edit Author"){
+   <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Author</span></div>					  
+				@form(routes.AuthorManagement.update()) {
+				  <input type="hidden" name="id" value=@authorForm.get.id >
+					  <div class="col-md-12"> 
+					   @inputText(authorForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Author Name")
+					  </div>
+					  <div class="col-md-12">  
+						 @textarea(field=authorForm("authorDetails"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Author Details")
+					  </div>
+					  <div class="col-md-12"> 
+						  <input type="submit" value="Update" class="btn btn-primary">
+					  </div>	  
+					  }
+			 </div>
+	      </div>
+	    </div>
+	 </div>          				  
+}

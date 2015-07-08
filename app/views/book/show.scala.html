@@ -1,0 +1,63 @@
+@(book: models.book.Book, image : String)
+@import helper._
+
+@main(""){
+ <div id="main_wrapper">
+   <div class="container-fluid">
+       
+        <div class="col-md-12">
+        
+          @*<img src=@routes.Assets.at("photos/book/"+book.name.replaceAll("\\s+","")+book.id+"_image.png") alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>*@
+			 <img src="/assets/photos/book/@image" alt="" title="" width="200px" height="200px" border="0" style="margin-left: 18px;"/></span>
+			 
+			 
+       </div>
+       <div class="col-md-12">
+         <div class="row">
+           <label for="catName">Book Name</label>
+           <span class="form-control" id="authorName">@book.name</span>
+        </div>  
+       
+       <div class="row">  
+      <label for="catName">Book Details</label>
+	   <span class="form-control" id="authorDetails">@book.bookDetails</span>
+	  </div>       	
+	  
+	    <div class="row">  
+      <label for="catName">Isbn</label>
+	   <span class="form-control" id="authorDetails">@book.isbn</span>
+	  </div>  
+	  
+	    <div class="row">  
+      <label for="catName">Price</label>
+	   <span class="form-control" id="authorDetails">@book.price</span>
+	  </div>  
+	  
+	    <div class="row">  
+      <label for="catName">Book Author</label>
+	   <span class="form-control" id="authorDetails">@book.author.name</span>
+	  </div>  
+	  
+	     <div class="row">  
+      <label for="catName">Book Category</label>
+	   <span class="form-control" id="authorDetails">@book.bookCategory.name</span>
+	  </div> 
+	  
+	     <div class="row">  
+      <label for="catName">Book Publisher</label>
+	   <span class="form-control" id="authorDetails">@book.publisher.name</span>
+	  </div> 
+	  
+	  				   
+	  @form(routes.BookManagement.edit(book.id)) {
+	  <div class="row">  
+	     <div class="row">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+	  }
+  </div>
+  </div>
+</div>		   		    	  		  
+   

@@ -1,0 +1,74 @@
+@(bookForm: Form[models.book.Book])
+@import helper._
+@import models.book.Author
+@import models.book.Publisher
+@import models.book.Category
+
+@main("Edit Book"){
+   <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Book</span></div>					  
+				@form(routes.BookManagement.update()) {
+				  <input type="hidden" name="id" value=@bookForm.get.id >
+					  <div class="col-md-12">
+                               @inputText(field=bookForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Book Name")
+                             </div>
+                             <div class="col-md-12">  
+					           <label for="birthPlace">Author Name</label>     
+					           <select name="author.id" id="birthPlace" class="form-control">
+					                <option></option>
+					                <optgroup label="Author Name">
+					                  @for((id,name)<-Author.getAuthorsAsMap){
+					                   
+					                    <option value="@id" @if(id==bookForm.get.author.id.toString){selected}>@name</option>
+					                  }
+					             </optgroup>
+						       </select>      
+							 </div>
+							  <div class="col-md-12">  
+					           <label for="publisher.id">Publisher Name</label>     
+					           <select name="publisher.id" id="publisherName" class="form-control">
+					                <option></option>
+					                <optgroup label="Publisher Name">
+					                  @for((id,name)<-Publisher.getPublishersAsMap){
+					                    
+					                     <option value="@id" @if(id==bookForm.get.publisher.id.toString){selected}>@name</option>
+					                  }
+					             </optgroup>
+						       </select>      
+							 </div>
+							 <div class="col-md-12">  
+					           <label for="bookCatName">Book Category Name</label>     
+					           <select name="bookCategory.id" id="bookCatName" class="form-control">
+					                <option></option>
+					                <optgroup label="Book Category Name">
+					                  @for((id,name)<-Category.getCategoriesAsMap){
+					                    <option value="@id" @if(id==bookForm.get.bookCategory.id.toString){selected}>@name</option>
+					                  }
+					             </optgroup>
+						       </select>      
+							 </div>
+                             <div class="col-md-12">
+							  @textarea(field=bookForm("bookDetails"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Book Details")
+							 </div> 
+				              <div class="col-md-12">    	
+    	                        @inputText(field=bookForm("isbn"), '_showConstraints->false,'class->"form-control",'_label->"Book ISBN No")
+    	                     </div> 
+    	                      <div class="col-md-12">    	
+    	                        @inputText(field=bookForm("price"), '_showConstraints->false,'class->"form-control",'_label->"Book Price")
+    	                     </div>  
+    	                     <div class="col-md-12">   
+						       <label for="bookImgae">Book Image </label>
+						       <input type="file" name="bookImage">
+						     </div>   
+					  <div class="col-md-12"> 
+						  <input type="submit" value="Update" class="btn btn-primary">
+					  </div>	  
+					  }
+			 </div>
+	      </div>
+	    </div>
+	 </div>          				  
+}

@@ -1,0 +1,33 @@
+@(publisherForm: Form[models.book.Publisher])
+@import helper._
+
+@main("Publisher Entry") {	
+       @form(routes.PublisherManagement.save()) { 
+       		
+     <!-- main content -->
+     <div id="main_wrapper">
+          <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="heading_a"><span class="heading_text">Add New Publisher</span></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                               @inputText(field=publisherForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Publisher Name")
+                             </div>
+                             <div class="col-md-12">
+							  @textarea(field=publisherForm("publisherDetails"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Publisher Details")
+							 </div> 
+							 </div>
+                             <div class="col-md-12">
+                              <input type="submit" value="Save" class="btn btn-primary">
+                             </div> 
+                        </div>
+                     </div>
+                 </div>
+               </div>
+             </div>
+           </div>             
+            }
+                       
+     }
+

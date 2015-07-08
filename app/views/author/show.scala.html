@@ -1,0 +1,28 @@
+@(author: models.book.Author)
+@import helper._
+
+@main(""){
+ <div id="main_wrapper">
+   <div class="container-fluid">
+     <div class="col-md-12">
+      <div class="row">
+          <label for="catName">Author Name</label>
+           <span class="form-control" id="authorName">@author.name</span>
+        </div>  
+      
+      <div class="row">
+      <label for="catName">Author Details</label> 
+	   <span class="form-control" id="authorDetails">@author.authorDetails</span>
+	  </div>       					   
+	  @form(routes.AuthorManagement.edit(author.id)) {
+	  <div class="row">  
+	    <div class="col-md-12">
+	      <input type="submit" value="Edit" class="btn btn-primary">
+	    </div>
+	  </div>  
+	  }
+	  }
+	  </div> 
+  </div>
+</div>			   		    	  		  
+   

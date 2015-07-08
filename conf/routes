@@ -9,7 +9,11 @@ GET   /dashboard           controllers.Dashboard.viewDashboard()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
-#GET     /image/*file             controllers.Assets.at(path="/image/photos", file)
+#GET     /image/*file               controllers.Assets.at(path="/photos", file)
+
+
+GET /picture/:name  controllers.PictureManagement.picture(name: String)
+
 
 
 
@@ -273,15 +277,56 @@ GET 	/student-fees/edit/:id				    	controllers.StudentFeesCollectionManagement.
 POST 	/student-fees/edit					    	controllers.StudentFeesCollectionManagement.update()
 POST    /student-fees/receive                       controllers.StudentFeesCollectionManagement.receive()
 
+
+
 GET		/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.create()
-POST		/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.dummyCheck()
+POST	/student/entry-first-step-verification						     controllers.DummyRegistrationManagement.dummyCheck()
 
 
 GET     /get-department                            controllers.DepartmentManagement.getDepartmentByFacultyId()
-
-
 GET     /get-degree                            controllers.DegreeManagement.getDegreeByDepartmentId()
-
-
 GET     /get-district                           controllers.StudentManagement.getDistrictByDivisionId()
+
+
+
+
+
+##Library Portion
+
+#Author
+GET		/author/create						     controllers.AuthorManagement.create()
+POST	/author/create						     controllers.AuthorManagement.save()
+GET		/author/list							     controllers.AuthorManagement.list()
+GET		/author/show/:id						     controllers.AuthorManagement.show(id: Long)
+GET		/author/edit/:id						     controllers.AuthorManagement.edit(id: Long)
+POST	/author/edit							     controllers.AuthorManagement.update()
+GET	    /author/delete/:id					   	 controllers.AuthorManagement.delete(id: Long)
+
+#Book
+GET		/book/create						     controllers.BookManagement.create()
+POST	/book/create						     controllers.BookManagement.save()
+GET		/book/list							     controllers.BookManagement.list()
+GET		/book/show/:id						     controllers.BookManagement.show(id: Long)
+GET		/book/edit/:id						     controllers.BookManagement.edit(id: Long)
+POST	/book/edit							     controllers.BookManagement.update()
+GET	    /book/delete/:id					   	 controllers.BookManagement.delete(id: Long)
+
+#book-category
+GET		/book-category/create						     controllers.BookCategoryManagement.create()
+POST	/book-category/create						     controllers.BookCategoryManagement.save()
+GET		/book-category/list							     controllers.BookCategoryManagement.list()
+GET		/book-category/show/:id						     controllers.BookCategoryManagement.show(id: Long)
+GET		/book-category/edit/:id						     controllers.BookCategoryManagement.edit(id: Long)
+POST	/book-category/edit							     controllers.BookCategoryManagement.update()
+GET	    /book-category/delete/:id					   	 controllers.BookCategoryManagement.delete(id: Long)
+
+#Publisher
+GET		/publisher/create						     controllers.PublisherManagement.create()
+POST	/publisher/create						     controllers.PublisherManagement.save()
+GET		/publisher/list							     controllers.PublisherManagement.list()
+GET		/publisher/show/:id						     controllers.PublisherManagement.show(id: Long)
+GET		/publisher/edit/:id						     controllers.PublisherManagement.edit(id: Long)
+POST	/publisher/edit							     controllers.PublisherManagement.update()
+GET	    /publisher/delete/:id					   	 controllers.PublisherManagement.delete(id: Long)
+
 

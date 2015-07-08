@@ -1,0 +1,26 @@
+@(publisherForm: Form[models.book.Publisher])
+@import helper._
+
+@main("Edit Author"){
+   <div id="main_wrapper">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+             <div class="heading_a"><span class="heading_text">Edit Publisher</span></div>					  
+				@form(routes.PublisherManagement.update()) {
+				  <input type="hidden" name="id" value=@publisherForm.get.id >
+					  <div class="col-md-12"> 
+					   @inputText(publisherForm("name"), '_showConstraints -> false, 'class->"form-control",'_label->"Publisher Name")
+					  </div>
+					  <div class="col-md-12">  
+						 @textarea(field=publisherForm("publisherDetails"), 'rows -> 3, 'cols -> 50, '_showConstraints->false,'class->"form-control",'_label->"Publisher Details")
+					  </div>
+					  <div class="col-md-12"> 
+						  <input type="submit" value="Update" class="btn btn-primary">
+					  </div>	  
+					  }
+			 </div>
+	      </div>
+	    </div>
+	 </div>          				  
+}

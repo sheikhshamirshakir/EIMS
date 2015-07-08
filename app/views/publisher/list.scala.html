@@ -1,0 +1,35 @@
+@(publishers: List[models.book.Publisher])
+@import helper._
+
+@mainlist("List of Publishers"){
+
+  	@if(flash.get("msg")){
+         	<span>@flash.get("msg")</span>
+     }
+ <!-- main content -->
+            <div id="main_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table id="datatable_demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                             <thead>
+							    <tr>
+							       <th>ID</th>
+							       <th>Publisher Name</th>
+							     </tr>
+							   </thead>
+							    <tbody>
+							    @for(publisher <- publishers) {
+							      <tr>
+							        <td><a href="@routes.PublisherManagement.show(publisher.id)">@publisher.id</a></td>
+							        <td>@publisher.name</td>
+							      </tr> 
+							      
+							    }
+							 </tbody>
+							 </table>
+					    </div>
+					 </div>
+		        </div>		 
+		     </div>   
+}      

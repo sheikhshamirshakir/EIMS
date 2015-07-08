@@ -83,11 +83,12 @@ public class StudentManagement extends Controller{
 		 MultipartFormData body = request().body().asMultipartFormData();
    		 FilePart student_image = body.getFile("stimage");
    		  //if (filledForm.hasErrors() || student_image == null) {
-   			if (filledForm.hasErrors()) {
+   		
+   		 /*if (filledForm.hasErrors()) {
    			return ok("error");
-   		  //return badRequest(create.render(filledForm));
+   		 
     	} 
-   		else {
+   		else {*/
 		 Parent parent =new Parent();
     	 parent.fatherName=dStudent.fatherName;            
 		 parent.fatherMobile=dStudent.fatherMobile;
@@ -104,7 +105,7 @@ public class StudentManagement extends Controller{
 		 Long gid =0L;
 		 
 		 if(dStudent.isParentGuardian.equals("1")){
-			 System.out.println("kjhjkhkjhkj.........................");
+			 //System.out.println("kjhjkhkjhkj.........................");
 			
 		 }else{
 		 Guardian guardian = new Guardian();
@@ -115,7 +116,7 @@ public class StudentManagement extends Controller{
 		 guardian.guardianProfession=dStudent.guardianProfession;
 		 guardian.guarRelation=dStudent.guarRelation;
 		 Guardian.create(guardian);
-		 System.out.println("kjhjkhkjhkj............55555555555.............");
+		// System.out.println("kjhjkhkjhkj............55555555555.............");
 
 		 gid = Guardian.findLastId(); 
 		 }   
@@ -217,7 +218,7 @@ public class StudentManagement extends Controller{
 		 flash("success", AppConstants.SUCCESS_MESSAGE);
 	     //return ok("");
 	   	return redirect(controllers.routes.StudentManagement.show(Student.findLastId()));
-   			}
+   			
 	    }
 	 }
 
